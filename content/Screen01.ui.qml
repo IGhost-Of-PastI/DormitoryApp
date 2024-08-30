@@ -8,6 +8,7 @@ Check out https://doc.qt.io/qtcreator/creator-quick-ui-forms.html for details on
 import QtQuick 6.2
 import QtQuick.Controls 6.2
 import DormitoryApp
+import QtQuick
 
 Rectangle {
     id: rectangle
@@ -15,7 +16,6 @@ Rectangle {
     height: Constants.height
 
     color: Constants.backgroundColor
-
     Button {
         id: button
         text: qsTr("Press me")
@@ -27,6 +27,14 @@ Rectangle {
             target: button
             onClicked: animation.start()
         }
+    }
+
+    TableView{
+        anchors.fill: parent
+        anchors.leftMargin: 104
+        anchors.rightMargin: 71
+        anchors.topMargin: 93
+        anchors.bottomMargin: 788
     }
 
     Text {
