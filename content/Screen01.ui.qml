@@ -7,8 +7,7 @@ Check out https://doc.qt.io/qtcreator/creator-quick-ui-forms.html for details on
 
 import QtQuick 6.2
 import QtQuick.Controls 6.2
-import DormitoryApp
-import QtQuick
+import Dormitory
 
 Rectangle {
     id: rectangle
@@ -16,6 +15,7 @@ Rectangle {
     height: Constants.height
 
     color: Constants.backgroundColor
+
     Button {
         id: button
         text: qsTr("Press me")
@@ -29,17 +29,9 @@ Rectangle {
         }
     }
 
-    TableView{
-        anchors.fill: parent
-        anchors.leftMargin: 104
-        anchors.rightMargin: 71
-        anchors.topMargin: 93
-        anchors.bottomMargin: 788
-    }
-
     Text {
         id: label
-        text: qsTr("Hello DormitoryApp")
+        text: qsTr("Hello Dormitory")
         anchors.top: button.bottom
         font.family: Constants.font.family
         anchors.topMargin: 45

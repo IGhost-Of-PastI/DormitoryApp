@@ -1,6 +1,6 @@
 MetaInfo {
     Type {
-        name: "DormitoryApp.EventListSimulator"
+        name: "Dormitory.EventListSimulator"
         icon: ":/qtquickplugin/images/item-icon16.png"
 
         Hints {

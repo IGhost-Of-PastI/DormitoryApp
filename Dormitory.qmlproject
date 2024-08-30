@@ -89,7 +89,7 @@ Project {
     importPaths: [ "imports", "asset_imports" ]
 
     /* Required for deployment */
-    targetDirectory: "/opt/DormitoryApp"
+    targetDirectory: "/opt/Dormitory"
 
     qdsVersion: "4.3"
 
