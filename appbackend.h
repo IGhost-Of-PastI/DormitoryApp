@@ -1,5 +1,4 @@
-#ifndef APPBACKEND_H
-#define APPBACKEND_H
+#pragma once
 
 #include <QObject>
 
@@ -12,4 +11,4 @@ public:
 signals:
 };
 
-#endif // APPBACKEND_H
+//#endif // APPBACKEND_H
