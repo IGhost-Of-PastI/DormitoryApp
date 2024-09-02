@@ -3,8 +3,10 @@
 
 import QtQuick 6.2
 import Dormitory
+import content
 
 Window {
+
     width: mainScreen.width
     height: mainScreen.height
 

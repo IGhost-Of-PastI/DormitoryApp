@@ -14,4 +14,5 @@ qt6_add_qml_module(content
         SwitchTableAccess.ui.qml
     RESOURCES
         fonts/fonts.txt
+        SOURCES backend.h backend.cpp
 )

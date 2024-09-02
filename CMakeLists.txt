@@ -14,7 +14,7 @@ if (Qt6_VERSION VERSION_GREATER_EQUAL 6.3)
 endif()
 
 qt_add_executable(DormitoryApp src/main.cpp
-    appbackend.h appbackend.cpp)
+appbackend.cpp appbackend.h)
 
 qt_add_resources(DormitoryApp "configuration"
     PREFIX "/"
