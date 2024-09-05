@@ -14,14 +14,13 @@ if (Qt6_VERSION VERSION_GREATER_EQUAL 6.3)
 endif()
 
 qt_add_executable(DormitoryApp src/main.cpp
-appbackend.cpp appbackend.h)
+)
 
 qt_add_resources(DormitoryApp "configuration"
     PREFIX "/"
     FILES
         qtquickcontrols2.conf
 )
-
 target_link_libraries(DormitoryApp PRIVATE
     Qt6::Core
     Qt6::Gui
