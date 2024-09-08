@@ -1,8 +1,11 @@
 import QtQuick 6.2
+import content
 
 Image {
     id: backImage
-    source: "file"
+
+    anchors.fill: parent
+    //source: "file"
 
     LoginPanel{
         anchors.bottom: parent.bottom;

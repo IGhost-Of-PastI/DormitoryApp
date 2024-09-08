@@ -22,10 +22,12 @@ qt6_add_qml_module(content
         TablePanel.ui.qml
         LoginPanel.ui.qml
         SwitchTableAccess.ui.qml
+        SelectorPage.ui.qml
     RESOURCES
         fonts/fonts.txt
         SOURCES mainsqlconnection.h mainsqlconnection.cpp
         QML_FILES LoginFrame.qml
+        QML_FILES MainFrame.qml
 )
 
 target_link_libraries(content PRIVATE

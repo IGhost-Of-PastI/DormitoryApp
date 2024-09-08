@@ -39,4 +39,5 @@ bool MainSQLConnection::Autorize(const QString &Login, const QString &Password)
     } else {
         //return QString();
     }
+    return false;
 }

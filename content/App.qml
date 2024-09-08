@@ -7,13 +7,13 @@ import content
 
 Window {
 
-    width: mainScreen.width
-    height: mainScreen.height
+    width: Constants.width
+    height: Constants.height
 
     visible: true
     title: "Dormitory"
 
-    Screen01 {
+    MainFrame {
         id: mainScreen
     }
 
