@@ -18,13 +18,11 @@ qt6_add_qml_module(content
     RESOURCE_PREFIX "/qt/qml"
     QML_FILES
         App.qml
-        Screen01.ui.qml
         TablePanel.ui.qml
         LoginPanel.ui.qml
         SwitchTableAccess.ui.qml
         SelectorPage.ui.qml
         UserPages/BackupsPage.qml
-        UserPages/BackupsPageTemplate.ui.qml
     RESOURCES
         fonts/fonts.txt
         SOURCES mainsqlconnection.h mainsqlconnection.cpp
@@ -32,6 +30,7 @@ qt6_add_qml_module(content
         QML_FILES MainFrame.qml
         SOURCES UserPages/settingsaccess.h UserPages/settingsaccess.cpp
         SOURCES UserPages/directoryfiles.h UserPages/directoryfiles.cpp
+        SOURCES UserPages/backupactions.h UserPages/backupactions.cpp
 )
 
 target_link_libraries(content PRIVATE

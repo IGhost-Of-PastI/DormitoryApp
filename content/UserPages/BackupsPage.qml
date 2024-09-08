@@ -9,7 +9,11 @@ Item {
 
     Settings
     {
-
+        id:backupSettings
+        category: "BackupSection"
+        fileName: "settings.ini"
+        property alias path: textField.text
+        property alias shedule: spinBox.value
     }
 
     ToolBar {
@@ -50,25 +54,27 @@ Item {
                 }
             }
 
-
     SplitView
     {
         id: splitView
-        orientation: Qt.Horizontal
-        //anchors.fill: parent
+        orientation: Qt.Vertical
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom:parent.bottom
         anchors.top: toolBar.bottom
+        clip: true
+       // visible: false
+
 
         Rectangle
         {
             id: optionsPanel
-            anchors.left: parent.left
-            anchors.right: parent.right
-            anchors.top: parent.top
             clip: true
-           SplitView.preferredHeight: 200
+           //  height: splitView.height/2
+           SplitView.preferredHeight: splitView.height/2
+           SplitView.fillWidth: true
+         //  anchors.right: parent.right
+          // anchors.left:parent.left
 
            TextField {
                id: textField
@@ -86,10 +92,11 @@ Item {
                text: qsTr("Открыть")
            }
            Button {
-               id: button1
+               id: saveBackupSettings
                x: 459
                y: 471
                text: qsTr("Сохрнаить")
+               onClicked: backupSettings.sync()
            }
 
            Button {
@@ -108,13 +115,13 @@ Item {
         Rectangle
         {
             id: rectangle
-            SplitView.preferredHeight: 200
-            anchors.left: parent.left
-            anchors.right: parent.right
-            anchors.top: optionsPanel.bottom
-            anchors.leftMargin: 0
-            anchors.rightMargin: 0
-            anchors.topMargin: 0
+          //  anchors.top:optionsPanel.bottom
+          //  anchors.right: parent.right
+          //  anchors.left:parent.left
+            SplitView.preferredHeight: splitView.height/2
+            SplitView.fillWidth: true
+          //   height: splitView.height/2
+            clip: true
             ToolBar {
                 id: toolBar1
                 anchors.left: parent.left
@@ -133,16 +140,13 @@ Item {
                 }
                 ToolButton {
                     id: toolButton3
-                    x: 967
-                    y: 340
-                    text: qsTr("Tool Button")
-                }
-
-                ToolButton {
-                    id: toolButton4
-                    x: 1059
-                    y: 340
-                    text: qsTr("Tool Button")
+                    text: qsTr("Удалить бэкап")
+                    anchors.left: toolButton2.right
+                    anchors.top: parent.top
+                    anchors.bottom: parent.bottom
+                    anchors.leftMargin: 0
+                    anchors.topMargin: 0
+                    anchors.bottomMargin: 0
                 }
             }
 
@@ -156,7 +160,6 @@ Item {
                 anchors.rightMargin: 0
 
                 anchors.topMargin: 0
-                SplitView.preferredHeight: 200
             }
         }
 
