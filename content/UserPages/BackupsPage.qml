@@ -1,6 +1,8 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 import Qt.labs.settings
+import QtQuick.Dialogs
+import Qt.labs.folderlistmodel
 
 Item {
     id: item1
@@ -17,42 +19,42 @@ Item {
     }
 
     ToolBar {
-                id: toolBar
-                anchors.left: parent.left
-                anchors.right: parent.right
-                anchors.top: parent.top
-                anchors.leftMargin: 0
-                anchors.rightMargin: 0
-                anchors.topMargin: 0
+        id: toolBar
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.top: parent.top
+        anchors.leftMargin: 0
+        anchors.rightMargin: 0
+        anchors.topMargin: 0
 
-                ToolButton {
-                    id: toolButton1
-                    x: 265
-                    y: -222
-                    text: qsTr("Открыть")
-                    anchors.right: parent.right
-                    anchors.top: parent.top
-                    anchors.bottom: parent.bottom
-                    anchors.rightMargin: 0
-                    anchors.topMargin: 0
-                    anchors.bottomMargin: 0
+        ToolButton {
+            id: toolButton1
+            x: 265
+            y: -222
+            text: qsTr("Открыть")
+            anchors.right: parent.right
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
+            anchors.rightMargin: 0
+            anchors.topMargin: 0
+            anchors.bottomMargin: 0
 
-                    onClicked: backupOptions.open()
-                }
+            onClicked: backupOptions.open()
+        }
 
-                ToolButton {
-                    id: toolButton
-                    x: 0
-                    y: -222
-                    text: qsTr("Назад")
-                    anchors.left: parent.left
-                    anchors.top: parent.top
-                    anchors.bottom: parent.bottom
-                    anchors.leftMargin: 0
-                    anchors.topMargin: 0
-                    anchors.bottomMargin: 0
-                }
-            }
+        ToolButton {
+            id: toolButton
+            x: 0
+            y: -222
+            text: qsTr("Назад")
+            anchors.left: parent.left
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
+            anchors.leftMargin: 0
+            anchors.topMargin: 0
+            anchors.bottomMargin: 0
+        }
+    }
 
     SplitView
     {
@@ -63,64 +65,90 @@ Item {
         anchors.bottom:parent.bottom
         anchors.top: toolBar.bottom
         clip: true
-       // visible: false
+        // visible: false
 
 
         Rectangle
         {
             id: optionsPanel
             clip: true
-           //  height: splitView.height/2
-           SplitView.preferredHeight: splitView.height/2
-           SplitView.fillWidth: true
-         //  anchors.right: parent.right
-          // anchors.left:parent.left
+            //  height: splitView.height/2
+            SplitView.preferredHeight: 500//splitView.height/2
+            SplitView.fillWidth: true
+            //  anchors.right: parent.right
+            // anchors.left:parent.left
 
-           TextField {
-               id: textField
-               x: 62
-               y: 19
-               width: 530
-               height: 56
-               placeholderText: qsTr("Главная директория бэкапов")
-           }
+            TextField {
+                id: textField
+                x: 62
+                y: 19
+                width: 530
+                height: 56
+                readOnly: true
+                placeholderText: qsTr("Главная директория бэкапов")
 
-           Button {
-               id: button
-               x: 670
-               y: 19
-               text: qsTr("Открыть")
-           }
-           Button {
-               id: saveBackupSettings
-               x: 459
-               y: 471
-               text: qsTr("Сохрнаить")
-               onClicked: backupSettings.sync()
-           }
+                FolderDialog
+                {
+                    id:folderDialog
+                    currentFolder: textField.text;
+                    onAccepted: textField.text=currentFolder
+                }
 
-           Button {
-               id: button2
-               x: 649
-               y: 479
-               text: qsTr("Сброс")
-           }
+                Button {
+                    id: openPath
+                    x: 547
+                    y: 2
+                    text: qsTr("Открыть")
+                    onClicked: folderDialog.open();
+                }
+            }
+            Button {
+                id: saveBackupSettings
+                x: 62
+                y: 189
+                text: qsTr("Сохрнаить")
+                onClicked: backupSettings.sync()
+            }
 
-           SpinBox {
-               id: spinBox
-               x: 513
-               y: 200
-           }
-       }
+            Button {
+                id: restoreBackupSettings
+                x: 239
+                y: 189
+                text: qsTr("Сброс")
+
+            }
+
+            SpinBox {
+                id: spinBox
+                x: 285
+                y: 102
+
+                Label {
+                    id: label
+                    x: -427
+                    width: 219
+                    text: qsTr("Раз во сколько дней:")
+                    anchors.right: parent.left
+                    anchors.top: parent.top
+                    anchors.bottom: parent.bottom
+                    anchors.rightMargin: 0
+                    anchors.topMargin: 0
+                    anchors.bottomMargin: 0
+                    verticalAlignment: Text.AlignVCenter
+                    font.pointSize: 16
+                }
+                from: 1
+            }
+        }
         Rectangle
         {
             id: rectangle
-          //  anchors.top:optionsPanel.bottom
-          //  anchors.right: parent.right
-          //  anchors.left:parent.left
+            //  anchors.top:optionsPanel.bottom
+            //  anchors.right: parent.right
+            //  anchors.left:parent.left
             SplitView.preferredHeight: splitView.height/2
             SplitView.fillWidth: true
-          //   height: splitView.height/2
+            //   height: splitView.height/2
             clip: true
             ToolBar {
                 id: toolBar1
@@ -151,7 +179,7 @@ Item {
             }
 
 
-            TableView
+            ListView
             {
                 anchors.left: parent.left
                 anchors.right: parent.right
@@ -160,6 +188,33 @@ Item {
                 anchors.rightMargin: 0
 
                 anchors.topMargin: 0
+
+                FolderListModel
+                {
+                    id:folderModel
+                    folder: backupSettings.path
+                    nameFilters: ["*.aml"]
+                }
+
+                Component
+                {
+                    id: listDelegate
+                    required property string fileName
+                    required property date cretionDate
+                    Rectangle
+                    {
+                        Text {
+                            id: name
+                            text: fileName
+                        }
+                        Text {
+                            id: name2
+                            text: cretionDate
+                        }
+                    }
+                }
+                model:folderModel
+                delegate: listdelegate
             }
         }
 
