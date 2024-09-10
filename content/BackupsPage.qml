@@ -49,11 +49,11 @@ Item {
 
     Action
     {
-     id:aGoBack
-     onTriggered:
-     {
+        id:aGoBack
+        onTriggered:
+        {
 
-     }
+        }
     }
     Action
     {
@@ -74,11 +74,24 @@ Item {
 
     Settings
     {
+        id:databaseInfo
+        category: "DatabaseInfo"
+        fileName: "settings.ini"
+        property string user
+        property string password
+        property string host
+        property string port
+        property string database
+    }
+
+    Settings
+    {
         id:backupSettings
         category: "BackupSection"
         fileName: "settings.ini"
         property string path
         property int shedule
+        property date startTime
     }
 
     ToolBar {
@@ -102,7 +115,7 @@ Item {
             anchors.topMargin: 0
             anchors.bottomMargin: 0
             visible: false
-           // onClicked: backupOptions.open()
+            // onClicked: backupOptions.open()
         }
 
         ToolButton {
@@ -206,6 +219,22 @@ Item {
                 }
                 from: 1
             }
+
+            SpinBox {
+                id: spinBox
+                x: 98
+                y: 279
+                from: 0
+                to:23
+            }
+
+            SpinBox {
+                id: spinBox1
+                x: 257
+                y: 279
+                from:0
+                to:59
+            }
         }
         Rectangle
         {
@@ -251,12 +280,9 @@ Item {
                 anchors.right: parent.right
                 anchors.top: toolBar1.bottom
                 anchors.bottom: parent.bottom
-                highlight: Rectangle {
-                           color: "lightblue"
-                           radius: 5
-                       }
-                       highlightFollowsCurrentItem: true
-                       clip: true
+                highlight: Rectangle { color: "lightblue";radius: 5}
+                //highlightFollowsCurrentItem: true
+                clip: true
 
                 FolderListModel
                 {
@@ -268,25 +294,25 @@ Item {
                 }
 
 
-               model:folderModel
-               delegate: Item
-               {
-                   //id: listDelegate
-                   width: parent.width
-                   height: 40
+                model:folderModel
+                delegate: Item
+                {
+                    //id: listDelegate
+                    width: parent.width
+                    height: 40
 
-                   required property string fileName
-                   required property date fileModified
-                   Row
-                   {
-                       Text {
-                           text: fileName
-                       }
-                       Text {
-                           text: fileModified.toLocaleString(Qt.locale(), "yyyy-MM-dd hh:mm:ss")
-                       }
-                   }
-               }
+                    required property string fileName
+                    required property date fileModified
+                    Row
+                    {
+                        Text {
+                            text: fileName
+                        }
+                        Text {
+                            text: fileModified.toLocaleString(Qt.locale(), "yyyy-MM-dd hh:mm:ss")
+                        }
+                    }
+                }
             }
         }
     }
