@@ -23,6 +23,9 @@ qt6_add_qml_module(content
         SwitchTableAccess.ui.qml
         SelectorPage.ui.qml
         BackupsPage.qml
+        LogsViewPage.qml
+        MainPage.qml
+        FreeQueriesPage.qml
     RESOURCES
         fonts/fonts.txt
         SOURCES mainsqlconnection.h mainsqlconnection.cpp
@@ -31,6 +34,7 @@ qt6_add_qml_module(content
         SOURCES settingsaccess.h settingsaccess.cpp
         SOURCES directoryfiles.h directoryfiles.cpp
         SOURCES backupactions.h backupactions.cpp
+
 )
 
 target_link_libraries(content PRIVATE
