@@ -9,13 +9,76 @@ Item {
     width: 1920
     height: 1080
 
+    states: [
+        State {
+            name: "NoChanges"
+            PropertyChanges { target: border; color:defaultProperty
+            }
+        },
+        State {
+            name: "SomethingChanged"
+            PropertyChanges {
+                target: border; color:"red"
+            }
+        }
+    ]
+
+    Action
+    {
+        id:aSaveBackupSettings
+        onTriggered:
+        {
+            backupSettings.path=backupFolderPath.text
+            backupSettings.shedule=howOften.value
+            backupSettings.sync()
+            backupFolderPath.state="NoChanges"
+            howOften.value="NoChanges"
+        }
+    }
+    Action
+    {
+        id:aResetSettings
+        onTriggered:
+        {
+            backupFolderPath.text=backupSettings.path
+            howOften.value=backupSettings.shedule
+            backupFolderPath.state="NoChanges"
+            howOften.value="NoChanges"
+        }
+    }
+
+    Action
+    {
+     id:aGoBack
+     onTriggered:
+     {
+
+     }
+    }
+    Action
+    {
+        id:aDoBackup
+        onTriggered:
+        {
+
+        }
+    }
+    Action
+    {
+        id:aDeleteBackupFile
+        onTriggered:
+        {
+
+        }
+    }
+
     Settings
     {
         id:backupSettings
         category: "BackupSection"
         fileName: "settings.ini"
-        property alias path: textField.text
-        property alias shedule: spinBox.value
+        property string path
+        property int shedule
     }
 
     ToolBar {
@@ -38,12 +101,12 @@ Item {
             anchors.rightMargin: 0
             anchors.topMargin: 0
             anchors.bottomMargin: 0
-
-            onClicked: backupOptions.open()
+            visible: false
+           // onClicked: backupOptions.open()
         }
 
         ToolButton {
-            id: toolButton
+            id: goBackButton
             x: 0
             y: -222
             text: qsTr("Назад")
@@ -78,20 +141,22 @@ Item {
             //  anchors.right: parent.right
             // anchors.left:parent.left
 
+            //Folder editor
             TextField {
-                id: textField
+                id: backupFolderPath
                 x: 62
                 y: 19
                 width: 530
                 height: 56
                 readOnly: true
+                text: backupSettings.path
                 placeholderText: qsTr("Главная директория бэкапов")
 
                 FolderDialog
                 {
                     id:folderDialog
-                    currentFolder: textField.text;
-                    onAccepted: textField.text=currentFolder
+                    currentFolder: backupFolderPath.text;
+                    onAccepted: backupFolderPath.text=currentFolder
                 }
 
                 Button {
@@ -102,12 +167,13 @@ Item {
                     onClicked: folderDialog.open();
                 }
             }
+
             Button {
-                id: saveBackupSettings
+                id: saveBackupSettingsButton
                 x: 62
                 y: 189
                 text: qsTr("Сохрнаить")
-                onClicked: backupSettings.sync()
+                onClicked: aSaveBackupSettings.trigger()
             }
 
             Button {
@@ -115,14 +181,15 @@ Item {
                 x: 239
                 y: 189
                 text: qsTr("Сброс")
+                onClicked: aResetSettings
 
             }
 
             SpinBox {
-                id: spinBox
+                id: howOften
                 x: 285
                 y: 102
-
+                value: backupSettings.shedule
                 Label {
                     id: label
                     x: -427
@@ -143,12 +210,9 @@ Item {
         Rectangle
         {
             id: rectangle
-            //  anchors.top:optionsPanel.bottom
-            //  anchors.right: parent.right
-            //  anchors.left:parent.left
             SplitView.preferredHeight: splitView.height/2
             SplitView.fillWidth: true
-            //   height: splitView.height/2
+
             clip: true
             ToolBar {
                 id: toolBar1
@@ -161,20 +225,22 @@ Item {
                 clip: true
 
                 ToolButton {
-                    id: toolButton2
+                    id: doBackupButton
                     x: 0
                     y: 0
                     text: qsTr("Сделать бэкап")
+                    onClicked: aDoBackup.trigger()
                 }
                 ToolButton {
-                    id: toolButton3
+                    id: deleteBackupFileButton
                     text: qsTr("Удалить бэкап")
-                    anchors.left: toolButton2.right
+                    anchors.left: doBackupButton.right
                     anchors.top: parent.top
                     anchors.bottom: parent.bottom
                     anchors.leftMargin: 0
                     anchors.topMargin: 0
                     anchors.bottomMargin: 0
+                    onClicked: aDeleteBackupFile.trigger()
                 }
             }
 
@@ -184,63 +250,44 @@ Item {
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.top: toolBar1.bottom
-                anchors.leftMargin: 0
-                anchors.rightMargin: 0
-
-                anchors.topMargin: 0
+                anchors.bottom: parent.bottom
+                highlight: Rectangle {
+                           color: "lightblue"
+                           radius: 5
+                       }
+                       highlightFollowsCurrentItem: true
+                       clip: true
 
                 FolderListModel
                 {
                     id:folderModel
                     folder: backupSettings.path
-                    nameFilters: ["*.aml"]
+                    showFiles: true
+                    showDirs: false
+                    nameFilters: ["*.sql"]
                 }
 
-                Component
-                {
-                    id: listDelegate
-                    required property string fileName
-                    required property date cretionDate
-                    Rectangle
-                    {
-                        Text {
-                            id: name
-                            text: fileName
-                        }
-                        Text {
-                            id: name2
-                            text: cretionDate
-                        }
-                    }
-                }
-                model:folderModel
-                delegate: listdelegate
+
+               model:folderModel
+               delegate: Item
+               {
+                   //id: listDelegate
+                   width: parent.width
+                   height: 40
+
+                   required property string fileName
+                   required property date fileModified
+                   Row
+                   {
+                       Text {
+                           text: fileName
+                       }
+                       Text {
+                           text: fileModified.toLocaleString(Qt.locale(), "yyyy-MM-dd hh:mm:ss")
+                       }
+                   }
+               }
             }
         }
-
-
     }
-
-
-
-
-
-    //Drawer
-    //{
-    //    id: backupOptions
-    //    height: parent.height
-    //    width:500
-    //    edge: Qt.TopEdge
-    //    y:toolBar.height
-    //    visible:true
-    //    opened:true
-
-    //    contentItem:
-    //        Column
-    //        {
-
-    //        }
-    //}
-
-
 }

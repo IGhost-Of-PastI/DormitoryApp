@@ -22,15 +22,15 @@ qt6_add_qml_module(content
         LoginPanel.ui.qml
         SwitchTableAccess.ui.qml
         SelectorPage.ui.qml
-        UserPages/BackupsPage.qml
+        BackupsPage.qml
     RESOURCES
         fonts/fonts.txt
         SOURCES mainsqlconnection.h mainsqlconnection.cpp
         QML_FILES LoginFrame.qml
         QML_FILES MainFrame.qml
-        SOURCES UserPages/settingsaccess.h UserPages/settingsaccess.cpp
-        SOURCES UserPages/directoryfiles.h UserPages/directoryfiles.cpp
-        SOURCES UserPages/backupactions.h UserPages/backupactions.cpp
+        SOURCES settingsaccess.h settingsaccess.cpp
+        SOURCES directoryfiles.h directoryfiles.cpp
+        SOURCES backupactions.h backupactions.cpp
 )
 
 target_link_libraries(content PRIVATE
