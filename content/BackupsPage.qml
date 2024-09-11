@@ -80,7 +80,7 @@ Item {
         property string user
         property string password
         property string host
-        property string port
+        property int port
         property string database
     }
 
@@ -288,7 +288,7 @@ Item {
                 {
                     id:folderModel
                     folder: backupSettings.path
-                    showFiles: true
+                   // showFiles: true
                     showDirs: false
                     nameFilters: ["*.sql"]
                 }
