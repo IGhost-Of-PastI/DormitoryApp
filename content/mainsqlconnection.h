@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QSettings>
+#include <QSharedPointer>
 #include <QObject>
 #include <QQmlEngine>
 #include <QSqlDatabase>
@@ -31,7 +32,7 @@ public:
    /* QSqlDatabase connection() const {
         return m_connection;
     }*/
-    Q_INVOKABLE QSqlRelationalTableModel* GetRelatioanlTableModel(const QString& tablename);
+    Q_INVOKABLE QSharedPointer<QSqlRelationalTableModel> GetRelatioanlTableModel(const QString& tablename);
     Q_INVOKABLE bool Autorize(const QString &Login,const QString &Password);
 private:
     QSqlDatabase m_connection;
