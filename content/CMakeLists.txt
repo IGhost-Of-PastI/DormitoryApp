@@ -19,7 +19,6 @@ qt6_add_qml_module(content
     QML_FILES
         App.qml
         TablePanel.ui.qml
-        LoginPanel.ui.qml
         SwitchTableAccess.ui.qml
         SelectorPage.ui.qml
         BackupsPage.qml
@@ -34,6 +33,7 @@ qt6_add_qml_module(content
         SOURCES settingsaccess.h settingsaccess.cpp
         SOURCES directoryfiles.h directoryfiles.cpp
         SOURCES backupactions.h backupactions.cpp
+        SOURCES constants.h constants.cpp
 
 )
 

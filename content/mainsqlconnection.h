@@ -1,5 +1,6 @@
 #pragma once
 
+#include <QSettings>
 #include <QObject>
 #include <QQmlEngine>
 #include <QSqlDatabase>
@@ -7,6 +8,8 @@
 #include <QSqlError>
 //#include <string>
 #include <QJsonObject>
+#include <QSqlRelationalTableModel>
+#include <QSqlRelation>
 
 struct UserInfo
 {
@@ -21,7 +24,6 @@ class MainSQLConnection : public QObject
     Q_OBJECT
     QML_SINGLETON
     QML_ELEMENT
-
 //    Q_PROPERTY(QSqlDatabase* connection READ connection CONSTANT)
 public:
     explicit MainSQLConnection(QObject *parent = nullptr);
@@ -29,7 +31,7 @@ public:
    /* QSqlDatabase connection() const {
         return m_connection;
     }*/
-
+    Q_INVOKABLE QSqlRelationalTableModel* GetRelatioanlTableModel(const QString& tablename);
     Q_INVOKABLE bool Autorize(const QString &Login,const QString &Password);
 private:
     QSqlDatabase m_connection;

@@ -8,6 +8,7 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QSettings>
+#include "constants.h"
 
 class BackupActions : public QObject
 {
@@ -20,7 +21,7 @@ public:
 
     Q_INVOKABLE void DoBackup();
     \
-    Q_INVOKABLE void SetTaskToBackup();
+    Q_INVOKABLE void SetTaskToBackup(int interval);
     Q_INVOKABLE void DeleteTaskToBackup();
     Q_INVOKABLE bool IsTaskExist();
 

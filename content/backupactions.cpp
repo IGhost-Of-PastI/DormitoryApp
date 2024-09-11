@@ -1,4 +1,5 @@
 #include "backupactions.h"
+#include "constants.h"
 
 BackupActions::BackupActions(QObject *parent)
     : QObject{parent}
@@ -22,9 +23,10 @@ void BackupActions::DoBackup()
 
 void BackupActions::SetTaskToBackup(int interval)
 {
+    Constants constan;
     //TooDO
     QSettings settings("settings.ini",QSettings::IniFormat);
-    settings.group("");
+    settings.beginGroup(constan.backupCategoryName());
 
     QProcess setTaskProcess;
     QFile batchFile(batchFileName);
