@@ -13,7 +13,7 @@ Window {
     visible: true
     title: "Dormitory"
 
-    BackupsPage {
+    MainFrame {
         id: mainScreen
     }
 
