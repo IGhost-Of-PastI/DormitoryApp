@@ -36,6 +36,7 @@ Rectangle {
             if (vuserinfo.isAutorized)
             {
                 loginedSuc(vuserinfo);
+                password.text="";
             }
             else
             {
