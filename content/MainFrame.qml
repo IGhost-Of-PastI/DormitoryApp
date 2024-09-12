@@ -1,5 +1,7 @@
 import QtQuick 6.2
 import QtQuick.Controls
+import "."
+//import content
 
 Rectangle {
     anchors.fill: parent
@@ -10,17 +12,32 @@ Rectangle {
         anchors.fill: parent
         initialItem: loginPage
     }
+
+
     LoginFrame
     {
         id:loginPage
-        //parentView: mainPageContainer
-        onLoginSuccess:
-        {
+        onLoginedSuc:(userinfo) =>
+                     {
+                         mainPageContainer.push(mainPage);
+                         mainPage.visible=true;
+                         mainPage.userinfo=userinfo;
+                     }
 
-        }
+
+       // loginedSuc:
+       // {
+       //     mainPageContainer.push(mainPage);
+       //     mainPage.visible=true;
+       //     mainPage.userinfo=auserinfo;
+       // }
+
+        //parentView: mainPageContainer
     }
+
     MainPage
     {
         id:mainPage
+        visible: false
     }
 }
