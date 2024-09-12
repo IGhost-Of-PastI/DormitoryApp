@@ -4,13 +4,12 @@
 BackupActions::BackupActions(QObject *parent)
     : QObject{parent}
 {
-    CreateOrUpdateBatchFile();
+    createOrUpdateBatchFile();
 }
 
-void BackupActions::DoBackup()
+void BackupActions::doBackup()
 {
     QProcess backupProcess;
-    //QString program=batchFileName;
 
     backupProcess.start(batchFileName);
 
@@ -21,7 +20,7 @@ void BackupActions::DoBackup()
     }
 }
 
-void BackupActions::SetTaskToBackup(int interval)
+void BackupActions::setTaskToBackup(int interval, QTime startTime)
 {
     Constants constan;
     //TooDO
@@ -31,39 +30,24 @@ void BackupActions::SetTaskToBackup(int interval)
     QProcess setTaskProcess;
     QFile batchFile(batchFileName);
     QFileInfo batchFileInfo(batchFile);
-    QString program;/*= QString(R"(
-@echo off
-set taskName=%1
-set taskPath=%2
-set interval=%3
-set startTime=09:00
-
-:: Проверка существования задачи
-schtasks /query /tn "%taskName%" >nul 2>&1
-if %errorlevel% equ 0 (
-    :: Задача существует, изменяем ее
-    schtasks /change /tn "%taskName%" /tr "%taskPath%" /st %startTime% /ri %interval% /f
-) else (
-    :: Задача не существует, создаем новую
-    schtasks /create /tn "%taskName%" /tr "%taskPath%" /sc daily /mo %interval% /st %startTime% /f
-)
-)").arg(backupTaskName,batchFileInfo.absoluteFilePath(),interval,/*starttime*/ //);*/
-
-    if(IsTaskExist())
+    QString program;
+    if(isTaskExist())
     {
-        program= QString(R"(schtasks /change /tn "%taskName%" /tr "%taskPath%" /st %startTime% /ri %interval% /f)");
+        program= QString(R"(schtasks /change /tn "%taskName%" /tr "%taskPath%" /st %startTime% /ri %interval% /f)").
+                  arg(backupTaskName,batchFileInfo.absoluteFilePath(),startTime.toString(),QString::number(interval));
     }
     else
     {
-        program= QString(R"(schtasks /create /tn "%taskName%" /tr "%taskPath%" /sc daily /mo %interval% /st %startTime% /f)");
+        program= QString(R"(schtasks /create /tn "%taskName%" /tr "%taskPath%" /sc daily /mo %interval% /st %startTime% /f)").
+                  arg(backupTaskName,batchFileInfo.absoluteFilePath(),startTime.toString(),QString::number(interval));
     }
 
 }
 
-void BackupActions::DeleteTaskToBackup()
+void BackupActions::deleteTaskToBackup()
 {
     QProcess deleteTask;
-    QString program=QString("schtasks /delete /tn %1 /f").arg();
+    QString program=QString("schtasks /delete /tn %1 /f").arg(backupTaskName);
 
     deleteTask.start(program);
 
@@ -74,19 +58,19 @@ void BackupActions::DeleteTaskToBackup()
     }
 }
 
-bool BackupActions::IsTaskExist()
+bool BackupActions::isTaskExist()
 {
     QProcess process;
-    QString program = "schtasks /query /tn";
+    QString program = QString("schtasks /query /tn").arg(backupTaskName);
 
-    process.start(program, arguments);
+    process.start(program);
     process.waitForFinished();
 
     int exitCode = process.exitCode();
     return !(exitCode == 0);
 }
 
-void BackupActions::RestoreFromBackup(QString host, QString port, QString user, QString database, QString backupFilePath)
+void BackupActions::restoreFromBackup(QString host, QString port, QString user, QString database, QString backupFilePath)
 {
     QProcess restoreProcess;
     QString program = QString("pg_restore -h %1 -p %2 -U %3 -d %4 -F t -v %5").arg(host,port,user,database,backupFilePath);
@@ -100,7 +84,7 @@ void BackupActions::RestoreFromBackup(QString host, QString port, QString user, 
     }
 }
 
-void BackupActions::CreateOrUpdateBatchFile()
+void BackupActions::createOrUpdateBatchFile()
 {
     QDir dir;
     QString content=R"(

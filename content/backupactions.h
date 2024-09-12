@@ -8,7 +8,7 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QSettings>
-#include "constants.h"
+#include <QTime>
 
 class BackupActions : public QObject
 {
@@ -19,14 +19,14 @@ public:
     const QString batchFileName="backup.bat";
     const QString backupTaskName="BackupDataBasePSQL";
 
-    Q_INVOKABLE void DoBackup();
+    Q_INVOKABLE void doBackup();
     \
-    Q_INVOKABLE void SetTaskToBackup(int interval);
-    Q_INVOKABLE void DeleteTaskToBackup();
-    Q_INVOKABLE bool IsTaskExist();
+    Q_INVOKABLE void setTaskToBackup(int interval,QTime startTime);
+    Q_INVOKABLE void deleteTaskToBackup();
+    Q_INVOKABLE bool isTaskExist();
 
-    Q_INVOKABLE void RestoreFromBackup(QString host, QString port, QString user, QString database, QString backupFilePath);
-    void CreateOrUpdateBatchFile();
+    Q_INVOKABLE void restoreFromBackup(QString host, QString port, QString user, QString database, QString backupFilePath);
+    void createOrUpdateBatchFile();
 signals:
 };
 
