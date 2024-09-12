@@ -7,8 +7,8 @@ import content
 
 Window {
 
-    width: Constants.width
-    height: Constants.height
+    width: 1920
+    height: 1080
 
     visible: true
     title: "Dormitory"

@@ -18,19 +18,20 @@ qt6_add_qml_module(content
     RESOURCE_PREFIX "/qt/qml"
     QML_FILES
         App.qml
-        TablePanel.ui.qml
         SwitchTableAccess.ui.qml
         SelectorPage.ui.qml
         BackupsPage.qml
         LogsViewPage.qml
         MainPage.qml
         FreeQueriesPage.qml
+        LoginFrame.qml
+        MainFrame.qml
+        AdministarationSelector.qml
+        TableManipulator.qml
+
     RESOURCES
         fonts/fonts.txt
         SOURCES mainsqlconnection.h mainsqlconnection.cpp
-        QML_FILES LoginFrame.qml
-        QML_FILES MainFrame.qml
-        SOURCES settingsaccess.h settingsaccess.cpp
         SOURCES directoryfiles.h directoryfiles.cpp
         SOURCES backupactions.h backupactions.cpp
         SOURCES constants.h constants.cpp
