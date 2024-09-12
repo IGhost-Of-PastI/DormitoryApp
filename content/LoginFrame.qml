@@ -6,13 +6,17 @@ Image {
     id: backImage
 
     anchors.fill: parent
+
+   signal loginSuccess(UserInfo userinfo)
+    //required property StackView parentView;
     //source: "file"
     Action
     {
         id: aLogin
         onTriggered:
         {
-
+            var vuserinfo = MainSQLConnection.autorize(loginField.text,password.text);
+            parentView.push({item:"MainPage.qml", properties:{userinfo:vuserinfo}})
         }
     }
 
