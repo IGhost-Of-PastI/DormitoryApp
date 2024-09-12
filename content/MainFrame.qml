@@ -8,7 +8,19 @@ Rectangle {
         id: mainPageContainer
 
         anchors.fill: parent
-        initialItem: "LoginFrame.qml"
+        initialItem: loginPage
     }
+    LoginFrame
+    {
+        id:loginPage
+        //parentView: mainPageContainer
+        onLoginSuccess:
+        {
 
+        }
+    }
+    MainPage
+    {
+        id:mainPage
+    }
 }
