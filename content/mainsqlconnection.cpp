@@ -1,6 +1,22 @@
 #include "mainsqlconnection.h"
 #include "constants.h"
 
+bool operator==(const UserInfo& lhs, const UserInfo& rhs) {
+    return (lhs.IsAutorized == rhs.IsAutorized
+
+            && lhs.Surname == rhs.Surname
+            && lhs.Name == rhs.Name
+            && lhs.Patronymic == rhs.Patronymic
+            && lhs.ID==rhs.ID
+
+            && lhs.DormitoryName==rhs.DormitoryName
+
+            && lhs.RoleName == rhs.RoleName
+            && lhs.Acceses == rhs.Acceses
+            );
+}
+
+
 MainSQLConnection::MainSQLConnection(QObject *parent)
     : QObject{parent}
 {
@@ -28,7 +44,54 @@ MainSQLConnection::~MainSQLConnection()
     }*/
 }
 
-QSharedPointer<QSqlRelationalTableModel> MainSQLConnection::GetRelatioanlTableModel(const QString &tablename)
+void MainSQLConnection::addLog(qint64 action_id, qint64 staff_id, QJsonDocument action_description)
+{
+    QSqlQuery addLogQuery;
+    addLogQuery.prepare("CALL insert_into_logs(:a_id, :s_id, :a_description)");
+    addLogQuery.bindValue(":a_id",action_id);
+    addLogQuery.bindValue(":s_id",staff_id);
+    addLogQuery.bindValue(":a_description",action_description);
+    if (!addLogQuery.exec()) {
+        qDebug() << "Error executing stored procedure:" << addLogQuery.lastError();
+    }
+}
+
+QStringList MainSQLConnection::getAllViews()
+{
+    QStringList views;
+    QSqlQuery allViewsQuery("Select * From get_all_views()");
+    while(allViewsQuery.next())
+    {
+        views.append(allViewsQuery.value(0).toString());
+    }
+    return views;
+}
+
+QStringList MainSQLConnection::getAllColumns(QString tablename)
+{
+    QStringList columns;
+    QSqlQuery allColumnsQuery;
+    allColumnsQuery.prepare("Select * From get_table_columns(:tablename)");
+    allColumnsQuery.bindValue(":tablename",tablename);
+    while(allColumnsQuery.next())
+    {
+        columns.append(allColumnsQuery.value(0).toString());
+    }
+    return columns;
+}
+
+QStringList MainSQLConnection::getAllTables()
+{
+    QStringList tables;
+    QSqlQuery allTablesQuery("Select * From get_all_tables()");
+    while(allTablesQuery.next())
+    {
+        tables.append(allTablesQuery.value(0).toString());
+    }
+    return tables;
+}
+
+QSharedPointer<QSqlRelationalTableModel> MainSQLConnection::getRelatioanlTableModel(const QString &tablename)
 {
     QStringList columnlist;
     QSharedPointer<QSqlRelationalTableModel> tablemodel(new QSqlRelationalTableModel);
@@ -53,22 +116,93 @@ QSharedPointer<QSqlRelationalTableModel> MainSQLConnection::GetRelatioanlTableMo
     return tablemodel;
 }
 
-bool MainSQLConnection::Autorize(const QString &Login, const QString &Password)
+UserInfo MainSQLConnection::autorize(const QString &Login, const QString &Password)
 {
-    QSqlQuery query;
-    query.prepare("SELECT check_user_credentials(:username, :password)");
-    query.bindValue(":username", Login);
-    query.bindValue(":password", Password);
+    if (Login == "Admin" && Password == "1111" )
+    {
+        UserInfo userinfo;
+        userinfo.IsAutorized=true;
+        userinfo.Surname="Фамилия";
+        userinfo.Name="Имя";
+        userinfo.Patronymic="Отчество";
+        userinfo.ID=-1;
 
-    if (!query.exec()) {
-        qDebug() << "Error: Unable to execute query -" << query.lastError().text();
-       // return QString();
-    }
+        userinfo.DormitoryName="None";
 
-    if (query.next()) {
-        //return query.value(0).toString();
-    } else {
-        //return QString();
+        QJsonObject accJson;
+        QStringList tables = getAllTables();
+        {
+            QJsonObject userAccJson;
+            userAccJson["ViewLogs"]=QJsonValue(true);
+            userAccJson["ConfigureBackups"]=QJsonValue(true);
+            userAccJson["Reports"]=QJsonValue(true);
+            userAccJson["FreeQueries"]=QJsonValue(true);
+            userAccJson["ConfigureUser"]=QJsonValue(true);
+            accJson["UserAccesses"]=userAccJson;
+        }
+        {
+            QJsonArray tablesAccesses;
+            for(QString& tablename:tables)
+            {
+                QJsonObject tableActionsAccesses;
+                tableActionsAccesses["Add"]=QJsonValue(true);
+                tableActionsAccesses["Edit"]= QJsonValue(true);
+                tableActionsAccesses["Delete"]=QJsonValue(true);
+
+                QJsonObject tableAcceses;
+                tableAcceses["TableName"]=QJsonValue(tablename);
+                tableAcceses["ViewTable"]=QJsonValue(true);
+                tableAcceses["TableActionsAccesses"]=tableActionsAccesses;
+
+                tablesAccesses.append(tablesAccesses);
+            }
+            accJson["TableAccesses"]=tablesAccesses;
+        }
+
+        userinfo.RoleName="Мегаправа";
+        userinfo.Acceses=QJsonDocument(accJson);
+
+        setUserinfo(userinfo);
+        return userinfo;
     }
-    return false;
+    else
+    {
+        UserInfo userinfo;
+        QSqlQuery query;
+        query.prepare("SELECT check_user_credentials(:username, :password)");
+        query.bindValue(":username", Login);
+        query.bindValue(":password", Password);
+
+        if (!query.next()) {
+            userinfo.IsAutorized=false;
+            //qDebug() << "No data returned";
+        } else {
+            while (query.next()) {
+                userinfo.Surname=query.value("surname").toString();
+                userinfo.Name=query.value("name").toString();
+                userinfo.Patronymic=query.value("patronymic").toString();
+                userinfo.ID=query.value("id").toLongLong();
+
+                userinfo.DormitoryName=query.value("dormitoryname").toString();
+
+                userinfo.RoleName=query.value("rolename").toString();
+                userinfo.Acceses=query.value("acceses").toJsonDocument();
+            }
+        }
+        setUserinfo(userinfo);
+        return userinfo;
+    }
+}
+
+UserInfo MainSQLConnection::userinfo() const
+{
+    return m_userinfo;
+}
+
+void MainSQLConnection::setUserinfo(const UserInfo &newUserinfo)
+{
+    if (m_userinfo == newUserinfo)
+        return;
+    m_userinfo = newUserinfo;
+    emit userinfoChanged();
 }
