@@ -1,22 +1,49 @@
 import QtQuick 6.2
 import QtQuick.Controls
-import content
+import QtQuick.Dialogs
+import "."
 
-Image {
+Rectangle {
     id: backImage
+    signal loginedSuc(var userinfo)
+    //property UserInfo userinfo;
 
-    anchors.fill: parent
 
-   signal loginSuccess(UserInfo userinfo)
-    //required property StackView parentView;
-    //source: "file"
+    MessageDialog {
+        id: messageDialog
+        buttons: MessageDialog.Ok
+        text: qsTr("Инфомрация")
+        informativeText: qsTr("Неверный логин или пароль!")
+    }
     Action
     {
         id: aLogin
+
+
+        /*MessageDialog {
+               id: messageDialog
+               title: "Внимание"
+               text: "Неверный логин или пароль!"
+              // icon: StandardIcon.Information
+               buttons: Qt.Ok
+               //standardButtons: StandardButton.Ok
+           }*/
+
+
         onTriggered:
         {
             var vuserinfo = MainSQLConnection.autorize(loginField.text,password.text);
-            parentView.push({item:"MainPage.qml", properties:{userinfo:vuserinfo}})
+            if (vuserinfo.isAutorized)
+            {
+                loginedSuc(vuserinfo);
+            }
+            else
+            {
+                messageDialog.open();
+            }
+
+            //parentView.push({item:"MainPage.qml", properties:{userinfo:vuserinfo}})
+
         }
     }
 
