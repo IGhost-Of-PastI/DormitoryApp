@@ -18,35 +18,38 @@
 
 struct UserInfo
 {
+
+private:
     Q_GADGET
-    Q_PROPERTY(bool IsAutorized MEMBER IsAutorized)
+   // QML_ELEMENT
+    Q_PROPERTY(bool isAutorized MEMBER isAutorized)
 
-    Q_PROPERTY(QString Surname MEMBER Surname)
-    Q_PROPERTY(QString Name MEMBER Name)
-    Q_PROPERTY(QString Patronymic MEMBER Patronymic)
-    Q_PROPERTY(qint64 ID MEMBER ID)
+    Q_PROPERTY(QString surname MEMBER surname)
+    Q_PROPERTY(QString name MEMBER name)
+    Q_PROPERTY(QString patronymic MEMBER patronymic)
+    Q_PROPERTY(qint64 iD MEMBER iD)
 
-    Q_PROPERTY(QString DormitoryName MEMBER DormitoryName)
+    Q_PROPERTY(QString dormitoryName MEMBER dormitoryName)
 
    // Q_PROPERTY(QString Login MEMBER Login)
-    Q_PROPERTY(QString RoleName MEMBER RoleName)
-    Q_PROPERTY(QJsonDocument Acceses MEMBER Acceses)
+    Q_PROPERTY(QString roleName MEMBER roleName)
+    Q_PROPERTY(QJsonDocument acceses MEMBER acceses)
 public:
     friend bool operator==(const UserInfo& lhs, const UserInfo& rhs);
 
-    bool IsAutorized;
+    bool isAutorized;
 
-    QString Surname;
-    QString Name;
-    QString Patronymic;
-    qint64 ID;
+    QString surname;
+    QString name;
+    QString patronymic;
+    qint64 iD;
 
-    QString DormitoryName;
+    QString dormitoryName;
 
-    QString RoleName;
-    QJsonDocument Acceses;
+    QString roleName;
+    QJsonDocument acceses;
 };
-
+Q_DECLARE_METATYPE(UserInfo)
 class MainSQLConnection : public QObject
 {
     Q_OBJECT

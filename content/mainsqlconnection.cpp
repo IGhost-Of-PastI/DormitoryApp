@@ -2,17 +2,17 @@
 #include "constants.h"
 
 bool operator==(const UserInfo& lhs, const UserInfo& rhs) {
-    return (lhs.IsAutorized == rhs.IsAutorized
+    return (lhs.isAutorized == rhs.isAutorized
 
-            && lhs.Surname == rhs.Surname
-            && lhs.Name == rhs.Name
-            && lhs.Patronymic == rhs.Patronymic
-            && lhs.ID==rhs.ID
+            && lhs.surname == rhs.surname
+            && lhs.name == rhs.name
+            && lhs.patronymic == rhs.patronymic
+            && lhs.iD==rhs.iD
 
-            && lhs.DormitoryName==rhs.DormitoryName
+            && lhs.dormitoryName==rhs.dormitoryName
 
-            && lhs.RoleName == rhs.RoleName
-            && lhs.Acceses == rhs.Acceses
+            && lhs.roleName == rhs.roleName
+            && lhs.acceses == rhs.acceses
             );
 }
 
@@ -121,13 +121,13 @@ UserInfo MainSQLConnection::autorize(const QString &Login, const QString &Passwo
     if (Login == "Admin" && Password == "1111" )
     {
         UserInfo userinfo;
-        userinfo.IsAutorized=true;
-        userinfo.Surname="Фамилия";
-        userinfo.Name="Имя";
-        userinfo.Patronymic="Отчество";
-        userinfo.ID=-1;
+        userinfo.isAutorized=true;
+        userinfo.surname="Фамилия";
+        userinfo.name="Имя";
+        userinfo.patronymic="Отчество";
+        userinfo.iD=-1;
 
-        userinfo.DormitoryName="None";
+        userinfo.dormitoryName="None";
 
         QJsonObject accJson;
         QStringList tables = getAllTables();
@@ -159,8 +159,8 @@ UserInfo MainSQLConnection::autorize(const QString &Login, const QString &Passwo
             accJson["TableAccesses"]=tablesAccesses;
         }
 
-        userinfo.RoleName="Мегаправа";
-        userinfo.Acceses=QJsonDocument(accJson);
+        userinfo.roleName="Мегаправа";
+        userinfo.acceses=QJsonDocument(accJson);
 
         setUserinfo(userinfo);
         return userinfo;
@@ -174,19 +174,19 @@ UserInfo MainSQLConnection::autorize(const QString &Login, const QString &Passwo
         query.bindValue(":password", Password);
 
         if (!query.next()) {
-            userinfo.IsAutorized=false;
+            userinfo.isAutorized=false;
             //qDebug() << "No data returned";
         } else {
             while (query.next()) {
-                userinfo.Surname=query.value("surname").toString();
-                userinfo.Name=query.value("name").toString();
-                userinfo.Patronymic=query.value("patronymic").toString();
-                userinfo.ID=query.value("id").toLongLong();
+                userinfo.surname=query.value("surname").toString();
+                userinfo.name=query.value("name").toString();
+                userinfo.patronymic=query.value("patronymic").toString();
+                userinfo.iD=query.value("id").toLongLong();
 
-                userinfo.DormitoryName=query.value("dormitoryname").toString();
+                userinfo.dormitoryName=query.value("dormitoryname").toString();
 
-                userinfo.RoleName=query.value("rolename").toString();
-                userinfo.Acceses=query.value("acceses").toJsonDocument();
+                userinfo.roleName=query.value("rolename").toString();
+                userinfo.acceses=query.value("acceses").toJsonDocument();
             }
         }
         setUserinfo(userinfo);
