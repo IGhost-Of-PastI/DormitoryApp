@@ -1,10 +1,13 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
+import content
 
 Rectangle {
     id: rectangle
     width: 1920
     height: 1080
+
+    property UserInfo userinfo;
 
     ToolBar {
         id: toolBar
