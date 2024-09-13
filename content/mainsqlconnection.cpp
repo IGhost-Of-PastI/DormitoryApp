@@ -69,15 +69,19 @@ QStringList MainSQLConnection::getAllViews()
 
 QStringList MainSQLConnection::getAllColumns(QString tablename)
 {
-    QStringList columns;
-    QSqlQuery allColumnsQuery;
-    allColumnsQuery.prepare("Select * From get_table_columns(:tablename)");
-    allColumnsQuery.bindValue(":tablename",tablename);
-    while(allColumnsQuery.next())
-    {
-        columns.append(allColumnsQuery.value(0).toString());
+    QStringList columnlist;
+
+    QSqlQuery columnnames;
+    columnnames.prepare("Select * from get_table_columns(:tablename)");
+    columnnames.bindValue(":tablename",tablename);
+    if (!columnnames.exec()) {
+        qDebug() << "Error executing stored procedure:" << columnnames.lastError();
     }
-    return columns;
+    while (columnnames.next())
+    {
+        columnlist.append(columnnames.value(0).toString());
+    }
+    return columnlist;
 }
 
 QStringList MainSQLConnection::getAllTables()
@@ -93,16 +97,20 @@ QStringList MainSQLConnection::getAllTables()
 
 QSharedPointer<QSqlRelationalTableModel> MainSQLConnection::getRelatioanlTableModel(const QString &tablename)
 {
-    QStringList columnlist;
-    QSharedPointer<QSqlRelationalTableModel> tablemodel(new QSqlRelationalTableModel);
-    QSqlQuery columnnames(QString("Select * from get_table_columns(%1)").arg(tablename));
-    while (columnnames.next())
-    {
-        columnlist.append(columnnames.value(0).toString());
-    }
 
-    QSqlQuery relationsquery(QString("Select * from get_foreign_keys(%1)").arg(tablename));
+    QSharedPointer<QSqlRelationalTableModel> tablemodel(new QSqlRelationalTableModel);
+
+    QStringList columnlist=getAllColumns(tablename);
+
+    QSqlQuery relationsquery;
+    relationsquery.prepare("Select * from get_foreign_keys(:tablename)");
+    relationsquery.bindValue(":tablename",tablename);
+   // (QString("Select * from get_foreign_keys(%1)").arg(tablename));
     tablemodel->setTable(tablename);
+    if (!relationsquery.exec())
+    {
+        qDebug()<<relationsquery.lastError();
+    }
     while (relationsquery.next())
     {
         QString column_name,rtable_name,rcolumn_name;
@@ -112,7 +120,7 @@ QSharedPointer<QSqlRelationalTableModel> MainSQLConnection::getRelatioanlTableMo
 
         tablemodel->setRelation(columnlist.indexOf(column_name),QSqlRelation(rtable_name,rcolumn_name,column_name));
     }
-
+    tablemodel->select();
     return tablemodel;
 }
 
