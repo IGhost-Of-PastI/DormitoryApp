@@ -8,12 +8,12 @@ Page {
     {
        // var JsonString=JSON.stringify(userinfo.acceses);
         var Accesses = JSON.parse(userinfo.acceses);
-        var UserAccesses = Accesses.valueOf("UserAccesses");
-      viewLogsButton.visible= UserAccesses.valueOf("ViewLogs");
-      configureBackupsButton.visible=  UserAccesses.valueOf("ConfigureBackups");
-      reportButton.visible=UserAccesses.valueOf("Reports");
-      freeQueryButton.visible= UserAccesses.valueOf("FreeQueries");
-      configureUser.visible= UserAccesses.valueOf("ConfigureUser");
+        var UserAccesses = Accesses.UserAccesses;
+      viewLogsButton.visible= UserAccesses.ViewLogs;
+      configureBackupsButton.visible=  UserAccesses.ConfigureBackups;
+      reportButton.visible=UserAccesses.Reports;
+      freeQueryButton.visible= UserAccesses.FreeQueries;
+      configureUser.visible= UserAccesses.ConfigureUser;
     }
 
     StackView {
