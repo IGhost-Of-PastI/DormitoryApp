@@ -13,8 +13,8 @@ Rectangle {
     {
        administartionSelector.userinfo=userinfo;
        // var JsonString = JSON.stringify(userinfo.acceses);
-       var AccessesJson = userinfo.acceses;
-       tablesCreator.tableAccesses = AccessesJson.valueOf("TableAccesses");
+       var AccessesJson = JSON.parse(userinfo.acceses);
+       tablesCreator.tableAccesses = AccessesJson.TableAccesses;
        //tableAccesses.
     }
     ListModel
@@ -88,17 +88,30 @@ Rectangle {
                 height: 40
 
                 required property string tablename
+                required property int index
                 //required property date fileModified
                 Row
                 {
                     Text {
                         text: tablename
                     }
+
                 }
+                MouseArea {
+                                    anchors.fill: parent
+                                    onClicked: {
+                                        tables.currentIndex=index;
+                                        //tablesCreator.current
+                                        swipeView.currentIndex = tables.currentIndex;
+                                        //menu.close();
+                                    }
+                                }
             }
 
             id: tables
             anchors.fill: parent
+            highlight: Rectangle { color: "lightsteelblue"; radius: 5 }
+            focus: true
     //        anchors.left: parent.left
      //       anchors.right: parent.right
       //      anchors.top: parent.top
@@ -113,6 +126,7 @@ Rectangle {
 
     SwipeView
     {
+        id:swipeView
         anchors.left: toolBar.right
         anchors.right: parent.right
         anchors.top: parent.top
@@ -123,10 +137,6 @@ Rectangle {
         anchors.bottomMargin: 0
         orientation: Qt.Vertical
 
-        AdministarationSelector
-        {
-            id:administartionSelector
-        }
         Repeater
         {
             id:tablesCreator
@@ -135,29 +145,45 @@ Rectangle {
 
             onTableAccessesChanged:
             {
-                var jsonArray= JSON.parse(tableAccesses);
+                var jsonArray= tableAccesses;
                 for (let i=0; i < jsonArray.length; i++)
                 {
                     var tableinfo=tableAccesses[i];
-                    if (tableinfo.valueOf("ViewTable"))
+                    if (tableinfo.ViewTable)
                     {
-                        var tablename = tableinfo.valueOf("TableName");
-                        var tableActionsAccesses =tableinfo.valueOf("TableActionsAccesses");
-                        var add = tableActionsAccesses.valueOf("Add");
-                        var edit = tableActionsAccesses.valueOf("Edit");
-                        var tdelete = tableActionsAccesses.valueOf("Delete");
-                        listModel.append({"tablename":tablename,"IsAdd":add,"IsEdit":edit,"IsDelete":tdelete});
+                        var tablename = tableinfo.TableName;
+                        var tableActionsAccesses =tableinfo.TableActionsAccesses;
+                        var add = tableActionsAccesses.Add;
+                        var edit = tableActionsAccesses.Edit;
+                        var tdelete = tableActionsAccesses.Delete;
+                        listModel.append({"tablename":String(tablename),"isAdd":Boolean(add),"isEdit":Boolean(edit),"isDelete":Boolean(tdelete),"index":i});
                     }
                 }
             }
 
-            delegate:TableManipulator
+            delegate:Page
             {
-                tablename:listModel.tablename;
-                isAdd:listModel.IsAdd;
-                isDelete:listModel.IsDelete;
-                isEdit:listModel.IsEdit;
+                required property string tablename
+                required property string isAdd
+                required property string isDelete
+                required property string isEdit
+
+                TableManipulator
+                {
+                    avalAdd: isAdd;
+                    avalEdit: isEdit
+                    avalDelete: isDelete
+                    tablemodel: MainSQLConnection.getRelatioanlTableModel(tablename);
+                //tablename:tablename;
+                //isAdd:isAdd;
+                //isDelete:isDelete;
+                //isEdit:isEdit;
+                }
             }
+        }
+        AdministarationSelector
+        {
+            id:administartionSelector
         }
     }
 

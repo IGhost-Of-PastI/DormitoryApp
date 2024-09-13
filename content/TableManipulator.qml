@@ -1,40 +1,29 @@
 import QtQuick 2.15
 import QtQuick.Controls
-import "."
+import content
 
 Page {
     id: rectangleMain
     width:1280
     height:720
 
-    property string tablename;
-    property bool isAdd;
-    property bool isEdit;
-    property bool isDelete;
+   // property string tablename;
+   // property bool isAdd;
+   // property bool isEdit;
+   // property bool isDelete;
 
-    onTablenameChanged:
-    {
-        tableView.model=MainSQLConnection.getRelatioanlTableModel(tablename);
-    }
-    onIsAddChanged: {
-        addButton.visible=IsAdd;
-    }
-    onIsDeleteChanged:
-    {
-        deleteButton.visible=IsDelete
-    }
-    onIsEditChanged:
-    {
-        editButton.visible=IsEdit
-    }
-
+    property alias tablemodel:tableView.model
+    property alias avalAdd:addButton.visible
+    property alias avalEdit:editButton.visible
+    property alias avalDelete:deleteButton.visible
 
     TableView {
         id: tableView
+       // model: MainSQLConnection.getRelatioanlTableModel(tablename);
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.top: scrollView.bottom
-        anchors.bottom: bottomPanel.top
+        anchors.bottom: parent.top
     }
     /*Rectangle {
         id: bottomPanel
