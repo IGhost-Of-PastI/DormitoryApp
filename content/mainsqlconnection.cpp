@@ -154,13 +154,13 @@ UserInfo MainSQLConnection::autorize(const QString &Login, const QString &Passwo
                 tableAcceses["ViewTable"]=QJsonValue(true);
                 tableAcceses["TableActionsAccesses"]=tableActionsAccesses;
 
-                tablesAccesses.append(tablesAccesses);
+                tablesAccesses.append(tableAcceses);
             }
             accJson["TableAccesses"]=tablesAccesses;
         }
 
         userinfo.roleName="Мегаправа";
-        userinfo.acceses=QJsonDocument(accJson);
+        userinfo.acceses=QJsonDocument(accJson).toJson(QJsonDocument::Compact);
 
         setUserinfo(userinfo);
         return userinfo;
@@ -186,7 +186,7 @@ UserInfo MainSQLConnection::autorize(const QString &Login, const QString &Passwo
                 userinfo.dormitoryName=query.value("dormitoryname").toString();
 
                 userinfo.roleName=query.value("rolename").toString();
-                userinfo.acceses=query.value("acceses").toJsonDocument();
+                userinfo.acceses=query.value("acceses").toString();
             }
         }
         setUserinfo(userinfo);

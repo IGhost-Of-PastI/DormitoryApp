@@ -33,7 +33,7 @@ private:
 
    // Q_PROPERTY(QString Login MEMBER Login)
     Q_PROPERTY(QString roleName MEMBER roleName)
-    Q_PROPERTY(QJsonDocument acceses MEMBER acceses)
+    Q_PROPERTY(QString acceses MEMBER acceses)
 public:
     friend bool operator==(const UserInfo& lhs, const UserInfo& rhs);
 
@@ -47,7 +47,7 @@ public:
     QString dormitoryName;
 
     QString roleName;
-    QJsonDocument acceses;
+    QString acceses;
 };
 Q_DECLARE_METATYPE(UserInfo)
 class MainSQLConnection : public QObject

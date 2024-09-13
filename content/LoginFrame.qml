@@ -36,6 +36,8 @@ Rectangle {
             if (vuserinfo.isAutorized)
             {
                 loginedSuc(vuserinfo);
+                messageDialog.text=vuserinfo.acceses;
+                messageDialog.open();
                 password.text="";
             }
             else

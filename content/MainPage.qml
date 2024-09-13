@@ -12,9 +12,9 @@ Rectangle {
     onUserinfoChanged:
     {
        administartionSelector.userinfo=userinfo;
-
-       var AccessesJson = JSON.parse(userinfo.acceses);
-       tablesCreator = AccessesJson.valueOf("TableAccesses");
+       // var JsonString = JSON.stringify(userinfo.acceses);
+       var AccessesJson = userinfo.acceses;
+       tablesCreator.tableAccesses = AccessesJson.valueOf("TableAccesses");
        //tableAccesses.
     }
     ListModel
@@ -138,11 +138,11 @@ Rectangle {
                 var jsonArray= JSON.parse(tableAccesses);
                 for (let i=0; i < jsonArray.length; i++)
                 {
-                    var tableinfo=JSON.parse(tableAccesses[i]);
+                    var tableinfo=tableAccesses[i];
                     if (tableinfo.valueOf("ViewTable"))
                     {
                         var tablename = tableinfo.valueOf("TableName");
-                        var tableActionsAccesses =JSON.parse(tableinfo.valueOf("TableActionsAccesses"));
+                        var tableActionsAccesses =tableinfo.valueOf("TableActionsAccesses");
                         var add = tableActionsAccesses.valueOf("Add");
                         var edit = tableActionsAccesses.valueOf("Edit");
                         var tdelete = tableActionsAccesses.valueOf("Delete");
