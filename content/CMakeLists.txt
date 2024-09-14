@@ -18,8 +18,6 @@ qt6_add_qml_module(content
     RESOURCE_PREFIX "/qt/qml"
     QML_FILES
         App.qml
-        SwitchTableAccess.ui.qml
-        SelectorPage.ui.qml
         BackupsPage.qml
         LogsViewPage.qml
         MainPage.qml
@@ -28,15 +26,18 @@ qt6_add_qml_module(content
         MainFrame.qml
         AdministarationSelector.qml
         TableManipulator.qml
+        EditorElement.qml
+        Table.qml
 
-    RESOURCES
-        fonts/fonts.txt
+    RESOURCES fonts/fonts.txt
         SOURCES mainsqlconnection.h mainsqlconnection.cpp
         SOURCES directoryfiles.h directoryfiles.cpp
         SOURCES backupactions.h backupactions.cpp
         SOURCES constants.h constants.cpp
         SOURCES sqltablemodel.h sqltablemodel.cpp
         SOURCES sqldelegate.h sqldelegate.cpp
+        SOURCES tablemodel.h tablemodel.cpp
+        QML_FILES Table.qml
 
 )
 
