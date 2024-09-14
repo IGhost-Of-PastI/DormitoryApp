@@ -13,7 +13,6 @@ Rectangle {
         initialItem: loginPage
     }
 
-
     LoginFrame
     {
         id:loginPage
@@ -23,16 +22,6 @@ Rectangle {
                          mainPage.visible=true;
                          mainPage.userinfo=userinfo;
                      }
-
-
-       // loginedSuc:
-       // {
-       //     mainPageContainer.push(mainPage);
-       //     mainPage.visible=true;
-       //     mainPage.userinfo=auserinfo;
-       // }
-
-        //parentView: mainPageContainer
     }
 
     MainPage
