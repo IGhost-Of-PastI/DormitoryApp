@@ -6,8 +6,6 @@ import "."
 Rectangle {
     id: backImage
     signal loginedSuc(var userinfo)
-    //property UserInfo userinfo;
-
 
     MessageDialog {
         id: messageDialog
@@ -15,38 +13,18 @@ Rectangle {
         text: qsTr("Инфомрация")
         informativeText: qsTr("Неверный логин или пароль!")
     }
-    Action
-    {
+    Action {
         id: aLogin
 
-
-        /*MessageDialog {
-               id: messageDialog
-               title: "Внимание"
-               text: "Неверный логин или пароль!"
-              // icon: StandardIcon.Information
-               buttons: Qt.Ok
-               //standardButtons: StandardButton.Ok
-           }*/
-
-
-        onTriggered:
-        {
-            var vuserinfo = MainSQLConnection.autorize(loginField.text,password.text);
-            if (vuserinfo.isAutorized)
-            {
-                loginedSuc(vuserinfo);
-                //messageDialog.text=vuserinfo.acceses;
-                //messageDialog.open();
-                password.text="";
+        onTriggered: {
+            var vuserinfo = MainSQLConnection.autorize(loginField.text,
+                                                       password.text)
+            if (vuserinfo.isAutorized) {
+                loginedSuc(vuserinfo)
+                password.text = ""
+            } else {
+                messageDialog.open()
             }
-            else
-            {
-                messageDialog.open();
-            }
-
-            //parentView.push({item:"MainPage.qml", properties:{userinfo:vuserinfo}})
-
         }
     }
 
