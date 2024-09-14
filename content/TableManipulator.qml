@@ -12,12 +12,12 @@ Page {
    // property bool isEdit;
    // property bool isDelete;
 
-    property alias tablemodel:tableView.model
+    property alias tablename:tableView.tablename
     property alias avalAdd:addButton.visible
     property alias avalEdit:editButton.visible
     property alias avalDelete:deleteButton.visible
 
-    TableView {
+    Table {
         id: tableView
        // model: MainSQLConnection.getRelatioanlTableModel(tablename);
         anchors.left: parent.left
@@ -95,6 +95,7 @@ Page {
         ToolBar {
             id: toolBar
             x: 0
+            anchors.fill: parent
             width: 1280
             height: 48
             position: ToolBar.Header
