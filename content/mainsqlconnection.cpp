@@ -15,7 +15,22 @@ bool operator==(const UserInfo& lhs, const UserInfo& rhs) {
             && lhs.acceses == rhs.acceses
             );
 }
+/*bool operator==(const FKColumnInfo& lhs, const FKColumnInfo& rhs) {
+    return (lhs.fkTableName == rhs.fkTableName
 
+            && lhs.fkColumnName == rhs.fkColumnName
+            );
+}*/
+bool operator==(const ColumnInfo& lhs, const ColumnInfo& rhs) {
+    return (lhs.columnName == rhs.columnName
+            && lhs.columnType == rhs.columnType
+            && lhs.maxLength == rhs.maxLength
+            && lhs.fkColumnInfo == rhs.fkColumnInfo
+            && lhs.isFK == rhs.isFK
+            && lhs.isPK == rhs.isPK
+            && lhs.isNullable == rhs.isNullable
+            );
+}
 
 MainSQLConnection::MainSQLConnection(QObject *parent)
     : QObject{parent}
@@ -56,6 +71,73 @@ void MainSQLConnection::addLog(qint64 action_id, qint64 staff_id, QJsonDocument 
     }
 }
 
+void MainSQLConnection::deleteRecord(const QString &tablename, const QString &column_id, const QString &column_value)
+{
+    QSqlQuery deleteQuery;
+    deleteQuery.prepare("CALL delete_from_table(:tablname,:id_column,:value_id)");
+    deleteQuery.bindValue(":tablename",tablename);
+    deleteQuery.bindValue("id_column",column_id);
+    deleteQuery.bindValue(":value_id",column_value);
+    if (!deleteQuery.exec()) {
+        qDebug() << "Error executing stored procedure:" << deleteQuery.lastError();
+    }
+}
+
+void MainSQLConnection::updateRecord(const QString &tablename, QList<ColumnInfo> columns, QHash<QString, QString> values)
+{
+    QJsonObject jsonObj;
+    QPair<QString,QString> id_ColumnValue;
+    for (ColumnInfo& columnInfo:columns)
+    {
+        if(columnInfo.isPK != true)
+        {
+            jsonObj[columnInfo.columnName]=QJsonValue(values.value(columnInfo.columnName));
+        }
+        else
+        {
+            id_ColumnValue.first=columnInfo.columnName;
+            id_ColumnValue.second=values.value(columnInfo.columnName);
+        }
+    }
+    QSqlQuery updateQuery;
+    updateQuery.prepare("CALL update_table(:tablename,:id_column,:id_value,:values)");
+    updateQuery.bindValue(":tablename",tablename);
+    updateQuery.bindValue(":id_column",id_ColumnValue.first);
+    updateQuery.bindValue("id_value",id_ColumnValue.second);
+    updateQuery.bindValue(":values",QJsonDocument(jsonObj).toJson(QJsonDocument::Compact));
+    if (!updateQuery.exec()) {
+        qDebug() << "Error executing stored procedure:" << updateQuery.lastError();
+    }
+}
+
+void MainSQLConnection::insertRecord(const QString &tablename, QList<ColumnInfo> columns, QHash<QString, QString> values)
+{
+    QJsonObject jsonObj;
+    for (ColumnInfo& columnInfo:columns)
+    {
+        if(columnInfo.isPK != true)
+        {
+            jsonObj[columnInfo.columnName]=QJsonValue(values.value(columnInfo.columnName));
+        }
+    }
+    QSqlQuery insertQuery;
+    insertQuery.prepare("CALL insert_into_table(:tablename,:columnvalues)");
+    insertQuery.bindValue(":tablename",tablename);
+    insertQuery.bindValue(":columnvalues",QJsonDocument(jsonObj).toJson(QJsonDocument::Compact));
+    if (!insertQuery.exec()) {
+        qDebug() << "Error executing stored procedure:" << insertQuery.lastError();
+    }
+}
+
+
+
+
+
+
+
+
+
+
 QStringList MainSQLConnection::getAllViews()
 {
     QStringList views;
@@ -67,7 +149,18 @@ QStringList MainSQLConnection::getAllViews()
     return views;
 }
 
-QStringList MainSQLConnection::getAllColumns(QString tablename)
+QStringList MainSQLConnection::getAllTables()
+{
+    QStringList tables;
+    QSqlQuery allTablesQuery("Select * From get_all_tables()");
+    while(allTablesQuery.next())
+    {
+        tables.append(allTablesQuery.value(0).toString());
+    }
+    return tables;
+}
+
+QStringList MainSQLConnection::getAllColumns(const QString& tablename)
 {
     QStringList columnlist;
 
@@ -84,18 +177,84 @@ QStringList MainSQLConnection::getAllColumns(QString tablename)
     return columnlist;
 }
 
-QStringList MainSQLConnection::getAllTables()
+QString MainSQLConnection::getPKColumn(const QString &tablename)
 {
-    QStringList tables;
-    QSqlQuery allTablesQuery("Select * From get_all_tables()");
-    while(allTablesQuery.next())
-    {
-        tables.append(allTablesQuery.value(0).toString());
+    QString pkColumn;
+    QSqlQuery query;
+    query.prepare("Select * from get_primary_key_column(:tablename)");
+    query.bindValue(":tablename",tablename);
+    if(!query.exec()) qDebug()<<query.lastError();
+    while (query.next()) {
+        pkColumn=query.value(0).toString();
     }
-    return tables;
+    return pkColumn;
 }
 
-QSharedPointer<QSqlRelationalTableModel> MainSQLConnection::getRelatioanlTableModel(const QString &tablename)
+QHash<QString,QPair<QString,QString>> MainSQLConnection::getFKColumns(const QString &tablename)
+{
+    QHash<QString,QPair<QString,QString>> fkColumnsInfo;
+    QSqlQuery query;
+    query.prepare("Select * from get_foreign_keys(:tablename)");
+    query.bindValue(":tablename",tablename);
+    if(!query.exec()) qDebug()<<query.lastError();
+    while (query.next()) {
+        QPair<QString,QString> fkcolumninfo;
+        QString columname=query.value(1).toString();
+       // columninfo.append(query.value(1).toString());
+        fkcolumninfo.first =query.value(2).toString();
+        fkcolumninfo.second=query.value(3).toString();
+        fkColumnsInfo.insert(columname,fkcolumninfo);
+    }
+    return fkColumnsInfo;
+}
+
+ColumnInfo MainSQLConnection::getAdditionalColumnInfo(const QString &tablename, const QString &columname)
+{
+    ColumnInfo columninfo;
+    QSqlQuery query;
+    query.prepare("Select * from get_column_info(:tablename,:columnname)");
+    query.bindValue(":tablename",tablename);
+    query.bindValue(":columnname",columname);
+    if(!query.exec()) qDebug()<<query.lastError();
+    while (query.next()) {
+        columninfo.columnType=query.value(0).toString();
+        columninfo.maxLength=query.value(1).toInt();
+        columninfo.isNullable=query.value(2).toBool();
+       // QString columname=query.value(1).toString();
+        // columninfo.append(query.value(1).toString());
+       // fkcolumninfo.fkTableName =query.value(2).toString();
+       // fkcolumninfo.fkColumnName=query.value(3).toString();
+       // fkColumnsInfo.insert(columname,fkcolumninfo);
+    }
+    return columninfo;
+}
+
+QList<ColumnInfo> MainSQLConnection::getColumnsInfo(const QString &tablename)
+{
+    QList<ColumnInfo> columnsinfolist;
+    QStringList columns = getAllColumns(tablename);
+    QString pkColumn=getPKColumn(tablename);
+    QHash<QString,QPair<QString,QString>> fkColumns= getFKColumns(tablename);
+    for (QString& column:columns)
+    {
+        ColumnInfo columninfo = getAdditionalColumnInfo(tablename,column);
+        columninfo.columnName=column;
+        if (pkColumn == column) {columninfo.isPK=true;}
+        else {columninfo.isPK=false;}
+        if (fkColumns.contains(column))
+        {
+            columninfo.fkColumnInfo=fkColumns.value(column);
+            columninfo.isFK=true;
+        }
+        else {columninfo.isFK=false;}
+        columnsinfolist.append(columninfo);
+    }
+    return columnsinfolist;
+}
+
+
+
+/*QSharedPointer<QSqlRelationalTableModel> MainSQLConnection::getRelatioanlTableModel(const QString &tablename)
 {
 
     QSharedPointer<QSqlRelationalTableModel> tablemodel(new QSqlRelationalTableModel);
@@ -122,7 +281,7 @@ QSharedPointer<QSqlRelationalTableModel> MainSQLConnection::getRelatioanlTableMo
     }
     tablemodel->select();
     return tablemodel;
-}
+}*/
 
 UserInfo MainSQLConnection::autorize(const QString &Login, const QString &Password)
 {
