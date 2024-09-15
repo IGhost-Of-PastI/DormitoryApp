@@ -6,82 +6,59 @@ Page {
     id: rectangleMain
     width:1280
     height:720
-
+   // clip:true
+    //anchors.fill: parent
    // property string tablename;
    // property bool isAdd;
    // property bool isEdit;
    // property bool isDelete;
+    Action
+    {
+        id:aAddRecord;
+        onTriggered:
+        {
+            if (editorElement.visible === false)
+            {
+                editorElement.visible=true;
+            }
+        }
+    }
+
+
 
     property alias tablename:tableView.tablename
     property alias avalAdd:addButton.visible
     property alias avalEdit:editButton.visible
     property alias avalDelete:deleteButton.visible
 
-    Table {
-        id: tableView
-       // model: MainSQLConnection.getRelatioanlTableModel(tablename);
+    SplitView
+    {
+        anchors.bottom: parent.bottom
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.top: scrollView.bottom
-        anchors.bottom: parent.top
-    }
-    /*Rectangle {
-        id: bottomPanel
-        width: parent.width
-        height: 40
-        anchors.bottom: parent.bottom
-
-        CheckBox {
-            id: checkBox
-            y: 0
-            width: 108
-            height: parent.height
-            text: qsTr("Check Box")
-            anchors.left: parent.left
-            anchors.leftMargin: 0
+        //anchors.fill:parent
+       // color:"blue"
+        orientation: Qt.Horizontal
+        Table {
+            SplitView.preferredWidth: 500
+           SplitView.fillHeight:true
+            id: tableView
+           // model: MainSQLConnection.getRelatioanlTableModel(tablename);
+           // anchors.left: parent.left
+           // anchors.right: parent.right
+           // anchors.top: scrollView.bottom
+           // anchors.bottom: parent.top
         }
-
-        Rectangle {
-            id: pagesRectangle
-            color: "#ffffff"
-            anchors.left: checkBox.right
-            anchors.right: parent.right
-            anchors.top: parent.top
-            anchors.bottom: parent.bottom
-            anchors.leftMargin: 0
-            anchors.rightMargin: 0
-            anchors.topMargin: 0
-            anchors.bottomMargin: 0
-
-            // visible: checkBox.checked
-            Label {
-                id: label
-                x: 227
-                width: contentWidth
-                text: qsTr("Страницы:")
-                anchors.right: parent.right
-                anchors.top: parent.top
-                anchors.bottom: parent.bottom
-                anchors.rightMargin: 0
-                anchors.topMargin: 0
-                anchors.bottomMargin: 0
-                verticalAlignment: Text.AlignVCenter
-                font.pixelSize: pagesRectangle.height / 2
-            }
-
-            SpinBox {
-                id: spinBox
-                x: 104
-                anchors.right: label.left
-                anchors.top: parent.top
-                anchors.bottom: parent.bottom
-                anchors.rightMargin: 0
-                anchors.topMargin: 0
-                anchors.bottomMargin: 0
-            }
+        EditorElement {
+            id: editorElement
+            SplitView.fillHeight:true
+            SplitView.preferredWidth: 150
+            columnInfoList: MainSQLConnection.getColumnsInfo(tableView.tablename)
+           // visible: false
         }
     }
-    */
+
     ScrollView {
         id: scrollView
         height: 48
@@ -249,4 +226,6 @@ Page {
             }
         }
     }
+
+
 }
