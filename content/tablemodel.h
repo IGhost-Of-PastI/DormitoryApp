@@ -8,6 +8,7 @@
 #include <QSqlError>
 #include <QDebug>
 #include <QSqlRelation>
+#include "mainsqlconnection.h"
 //#include <QWidget>
 
 /*class DBSettuper
@@ -36,8 +37,8 @@ class TableModel : public QSqlRelationalTableModel
     QML_ELEMENT
     Q_PROPERTY(QString tablename READ tablename WRITE setTablename NOTIFY tablenameChanged FINAL)
 public:
-    explicit TableModel(QSqlDatabase& db,QObject *parent = nullptr)
-        : QSqlRelationalTableModel(parent,db) {
+    explicit TableModel(QObject *parent = nullptr)
+        : QSqlRelationalTableModel(parent,SQLConnectionMenager::getConnection()) {
 
         if (!this->database().isOpen()) {
             qDebug() << "Error: Unable to connect to database:" << this->database().lastError().text();
@@ -49,7 +50,7 @@ public:
 signals:
     void tablenameChanged();
 private:
-    QString m_tablename;
+    QString m_tablename="";
 };
 
 #endif // TABLEMODEL_H
