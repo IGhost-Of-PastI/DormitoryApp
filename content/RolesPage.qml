@@ -7,7 +7,7 @@ Item {
         anchors.fill: parent
         orientation: Qt.Vertical
 
-        TreeView {
+        /*TreeView {
                 id: treeView
                 anchors.fill: parent
                 SplitView.preferredHeight: 250
@@ -87,7 +87,7 @@ Item {
             width: 200
             height: 200
             color: "#ffffff"
-        }
+        }*/
     }
 
 }
