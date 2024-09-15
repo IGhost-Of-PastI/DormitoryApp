@@ -3,6 +3,7 @@ import QtQuick.Controls
 import content
 
 Item {
+    id:root
     property string tablename;
     function getSelectedRowData(rowIndex) {
         var rowData = {}
@@ -79,7 +80,7 @@ Item {
         }
         model: TableModel {
             id: model
-            tablename: tablename
+            tablename: root.tablename
         }
 
         delegate: Row {
