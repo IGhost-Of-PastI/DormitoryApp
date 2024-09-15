@@ -1,5 +1,7 @@
 import QtQuick
 import QtQuick.Controls
+import QtQuick.Layouts
+import content
 
 Item {
     id: item1
@@ -59,7 +61,9 @@ Item {
                     policy: ScrollBar.AlwaysOn
             }
 
-            delegate: Item {
+            delegate: Row {
+                required property var modelData
+                required property string columnName
                 width: listView.width
                 height: implicitHeight
 
@@ -68,7 +72,7 @@ Item {
                     spacing: 5
 
                     Text {
-                        text: modelData.columnName
+                        text: columnName
                         font.bold: true
                         wrapMode: Text.Wrap
                     }
@@ -159,15 +163,46 @@ Item {
 
             Component {
                 id: calendarComponent
-                Calendar {
+                /*Calendar {
                    // selectedDate: new Date(columnValues[modelData.columnName])
                    // onSelectedDateChanged: updateColumnValue(modelData.columnName, selectedDate.toLocaleDateString(Qt.locale(), Locale.ShortFormat))
 
+
+                }*/
+                GridLayout {
+                    columns: 2
+
+                    DayOfWeekRow {
+                        locale: grid.locale
+
+                        Layout.column: 1
+                        Layout.fillWidth: true
+                    }
+
+                    WeekNumberColumn {
+                        month: grid.month
+                        year: grid.year
+                        locale: grid.locale
+
+                        Layout.fillHeight: true
+                    }
+
+                    MonthGrid {
+                        id: grid
+                        month: Calendar.December
+                        year: 2015
+                        locale: Qt.locale("en_US")
+
+                        Layout.fillWidth: true
+                        Layout.fillHeight: true
+                    }
                     function updateData(value) {
                         console.log("Calendar updateData called with value: " + value);
                         selectedDate = new Date(value);
                     }
                 }
+
+
             }
 
 
