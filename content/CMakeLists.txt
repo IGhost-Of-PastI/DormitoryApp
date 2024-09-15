@@ -31,11 +31,8 @@ qt6_add_qml_module(content
 
     RESOURCES fonts/fonts.txt
         SOURCES mainsqlconnection.h mainsqlconnection.cpp
-        SOURCES directoryfiles.h directoryfiles.cpp
         SOURCES backupactions.h backupactions.cpp
         SOURCES constants.h constants.cpp
-        SOURCES sqltablemodel.h sqltablemodel.cpp
-        SOURCES sqldelegate.h sqldelegate.cpp
         SOURCES tablemodel.h tablemodel.cpp
         QML_FILES Table.qml
 
