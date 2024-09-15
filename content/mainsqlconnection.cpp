@@ -35,20 +35,7 @@ bool operator==(const ColumnInfo& lhs, const ColumnInfo& rhs) {
 MainSQLConnection::MainSQLConnection(QObject *parent)
     : QObject{parent}
 {
-    Constants constatnt;
-    QSettings settings(constatnt.settingsFile(),QSettings::IniFormat);
-    settings.beginGroup(constatnt.databaseCategoryName());
-
-    m_connection= QSqlDatabase::addDatabase("QPSQL");
-    m_connection.setHostName(settings.value("host").toString());
-    m_connection.setPort(settings.value("port").toInt());
-    m_connection.setUserName(settings.value("user").toString());
-    m_connection.setPassword(settings.value("password").toString());
-    m_connection.setDatabaseName(settings.value("database").toString());
-
-    if (!m_connection.open()) {
-        qDebug() << "Error: Unable to connect to database:" << m_connection.lastError().text();
-    }
+    m_connection=SQLConnectionMenager::getConnection();
 }
 
 MainSQLConnection::~MainSQLConnection()
@@ -229,15 +216,20 @@ ColumnInfo MainSQLConnection::getAdditionalColumnInfo(const QString &tablename, 
     return columninfo;
 }
 
-QList<ColumnInfo> MainSQLConnection::getColumnsInfo(const QString &tablename)
+QVariantList MainSQLConnection::getColumnsInfo(const QString &tablename)
 {
-    QList<ColumnInfo> columnsinfolist;
+   // QVariantList variantlsit;
+    //variantlsit.
+
+    QVariantList columnsinfolist;
     QStringList columns = getAllColumns(tablename);
     QString pkColumn=getPKColumn(tablename);
     QHash<QString,QPair<QString,QString>> fkColumns= getFKColumns(tablename);
     for (QString& column:columns)
     {
+        QVariant variant;
         ColumnInfo columninfo = getAdditionalColumnInfo(tablename,column);
+
         columninfo.columnName=column;
         if (pkColumn == column) {columninfo.isPK=true;}
         else {columninfo.isPK=false;}
@@ -247,7 +239,7 @@ QList<ColumnInfo> MainSQLConnection::getColumnsInfo(const QString &tablename)
             columninfo.isFK=true;
         }
         else {columninfo.isFK=false;}
-        columnsinfolist.append(columninfo);
+        columnsinfolist.append(variant.fromValue(columninfo));
     }
     return columnsinfolist;
 }
@@ -372,4 +364,28 @@ void MainSQLConnection::setUserinfo(const UserInfo &newUserinfo)
         return;
     m_userinfo = newUserinfo;
     emit userinfoChanged();
+}
+
+QSqlDatabase &SQLConnectionMenager::getConnection()
+{
+    Constants constatnt;
+    QSettings settings(constatnt.settingsFile(),QSettings::IniFormat);
+    settings.beginGroup(constatnt.databaseCategoryName());
+
+    if (!m_connection) {
+        // Создаем новое подключение
+        m_connection = new QSqlDatabase(QSqlDatabase::addDatabase("QPSQL"));
+        m_connection->setHostName("localhost");
+        m_connection->setPort(5432);
+        m_connection->setUserName("postgres");
+        m_connection->setPassword("masterkey");
+        m_connection->setDatabaseName("Dormitory");
+
+        // Проверяем, удалось ли открыть подключение
+        if (!m_connection->open()) {
+            qDebug() << "Error: Unable to connect to database:" << m_connection->lastError().text();
+        }
+    }
+    // Возвращаем экземпляр подключения
+    return *m_connection;
 }

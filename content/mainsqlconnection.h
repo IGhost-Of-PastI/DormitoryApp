@@ -52,6 +52,14 @@ public:
     QString roleName;
     QString acceses;
 };
+class SQLConnectionMenager
+{
+    SQLConnectionMenager() = delete;
+public:
+    static QSqlDatabase& getConnection();;
+private:
+   inline static QSqlDatabase* m_connection =nullptr;
+};
 
 /*struct FKColumnInfo
 {
@@ -108,7 +116,7 @@ public:
     Q_INVOKABLE QString getPKColumn(const QString& tablename);
     Q_INVOKABLE QHash<QString,QPair<QString,QString>> getFKColumns (const QString& tablename);
     Q_INVOKABLE ColumnInfo getAdditionalColumnInfo(const QString& tablename,const QString& columname);
-    Q_INVOKABLE QList<ColumnInfo> getColumnsInfo(const QString& tablename);
+    Q_INVOKABLE QVariantList getColumnsInfo(const QString& tablename);
     //Фукнция добавления в БД
     Q_INVOKABLE void addLog(qint64 action_id,qint64 staff_id,QJsonDocument action_description);
     Q_INVOKABLE void deleteRecord(const QString& tablename,const QString& column_id,const QString& column_value);
