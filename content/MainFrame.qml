@@ -13,20 +13,23 @@ Rectangle {
         initialItem: loginPage
     }
 
-    LoginFrame
-    {
-        id:loginPage
-        onLoginedSuc:(userinfo) =>
-                     {
-                         mainPageContainer.push(mainPage);
-                         mainPage.visible=true;
-                         mainPage.userinfo=userinfo;
-                     }
-    }
+    LoginFrame {
+           id: loginPage
+           onLoginedSuc: (userinfo) => {
+               mainPageLoader.sourceComponent = mainPageComponent;
+               mainPageLoader.item.userinfo = userinfo;
+               mainPageContainer.push(mainPageLoader.item);
+           }
+       }
 
-    MainPage
-    {
-        id:mainPage
-        visible: false
-    }
+       Loader {
+           id: mainPageLoader
+           visible: false
+       }
+
+       Component {
+           id: mainPageComponent
+           MainPage {
+               id: mainPage
+           }}
 }
