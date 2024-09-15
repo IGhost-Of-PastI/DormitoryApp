@@ -27,7 +27,7 @@ qt6_add_qml_module(content
         AdministarationSelector.qml
         TableManipulator.qml
         EditorElement.qml
-        Table.qml
+        RolesPage.qml
 
     RESOURCES fonts/fonts.txt
         SOURCES mainsqlconnection.h mainsqlconnection.cpp
