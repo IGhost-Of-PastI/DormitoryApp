@@ -24,12 +24,12 @@ void TableModel::setTablename(const QString &newTablename)
         }
         this->setTable(m_tablename);
         this->setEditStrategy(QSqlTableModel::OnRowChange);
-        for (int i=0;i<columnlist.length()-1;i++)
+        for (int i=0;i<columnlist.length();i++)
         {
             this->setHeaderData(i,Qt::Horizontal,columnlist[i]);
         }
 
-        QSqlQuery relationsquery(this->database());
+       /*QSqlQuery relationsquery(this->database());
         relationsquery.prepare("Select * from get_foreign_keys(:tablename)");
         relationsquery.bindValue(":tablename",m_tablename);
         // (QString("Select * from get_foreign_keys(%1)").arg(tablename));
@@ -45,9 +45,9 @@ void TableModel::setTablename(const QString &newTablename)
             rtable_name = relationsquery.value(2).toString();
             rcolumn_name = relationsquery.value(3).toString();
 
-            this->setRelation(columnlist.indexOf(column_name),QSqlRelation(rtable_name,rcolumn_name,column_name));
-        }
-        if (!this->select()) {
+            this->setRelation(columnlist.indexOf(column_name),QSqlRelation(rtable_name,rcolumn_name,"Name"));
+        }*/
+       if (!this->select()) {
             qDebug() << "Error selecting data:" << this->lastError();
         }
 
