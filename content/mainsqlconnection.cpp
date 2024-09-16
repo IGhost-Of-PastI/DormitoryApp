@@ -147,7 +147,7 @@ void MainSQLConnection::insertRecord(const QString &tablename, QVariantList colu
     qDebug()<<m_connection.isOpen();
     qDebug()<<m_connection.userName();
     qDebug()<<m_connection.password();
-   insertQuery.prepare(R"(Select public.insert_into_specialties(:staff_id,:tablename,:columns);)");
+   insertQuery.prepare(R"(Select public.insert_into_tablesf(:staff_id,:tablename,:columns);)");
    insertQuery.bindValue(":staff_id",m_userinfo.iD);
    insertQuery.bindValue(":tablename",tablename);
    insertQuery.bindValue(":columns",Json);
