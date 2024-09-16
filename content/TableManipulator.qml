@@ -5,13 +5,7 @@ import content
 Page {
     id: rectangleMain
     width:1280
-    height:720
-   // clip:true
-    //anchors.fill: parent
-   // property string tablename;
-   // property bool isAdd;
-   // property bool isEdit;
-   // property bool isDelete;
+    height:320
     Action
     {
         id:aAddRecord;
@@ -26,7 +20,7 @@ Page {
 
 
 
-    property alias tablename:tableView.tablename
+    property string tablename
     property alias avalAdd:addButton.visible
     property alias avalEdit:editButton.visible
     property alias avalDelete:deleteButton.visible
@@ -37,25 +31,22 @@ Page {
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.top: scrollView.bottom
-        //anchors.fill:parent
-       // color:"blue"
         orientation: Qt.Horizontal
         Table {
             SplitView.preferredWidth: 500
            SplitView.fillHeight:true
             id: tableView
-           // model: MainSQLConnection.getRelatioanlTableModel(tablename);
-           // anchors.left: parent.left
-           // anchors.right: parent.right
-           // anchors.top: scrollView.bottom
-           // anchors.bottom: parent.top
+            clip: true
+            tablename: rectangleMain.tablename
         }
         EditorElement {
             id: editorElement
+            tablename:rectangleMain.tablename
+            state: "closed"
             SplitView.fillHeight:true
             SplitView.preferredWidth: 150
             columnInfoList: MainSQLConnection.getColumnsInfo(tableView.tablename)
-           // visible: false
+
         }
     }
 
@@ -88,6 +79,12 @@ Page {
                 anchors.leftMargin: 0
                 anchors.topMargin: 0
                 anchors.bottomMargin: 0
+                onClicked: {if (editorElement.state==="closed")
+                    {
+                         editorElement.state="addMode";
+                    }
+                   }
+
             }
 
             ToolButton {
@@ -99,6 +96,14 @@ Page {
                 anchors.leftMargin: 0
                 anchors.topMargin: 0
                 anchors.bottomMargin: 0
+                onClicked: {if (editorElement.state==="closed")
+                    {
+                         editorElement.state="editMode";
+                        var rowData= tableView.getSelectedRowData();
+                        editorElement.columnValues=rowData;
+                       // editorElement.state="editMode"
+                    }
+                   }
             }
 
             ToolButton {
