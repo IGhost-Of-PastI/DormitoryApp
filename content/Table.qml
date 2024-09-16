@@ -4,16 +4,17 @@ import content
 
 Item {
     id:root
-    property string tablename;
-    function getSelectedRowData(rowIndex) {
-        var rowData = {}
+    property string tablename
+    property int currentSelected
+    function getSelectedRowData() {
+        var rowData = []
         for (var i = 0; i < tableview.columns; i++) {
-            var headerText = horizontalHeader.model.get(i).display
-            var cellValue = tableview.model.data(tableview.model.index(
-                                                     rowIndex, i))
-            rowData[headerText] = cellValue
+            var headerText = tableview.model.headerData(i,Qt.Horizontal,0);
+            var cellValue = tableview.model.data(tableview.model.index(currentSelected, i))
+            rowData.push({columnName:headerText,columnValue:cellValue});
         }
         console.log(rowData)
+        return rowData;
     }
 
     HorizontalHeaderView {
@@ -48,6 +49,7 @@ Item {
                     tableview.selectionModel.select(
                                 tableview.model.index(index, 0),
                                 ItemSelectionModel.Rows | ItemSelectionModel.Select)
+                    currentSelected=index
                 }
             }
         }
@@ -69,7 +71,7 @@ Item {
         resizableColumns: true
 
         ScrollBar.horizontal: ScrollBar {
-            policy: "AsNeeded"
+            policy:"AsNeeded"
         }
         ScrollBar.vertical: ScrollBar {
             policy: "AsNeeded"
