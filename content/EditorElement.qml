@@ -3,13 +3,46 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import content
 
-Item {
+Page {
     id: item1
-    Rectangle {
+
+    property var loadedItems: []
+    property string tablename
+    //property int currentState: 0
+    //state: currentState
+    states: [
+                   State {
+                       name: "closed"
+                       PropertyChanges { target: item1; visible: false }
+                   },
+                   State {
+                       name: "addMode"
+                       PropertyChanges { target: item1; visible: true }
+                       PropertyChanges { target: headerTable; mode: "Добавление" }
+                   },
+                   State {
+                       name: "editMode"
+                       PropertyChanges { target: item1; visible: true }
+                       PropertyChanges { target: headerTable; mode: "Редактирование" }
+                   }
+               ]
+    header: ToolBar {
+                                Row {
+                                    id:headerTable
+                                    property string mode:""
+                                    spacing: 10
+                                    Label {
+                                        text: "Режим: " + headerTable.mode
+                                        font.bold: true
+                                        font.pointSize: 12
+                                    }
+                                }
+                            }
+    footer:  ToolBar {
         id: rectangle
         y: 436
         height: 44
-        color: "#ffffff"
+        //color: "#ffffff"
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom: parent.bottom
@@ -28,6 +61,27 @@ Item {
             anchors.leftMargin: 0
             anchors.topMargin: 0
             anchors.bottomMargin: 0
+            onClicked: {
+                                if (item1.state === "addMode") {
+                                    var data = collectData();
+                                    MainSQLConnection.insertRecord(tablename,columnInfoList,data);
+                                    //console.log("Добавление: " + editor.text)
+                                } else if (item2.state === "editMode") {
+                                    // Логика редактирования существующего элемента
+                                    console.log("Редактирование: " + editor.text)
+                                }
+                            }
+            function collectData() {
+                  var collectedData = [];
+
+                for (var i = 0; i < loadedItems.length; i++) {
+                    var item = loadedItems[i];
+                    collectedData.push({ columnInfo: item.modelData.columnName, value: item.getData() });
+                             //   console.log("Item " + i + ": " + loadedItems[i]);
+                }
+                   return collectedData;
+
+               }
         }
 
         Button {
@@ -41,6 +95,9 @@ Item {
             anchors.leftMargin: 5
             anchors.topMargin: 0
             anchors.bottomMargin: 0
+            onClicked: {
+                item1.state="closed";
+            }
         }
     }
 
@@ -52,18 +109,21 @@ Item {
         }
         ListView {
             id: listView
-            anchors.fill: parent
+            anchors.top:parent.top
+            anchors.right:parent.right
+            anchors.left:parent.left
+            anchors.bottom: parent.bottom
             model: listModel
             flickableDirection: Flickable.VerticalFlick
             boundsBehavior: Flickable.StopAtBounds
-
+            clip:true
             ScrollBar.vertical: ScrollBar {
-                    policy: ScrollBar.AlwaysOn
+                    policy: ScrollBar.AsNeeded
             }
 
             delegate: Row {
+                id:row
                 required property var modelData
-                required property string columnName
                 width: listView.width
                 height: implicitHeight
 
@@ -72,15 +132,22 @@ Item {
                     spacing: 5
 
                     Text {
-                        text: columnName
+                        text: modelData.columnName
                         font.bold: true
                         wrapMode: Text.Wrap
                     }
 
                     Loader {
                         id: editorLoader
+                        //property var modelData:row.modelData
                         width: parent.width
                         sourceComponent: getEditorComponent(modelData)
+                        onLoaded: {
+                                       if (item) {
+                                           item.modelData = modelData;
+                                           loadedItems.push(item);
+                                       }
+                        }
                     }
                 }
             }
@@ -91,11 +158,13 @@ Item {
                    return null; // Не создаем элемент редактирования для ключевых колонок
                } else if (columnInfo.isFK) {
                    return comboBoxComponent;
-               } else if (columnInfo.columnType === "boolean") {
+               } else if (columnInfo.columnType === "bool") {
                    return checkBoxComponent;
-               } else if (columnInfo.columnType === "varchar" || columnInfo.columnType === "text") {
+               } else if (columnInfo.columnType === "text") {
                    return textFieldComponent;
-               } else if (columnInfo.columnType === "int") {
+               } else if (columnInfo.columnType === "varchar") {
+                   return varcharFieldComponent;
+               }else if (columnInfo.columnType === "int4") {
                    return spinBoxComponent;
                } else if (columnInfo.columnType === "date") {
                                   return calendarComponent;
@@ -107,9 +176,14 @@ Item {
         Component {
                 id: checkBoxComponent
                 CheckBox {
-                    checked: columnValues[modelData.columnName]
-                    onCheckedChanged: updateColumnValue(modelData.columnName, checked)
+                    property var modelData
+                    //checked: columnValues[modelData.columnName]
+                    //onCheckedChanged: updateColumnValue(columnName, checked)
 
+                    function getData()
+                    {
+                        return checked;
+                    }
                     function updateData(value) {
                         console.log("CheckBox updateData called with value: " + value);
                         checked = (value === "true");
@@ -120,10 +194,32 @@ Item {
             Component {
                 id: textFieldComponent
                 TextField {
-                    text: columnValues[modelData.columnName]
-                    maximumLength: modelData.maxLength
-                    onTextChanged: updateColumnValue(modelData.columnName, text)
+                    property var modelData
+                   // text: modelData.columnName//columnValues[columnName]
+                    //maximumLength: maxLength
+                    //onTextChanged: updateColumnValue(modelData.columnName, text)
+                    function getData()
+                    {
+                        return text;
+                    }
 
+                    function updateData(value) {
+                        console.log("TextField updateData called with value: " + value);
+                        text = value;
+                    }
+                }
+            }
+            Component {
+                id: varcharFieldComponent
+                TextField {
+                    property var modelData
+                   // text: modelData.columnName
+                    maximumLength: modelData.maxLength
+                    //onTextChanged: updateColumnValue(columnName, text)
+                    function getData()
+                    {
+                        return text;
+                    }
                     function updateData(value) {
                         console.log("TextField updateData called with value: " + value);
                         text = value;
@@ -134,13 +230,50 @@ Item {
             Component {
                 id: comboBoxComponent
                 ComboBox {
-                    model: ["Option1", "Option2", "Option3"] // Пример модели, замените на вашу
-                    currentIndex: getComboBoxIndex(modelData.columnName, columnValues[modelData.columnName])
-                    onCurrentIndexChanged: updateColumnValue(modelData.columnName, currentIndex)
+                    property var modelData
+                    onModelDataChanged:
+                    {
+                       // console.log(modelData.fkColumnInfo.length);
+                       // console.log(modelData.fkColumnInfo.first);
+                       // console.log(String(modelData.fkColumnInfo.first));
+                       var modelList= MainSQLConnection.getFKValues(modelData.fkColumnInfo.key,modelData.fkColumnInfo.value);
+                        for (var i = 0; i < modelList.length; i++) {
+                            var MCSC = modelList[i];
+                            comboboxModel.append({"pKValue":MCSC.key,"sValue":MCSC.value,"index":i});
+                        }
+                    }
+
+                    model: ListModel
+                    {
+                        id:comboboxModel
+                    }
+                    delegate: ItemDelegate {
+                                  required property string sValue
+                                  required property string pKValue
+                         width: parent.width
+                                  Text {
+
+                                      text: sValue
+                                      anchors.verticalCenter: parent.verticalCenter
+                                  }
+                              }
+                    onCurrentIndexChanged: {
+                                if (currentIndex >= 0) {
+                                    console.log("Selected value: " + comboboxModel.get(currentIndex).sValue);
+                                displayText= comboboxModel.get(currentIndex).sValue;
+                                }
+                            }
+                        // Пример модели, замените на вашу
+                    //currentIndex: getComboBoxIndex(modelData.columnName, columnValues[modelData.columnName])
+                    //onCurrentIndexChanged: updateColumnValue(columnName, currentIndex)
+                    function getData()
+                    {
+                        return comboboxModel.get(currentIndex).pKValue;
+                    }
 
                     function updateData(value) {
                         console.log("ComboBox updateData called with value: " + value);
-                        currentIndex = getComboBoxIndex(modelData.columnName, value);
+                        currentIndex = getComboBoxIndex(columnName, value);
                     }
                 }
             }
@@ -148,11 +281,14 @@ Item {
             Component {
                 id: spinBoxComponent
                 SpinBox {
+                    property var modelData
                     value: columnValues[modelData.columnName]
-                    from: 0
-                    to: 100
                     stepSize: 1
                     onValueChanged: updateColumnValue(modelData.columnName, value)
+                    function getData()
+                    {
+                        return value;
+                    }
 
                     function updateData(value) {
                         console.log("SpinBox updateData called with value: " + value);
@@ -163,14 +299,73 @@ Item {
 
             Component {
                 id: calendarComponent
-                /*Calendar {
-                   // selectedDate: new Date(columnValues[modelData.columnName])
-                   // onSelectedDateChanged: updateColumnValue(modelData.columnName, selectedDate.toLocaleDateString(Qt.locale(), Locale.ShortFormat))
-
-
-                }*/
                 GridLayout {
+                    property var modelData
+
                     columns: 2
+                    rows: 2
+                    Column {
+                        id: selectColumn
+                         property var currentDate: new Date()
+                         property int currentMonth: currentDate.getMonth()
+                         property int currentYear: currentDate.getFullYear()
+                            spacing: 10
+
+                            Row {
+                                spacing: 10
+                                Button {
+                                    text: "<<"
+                                    width: 30
+                                    height: 30
+                                    onClicked: {
+                                         selectColumn.currentYear--
+                                    }
+                                }
+                                Text {
+                                    text: selectColumn.currentYear.toString()
+                                }
+                                Button {
+                                    text: ">>"
+                                    width: 30
+                                    height: 30
+                                    onClicked: {
+                                        selectColumn.currentYear++
+                                    }
+                                }
+                            }
+                            Row {
+                                spacing: 10
+                                Button {
+                                    text: "<"
+                                    width: 30
+                                    height: 30
+                                    onClicked: {
+                                        if (selectColumn.currentMonth === Calendar.January) {
+                                            selectColumn.currentMonth = Calendar.December
+                                            selectColumn.currentYear--
+                                        } else {
+                                            selectColumn.currentMonth--
+                                        }
+                                    }
+                                }
+                                Text {
+                                    text: Qt.formatDate(new Date(selectColumn.currentYear, selectColumn.currentMonth, 1), "MMMM")
+                                }
+                                Button {
+                                    text: ">"
+                                    width: 30
+                                    height: 30
+                                    onClicked: {
+                                        if (selectColumn.currentMonth === Calendar.December) {
+                                            selectColumn.currentMonth = Calendar.January
+                                            selectColumn.currentYear++
+                                        } else {
+                                            selectColumn.currentMonth++
+                                        }
+                                    }
+                                }
+                            }
+                    }
 
                     DayOfWeekRow {
                         locale: grid.locale
@@ -189,16 +384,47 @@ Item {
 
                     MonthGrid {
                         id: grid
-                        month: Calendar.December
-                        year: 2015
-                        locale: Qt.locale("en_US")
+                        month: selectColumn.currentMonth
+                                           year: selectColumn.currentYear
+                        locale: Qt.locale("ru_RU")
 
+                        property date selectedDate: new Date()
+                        //property date selectedDate
+                        /*onClicked: {
+                                console.log("Selected date: " + date)
+                            }*/
                         Layout.fillWidth: true
                         Layout.fillHeight: true
+                        delegate: Item {
+                               id: delegateItem
+
+                               // compare dates without time
+                               property bool isSelectedDay: (
+                                                   model.year  === grid.selectedDate.getFullYear()
+                                                && model.month === grid.selectedDate.getMonth()
+                                                && model.day   === grid.selectedDate.getDate()
+                                       )
+
+                               Rectangle {
+                                           anchors.fill: parent
+                                           color: delegateItem.isSelectedDay ? "lightblue" : "transparent"
+                               }
+                               Text {
+                                   anchors.centerIn: parent
+                                   text: model.date.getDate()
+                               }
+                           }
+                           onPressed: function (date) {
+                               grid.selectedDate = date
+                           }
                     }
-                    function updateData(value) {
-                        console.log("Calendar updateData called with value: " + value);
-                        selectedDate = new Date(value);
+                    function getData()
+                    {
+                        return grid.selectedDate;
+                    }
+                    function updateData(value)
+                    {
+                        grid.selectedDate=value;
                     }
                 }
 
@@ -206,14 +432,27 @@ Item {
             }
 
 
-            function getComboBoxIndex(columnName, value) {
+            /*function getComboBoxIndex(columnName, value) {
                     var index = comboBoxComponent.model.indexOf(value);
                     return index !== -1 ? index : -1; // Если значение не найдено, возвращаем -1 (никакой)
-                }
+                }*/
 
                 function updateEditors(values) {
-                    columnValues = values;
-                    listView.forceLayout(); // Обновляем ListView
+                   // populateModel();
+                    var collectedData = [];
+
+                  for (var i = 0; i < loadedItems.length; i++) {
+                      var item = loadedItems[i];
+                      var columnNameToFind = item.modelData.columnName;
+                      var foundItem = values.find(function(item) {
+                          return item.columnName === columnNameToFind;
+                      });
+                      item.updateData(foundItem.columnValue);
+                               //   console.log("Item " + i + ": " + loadedItems[i]);
+                  }
+                     return collectedData;
+                    // columnValues = values;
+                   // listView.forceLayout(); // Обновляем ListView
                 }
 
                 function populateModel() {
@@ -224,16 +463,17 @@ Item {
                             listModel.append(columnInfo);
                         }
                     }
+
                 }
 
-                function updateAllEditors(value) {
+                /*function updateAllEditors(value) {
                     for (var i = 0; i < listView.count; i++) {
                         var item = listView.itemAtIndex(i);
                         if (item && item.editorLoader.item) {
                             item.editorLoader.item.updateData(value);
                         }
                     }
-                }
+                }*/
 
                 onColumnInfoListChanged: {
                       populateModel(); // Обновляем модель ListView при изменении columnInfoList
