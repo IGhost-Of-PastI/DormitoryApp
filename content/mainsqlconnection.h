@@ -73,6 +73,20 @@ public:
     QString fkColumnName;
 };*/
 
+struct QMLPair
+{
+public:
+    Q_GADGET
+    Q_PROPERTY(QString key MEMBER key)
+    Q_PROPERTY(QString value MEMBER value)
+public:
+    friend bool operator==(const QMLPair& lhs, const QMLPair& rhs);
+    friend bool operator!=(const QMLPair& lhs, const QMLPair& rhs);
+    QString key;
+    QString value;
+};
+
+
 struct ColumnInfo
 {
 private:
@@ -80,21 +94,21 @@ private:
     Q_PROPERTY(QString columnName MEMBER columnName)
     Q_PROPERTY(bool isPK MEMBER isPK)
     Q_PROPERTY(QString columnType MEMBER columnType)
-    Q_PROPERTY(int maxLenght MEMBER maxLength)
+    Q_PROPERTY(qint32 maxLength MEMBER maxLength)
     Q_PROPERTY(bool isFK MEMBER isFK)
     Q_PROPERTY(bool isNullable MEMBER isNullable)
-    Q_PROPERTY(QPair<QString,QString> fkColumnInfo MEMBER fkColumnInfo)
+    Q_PROPERTY(QMLPair fkColumnInfo MEMBER fkColumnInfo)
 public:
     friend bool operator==(const ColumnInfo& lhs, const ColumnInfo& rhs);
     QString columnName;
     bool isPK;
     bool isNullable;
     QString columnType;
-    int maxLength;
+    qint32 maxLength;
     bool isFK;
-    QPair<QString,QString> fkColumnInfo;
+    QMLPair fkColumnInfo;
 };
-//Q_DECLARE_METATYPE(FKColumnInfo)
+Q_DECLARE_METATYPE(QMLPair)
 Q_DECLARE_METATYPE(ColumnInfo)
 Q_DECLARE_METATYPE(UserInfo)
 class MainSQLConnection : public QObject
@@ -117,11 +131,12 @@ public:
     Q_INVOKABLE QHash<QString,QPair<QString,QString>> getFKColumns (const QString& tablename);
     Q_INVOKABLE ColumnInfo getAdditionalColumnInfo(const QString& tablename,const QString& columname);
     Q_INVOKABLE QVariantList getColumnsInfo(const QString& tablename);
+    Q_INVOKABLE QVariantList getFKValues(QString table, QString column);
     //Фукнция добавления в БД
     Q_INVOKABLE void addLog(qint64 action_id,qint64 staff_id,QJsonDocument action_description);
     Q_INVOKABLE void deleteRecord(const QString& tablename,const QString& column_id,const QString& column_value);
     Q_INVOKABLE void updateRecord(const QString& tablename, QList<ColumnInfo> columns, QHash<QString,QString> values);
-    Q_INVOKABLE void insertRecord(const QString& tablename, QList<ColumnInfo> columns, QHash<QString,QString> values);
+    Q_INVOKABLE void insertRecord(const QString& tablename, QVariantList columns, QVariantList values);
     //Функция авторизации
     // QSharedPointer<QSqlRelationalTableModel> getRelatioanlTableModel(const QString& tablename);
     Q_INVOKABLE UserInfo autorize(const QString &Login,const QString &Password);

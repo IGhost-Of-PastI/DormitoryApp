@@ -21,6 +21,16 @@ bool operator==(const UserInfo& lhs, const UserInfo& rhs) {
             && lhs.fkColumnName == rhs.fkColumnName
             );
 }*/
+bool operator!=(const QMLPair& lhs, const QMLPair& rhs)
+{
+    return (lhs!=rhs);
+}
+bool operator==(const QMLPair& lhs, const QMLPair& rhs)
+{
+    return (lhs.key == rhs.key
+            && lhs.value == rhs.value
+            );
+}
 bool operator==(const ColumnInfo& lhs, const ColumnInfo& rhs) {
     return (lhs.columnName == rhs.columnName
             && lhs.columnType == rhs.columnType
@@ -49,7 +59,7 @@ MainSQLConnection::~MainSQLConnection()
 void MainSQLConnection::addLog(qint64 action_id, qint64 staff_id, QJsonDocument action_description)
 {
     QSqlQuery addLogQuery;
-    addLogQuery.prepare("CALL insert_into_logs(:a_id, :s_id, :a_description)");
+    addLogQuery.prepare("CALL insert_into_logs(:a_id, :s_id, :a_description);");
     addLogQuery.bindValue(":a_id",action_id);
     addLogQuery.bindValue(":s_id",staff_id);
     addLogQuery.bindValue(":a_description",action_description);
@@ -61,7 +71,7 @@ void MainSQLConnection::addLog(qint64 action_id, qint64 staff_id, QJsonDocument 
 void MainSQLConnection::deleteRecord(const QString &tablename, const QString &column_id, const QString &column_value)
 {
     QSqlQuery deleteQuery;
-    deleteQuery.prepare("CALL delete_from_table(:tablname,:id_column,:value_id)");
+    deleteQuery.prepare("CALL delete_from_table(:tablname,:id_column,:value_id);");
     deleteQuery.bindValue(":tablename",tablename);
     deleteQuery.bindValue("id_column",column_id);
     deleteQuery.bindValue(":value_id",column_value);
@@ -70,49 +80,82 @@ void MainSQLConnection::deleteRecord(const QString &tablename, const QString &co
     }
 }
 
-void MainSQLConnection::updateRecord(const QString &tablename, QList<ColumnInfo> columns, QHash<QString, QString> values)
+void MainSQLConnection::updateRecord(const QString& tablename, QVariantList columns, QVariantList values)
 {
+    QList<ColumnInfo> columninfolsit;
+    QHash<QString,QString> datalist;
+    for (const QVariant &data : values) {
+        QVariantMap dataMap = data.toMap();
+        QPair<QString,QString> pair;
+        pair.first = dataMap["columnInfo"].toString();
+        pair.second = dataMap["value"].toString();
+        datalist.insert(pair.first,pair.second);
+    }
+    for (const QVariant &column : columns) {
+        ColumnInfo columninfo = column.value<ColumnInfo>();
+        columninfolsit.append(columninfo);
+    }
+
     QJsonObject jsonObj;
-    QPair<QString,QString> id_ColumnValue;
-    for (ColumnInfo& columnInfo:columns)
+    for (ColumnInfo& columnInfo:columninfolsit)
     {
         if(columnInfo.isPK != true)
         {
-            jsonObj[columnInfo.columnName]=QJsonValue(values.value(columnInfo.columnName));
-        }
-        else
-        {
-            id_ColumnValue.first=columnInfo.columnName;
-            id_ColumnValue.second=values.value(columnInfo.columnName);
+            jsonObj[columnInfo.columnName]=QJsonValue(datalist.value(columnInfo.columnName));
         }
     }
     QSqlQuery updateQuery;
-    updateQuery.prepare("CALL update_table(:tablename,:id_column,:id_value,:values)");
+    updateQuery.prepare("CALL update_table(:tablename,:id_column,:id_value,:values);");
     updateQuery.bindValue(":tablename",tablename);
-    updateQuery.bindValue(":id_column",id_ColumnValue.first);
-    updateQuery.bindValue("id_value",id_ColumnValue.second);
+    //updateQuery.bindValue(":id_column",id_ColumnValue.first);
+    //updateQuery.bindValue("id_value",id_ColumnValue.second);
     updateQuery.bindValue(":values",QJsonDocument(jsonObj).toJson(QJsonDocument::Compact));
     if (!updateQuery.exec()) {
         qDebug() << "Error executing stored procedure:" << updateQuery.lastError();
     }
 }
 
-void MainSQLConnection::insertRecord(const QString &tablename, QList<ColumnInfo> columns, QHash<QString, QString> values)
+void MainSQLConnection::insertRecord(const QString &tablename, QVariantList columns, QVariantList values)
 {
+    QList<ColumnInfo> columninfolsit;
+    QHash<QString,QString> datalist;
+    for (const QVariant &data : values) {
+        QVariantMap dataMap = data.toMap();
+        QPair<QString,QString> pair;
+        pair.first = dataMap["columnInfo"].toString();
+        pair.second = dataMap["value"].toString();
+        datalist.insert(pair.first,pair.second);
+    }
+    for (const QVariant &column : columns) {
+        ColumnInfo columninfo = column.value<ColumnInfo>();
+        columninfolsit.append(columninfo);
+    }
+
     QJsonObject jsonObj;
-    for (ColumnInfo& columnInfo:columns)
+    for (ColumnInfo& columnInfo:columninfolsit)
     {
         if(columnInfo.isPK != true)
         {
-            jsonObj[columnInfo.columnName]=QJsonValue(values.value(columnInfo.columnName));
+            jsonObj[columnInfo.columnName]=QJsonValue(datalist.value(columnInfo.columnName));
         }
     }
+    QString Json=QJsonDocument(jsonObj).toJson(QJsonDocument::Compact);
+    //qDebug()<<Json;
+    //QString query=QString(R"(SELECT public.insert_into_specialties('8','%2'))").arg(tablename,Json);
+    //qDebug()<<query;
     QSqlQuery insertQuery;
-    insertQuery.prepare("CALL insert_into_table(:tablename,:columnvalues)");
-    insertQuery.bindValue(":tablename",tablename);
-    insertQuery.bindValue(":columnvalues",QJsonDocument(jsonObj).toJson(QJsonDocument::Compact));
+    qDebug()<<m_connection.isOpen();
+    qDebug()<<m_connection.userName();
+    qDebug()<<m_connection.password();
+   insertQuery.prepare(R"(Select public.insert_into_specialties(:staff_id,:tablename,:columns);)");
+   insertQuery.bindValue(":staff_id",m_userinfo.iD);
+   insertQuery.bindValue(":tablename",tablename);
+   insertQuery.bindValue(":columns",Json);
+    qDebug() << insertQuery.lastQuery();
     if (!insertQuery.exec()) {
-        qDebug() << "Error executing stored procedure:" << insertQuery.lastError();
+        qDebug() << "Error executing stored procedure:" << insertQuery.lastError().text();
+        qDebug() << insertQuery.lastQuery();
+       // QDebug()<<insertQuery.lastQuery();
     }
 }
 
@@ -128,7 +171,7 @@ void MainSQLConnection::insertRecord(const QString &tablename, QList<ColumnInfo>
 QStringList MainSQLConnection::getAllViews()
 {
     QStringList views;
-    QSqlQuery allViewsQuery("Select * From get_all_views()");
+    QSqlQuery allViewsQuery("Select * From get_all_views();");
     while(allViewsQuery.next())
     {
         views.append(allViewsQuery.value(0).toString());
@@ -139,7 +182,7 @@ QStringList MainSQLConnection::getAllViews()
 QStringList MainSQLConnection::getAllTables()
 {
     QStringList tables;
-    QSqlQuery allTablesQuery("Select * From get_all_tables()");
+    QSqlQuery allTablesQuery("Select * From get_all_tables();");
     while(allTablesQuery.next())
     {
         tables.append(allTablesQuery.value(0).toString());
@@ -152,7 +195,7 @@ QStringList MainSQLConnection::getAllColumns(const QString& tablename)
     QStringList columnlist;
 
     QSqlQuery columnnames;
-    columnnames.prepare("Select * from get_table_columns(:tablename)");
+    columnnames.prepare("Select * from get_table_columns(:tablename);");
     columnnames.bindValue(":tablename",tablename);
     if (!columnnames.exec()) {
         qDebug() << "Error executing stored procedure:" << columnnames.lastError();
@@ -168,7 +211,7 @@ QString MainSQLConnection::getPKColumn(const QString &tablename)
 {
     QString pkColumn;
     QSqlQuery query;
-    query.prepare("Select * from get_primary_key_column(:tablename)");
+    query.prepare("Select * from get_primary_key_column(:tablename);");
     query.bindValue(":tablename",tablename);
     if(!query.exec()) qDebug()<<query.lastError();
     while (query.next()) {
@@ -181,7 +224,7 @@ QHash<QString,QPair<QString,QString>> MainSQLConnection::getFKColumns(const QStr
 {
     QHash<QString,QPair<QString,QString>> fkColumnsInfo;
     QSqlQuery query;
-    query.prepare("Select * from get_foreign_keys(:tablename)");
+    query.prepare("Select * from get_foreign_keys(:tablename);");
     query.bindValue(":tablename",tablename);
     if(!query.exec()) qDebug()<<query.lastError();
     while (query.next()) {
@@ -199,7 +242,7 @@ ColumnInfo MainSQLConnection::getAdditionalColumnInfo(const QString &tablename, 
 {
     ColumnInfo columninfo;
     QSqlQuery query;
-    query.prepare("Select * from get_column_info(:tablename,:columnname)");
+    query.prepare("Select * from get_column_info(:tablename,:columnname);");
     query.bindValue(":tablename",tablename);
     query.bindValue(":columnname",columname);
     if(!query.exec()) qDebug()<<query.lastError();
@@ -235,13 +278,39 @@ QVariantList MainSQLConnection::getColumnsInfo(const QString &tablename)
         else {columninfo.isPK=false;}
         if (fkColumns.contains(column))
         {
-            columninfo.fkColumnInfo=fkColumns.value(column);
+//QVariant var1,var2;
+            QString val1,val2;
+            val1=fkColumns.value(column).first;
+            val2=fkColumns.value(column).second;
+             columninfo.fkColumnInfo.key=val1;
+            columninfo.fkColumnInfo.value=val2;
             columninfo.isFK=true;
         }
         else {columninfo.isFK=false;}
         columnsinfolist.append(variant.fromValue(columninfo));
     }
     return columnsinfolist;
+}
+
+QVariantList MainSQLConnection::getFKValues(QString table, QString column)
+{
+   // QMLPair table_column= tablecolumn.value<QMLPair>();
+    QVariantList idcolumnviewcolumn;
+    QSqlQuery query;
+    //QPair<QString,QString> table_column = tablecolumn.
+    query.prepare(QString(R"(Select * from public."%1";)").arg(table));
+    if(!query.exec()) qDebug()<<query.lastError();
+    while(query.next())
+    {
+        QVariant variant;
+        QMLPair pair;
+        //QPair<QString,QString> pair;
+        pair.key=query.value(column).toString();
+        pair.value=query.value(1).toString();
+        idcolumnviewcolumn.append(variant.fromValue(pair));
+    }
+    //getAllTables();
+    return idcolumnviewcolumn;
 }
 
 
@@ -284,7 +353,7 @@ UserInfo MainSQLConnection::autorize(const QString &Login, const QString &Passwo
         userinfo.surname="Фамилия";
         userinfo.name="Имя";
         userinfo.patronymic="Отчество";
-        userinfo.iD=-1;
+        userinfo.iD=8;
 
         userinfo.dormitoryName="None";
 
@@ -328,7 +397,7 @@ UserInfo MainSQLConnection::autorize(const QString &Login, const QString &Passwo
     {
         UserInfo userinfo;
         QSqlQuery query;
-        query.prepare("SELECT check_user_credentials(:username, :password)");
+        query.prepare("SELECT check_user_credentials(:username, :password);");
         query.bindValue(":username", Login);
         query.bindValue(":password", Password);
 
