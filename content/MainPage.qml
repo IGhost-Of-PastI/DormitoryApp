@@ -4,17 +4,12 @@ import "."
 
 Page {
     id: rectangle
-    width: 1920
-    height: 1080
 
     property var userinfo
 
     onUserinfoChanged: {
-       // administartionSelector.userinfo = userinfo
-        // var JsonString = JSON.stringify(userinfo.acceses);
         var AccessesJson = JSON.parse(userinfo.acceses)
         var tableAccesses = AccessesJson.TableAccesses
-        //tableAccesses.
         var jsonArray = tableAccesses
 
         listModel.append({"userinfo":userinfo,"tablename":"","tableaccJson":null,"index":0});
@@ -22,17 +17,11 @@ Page {
             var tableinfo = tableAccesses[i]
             if (tableinfo.ViewTable) {
                 var tablename = tableinfo.TableName
-                var tableActionsAccesses = tableinfo.TableActionsAccesses
-                //var add = tableActionsAccesses.Add
-                //var edit = tableActionsAccesses.Edit
-                //var tdelete = tableActionsAccesses.Delete
-                listModel.append({"userinfo":userinfo,"tablename":tablename,"tableaccJson":tableActionsAccesses,"index":i+1});/*{
-                                     "tablename": String(tablename),
-                                     "isAdd": Boolean(add),
-                                     "isEdit": Boolean(edit),
-                                     "isDelete": Boolean(tdelete),
-                                     "index": i
-                                 })*/
+                if (String(tablename) !== "Logs" && String(tablename) !=="Logs_Action_Types")
+                {
+                    var tableActionsAccesses = tableinfo.TableActionsAccesses
+                    listModel.append({"userinfo":userinfo,"tablename":tablename,"tableaccJson":tableActionsAccesses,"index":i+1});
+                }
             }
         }
     }
@@ -49,18 +38,6 @@ Page {
         anchors.leftMargin: 0
         anchors.topMargin: 0
         anchors.bottomMargin: 0
-
-        /*
-        ToolButton {
-            id: toolButton
-            text: qsTr("Профиль")
-            anchors.left: parent.left
-            anchors.right: parent.right
-            anchors.top: toolButton2.bottom
-            anchors.leftMargin: 0
-            anchors.rightMargin: 0
-            anchors.topMargin: 0
-        }*/
 
         ToolButton {
             id: toolButton1
@@ -89,21 +66,18 @@ Page {
     Drawer {
         id: menu
         edge: Qt.LeftEdge
-        x: toolBar.width
+        x: 100
         width: 0.25 * rectangle.width
         height: parent.height
-        // visible: false
-        // opened:true
         ListView {
+            boundsBehavior: Flickable.StopAtBounds
             model: listModel
             delegate: Item {
-                //id: listDelegate
                 width: parent.width
                 height: 40
 
                 required property string tablename
                 required property int index
-                //required property date fileModified
                 Row {
                     Text {
                         text: tablename
@@ -113,9 +87,7 @@ Page {
                     anchors.fill: parent
                     onClicked: {
                         tables.currentIndex = index
-                        //tablesCreator.current
                         swipeView.currentIndex = tables.currentIndex
-                        //menu.close();
                     }
                 }
             }
@@ -124,7 +96,7 @@ Page {
             anchors.fill: parent
             highlight: Rectangle {
                 color: "lightsteelblue"
-                radius: 5
+                radius: 1
             }
             focus: true
         }
@@ -137,31 +109,27 @@ Page {
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         orientation: Qt.Vertical
-
+        interactive: false
         Repeater {
             id: tablesCreator
             model: listModel
 
             delegate: Page {
                 required property string tablename
-               // required property string isAdd
-               // required property string isDelete
-                //required property string isEdit
                 header: ToolBar {
                     Row {
                         spacing: 10
                         Label {
                             text: "Название таблицы: " + tablename
                             font.bold: true
-                            font.pointSize: 16
+                            font.pointSize: 12
                         }
                     }
                 }
 
                 Loader{
                     id:contentLoader
-                    width:parent.width
-                    height: parent.height
+                    anchors.fill:parent
                     sourceComponent: getContentComponent(tablename)
                     onLoaded: {
                                    if (item) {
@@ -184,7 +152,6 @@ Page {
         {
             return generalTableComponent;
         }
-       // return null;
     }
     Component
     {
@@ -193,15 +160,6 @@ Page {
         RolesPage
         {
            property string tablename
-           // required property var tableaccJson
-            /*onTableaccJsonChanged:
-            {
-                var tableActionsAccesses =JSON.parse(tableaccJson);
-                var add = tableActionsAccesses.Add;
-                var edit = tableActionsAccesses.Edit;
-                var tdelete = tableActionsAccesses.Delete;
-            }*/
-
         }
     }
     Component
@@ -209,21 +167,6 @@ Page {
         id:generalTableComponent
 
         TableManipulator {
-            //property string tablename
-            //tablename: tablename
-            //
-           // required property var tableaccJson
-           /* onTableaccJsonChanged:
-            {
-                var tableActionsAccesses =JSON.parse(tableaccJson);
-                var add = tableActionsAccesses.Add;
-                var edit = tableActionsAccesses.Edit;
-                var tdelete = tableActionsAccesses.Delete;
-            }}
-            avalAdd: isAdd
-            avalEdit: isEdit
-            avalDelete: isDelete
-            tablename: tablename*/
         }
     }
     Component
@@ -232,11 +175,6 @@ Page {
 
         AdministarationSelector {
             property string tablename
-          //required property var vuserinfo
-
-           // userinfo:listModel.vuserinfo
-
-            id: administartionSelector
         }
     }
 
