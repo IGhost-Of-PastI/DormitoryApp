@@ -135,7 +135,7 @@ public:
     //Фукнция добавления в БД
     Q_INVOKABLE void addLog(qint64 action_id,qint64 staff_id,QJsonDocument action_description);
     Q_INVOKABLE void deleteRecord(const QString& tablename,const QString& column_id,const QString& column_value);
-    Q_INVOKABLE void updateRecord(const QString& tablename, QList<ColumnInfo> columns, QHash<QString,QString> values);
+    Q_INVOKABLE void updateRecord(const QString& tablename, QVariantList columns, QVariantList values);
     Q_INVOKABLE void insertRecord(const QString& tablename, QVariantList columns, QVariantList values);
     //Функция авторизации
     // QSharedPointer<QSqlRelationalTableModel> getRelatioanlTableModel(const QString& tablename);
