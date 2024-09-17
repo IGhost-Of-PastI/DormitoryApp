@@ -93,6 +93,39 @@ Page {
                             tableView.refresh();
         }
     }
+    Action
+    {
+        id: aAcceptAllFilters
+        onTriggered:
+        {
+            if(searchColumnCB.displayText!=="" && fieldSearch.text !=="")
+            {
+                //tableView.tableModel.
+                tableView.tableModel.setFilterQML(searchColumnCB.displayText,fieldSearch.text);
+            }
+            else
+            {
+                tableView.tableModel.setFilterQML("","");
+            }
+
+            if(sortColumn.displayText!=="")
+            {
+                if(!descSort.checked)
+                {
+                    tableView.tableModel.setSortQML(sortColumn.displayText, TableModel.ASC)
+                }
+                else
+                {
+                   tableView.tableModel.setSortQML(sortColumn.displayText, TableModel.DESC)
+                }
+
+
+                   // tableView.tableModel.setSortQML(sortColumn.displayText,TableModel::So)
+                //tableview.tableModel.setSort(sortColumn.indexOfValue(sortColumn.displayText),Qt::descSort);
+            }
+             tableView.refresh();
+        }
+    }
 
     property string tablename
     property var columns
@@ -102,6 +135,15 @@ Page {
     property alias avalEdit:editButton.visible
     property alias avalDelete:deleteButton.visible
 
+    ListModel
+    {
+        id:searchModel
+    }
+    ListModel
+    {
+        id:sortModel
+    }
+
     onTablenameChanged: {
         var columnsInfo = MainSQLConnection.getColumnsInfo(tablename);
         var pkColumnInfo = columnsInfo.find(function(item) {
@@ -110,6 +152,13 @@ Page {
         columns = columnsInfo;
         pkInfo=pkColumnInfo;
         editorElement.columnInfoList=columnsInfo;
+
+        var filtercolumns = MainSQLConnection.getAllColumns(tablename);
+        for (var i = 0;i<filtercolumns.length;i++)
+        {
+            searchModel.append({"display":filtercolumns[i]});
+            sortModel.append({"display":filtercolumns[i]});
+        }
     }
 
     SplitView
@@ -117,7 +166,7 @@ Page {
         anchors.bottom: parent.bottom
         anchors.left: parent.left
         anchors.right: parent.right
-        anchors.top: scrollView.bottom
+        anchors.top: toolBar.bottom
         orientation: Qt.Horizontal
         Table {
             SplitView.preferredWidth: 500
@@ -150,24 +199,14 @@ Page {
         }
     }
 
-    ScrollView {
-        id: scrollView
-        height: 48
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.top: parent.top
-        anchors.leftMargin: 0
-        anchors.rightMargin: 0
-        anchors.topMargin: 0
-
         ToolBar {
             id: toolBar
-            x: 0
-            anchors.fill: parent
             width: 1280
             height: 48
             position: ToolBar.Header
             anchors.top: parent.top
+            anchors.right: parent.right
+            anchors.left:parent.left
             anchors.topMargin: 0
 
             ToolButton {
@@ -176,9 +215,6 @@ Page {
                 anchors.left: parent.left
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
-                anchors.leftMargin: 0
-                anchors.topMargin: 0
-                anchors.bottomMargin: 0
                 onClicked: aAddRecord.trigger()
             }
 
@@ -188,9 +224,6 @@ Page {
                 anchors.left: addButton.right
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
-                anchors.leftMargin: 0
-                anchors.topMargin: 0
-                anchors.bottomMargin: 0
                 onClicked: aEditRecord.trigger()
             }
 
@@ -200,9 +233,6 @@ Page {
                 anchors.left: editButton.right
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
-                anchors.leftMargin: 0
-                anchors.topMargin: 0
-                anchors.bottomMargin: 0
                 onClicked: aDeleteRecord.trigger()
             }
 
@@ -211,66 +241,52 @@ Page {
                 anchors.left: deleteButton.right
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
-                anchors.leftMargin: 0
-                anchors.topMargin: 0
-                anchors.bottomMargin: 0
             }
 
-            Item {
-                id: filterItem
-                width: 313
+            TextField
+            {
+                id:fieldSearch
                 anchors.left: toolSeparator.right
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
-                anchors.leftMargin: 0
-                anchors.topMargin: 0
-                anchors.bottomMargin: 0
+                placeholderText: "Ввод фильтра";
+            }
 
-                Flow {
-                    id: flow1
-                    x: -546
-                    y: 0
-                    anchors.left: parent.left
-                    anchors.right: optionFilterButton.left
-                    anchors.top: parent.top
-                    anchors.bottom: parent.bottom
-                    anchors.leftMargin: 0
-                    anchors.rightMargin: 0
-                    anchors.topMargin: 0
-                    anchors.bottomMargin: 0
-                }
-
-                ToolButton {
-                    id: optionFilterButton
-                    x: 945
-                    y: 0
-                    text: qsTr("Фильтр")
-                    anchors.right: parent.right
-                    anchors.rightMargin: 0
+            ComboBox
+            {
+                id:searchColumnCB
+                model:searchModel
+                anchors.left: fieldSearch.right
+                anchors.top: parent.top
+                anchors.bottom: parent.bottom
+            }
+            ToolButton {
+                id: optionFilterButton
+                text: qsTr("Фильтр")
+                anchors.left: searchColumnCB.right
+                anchors.top: parent.top
+                anchors.bottom: parent.bottom
+                onClicked:
+                {
+                    aAcceptAllFilters.trigger();
                 }
             }
 
+
             ToolSeparator {
                 id: toolSeparator1
-                x: 586
-                y: 0
                 width: 25
-                anchors.left: filterItem.right
+                anchors.left: optionFilterButton.right
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
-                anchors.leftMargin: 0
-                anchors.topMargin: 0
-                anchors.bottomMargin: 0
             }
 
             ComboBox {
                 id: sortColumn
+                model:sortModel
                 anchors.left: toolSeparator1.right
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
-                anchors.leftMargin: 0
-                anchors.topMargin: 0
-                anchors.bottomMargin: 0
             }
 
             Item {
@@ -279,9 +295,6 @@ Page {
                 anchors.left: sortColumn.right
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
-                anchors.leftMargin: 0
-                anchors.topMargin: 0
-                anchors.bottomMargin: 0
 
                 RadioButton {
                     id: descSort
@@ -290,9 +303,6 @@ Page {
                     anchors.left: parent.left
                     anchors.top: parent.top
                     anchors.bottom: parent.bottom
-                    anchors.leftMargin: 0
-                    anchors.topMargin: 0
-                    anchors.bottomMargin: 0
                 }
 
                 RadioButton {
@@ -301,9 +311,7 @@ Page {
                     anchors.left: descSort.right
                     anchors.top: parent.top
                     anchors.bottom: parent.bottom
-                    anchors.leftMargin: 0
-                    anchors.topMargin: 0
-                    anchors.bottomMargin: 0
+                    checked: true
                 }
             }
 
@@ -314,15 +322,12 @@ Page {
                 anchors.right: parent.right
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
-                anchors.rightMargin: 0
-                anchors.topMargin: 0
-                anchors.bottomMargin: 0
                 onClicked: {
                     aRefresh.trigger();
                 }
             }
         }
-    }
+
 
 
 }

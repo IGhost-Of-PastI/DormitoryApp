@@ -33,10 +33,19 @@ public:
 
 class TableModel : public QSqlRelationalTableModel
 {
+public:
+    enum SortEnum
+    {
+        ASC,DESC
+    };
+
+    Q_ENUM(SortEnum);
     Q_OBJECT
     QML_ELEMENT
     Q_PROPERTY(QString tablename READ tablename WRITE setTablename NOTIFY tablenameChanged FINAL)
+
 public:
+
     explicit TableModel(QObject *parent = nullptr)
         : QSqlRelationalTableModel(parent,SQLConnectionMenager::getConnection()) {
 
@@ -45,6 +54,10 @@ public:
         }
 
     }
+
+    Q_INVOKABLE void setFilterQML(QString column, QString value);
+    Q_INVOKABLE void setSortQML(QString column,SortEnum sortorder);
+
     QString tablename() const;
     void setTablename(const QString &newTablename);
 signals:

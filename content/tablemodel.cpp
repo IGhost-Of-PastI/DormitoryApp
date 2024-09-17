@@ -1,5 +1,42 @@
 #include "tablemodel.h"
 
+void TableModel::setFilterQML(QString column, QString value)
+{
+    QString filter ="";
+    if (column!="" || value!="")
+    {
+        filter=QString(R"("%1"='%2')").arg(column,value);
+    }
+    this->setFilter(filter);
+}
+
+void TableModel::setSortQML(QString column, SortEnum sortorder)
+{
+    int index=-1;
+    QSqlQuery query;
+    query.prepare("SELECT getColumnIndex(:tablename, :columnName)");
+    query.bindValue(":tablename",this->m_tablename);
+    query.bindValue(":columnName",column);
+    if (!query.exec())
+    {
+        qDebug()<<"Error getting index of column:" << query.lastError() ;
+
+    }
+ qDebug()<<query.lastQuery();
+    while(query.next())
+    {
+index= query.value(0).toInt();
+    }
+
+    Qt::SortOrder qtsortorder;
+    if (sortorder==SortEnum::ASC) {qtsortorder= Qt::SortOrder::AscendingOrder;}
+    else {qtsortorder=Qt::SortOrder::DescendingOrder;};
+    if (index !=-1)
+    {
+        this->setSort(index-1,qtsortorder);
+    }
+}
+
 QString TableModel::tablename() const
 {
     return m_tablename;
