@@ -7,7 +7,7 @@ project(DormitoryApp LANGUAGES CXX)
 
 set(CMAKE_AUTOMOC ON)
 
-find_package(Qt6 6.2 REQUIRED COMPONENTS Core Gui Qml Quick Sql)
+find_package(Qt6 REQUIRED COMPONENTS Core Gui Qml Quick Sql PrintSupport AxContainer AxServer)
 
 if (Qt6_VERSION VERSION_GREATER_EQUAL 6.3)
     qt_standard_project_setup()
@@ -27,6 +27,9 @@ target_link_libraries(DormitoryApp PRIVATE
     Qt6::Qml
     Qt6::Quick
     Qt6::Sql
+    Qt6::PrintSupport
+    Qt6::AxContainer
+    Qt6::AxServer
 )
 
 if (BUILD_QDS_COMPONENTS)
