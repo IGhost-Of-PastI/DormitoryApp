@@ -96,6 +96,7 @@ Item {
             required property bool selected
             property string tempText: model.display
             clip: true
+
             Rectangle {
 
                 implicitHeight: parent.height
