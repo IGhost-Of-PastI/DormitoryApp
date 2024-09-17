@@ -35,6 +35,7 @@ qt6_add_qml_module(content
         SOURCES constants.h constants.cpp
         SOURCES tablemodel.h tablemodel.cpp
         QML_FILES Table.qml
+        QML_FILES RolesTableManipulator.qml
 
 )
 
