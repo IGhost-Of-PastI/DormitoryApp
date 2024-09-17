@@ -12,7 +12,8 @@ Page {
         var tableAccesses = AccessesJson.TableAccesses
         var jsonArray = tableAccesses
 
-        listModel.append({"userinfo":userinfo,"tablename":"","tableaccJson":null,"index":0});
+        listModel.append({"userinfo":userinfo,"tablename":"Страница пользователя","tableaccJson":null,"index":0});
+        var index=1;
         for (var i = 0; i < jsonArray.length; i++) {
             var tableinfo = tableAccesses[i]
             if (tableinfo.ViewTable) {
@@ -20,7 +21,8 @@ Page {
                 if (String(tablename) !== "Logs" && String(tablename) !=="Logs_Action_Types")
                 {
                     var tableActionsAccesses = tableinfo.TableActionsAccesses
-                    listModel.append({"userinfo":userinfo,"tablename":tablename,"tableaccJson":tableActionsAccesses,"index":i+1});
+                    listModel.append({"userinfo":userinfo,"tablename":tablename,"tableaccJson":tableActionsAccesses,"index":index});
+                    index++;
                 }
             }
         }
@@ -69,13 +71,14 @@ Page {
         x: 100
         width: 0.25 * rectangle.width
         height: parent.height
+
         ListView {
+            spacing: 5
             boundsBehavior: Flickable.StopAtBounds
             model: listModel
             delegate: Item {
                 width: parent.width
                 height: 40
-
                 required property string tablename
                 required property int index
                 Row {
@@ -98,7 +101,6 @@ Page {
                 color: "lightsteelblue"
                 radius: 1
             }
-            focus: true
         }
     }
 
@@ -142,7 +144,7 @@ Page {
     }
     function getContentComponent(tablename)
     {
-        if(String(tablename) === "")
+        if(String(tablename) === "Страница пользователя")
         {
             return adminitartorPageComponent;
         } else if (String(tablename)==="Jobs")
