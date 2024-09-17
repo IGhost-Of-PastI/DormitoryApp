@@ -71,7 +71,6 @@ Page {
                                      editorElement.state="editMode";
                                     var rowData= tableView.getSelectedRowData();
                                     editorElement.columnValues=rowData;
-                                   // editorElement.state="editMode"
                                 }
 
         }
@@ -100,7 +99,6 @@ Page {
         {
             if(searchColumnCB.displayText!=="" && fieldSearch.text !=="")
             {
-                //tableView.tableModel.
                 tableView.tableModel.setFilterQML(searchColumnCB.displayText,fieldSearch.text);
             }
             else
@@ -118,10 +116,6 @@ Page {
                 {
                    tableView.tableModel.setSortQML(sortColumn.displayText, TableModel.DESC)
                 }
-
-
-                   // tableView.tableModel.setSortQML(sortColumn.displayText,TableModel::So)
-                //tableview.tableModel.setSort(sortColumn.indexOfValue(sortColumn.displayText),Qt::descSort);
             }
              tableView.refresh();
         }

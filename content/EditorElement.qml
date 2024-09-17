@@ -23,9 +23,6 @@ Page {
         updateEditors(
                     columnValues) // Заполняем редакторы при изменении columnValues
     }
-    //property var columnValues
-    //property int currentState: 0
-    //state: currentState
     states: [
         State {
             name: "closed"
@@ -73,7 +70,6 @@ Page {
         id: rectangle
         y: 436
         height: 44
-        //color: "#ffffff"
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom: parent.bottom
@@ -96,14 +92,12 @@ Page {
                 if (item1.state === "addMode") {
                     var data = collectData()
                     var addsuccess= MainSQLConnection.insertRecord(tablename,columnInfoList, data)
-                    //console.log("Добавление: " + editor.text)
                     dataUpdated_Added(addsuccess)
                 } else if (item1.state === "editMode") {
                     var editData = collectData()
                     var editsuccess= MainSQLConnection.updateRecord(tablename,columnInfoList, editData,pkColumnInfo.columnName,iDValue)
 
                     dataUpdated_Added(editsuccess)
-                    //console.log("Редактирование: " + editor.text)
                 }
             }
             function collectData() {
@@ -115,7 +109,6 @@ Page {
                                            "columnInfo": item.modelData.columnName,
                                            "value": item.getData()
                                        })
-                    //   console.log("Item " + i + ": " + loadedItems[i]);
                 }
                 return collectedData
             }
@@ -173,7 +166,6 @@ Page {
 
                 Loader {
                     id: editorLoader
-                    //property var modelData:row.modelData
                     width: parent.width
                     sourceComponent: getEditorComponent(modelData)
                     onLoaded: {
@@ -211,9 +203,6 @@ Page {
         id: checkBoxComponent
         CheckBox {
             property var modelData
-
-            //checked: columnValues[modelData.columnName]
-            //onCheckedChanged: updateColumnValue(columnName, checked)
             function getData() {
                 return checked
             }
@@ -228,9 +217,6 @@ Page {
         id: textFieldComponent
         TextField {
             property var modelData
-            // text: modelData.columnName//columnValues[columnName]
-            //maximumLength: maxLength
-            //onTextChanged: updateColumnValue(modelData.columnName, text)
             function getData() {
                 return text
             }
@@ -245,9 +231,7 @@ Page {
         id: varcharFieldComponent
         TextField {
             property var modelData
-            // text: modelData.columnName
             maximumLength: modelData.maxLength
-            //onTextChanged: updateColumnValue(columnName, text)
             function getData() {
                 return text
             }
@@ -263,9 +247,6 @@ Page {
         ComboBox {
             property var modelData
             onModelDataChanged: {
-                // console.log(modelData.fkColumnInfo.length);
-                // console.log(modelData.fkColumnInfo.first);
-                // console.log(String(modelData.fkColumnInfo.first));
                 var modelList = MainSQLConnection.getFKValues(
                             modelData.fkColumnInfo.key,
                             modelData.fkColumnInfo.value)
@@ -299,9 +280,6 @@ Page {
                     displayText = comboboxModel.get(currentIndex).sValue
                 }
             }
-            // Пример модели, замените на вашу
-            //currentIndex: getComboBoxIndex(modelData.columnName, columnValues[modelData.columnName])
-            //onCurrentIndexChanged: updateColumnValue(columnName, currentIndex)
             function getData() {
                 return comboboxModel.get(currentIndex).pKValue
             }
@@ -317,7 +295,6 @@ Page {
         id: spinBoxComponent
         SpinBox {
             property var modelData
-            //value: columnValues[modelData.columnName]
             stepSize: 1
             onValueChanged: updateColumnValue(modelData.columnName, value)
             function getData() {
@@ -425,17 +402,11 @@ Page {
                 locale: Qt.locale("ru_RU")
 
                 property date selectedDate: new Date()
-                //property date selectedDate
-
-                /*onClicked: {
-                                console.log("Selected date: " + date)
-                            }*/
                 Layout.fillWidth: true
                 Layout.fillHeight: true
                 delegate: Item {
                     id: delegateItem
 
-                    // compare dates without time
                     property bool isSelectedDay: (model.year === grid.selectedDate.getFullYear()
                                                   && model.month === grid.selectedDate.getMonth()
                                                   && model.day === grid.selectedDate.getDate(
@@ -463,15 +434,7 @@ Page {
         }
     }
 
-
-    /*function getComboBoxIndex(columnName, value) {
-                    var index = comboBoxComponent.model.indexOf(value);
-                    return index !== -1 ? index : -1; // Если значение не найдено, возвращаем -1 (никакой)
-                }*/
     function updateEditors(values) {
-
-        // populateModel();
-        // var collectedData = [];
         for (var i = 0; i < loadedItems.length; i++) {
             var item = loadedItems[i]
             var columnNameToFind = item.modelData.columnName
@@ -479,15 +442,11 @@ Page {
                 return item.columnName === columnNameToFind
             });
             item.updateData(foundItem.columnValue)
-            //   console.log("Item " + i + ": " + loadedItems[i]);
         }
         var column = values.find(function (item) {
             return item.columnName === pkColumnInfo.columnName
         });
         iDValue = column.columnValue;
-        // return collectedData;
-        // columnValues = values;
-        // listView.forceLayout(); // Обновляем ListView
     }
 
     function populateModel() {
@@ -501,14 +460,4 @@ Page {
             }
         }
     }
-
-
-    /*function updateAllEditors(value) {
-                    for (var i = 0; i < listView.count; i++) {
-                        var item = listView.itemAtIndex(i);
-                        if (item && item.editorLoader.item) {
-                            item.editorLoader.item.updateData(value);
-                        }
-                    }
-                }*/
 }
