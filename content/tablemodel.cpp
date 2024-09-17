@@ -23,11 +23,11 @@ void TableModel::setTablename(const QString &newTablename)
             columnlist.append(columnnames.value(0).toString());
         }
         this->setTable(m_tablename);
-        this->setEditStrategy(QSqlTableModel::OnRowChange);
-        for (int i=0;i<columnlist.length();i++)
+        //this->setEditStrategy(QSqlTableModel::OnRowChange);
+       /* for (int i=0;i<columnlist.length();i++)
         {
             this->setHeaderData(i,Qt::Horizontal,columnlist[i]);
-        }
+        }*/
 
        /*QSqlQuery relationsquery(this->database());
         relationsquery.prepare("Select * from get_foreign_keys(:tablename)");
