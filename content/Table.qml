@@ -11,6 +11,8 @@ Item {
 
     property string tablename
     property int currentSelected
+    property alias tableModel:model
+
     function getSelectedRowData() {
         var rowData = []
         for (var i = 0; i < tableview.columns; i++) {
