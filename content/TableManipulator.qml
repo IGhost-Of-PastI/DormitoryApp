@@ -1,29 +1,116 @@
-import QtQuick 2.15
+import QtQuick
 import QtQuick.Controls
+import QtQuick.Dialogs
 import content
 
 Page {
     id: rectangleMain
     width:1280
     height:320
+
+    MessageDialog {
+        id: messageDialog
+        buttons: MessageDialog.Ok
+        text: qsTr("Инфомрация")
+    }
+    Dialog {
+            id: confirmationDialog
+            title: "Подтверждение"
+            implicitWidth: 400
+            implicitHeight: 150
+            anchors.centerIn: parent
+            contentItem: Column {
+                       spacing: 10
+                       Text {
+                           font.pointSize: 12
+                           text: "Вы уверены, что хотите удалить данную запись?"
+                           wrapMode: Text.WordWrap
+                       }
+                   }
+            standardButtons: Dialog.Yes | Dialog.No
+            onAccepted: {
+                var columnValues = tableView.getSelectedRowData();
+                var pkcolumn = columnValues.find(function(item) {
+                    return pkInfo.columnName === item.columnName;
+                });
+                var pkvalue= pkcolumn.columnValue;
+                var success= MainSQLConnection.deleteRecord(tablename,pkInfo.columnName,pkvalue);
+                if (success)
+                {
+                    aRefresh.trigger();
+                    messageDialog.informativeText="Запись удалена успешно!";
+                    messageDialog.open();
+                }
+                else
+                {
+                    messageDialog.informativeText="При удалении произошла ошибка!";
+                    messageDialog.open();
+                }
+            }
+        }
+
     Action
     {
-        id:aAddRecord;
+        id:aAddRecord
         onTriggered:
         {
-            if (editorElement.visible === false)
-            {
-                editorElement.visible=true;
-            }
+            if (editorElement.state==="closed")
+                                {
+                                     editorElement.state="addMode";
+                                }
+
+        }
+    }
+    Action
+    {
+        id:aEditRecord
+        onTriggered:
+        {
+            if (editorElement.state==="closed")
+                                {
+                                     editorElement.state="editMode";
+                                    var rowData= tableView.getSelectedRowData();
+                                    editorElement.columnValues=rowData;
+                                   // editorElement.state="editMode"
+                                }
+
+        }
+    }
+    Action
+    {
+        id:aDeleteRecord
+        onTriggered:
+        {
+            confirmationDialog.open()
+        }
+    }
+    Action
+    {
+
+        id:aRefresh
+        onTriggered:
+        {
+                            tableView.refresh();
         }
     }
 
-
-
     property string tablename
+    property var columns
+    property var pkInfo
+
     property alias avalAdd:addButton.visible
     property alias avalEdit:editButton.visible
     property alias avalDelete:deleteButton.visible
+
+    onTablenameChanged: {
+        var columnsInfo = MainSQLConnection.getColumnsInfo(tablename);
+        var pkColumnInfo = columnsInfo.find(function(item) {
+            return item.isPK === true;
+        });
+        columns = columnsInfo;
+        pkInfo=pkColumnInfo;
+        editorElement.columnInfoList=columnsInfo;
+    }
 
     SplitView
     {
@@ -46,6 +133,19 @@ Page {
             SplitView.fillHeight:true
             SplitView.preferredWidth: 150
             columnInfoList: MainSQLConnection.getColumnsInfo(tableView.tablename)
+            onDataUpdated_Added: (success) => {
+                                     if(success)
+                                     {
+                                         aRefresh.trigger();
+                                         messageDialog.informativeText="Данные обновлены успешно!";
+                                         messageDialog.open();
+                                     }
+                                     else
+                                     {
+                                        messageDialog.informativeText="Произошла ошибка при обновлении данных!";
+                                        messageDialog.open();
+                                     }
+            }
 
         }
     }
@@ -79,12 +179,7 @@ Page {
                 anchors.leftMargin: 0
                 anchors.topMargin: 0
                 anchors.bottomMargin: 0
-                onClicked: {if (editorElement.state==="closed")
-                    {
-                         editorElement.state="addMode";
-                    }
-                   }
-
+                onClicked: aAddRecord.trigger()
             }
 
             ToolButton {
@@ -96,14 +191,7 @@ Page {
                 anchors.leftMargin: 0
                 anchors.topMargin: 0
                 anchors.bottomMargin: 0
-                onClicked: {if (editorElement.state==="closed")
-                    {
-                         editorElement.state="editMode";
-                        var rowData= tableView.getSelectedRowData();
-                        editorElement.columnValues=rowData;
-                       // editorElement.state="editMode"
-                    }
-                   }
+                onClicked: aEditRecord.trigger()
             }
 
             ToolButton {
@@ -115,6 +203,7 @@ Page {
                 anchors.leftMargin: 0
                 anchors.topMargin: 0
                 anchors.bottomMargin: 0
+                onClicked: aDeleteRecord.trigger()
             }
 
             ToolSeparator {
@@ -228,6 +317,9 @@ Page {
                 anchors.rightMargin: 0
                 anchors.topMargin: 0
                 anchors.bottomMargin: 0
+                onClicked: {
+                    aRefresh.trigger();
+                }
             }
         }
     }

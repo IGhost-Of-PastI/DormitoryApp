@@ -4,6 +4,11 @@ import content
 
 Item {
     id:root
+    function refresh()
+    {
+        model.select();
+    }
+
     property string tablename
     property int currentSelected
     function getSelectedRowData() {
@@ -88,19 +93,17 @@ Item {
         delegate: Row {
             required property bool selected
             property string tempText: model.display
+            clip: true
             Rectangle {
 
                 implicitHeight: parent.height
                 implicitWidth: parent.width
                 color: selected ? "blue" : "lightgray"
 
-                TextField {
+                Text {
                     text: tempText
                     anchors.fill: parent
-                    readOnly: true
-                    onTextChanged: {
-                        model.display = text
-                    }
+                    //readOnly: true
                 }
             }
         }

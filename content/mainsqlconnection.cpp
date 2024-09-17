@@ -56,7 +56,7 @@ MainSQLConnection::~MainSQLConnection()
     }*/
 }
 
-void MainSQLConnection::addLog(qint64 action_id, qint64 staff_id, QJsonDocument action_description)
+bool MainSQLConnection::addLog(qint64 action_id, qint64 staff_id, QJsonDocument action_description)
 {
     QSqlQuery addLogQuery;
     addLogQuery.prepare("CALL insert_into_logs(:a_id, :s_id, :a_description);");
@@ -65,22 +65,33 @@ void MainSQLConnection::addLog(qint64 action_id, qint64 staff_id, QJsonDocument 
     addLogQuery.bindValue(":a_description",action_description);
     if (!addLogQuery.exec()) {
         qDebug() << "Error executing stored procedure:" << addLogQuery.lastError();
+        return false;
+    }
+    else
+    {
+        return true;
     }
 }
 
-void MainSQLConnection::deleteRecord(const QString &tablename, const QString &column_id, const QString &column_value)
+bool MainSQLConnection::deleteRecord(const QString &tablename, const QString &column_id, const QString &column_value)
 {
     QSqlQuery deleteQuery;
-    deleteQuery.prepare("CALL delete_from_table(:tablname,:id_column,:value_id);");
+    deleteQuery.prepare("Select public.delete_from_tablesf(:tablename,:id_column,:value_id,:id_staff);");
     deleteQuery.bindValue(":tablename",tablename);
-    deleteQuery.bindValue("id_column",column_id);
+    deleteQuery.bindValue(":id_column",column_id);
     deleteQuery.bindValue(":value_id",column_value);
+    deleteQuery.bindValue(":id_staff",m_userinfo.iD);
     if (!deleteQuery.exec()) {
         qDebug() << "Error executing stored procedure:" << deleteQuery.lastError();
+        return false;
+    }
+    else
+    {
+        return true;
     }
 }
 
-void MainSQLConnection::updateRecord(const QString& tablename, QVariantList columns, QVariantList values)
+bool MainSQLConnection::updateRecord(const QString& tablename, QVariantList columns, QVariantList values, QString id_column,QString id_value)
 {
     QList<ColumnInfo> columninfolsit;
     QHash<QString,QString> datalist;
@@ -104,18 +115,25 @@ void MainSQLConnection::updateRecord(const QString& tablename, QVariantList colu
             jsonObj[columnInfo.columnName]=QJsonValue(datalist.value(columnInfo.columnName));
         }
     }
+    QString jsonValue=QJsonDocument(jsonObj).toJson(QJsonDocument::Compact);
     QSqlQuery updateQuery;
-    updateQuery.prepare("CALL update_table(:tablename,:id_column,:id_value,:values);");
+    updateQuery.prepare("Select public.update_tablesf(:tablename,:id_column,:id_value,:values,:id_staff);");
     updateQuery.bindValue(":tablename",tablename);
-    //updateQuery.bindValue(":id_column",id_ColumnValue.first);
-    //updateQuery.bindValue("id_value",id_ColumnValue.second);
-    updateQuery.bindValue(":values",QJsonDocument(jsonObj).toJson(QJsonDocument::Compact));
+    updateQuery.bindValue(":id_column",id_column);
+    updateQuery.bindValue(":id_value",id_value);
+    updateQuery.bindValue(":values",jsonValue);
+    updateQuery.bindValue(":id_staff",m_userinfo.iD);
     if (!updateQuery.exec()) {
         qDebug() << "Error executing stored procedure:" << updateQuery.lastError();
+        return false;
+    }
+    else
+    {
+        return true;
     }
 }
 
-void MainSQLConnection::insertRecord(const QString &tablename, QVariantList columns, QVariantList values)
+bool MainSQLConnection::insertRecord(const QString &tablename, QVariantList columns, QVariantList values)
 {
     QList<ColumnInfo> columninfolsit;
     QHash<QString,QString> datalist;
@@ -144,18 +162,23 @@ void MainSQLConnection::insertRecord(const QString &tablename, QVariantList colu
     //QString query=QString(R"(SELECT public.insert_into_specialties('8','%2'))").arg(tablename,Json);
     //qDebug()<<query;
     QSqlQuery insertQuery;
-    qDebug()<<m_connection.isOpen();
-    qDebug()<<m_connection.userName();
-    qDebug()<<m_connection.password();
+   // qDebug()<<m_connection.isOpen();
+   // qDebug()<<m_connection.userName();
+   // qDebug()<<m_connection.password();
    insertQuery.prepare(R"(Select public.insert_into_tablesf(:staff_id,:tablename,:columns);)");
    insertQuery.bindValue(":staff_id",m_userinfo.iD);
    insertQuery.bindValue(":tablename",tablename);
    insertQuery.bindValue(":columns",Json);
-    qDebug() << insertQuery.lastQuery();
+  //  qDebug() << insertQuery.lastQuery();
     if (!insertQuery.exec()) {
         qDebug() << "Error executing stored procedure:" << insertQuery.lastError().text();
-        qDebug() << insertQuery.lastQuery();
+    //    qDebug() << insertQuery.lastQuery();
        // QDebug()<<insertQuery.lastQuery();
+        return false;
+    }
+    else
+    {
+        return true;
     }
 }
 
