@@ -18,7 +18,7 @@ Page {
             var tableinfo = tableAccesses[i]
             if (tableinfo.ViewTable) {
                 var tablename = tableinfo.TableName
-                if (String(tablename) !== "Logs" && String(tablename) !=="Logs_Action_Types")
+                if (String(tablename) !== "logs" && String(tablename) !=="logs_action_types")
                 {
                     var tableActionsAccesses = tableinfo.TableActionsAccesses
                     listModel.append({"userinfo":userinfo,"tablename":tablename,"tableaccJson":tableActionsAccesses,"index":index});
@@ -147,7 +147,7 @@ Page {
         if(String(tablename) === "Страница пользователя")
         {
             return adminitartorPageComponent;
-        } else if (String(tablename)==="Jobs")
+        } else if (String(tablename)==="jobs")
         {
             return rolesTableComponent;
         } else
@@ -159,7 +159,7 @@ Page {
     {
         id:rolesTableComponent
 
-        RolesPage
+        RolesTableManipulator
         {
            property string tablename
         }
