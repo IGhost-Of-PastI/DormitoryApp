@@ -10,7 +10,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 qt_add_library(content STATIC)
 
-find_package(Qt6 REQUIRED COMPONENTS Core Gui Qml Quick Sql PrintSupport AxContainer AxServer)
+find_package(Qt6 REQUIRED COMPONENTS Core Gui Qml Quick Sql PrintSupport AxContainer AxServer Charts)
 
 qt6_add_qml_module(content
     URI "content"
@@ -36,6 +36,7 @@ qt6_add_qml_module(content
         SOURCES tablemodel.h tablemodel.cpp
         QML_FILES Table.qml
         QML_FILES RolesTableManipulator.qml
+        SOURCES wordandprint.h wordandprint.cpp
 
 )
 
@@ -48,4 +49,5 @@ target_link_libraries(content PRIVATE
     Qt6::PrintSupport
     Qt6::AxContainer
     Qt6::AxServer
+    Qt6::Charts
 )
