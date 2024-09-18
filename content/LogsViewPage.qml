@@ -7,6 +7,17 @@ Rectangle {
     width: 1920
     height: 1080
 
+    signal requestPop()
+
+    Action
+    {
+        id:aGoBack
+        onTriggered:
+        {
+            requestPop();
+        }
+    }
+
     ToolBar {
         id: toolBar
         anchors.left: parent.left
@@ -190,6 +201,7 @@ Rectangle {
             anchors.leftMargin: 0
             anchors.topMargin: 0
             anchors.bottomMargin: 0
+            onClicked: aGoBack.trigger()
         }
     }
 

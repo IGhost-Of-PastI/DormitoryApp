@@ -7,6 +7,17 @@ Rectangle {
     width: 1920
     height: 1080
 
+    signal requestPop()
+
+    Action
+    {
+        id:aGoBack
+        onTriggered:
+        {
+            requestPop();
+        }
+    }
+
     Action
     {
         id:aExecQuery
@@ -57,6 +68,7 @@ Rectangle {
             anchors.top: parent.top
             anchors.leftMargin: 0
             anchors.topMargin: 0
+            onClicked: aGoBack.trigger()
         }
     }
     TableView

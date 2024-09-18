@@ -23,6 +23,8 @@ Item {
         }
     ]
 
+    signal requestPop()
+
     Action
     {
         id:aSaveBackupSettings
@@ -52,7 +54,8 @@ Item {
         id:aGoBack
         onTriggered:
         {
-
+            requestPop()
+            stackView.pop()
         }
     }
     Action
@@ -129,6 +132,7 @@ Item {
             anchors.leftMargin: 0
             anchors.topMargin: 0
             anchors.bottomMargin: 0
+            onClicked: aGoBack.trigger()
         }
     }
 

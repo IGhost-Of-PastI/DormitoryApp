@@ -15,10 +15,22 @@ Page {
     property var columnValues
     signal dataUpdated_Added(bool success)
 
-  //  onColumnInfoListChanged: {
-  //      populateModel(
-  //                  )
-   // }
+    function populateModel() {
+       // listModel.clear()
+        for (var i = 0; i < columnInfoList.length; i++) {
+            var columnInfo = columnInfoList[i]
+            if (!columnInfo.isPK) {
+             //   listModel.append(columnInfo)
+            } else {
+                pkColumnName = columnInfo.columnName
+            }
+        }
+    }
+
+  onColumnInfoListChanged: {
+        populateModel(
+                    )
+    }
 
     onColumnValuesChanged: {
         updateEditors(
@@ -115,12 +127,12 @@ Page {
         }
     }
 
-    ListModel {
+    /*ListModel {
         id: listModel
-    }
+    }*/
 
 
-    ListView {
+ /*   ListView {
         id: listView
         cacheBuffer: 1500
         anchors.top: parent.top
@@ -134,24 +146,34 @@ Page {
         ScrollBar.vertical: ScrollBar {
             policy: ScrollBar.AsNeeded
         }
+*/
+
+Column{
+    width: parent.width
+    id:nameColumn
+    TextField {
+        id:name
+        placeholderText: "Enter text"
+    }
+}
+      Column{
+          id:descriptionColumn
+          width: parent.width
+          anchors.top: nameColumn.bottom
+          TextField {
+              id:description
+              placeholderText: "Enter text"
+
+          }
+      }
 
 
-
-        TextField {
-            id:name
-            placeholderText: "Enter text"
-            width: parent.width
-        }
-
-        TextField {
-            id:description
-            placeholderText: "Enter text"
-            width: parent.width
-        }
 
         Column {
+
             id:userAccessesPart
-            anchors.fill: parent
+            anchors.top: descriptionColumn.bottom
+             width: parent.width
 
             CheckBox { id: viewLogs; text: "Просмотр логов" }
             CheckBox { id: configureBackups; text: "Управление бэкапами" }
@@ -177,97 +199,124 @@ Page {
                 }
             }
         }
-        Repeater
+        Column
         {
+            anchors.top: userAccessesPart.bottom
+             width: parent.width
+             anchors.bottom: parent.bottom
+             Flickable {
+                 id: flickable
+                 width: parent.width
+                 height: parent.height
+                 contentWidth: parent.width
+                 clip: true
+
+                 Column {
+                     id: contentColumn
+                     width: flickable.width
+
+                     Repeater {
+                         id: tablerepator
+                         model: ListModel {
+                             id: repeatormodel
+                         }
+                         delegate: Column {
+                             width: parent.width
+                             spacing: 10
+
+                             required property string tablename
+
+                             Text { text: tablename }
+                             CheckBox { id: viewtable; text: "Показывать таблицу?" }
+                             Column {
+                                 CheckBox { id: isadd; text: "Разрешить добавление записей?" }
+                                 CheckBox { id: isedit; text: "Разрешить редактирование записей?" }
+                                 CheckBox { id: isdelete; text: "Разрешить удаление записей?" }
+                             }
+
+                             function setData(data) {
+                                 viewtable.checked = data.ViewTable || false;
+                                 isadd.checked = data.TableActionsAccesses.Add || false;
+                                 isedit.checked = data.TableActionsAccesses.Edit || false;
+                                 isdelete.checked = data.TableActionsAccesses.Delete || false;
+                             }
+
+                             function getData() {
+                                 return {
+                                     TableName: tablename,
+                                     ViewTable: viewtable.checked,
+                                     TableActionsAccesses: {
+                                         Add: isadd.checked,
+                                         Edit: isedit.checked,
+                                         Delete: isdelete.checked
+                                     }
+                                 };
+                             }
+                         }
+                     }
+                 }
+
+                 // Привязка высоты контента к высоте колонки
+                 contentHeight: contentColumn.height
+             }
 
         }
-    }
 
-            Component {
-                id: tableAccesses
-                Column {
-                    //required property var modelData
-                    property string tablename
 
-                    Text { text: tablename }
-                    CheckBox { id: viewtable; text: "Показывать таблицу?" }
-                    Column {
-                        CheckBox { id: isadd; text: "Разрешить добавление записей?" }
-                        CheckBox { id: isedit; text: "Разрешить редактирование записей?" }
-                        CheckBox { id: isdelete; text: "Разрешить удаление записей?" }
-                    }
-
-                    function setData(data) {
-                        viewtable.checked = data.ViewTable || false
-                        isadd.checked = data.TableActionsAccesses.Add || false
-                        isedit.checked = data.TableActionsAccesses.Edit || false
-                        isdelete.checked = data.TableActionsAccesses.Delete || false
-                    }
-
-                    function getData() {
-                        var mainAccesses={
-                            //viewtable: viewtable.checked,
-                            Add: isadd.checked,
-                            Edit: isedit.checked,
-                            Delete: isdelete.checked
-                        }
-                        var tableAccesesContainer =
-                        {
-                            TableName:tablename,
-                            ViewTable:viewtable.checked,
-                            TableActionsAccesses:mainAccesses
-                        }
-                        return tableAccesesContainer;
-                    }
-                }
-    }
+  //}
 
             function collectData() {
                 var collectedData = []
 
-                collectData.push({"columnInfo":"name","value":name.text});
-                collectData.push({"columnInfo":"description","value":description.text});
+                collectedData.push({"columnInfo":"name","value":name.text});
+                collectedData.push({"columnInfo":"description","value":description.text});
                 var userAcc= userAccessesPart.getData();
                 var TablesAccs=[];
-                for (var i = 0; i < loadedItems.length; i++) {
-                    var item = loadedItems[i]
+                for (var i = 0; i < tablerepator.count; i++) {
+                    var item = tablerepator.itemAt(i); //loadedItems[i]
                     TablesAccs.push(item.getData());
                 }
                 var FinalJSon={
                     UserAccesses:userAcc,
                     TableAccesses:TablesAccs
                 }
-                collectData().push({"columnInfo":"acceses","value":JSON.stringify(FinalJSon)});
+                collectedData.push({"columnInfo":"acceses","value":JSON.stringify(FinalJSon)});
                 return collectedData
             }
 
     function updateEditors(values) {
-        for (var i = 0; i < loadedItems.length; i++) {
-            var item = loadedItems[i]
-            if (item.columnName === "name")
+        for (var i = 0; i < columnInfoList.length; i++) {
+            var columninfo = columnInfoList[i]
+            var columnNameToFind = columninfo.columnName;
+            var foundItem = values.find(function (item) {
+                return item.columnName === columnNameToFind
+            });
+
+            if (foundItem.columnName === "name")
             {
-                name.text=item.columnValue;
+                name.text=foundItem.columnValue;
             }
-            if (item.columnName === "description")
+            if (foundItem.columnName === "description")
             {
-                description.text=item.columnName;
+                description.text=foundItem.columnName;
             }
-            if (item.columnName==="acceses")
+            if (foundItem.columnName==="acceses")
             {
-                var ParesedJson = JSON.parse(item.columnValue);
+                var ParesedJson = JSON.parse(foundItem.columnValue);
                     userAccessesPart.setData(ParesedJson.UserAccesses);
                 var TablesAccesses=ParesedJson.TableAccesses;
-                for (var j=0;i<tableAccesses.length;j++)
+                for (var j=0;j<tablerepator.count;j++)
                 {
-                    var tableAcc= tableAccesses[j];
-                    var foundItem = loadedItems(function (item){return itme.tablename === tableAcc.TableName; })
-                    foundItem.setData(tableAcc);
+                    var item=tablerepator.itemAt(j);
+                    var findtablename= item.tablename;
+                    var foundItem2= TablesAccesses.find(function(item){return item.TableName === findtablename} );
+                    item.setData(foundItem2);
                 }
             }
-            if(item.columName === "id")
+            if(foundItem.columnName === "id")
             {
-                pkColumnName="id";
-                iDValue=item.columnValue;
+                //pkColumnName="id";
+                iDValue=foundItem.columnValue;
 
             }
         }
@@ -280,11 +329,12 @@ Page {
             var table_name= tables[i];
             if(tablename !== "logs" && tablename !=="logs_action_types")
             {
-                var component = tableAccesses.createObject(listView)
-                component.tablename=table_name;
+                repeatormodel.append({"tablename":table_name});
+                //var component = tableAccesses.createObject(listView)
+                //component.tablename=table_name;
                 //listView.;
                 //listView.addItem(component)
-                loadedItems.push(component);
+                //loadedItems.push(component);
             }
         }
     }

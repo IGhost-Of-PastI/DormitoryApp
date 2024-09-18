@@ -161,7 +161,6 @@ Page {
 
         RolesTableManipulator
         {
-           property string tablename
         }
     }
     Component
