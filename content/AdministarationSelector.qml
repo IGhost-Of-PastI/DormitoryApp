@@ -29,7 +29,6 @@ Page {
             Button {
                 id: viewLogsButton
                 text: qsTr("Просмотр логов")
-                highlighted: false
             }
 
             Button {
