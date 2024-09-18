@@ -136,6 +136,7 @@ Page {
     }
     ListView {
         id: listView
+        cacheBuffer: 1500
         anchors.top: parent.top
         anchors.right: parent.right
         anchors.left: parent.left
@@ -245,6 +246,7 @@ Page {
     Component {
         id: comboBoxComponent
         ComboBox {
+            id:thiscombobox
             property var modelData
             onModelDataChanged: {
                 var modelList = MainSQLConnection.getFKValues(
@@ -286,7 +288,12 @@ Page {
 
             function updateData(value) {
                 console.log("ComboBox updateData called with value: " + value)
-                currentIndex = getComboBoxIndex(columnName, value)
+                for (var i = 0; i < comboboxModel.count; i++) {
+                       if (comboboxModel.get(i).sValue === value) {
+                           currentIndex = i
+                           break
+                       }
+                   }
             }
         }
     }
@@ -426,7 +433,7 @@ Page {
                 }
             }
             function getData() {
-                return grid.selectedDate
+                return grid.selectedDate.toLocaleDateString(Qt.locale(), Locale.ShortFormat);
             }
             function updateData(value) {
                 grid.selectedDate = value
