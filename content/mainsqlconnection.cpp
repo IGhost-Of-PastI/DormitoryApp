@@ -388,7 +388,7 @@ UserInfo MainSQLConnection::autorize(const QString &Login, const QString &Passwo
             userAccJson["ConfigureBackups"]=QJsonValue(true);
             userAccJson["Reports"]=QJsonValue(true);
             userAccJson["FreeQueries"]=QJsonValue(true);
-            userAccJson["ConfigureUser"]=QJsonValue(true);
+           // userAccJson["ConfigureUser"]=QJsonValue(true);
             accJson["UserAccesses"]=userAccJson;
         }
         {
