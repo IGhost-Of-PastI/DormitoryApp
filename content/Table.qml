@@ -94,7 +94,7 @@ Item {
 
         delegate: Row {
             required property bool selected
-            property string tempText: model.display
+            required property var model
             clip: true
 
             Rectangle {
@@ -104,7 +104,7 @@ Item {
                 color: selected ? "blue" : "lightgray"
 
                 Text {
-                    text: tempText
+                    text: model.display
                     anchors.fill: parent
                     //readOnly: true
                 }
