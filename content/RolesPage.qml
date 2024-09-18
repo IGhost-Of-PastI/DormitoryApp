@@ -1,22 +1,24 @@
 import QtQuick
 import QtQuick.Controls
+import content
 
 Page {
 
     id:item1
 
+    //property
     property var loadedItems: []
     property string tablename
     property var columnInfoList
     property var iDValue
-    property var pkColumnInfo
+    property var pkColumnName;
     property var columnValues
     signal dataUpdated_Added(bool success)
 
-    onColumnInfoListChanged: {
-        populateModel(
-                    )
-    }
+  //  onColumnInfoListChanged: {
+  //      populateModel(
+  //                  )
+   // }
 
     onColumnValuesChanged: {
         updateEditors(
@@ -69,7 +71,6 @@ Page {
 
     footer: ToolBar {
         id: rectangle
-        y: 436
         height: 44
         anchors.left: parent.left
         anchors.right: parent.right
@@ -83,9 +84,6 @@ Page {
             anchors.left: parent.left
             anchors.top: parent.top
             anchors.bottom: parent.bottom
-            anchors.leftMargin: 0
-            anchors.topMargin: 0
-            anchors.bottomMargin: 0
             onClicked: {
                 if (item1.state === "addMode") {
                     var data = collectData()
@@ -93,21 +91,11 @@ Page {
                     dataUpdated_Added(addsuccess)
                 } else if (item1.state === "editMode") {
                     var editData = collectData()
-                    var editsuccess= MainSQLConnection.updateRecord(tablename,columnInfoList, editData,pkColumnInfo.columnName,iDValue)
+                    var editsuccess= MainSQLConnection.updateRecord(tablename,columnInfoList, editData,pkColumnName,iDValue)
                     dataUpdated_Added(editsuccess)
                 }
             }
-            function collectData() {
-                var collectedData = []
-                for (var i = 0; i < loadedItems.length; i++) {
-                    var item = loadedItems[i]
-                    collectedData.push({
-                                           "columnInfo": item.modelData.columnName,
-                                           "value": item.getData()
-                                       })
-                }
-                return collectedData
-            }
+
         }
 
         Button {
@@ -134,6 +122,7 @@ Page {
 
     ListView {
         id: listView
+        cacheBuffer: 1500
         anchors.top: parent.top
         anchors.right: parent.right
         anchors.left: parent.left
@@ -146,161 +135,159 @@ Page {
             policy: ScrollBar.AsNeeded
         }
 
-        delegate: Row {
-            id: row
-            required property var modelData
-            width: listView.width
-            height: implicitHeight
 
-            Column {
-                width: parent.width
-                spacing: 5
 
-                Text {
-                    text: modelData.columnName
-                    font.bold: true
-                    wrapMode: Text.Wrap
+        TextField {
+            id:name
+            placeholderText: "Enter text"
+            width: parent.width
+        }
+
+        TextField {
+            id:description
+            placeholderText: "Enter text"
+            width: parent.width
+        }
+
+        Column {
+            id:userAccessesPart
+            anchors.fill: parent
+
+            CheckBox { id: viewLogs; text: "Просмотр логов" }
+            CheckBox { id: configureBackups; text: "Управление бэкапами" }
+            CheckBox { id: reports; text: "Создание отчетов" }
+            CheckBox { id: freeQueres; text: "Произвольные запросы" }
+           // CheckBox { id: configureUser; text: "Настройки пользователя" }
+
+            function setData(data) {
+                viewLogs.checked = data.ViewLogs || false
+                configureBackups.checked = data.ConfigureBackups || false
+                reports.checked = data.Reports || false
+                freeQueres.checked = data.FreeQueries || false
+               // configureUser.checked = data.configureUser || false
+            }
+
+            function getData() {
+                return {
+                    ViewLogs: viewLogs.checked,
+                    ConfigureBackups: configureBackups.checked,
+                    Reports: reports.checked,
+                    FreeQueries: freeQueres.checked,
+                   // ConfigureUser: configureUser.checked
                 }
+            }
+        }
+        Repeater
+        {
 
-                Loader {
-                    id: editorLoader
-                    //property var modelData:row.modelData
-                    width: parent.width
-                    sourceComponent: getEditorComponent(modelData)
-                    onLoaded: {
-                        if (item) {
-                            item.modelData = modelData
-                            loadedItems.push(item)
+        }
+    }
+
+            Component {
+                id: tableAccesses
+                Column {
+                    //required property var modelData
+                    property string tablename
+
+                    Text { text: tablename }
+                    CheckBox { id: viewtable; text: "Показывать таблицу?" }
+                    Column {
+                        CheckBox { id: isadd; text: "Разрешить добавление записей?" }
+                        CheckBox { id: isedit; text: "Разрешить редактирование записей?" }
+                        CheckBox { id: isdelete; text: "Разрешить удаление записей?" }
+                    }
+
+                    function setData(data) {
+                        viewtable.checked = data.ViewTable || false
+                        isadd.checked = data.TableActionsAccesses.Add || false
+                        isedit.checked = data.TableActionsAccesses.Edit || false
+                        isdelete.checked = data.TableActionsAccesses.Delete || false
+                    }
+
+                    function getData() {
+                        var mainAccesses={
+                            //viewtable: viewtable.checked,
+                            Add: isadd.checked,
+                            Edit: isedit.checked,
+                            Delete: isdelete.checked
                         }
+                        var tableAccesesContainer =
+                        {
+                            TableName:tablename,
+                            ViewTable:viewtable.checked,
+                            TableActionsAccesses:mainAccesses
+                        }
+                        return tableAccesesContainer;
                     }
                 }
-            }
-        }
     }
 
-    function getEditorComponent(columnInfo) {
-        if (columnInfo.isPK) {
-            return null // Не создаем элемент редактирования для ключевых колонок
-        } else if (columnInfo.isFK) {
-            return comboBoxComponent
-        }
-    }
+            function collectData() {
+                var collectedData = []
 
-    Component
-    {
-        id: userAccesses
-        Column
-        {
-            anchors.fill: parent
-            CheckBox
-            {
-                id:viewLogs
-                text: "Просмотр логов"
-            }
-            CheckBox
-            {
-                id:configureBackups
-                text:"Управление бэкапами"
-            }
-            CheckBox
-            {
-                id: reports
-                text: "Создание отчетов"
-            }
-            CheckBox
-            {
-                id: freeQueres
-                text: "Произвольные запросы"
-            }
-            CheckBox
-            {
-                id: configureUser
-                text: "Настройки пользователя"
-            }
-            function getData() {
-                return value
-            }
-
-            function updateData(value) {
-                console.log("SpinBox updateData called with value: " + value)
-                value = parseInt(value)
-            }
-        }
-    }
-    Component
-    {
-        id: tableAccesses
-
-        Column
-        {
-           required property string tablename
-            Text
-            {
-                text: tablename
-            }
-            CheckBox
-            {
-                id: viewtable
-                text: "Показывать таблицу?"
-            }
-            Column
-            {
-                CheckBox
-                {
-                    id:isadd
-                    text:"Разрешить добавление записей?"
+                collectData.push({"columnInfo":"name","value":name.text});
+                collectData.push({"columnInfo":"description","value":description.text});
+                var userAcc= userAccessesPart.getData();
+                var TablesAccs=[];
+                for (var i = 0; i < loadedItems.length; i++) {
+                    var item = loadedItems[i]
+                    TablesAccs.push(item.getData());
                 }
-                CheckBox
-                {
-                    id:isedit
-                    text:"Разрешить редактирвоание записей?"
+                var FinalJSon={
+                    UserAccesses:userAcc,
+                    TableAccesses:TablesAccs
                 }
-                CheckBox
-                {
-                    id:isdelete
-                    text:"Разрешить удаление записей?"
-                }
+                collectData().push({"columnInfo":"acceses","value":JSON.stringify(FinalJSon)});
+                return collectedData
             }
-            function getData() {
-                return value
-            }
-
-            function updateData(value) {
-                console.log("SpinBox updateData called with value: " + value)
-                value = parseInt(value)
-            }
-        }
-    }
-
 
     function updateEditors(values) {
         for (var i = 0; i < loadedItems.length; i++) {
             var item = loadedItems[i]
-            var columnNameToFind = item.modelData.columnName
-            var foundItem = values.find(function (item) {
-                return item.columnName === columnNameToFind
-            });
-            item.updateData(foundItem.columnValue)
-        }
-        var column = values.find(function (item) {
-            return item.columnName === pkColumnInfo.columnName
-        });
-        iDValue = column.columnValue;
-    }
+            if (item.columnName === "name")
+            {
+                name.text=item.columnValue;
+            }
+            if (item.columnName === "description")
+            {
+                description.text=item.columnName;
+            }
+            if (item.columnName==="acceses")
+            {
+                var ParesedJson = JSON.parse(item.columnValue);
+                    userAccessesPart.setData(ParesedJson.UserAccesses);
+                var TablesAccesses=ParesedJson.TableAccesses;
+                for (var j=0;i<tableAccesses.length;j++)
+                {
+                    var tableAcc= tableAccesses[j];
+                    var foundItem = loadedItems(function (item){return itme.tablename === tableAcc.TableName; })
+                    foundItem.setData(tableAcc);
+                }
+            }
+            if(item.columName === "id")
+            {
+                pkColumnName="id";
+                iDValue=item.columnValue;
 
-    function populateModel() {
-        listModel.clear()
-        for (var i = 0; i < columnInfoList.length; i++) {
-            var columnInfo = columnInfoList[i]
-            if (!columnInfo.isPK) {
-                listModel.append(columnInfo)
-            } else {
-                pkColumnInfo = columnInfo
             }
         }
     }
 
-
+    Component.onCompleted: {
+        var tables= MainSQLConnection.getAllTables();
+        for (var i=0;i<tables.length;i++)
+        {
+            var table_name= tables[i];
+            if(tablename !== "logs" && tablename !=="logs_action_types")
+            {
+                var component = tableAccesses.createObject(listView)
+                component.tablename=table_name;
+                //listView.;
+                //listView.addItem(component)
+                loadedItems.push(component);
+            }
+        }
+    }
 
 
 }

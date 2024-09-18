@@ -175,7 +175,7 @@ Page {
             clip: true
             tablename: rectangleMain.tablename
         }
-        EditorElement {
+        RolesPage {
             id: editorElement
             tablename:rectangleMain.tablename
             state: "closed"
