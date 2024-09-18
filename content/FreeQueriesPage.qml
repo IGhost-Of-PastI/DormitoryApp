@@ -1,5 +1,6 @@
-import QtQuick 2.15
-import QtQuick.Controls 2.15
+import QtQuick
+import QtQuick.Controls
+import content
 
 Rectangle {
     id: rectangle
@@ -28,7 +29,7 @@ Rectangle {
 
         TextArea {
             id: textField
-            anchors.left: parent.left
+            anchors.left: toolButton1.right
             anchors.top: parent.top
             anchors.bottom: parent.bottom
             anchors.leftMargin: 0
@@ -48,6 +49,15 @@ Rectangle {
             anchors.bottomMargin: 0
             onClicked: aExecQuery
         }
+
+        ToolButton {
+            id: toolButton1
+            text: qsTr("Назад")
+            anchors.left: parent.left
+            anchors.top: parent.top
+            anchors.leftMargin: 0
+            anchors.topMargin: 0
+        }
     }
     TableView
     {
@@ -56,10 +66,10 @@ Rectangle {
         anchors.right: parent.right
         anchors.top: toolBar.bottom
         anchors.bottom: parent.bottom
-        anchors.leftMargin: 0
-        anchors.rightMargin: 0
-        anchors.topMargin: 0
-        anchors.bottomMargin: 0
+        model: TableModel
+        {
+
+        }
 
     }
 }
