@@ -1,5 +1,19 @@
 #include "tablemodel.h"
 
+QString TableModel::setQuery(QString query)
+{
+   // this->
+    this->setQuery(query);
+    if (!this->select()) {
+        return this->lastError().text();
+        //qDebug()<< this->query().lastQuery();
+    }
+    else
+    {
+        return "";
+    }
+}
+
 void TableModel::setFilterQML(QString column, QString value)
 {
     QString filter ="";

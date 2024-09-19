@@ -55,6 +55,7 @@ public:
 
     }
 
+    Q_INVOKABLE QString setQuery(QString query);
     Q_INVOKABLE void setFilterQML(QString column, QString value);
     Q_INVOKABLE void setSortQML(QString column,SortEnum sortorder);
 
