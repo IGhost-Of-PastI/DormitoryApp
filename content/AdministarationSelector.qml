@@ -103,7 +103,7 @@ Page {
         id:selector
         Column {
             id: column
-            anchors.fill: parent
+        //    anchors.fill: parent
             clip: false
             spacing: 5
 

@@ -3,11 +3,15 @@ import QtQuick.Controls 2.15
 import Qt.labs.settings
 import QtQuick.Dialogs
 import Qt.labs.folderlistmodel
+import content
 
 Item {
     id: item1
-    width: 1920
-    height: 1080
+
+    BackupActions
+    {
+        id: backupActions
+    }
 
     states: [
         State {
@@ -30,11 +34,17 @@ Item {
         id:aSaveBackupSettings
         onTriggered:
         {
-            backupSettings.path=backupFolderPath.text
-            backupSettings.shedule=howOften.value
+            var date=new Date();
+            date.setHours(hours.value);
+            date.setMinutes(minutes.value);
+            date.setSeconds(0);
+            backupSettings.path=backupFolderPath.text;
+            backupSettings.shedule=howOften.value;
+            backupSettings.startTime=date.toTimeString();
+            //backupSettings.startTime=hours.value+":"+minutes.value;
             backupSettings.sync()
             backupFolderPath.state="NoChanges"
-            howOften.value="NoChanges"
+            howOften.state="NoChanges"
         }
     }
     Action
@@ -63,7 +73,7 @@ Item {
         id:aDoBackup
         onTriggered:
         {
-
+            backupActions.doBackup();
         }
     }
     Action
@@ -74,17 +84,33 @@ Item {
 
         }
     }
+    Action
+    {
+        id:aSetBackupTask
+        onTriggered:
+        {
+            backupActions.setTaskToBackup()
+        }
+    }
+    Action
+    {
+        id:aDeleteTask
+        onTriggered:
+        {
+            backupActions.deleteTaskToBackup()
+        }
+    }
 
     Settings
     {
         id:databaseInfo
         category: "DatabaseInfo"
         fileName: "settings.ini"
-        property string user
-        property string password
-        property string host
-        property int port
-        property string database
+        property string user : "postgres"
+        property string password:"masterkey"
+        property string host:"localhost"
+        property int port:5432
+        property string database:"Dormitory"
     }
 
     Settings
@@ -94,7 +120,7 @@ Item {
         fileName: "settings.ini"
         property string path
         property int shedule
-        property date startTime
+        property string startTime
     }
 
     ToolBar {
@@ -102,24 +128,6 @@ Item {
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.top: parent.top
-        anchors.leftMargin: 0
-        anchors.rightMargin: 0
-        anchors.topMargin: 0
-
-        ToolButton {
-            id: toolButton1
-            x: 265
-            y: -222
-            text: qsTr("Открыть")
-            anchors.right: parent.right
-            anchors.top: parent.top
-            anchors.bottom: parent.bottom
-            anchors.rightMargin: 0
-            anchors.topMargin: 0
-            anchors.bottomMargin: 0
-            visible: false
-            // onClicked: backupOptions.open()
-        }
 
         ToolButton {
             id: goBackButton
@@ -129,9 +137,6 @@ Item {
             anchors.left: parent.left
             anchors.top: parent.top
             anchors.bottom: parent.bottom
-            anchors.leftMargin: 0
-            anchors.topMargin: 0
-            anchors.bottomMargin: 0
             onClicked: aGoBack.trigger()
         }
     }
@@ -147,9 +152,10 @@ Item {
         clip: true
         // visible: false
 
-
-        Rectangle
+        Column
         {
+            anchors.topMargin: 20
+            spacing: 10
             id: optionsPanel
             clip: true
             //  height: splitView.height/2
@@ -159,85 +165,93 @@ Item {
             // anchors.left:parent.left
 
             //Folder editor
-            TextField {
-                id: backupFolderPath
-                x: 62
-                y: 19
-                width: 530
-                height: 56
-                readOnly: true
-                text: backupSettings.path
-                placeholderText: qsTr("Главная директория бэкапов")
-
-                FolderDialog
-                {
-                    id:folderDialog
-                    currentFolder: backupFolderPath.text;
-                    onAccepted: backupFolderPath.text=currentFolder
+            Row
+            {
+                x:20
+                anchors.topMargin: 20
+                spacing: 10
+                TextField {
+                    id: backupFolderPath
+                    width: 530
+                    height: 56
+                    readOnly: true
+                    text: backupSettings.path
+                    placeholderText: qsTr("Главная директория бэкапов")
                 }
 
                 Button {
                     id: openPath
-                    x: 547
-                    y: 2
                     text: qsTr("Открыть")
                     onClicked: folderDialog.open();
+                    FolderDialog
+                    {
+                        id:folderDialog
+                        currentFolder: backupFolderPath.text;
+                        onAccepted: backupFolderPath.text=currentFolder
+                    }
                 }
             }
 
-            Button {
-                id: saveBackupSettingsButton
-                x: 62
-                y: 189
-                text: qsTr("Сохрнаить")
-                onClicked: aSaveBackupSettings.trigger()
-            }
-
-            Button {
-                id: restoreBackupSettings
-                x: 239
-                y: 189
-                text: qsTr("Сброс")
-                onClicked: aResetSettings
-
-            }
-
-            SpinBox {
-                id: howOften
-                x: 285
-                y: 102
-                value: backupSettings.shedule
+            Row
+            {
+                x:20
+                spacing: 10
                 Label {
                     id: label
-                    x: -427
-                    width: 219
                     text: qsTr("Раз во сколько дней:")
-                    anchors.right: parent.left
-                    anchors.top: parent.top
-                    anchors.bottom: parent.bottom
-                    anchors.rightMargin: 0
-                    anchors.topMargin: 0
-                    anchors.bottomMargin: 0
+                    verticalAlignment: Text.AlignVCenter
+                    font.pointSize: 16
+                    //anchors.verticalCenter: parent
+                }
+                SpinBox {
+                    id: howOften
+                    value: backupSettings.shedule
+                    from: 1
+                }
+            }
+
+
+
+            Row
+            {
+                x:20
+                spacing: 10
+
+                Label {
+                    id: startTime
+                    text: qsTr("Восколькуо начинать:")
                     verticalAlignment: Text.AlignVCenter
                     font.pointSize: 16
                 }
-                from: 1
-            }
 
-            SpinBox {
-                id: spinBox
-                x: 98
-                y: 279
-                from: 0
-                to:23
-            }
+                SpinBox {
+                    id: hours
+                    from: 0
+                    to:23
+                }
 
-            SpinBox {
-                id: spinBox1
-                x: 257
-                y: 279
-                from:0
-                to:59
+                SpinBox {
+                    id: minutes
+                    from:0
+                    to:59
+                }
+            }
+            Row
+            {
+                x:20
+                spacing: 10
+                Button {
+                    id: saveBackupSettingsButton
+                    text: qsTr("Сохрнаить")
+                    onClicked: aSaveBackupSettings.trigger()
+                }
+
+                Button {
+                    id: restoreBackupSettings
+                    text: qsTr("Сброс")
+                    onClicked: aResetSettings
+
+                }
             }
         }
         Rectangle
@@ -252,15 +266,10 @@ Item {
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.top: parent.top
-                anchors.leftMargin: 0
-                anchors.rightMargin: 0
-                anchors.topMargin: 0
                 clip: true
 
                 ToolButton {
                     id: doBackupButton
-                    x: 0
-                    y: 0
                     text: qsTr("Сделать бэкап")
                     onClicked: aDoBackup.trigger()
                 }
@@ -270,10 +279,45 @@ Item {
                     anchors.left: doBackupButton.right
                     anchors.top: parent.top
                     anchors.bottom: parent.bottom
-                    anchors.leftMargin: 0
-                    anchors.topMargin: 0
-                    anchors.bottomMargin: 0
                     onClicked: aDeleteBackupFile.trigger()
+                }
+                Row
+                {
+                    anchors.top: parent
+                    anchors.bottom: parent
+                    anchors.left: deleteBackupFileButton.right
+                    ToolButton {
+                        id: setBackupTaskButton
+                        height: parent.height
+                        text: qsTr("Установить задачу на бэкапы")
+                        onClicked: aSetBackupTask.trigger()
+                    }
+                    ToolButton {
+                        id: deleteBackupTaskButton
+                        text: qsTr("Удалить задачу на бэкапы")
+                        anchors.left: deleteBackupFileButton.right
+                        onClicked: aDeleteTask.trigger()
+                    }
+                    Label {
+                        id: taskStatus
+                        property bool isActived:backupActions.isTaskActive;
+                        onIsActivedChanged:
+                        {
+                          if (isActived)
+                          {
+                             text="Задача активана";
+                              color="green";
+                          }
+                          else
+                          {
+                              text="Задача не активна";
+                              color="red";
+                          }
+                        }
+                        text: qsTr("Задача бэкапа:")
+                        verticalAlignment: Text.AlignVCenter
+                        font.pointSize: 16
+                    }
                 }
             }
 
