@@ -9,6 +9,8 @@ Item {
         model.select();
     }
 
+    signal rowSelected
+
     property string tablename
     property int currentSelected
     property alias tableModel:model
