@@ -1,13 +1,26 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 //import Qt.labs.calendar
+import content
 
 Rectangle {
     id: rectangle
-    width: 1920
-    height: 1080
-
+    //width: 1920
+    //height: 1080
+    anchors.fill:parent
     signal requestPop()
+
+    Component.onCompleted:
+    {
+        logsView.tablename="logs"
+
+        var filtercolumns = MainSQLConnection.getAllColumns("logs");
+        for (var i = 0;i<filtercolumns.length;i++)
+        {
+            searchModel.append({"display":filtercolumns[i]});
+            sortModel.append({"display":filtercolumns[i]});
+        }
+    }
 
     Action
     {
@@ -36,7 +49,11 @@ Rectangle {
         ComboBox
         {
             id:searchColumnCB
-            model:searchModel
+            model:ListModel
+            {
+                id:searchModel
+            }
+
             anchors.left: fieldSearch.right
             anchors.top: parent.top
             anchors.bottom: parent.bottom
@@ -62,7 +79,11 @@ Rectangle {
 
         ComboBox {
             id: sortColumn
-            model:sortModel
+            model:ListModel
+            {
+                id:sortModel
+            }
+
             anchors.left: toolSeparator1.right
             anchors.top: parent.top
             anchors.bottom: parent.bottom
@@ -103,57 +124,9 @@ Rectangle {
             anchors.leftMargin: 0
             title: qsTr("Выборка по дате:")
 
-            CheckBox {
-                id: checkBox
-                x: 146
-                y: -19
-                text: qsTr("Использовать")
-            }
-
-            SpinBox {
-                id: hours
-                x: 78
-                y: 18
-                height:30
-                width:100
-
-                from: 0
-                to:23
-            }
-
-            SpinBox {
-                id: minutes
-                x: 184
-                y: 18
-                height:30
-                width:100
-
-                from:0
-                to:59
-            }
-
-            SpinBox {
-                id: hours1
-                x: 78
-                y: 54
-
-                width:100
-                height:30
-
-                to: 23
-                from: 0
-            }
-
-            SpinBox {
-                id: minutes1
-                x: 184
-                y: 54
-
-                width:100
-                height:30
-
-                to: 59
-                from: 0
+            Calendar_TimeFilter
+            {
+                id:calendarTime
             }
         }
 
@@ -173,7 +146,6 @@ Rectangle {
 
         ToolSeparator {
             id: toolSeparator
-            anchors.left: sortOrder.right
             anchors.top: parent.top
             anchors.bottom: parent.bottom
             anchors.leftMargin: 0
@@ -228,6 +200,7 @@ Rectangle {
 
             Label
             {
+                id:label1
                 text: "Список логов"
                 anchors.left: parent.left
                 anchors.right: parent.right
@@ -237,15 +210,13 @@ Rectangle {
                 height:40
             }
 
-            TableView
+            Table
             {
+                id:logsView
                 anchors.left: parent.left
                 anchors.right: parent.right
-                anchors.top: parent.top
-                anchors.leftMargin: 0
-                anchors.rightMargin: 1920
-                anchors.topMargin: 0
-
+                anchors.top: label1.bottom
+                anchors.bottom: parent.bottom
             }
         }
         Rectangle
