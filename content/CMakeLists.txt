@@ -37,6 +37,9 @@ qt6_add_qml_module(content
         QML_FILES Table.qml
         QML_FILES RolesTableManipulator.qml
         SOURCES wordandprint.h wordandprint.cpp
+        QML_FILES EditorElements/Calendar_TimeFilter.qml
+        QML_FILES EditorElements/CustomCalendar.qml
+        QML_FILES UsefullFunctions.js
 
 )
 
