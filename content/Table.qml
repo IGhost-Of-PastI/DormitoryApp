@@ -35,6 +35,10 @@ Item {
         syncView: tableview
         boundsBehavior: Flickable.StopAtBounds
         clip: true
+        delegate: ItemDelegate
+        {
+ text:model.display
+        }
     }
 
     VerticalHeaderView {
@@ -46,20 +50,18 @@ Item {
         syncView: tableview
         clip: true
         boundsBehavior: Flickable.StopAtBounds
-        delegate: ItemDelegate {
-            width: verticalHeader.width
-            height: 40
-            text: model.display
-
+        delegate: ItemDelegate
+        {
+            text:model.display
             MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                    tableview.selectionModel.clearSelection()
-                    tableview.selectionModel.select(
-                                tableview.model.index(index, 0),
-                                ItemSelectionModel.Rows | ItemSelectionModel.Select)
-                    currentSelected=index
-                }
+                            anchors.fill: parent
+                            onClicked: {
+                                tableview.selectionModel.clearSelection()
+                                tableview.selectionModel.select(
+                                            tableview.model.index(index, 0),
+                                            ItemSelectionModel.Rows | ItemSelectionModel.Select)
+                                currentSelected=index
+                            }
             }
         }
     }
@@ -79,6 +81,12 @@ Item {
         boundsBehavior: Flickable.StopAtBounds
         resizableColumns: true
 
+        selectionMode: TableView.SingleSelection
+        selectionBehavior: TableView.SelectRows
+        selectionModel: ItemSelectionModel {
+            model: tableview.model
+        }
+
         ScrollBar.horizontal: ScrollBar {
             policy:"AsNeeded"
         }
@@ -86,31 +94,20 @@ Item {
             policy: "AsNeeded"
         }
 
-        selectionModel: ItemSelectionModel {
-            model: tableview.model
-        }
+
         model: TableModel {
             id: model
             tablename: root.tablename
+
         }
 
-        delegate: Row {
-            required property bool selected
-            required property var model
-            clip: true
-
-            Rectangle {
-
-                implicitHeight: parent.height
-                implicitWidth: parent.width
-                color: selected ? "blue" : "lightgray"
-
-                Text {
-                    text: model.display
-                    anchors.fill: parent
-                    //readOnly: true
-                }
-            }
+        delegate: ItemDelegate
+        {
+            required property var model;
+            required property bool selected;
+            required property bool current;
+            highlighted:selected
+            text: model.display
         }
     }
 }
