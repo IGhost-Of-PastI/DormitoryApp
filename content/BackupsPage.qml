@@ -186,8 +186,24 @@ Item {
                     FolderDialog
                     {
                         id:folderDialog
+
                         currentFolder: backupFolderPath.text;
-                        onAccepted: backupFolderPath.text=currentFolder
+                        onAccepted:
+                        {
+                            const url = require('url');
+                            const path = require('path');
+
+                            var uri = currentFolder;
+                            backupFolderPath.text= url.fileURLToPath(uri);
+
+                            //var path = currentFolder
+                            //path.substrign
+                                    // Убираем префикс file:///
+                            // path = path.substring(8);
+                                    // Декодируем URL
+                            //        path = decodeURIComponent(path)
+                            //        backupFolderPath.text = path
+                        }
                     }
                 }
             }
