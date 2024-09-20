@@ -12,7 +12,7 @@ Page {
         var tableAccesses = AccessesJson.TableAccesses
         var jsonArray = tableAccesses
 
-        listModel.append({"userinfo":userinfo,"tablename":"Страница пользователя","tableaccJson":null,"index":0});
+        listModel.append({"userinfo":userinfo,"tablename":"Страница пользователя","tableaccJson":{},"index":0});
         var index=1;
         for (var i = 0; i < jsonArray.length; i++) {
             var tableinfo = tableAccesses[i]
