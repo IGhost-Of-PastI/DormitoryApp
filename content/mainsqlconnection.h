@@ -56,7 +56,9 @@ class SQLConnectionMenager
 {
     SQLConnectionMenager() = delete;
 public:
-    static QSqlDatabase& getConnection();;
+    void SuspendConnection();
+    void ResumeConnection();
+    static QSqlDatabase& getConnection();
 private:
    inline static QSqlDatabase* m_connection =nullptr;
 };

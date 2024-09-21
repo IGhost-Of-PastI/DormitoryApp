@@ -217,6 +217,39 @@ Rectangle {
                 anchors.right: parent.right
                 anchors.top: label1.bottom
                 anchors.bottom: parent.bottom
+                onSelectionChanged:(selectedIndex) =>{
+                                    var row =  logsView.getSelectedRowData();
+                                    var actionType=row.id_action_type;
+                                    var jsonActions=JSON.parse(row.action_description);
+                                    var table_name= jsonActions.table;
+                                    var details;
+                                       switch (actionType)
+                                       {
+                                           case "Изменения в таблице":
+                                                details=jsonActions.changes;
+                                           break;
+                                           case "Добавление в таблице":
+                                           details=jsonActions.inserted;
+                                           break;
+                                           case "Удаление из таблицы":
+                                           details=jsonActions.deleted;
+                                           break;
+                                           default:
+                                       }
+                                       if (details.length > 0) {
+                                                   var keys = Object.keys(details[0]);
+                                                   // Add column names to the model
+                                                   for (var i = 0; i < keys.length; i++) {
+                                                       listModel.append({ "column": keys[i], "value": keys[i] });
+                                                   }
+                                                   // Add values to the model
+                                                   for (var j = 0; j < details.length; j++) {
+                                                       for (var k = 0; k < keys.length; k++) {
+                                                           listModel.append({ "column": keys[k], "value": details[j][keys[k]] });
+                                                       }
+                                                   }
+                                               }
+                                   }
             }
         }
         Rectangle
@@ -239,14 +272,31 @@ Rectangle {
                 height:40
             }
 
-            TableView
+            ListView
             {
+                id:listChanges
+                model:ListModel
+                {
+                    id:listModel
+                }
+
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.top: parent.top
-                anchors.leftMargin: 0
-                anchors.rightMargin: 1920
-                anchors.topMargin: 0
+                Item {
+                            width: parent.width
+                            height: 50
+                            Row {
+                                Repeater {
+                                    model: listModel.get(0).columns // Используем названия колонок из первого элемента
+                                    Text { text: modelData }
+                                }
+                                Repeater {
+                                    model: Object.keys(model) // Используем данные из текущего элемента
+                                    Text { text: model[modelData] }
+                                }
+                            }
+                        }
 
             }
         }

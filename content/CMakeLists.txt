@@ -40,6 +40,8 @@ qt6_add_qml_module(content
         QML_FILES EditorElements/Calendar_TimeFilter.qml
         QML_FILES EditorElements/CustomCalendar.qml
         QML_FILES UsefullFunctions.js
+        SOURCES additionalfunctions.h additionalfunctions.cpp
+        SOURCES querytablemodel.h querytablemodel.cpp
 
 )
 

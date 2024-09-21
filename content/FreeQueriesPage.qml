@@ -30,7 +30,7 @@ Rectangle {
         id:aExecQuery
         onTriggered:
         {
-           var result= tableModel.setQuery(textField.text);
+           var result= tableModel.setTableQuery(textField.text);
             if(result !== "")
             {
                 messageDialog.text="Ошибка "+result;
@@ -76,7 +76,7 @@ Rectangle {
         anchors.right: parent.right
         anchors.top: toolBar.bottom
         anchors.bottom: parent.bottom
-        model: TableModel
+        model: QueryTableModel
         {
             id:tableModel
          //   tablename:"logs"

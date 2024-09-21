@@ -9,22 +9,28 @@ Item {
         model.select();
     }
 
-    signal rowSelected
+    signal selectionChanged(int newIndex)
 
     property string tablename
     property int currentSelected
     property alias tableModel:model
 
     function getSelectedRowData() {
-        var rowData = []
-        for (var i = 0; i < tableview.columns; i++) {
-            var headerText = tableview.model.headerData(i,Qt.Horizontal,0);
-            var cellValue = tableview.model.data(tableview.model.index(currentSelected, i))
-            rowData.push({columnName:headerText,columnValue:cellValue});
+        var rowData = [];
+        if (currentSelected !== undefined && currentSelected !== -1) {
+            for (var i = 0; i < tableview.columns; i++) {
+                var headerText = tableview.model.headerData(i, Qt.Horizontal, 0);
+                var cellValue = tableview.model.data(tableview.model.index(currentSelected, i));
+                rowData.push({ columnName: headerText, columnValue: cellValue });
+            }
+            console.log(rowData);
+            return rowData;
+        } else {
+            console.log("No row is selected.");
+            return null;
         }
-        console.log(rowData)
-        return rowData;
     }
+
 
     HorizontalHeaderView {
         id: horizontalHeader
@@ -61,10 +67,26 @@ Item {
                                             tableview.model.index(index, 0),
                                             ItemSelectionModel.Rows | ItemSelectionModel.Select)
                                 currentSelected=index
+                                if (currentSelected !== -1) {
+                                    console.log("Selection changed, new row selected:", currentSelected)
+                                    // Emit your custom signal here
+                                    root.selectionChanged(currentSelected)
+                                }
                             }
             }
         }
     }
+
+    /*Connections {
+        target: tableview.selectionModel
+        onCurrentRowChanged: {
+            if (currentSelected !== -1) {
+                console.log("Selection changed, new row selected:", currentSelected)
+                // Emit your custom signal here
+                root.selectionChanged(currentSelected)
+            }
+        }
+    }*/
 
     TableView {
         id: tableview
@@ -85,6 +107,7 @@ Item {
         selectionBehavior: TableView.SelectRows
         selectionModel: ItemSelectionModel {
             model: tableview.model
+            id:selectionModel
         }
 
         ScrollBar.horizontal: ScrollBar {

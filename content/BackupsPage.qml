@@ -190,11 +190,7 @@ Item {
                         currentFolder: backupFolderPath.text;
                         onAccepted:
                         {
-                            const url = require('url');
-                            const path = require('path');
-
-                            var uri = currentFolder;
-                            backupFolderPath.text= url.fileURLToPath(uri);
+                            backupFolderPath.text= AdditionalFunctions.uriToFileSysPath(currentFolder);
 
                             //var path = currentFolder
                             //path.substrign
