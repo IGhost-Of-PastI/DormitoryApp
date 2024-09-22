@@ -3,34 +3,36 @@ import QtQuick.Controls
 import content
 
 Item {
-    id:root
-    function refresh()
-    {
-        model.select();
+    id: root
+    function refresh() {
+        model.select()
     }
 
     signal selectionChanged(int newIndex)
 
     property string tablename
     property int currentSelected
-    property alias tableModel:model
+    property alias tableModel: model
 
     function getSelectedRowData() {
-        var rowData = [];
+        var rowData = []
         if (currentSelected !== undefined && currentSelected !== -1) {
             for (var i = 0; i < tableview.columns; i++) {
-                var headerText = tableview.model.headerData(i, Qt.Horizontal, 0);
-                var cellValue = tableview.model.data(tableview.model.index(currentSelected, i));
-                rowData.push({ columnName: headerText, columnValue: cellValue });
+                var headerText = tableview.model.headerData(i, Qt.Horizontal, 0)
+                var cellValue = tableview.model.data(tableview.model.index(
+                                                         currentSelected, i))
+                rowData.push({
+                                 "columnName": headerText,
+                                 "columnValue": cellValue
+                             })
             }
-            console.log(rowData);
-            return rowData;
+            console.log(rowData)
+            return rowData
         } else {
-            console.log("No row is selected.");
-            return null;
+            console.log("No row is selected.")
+            return null
         }
     }
-
 
     HorizontalHeaderView {
         id: horizontalHeader
@@ -41,9 +43,8 @@ Item {
         syncView: tableview
         boundsBehavior: Flickable.StopAtBounds
         clip: true
-        delegate: ItemDelegate
-        {
- text:model.display
+        delegate: ItemDelegate {
+            text: model.display
         }
     }
 
@@ -56,26 +57,27 @@ Item {
         syncView: tableview
         clip: true
         boundsBehavior: Flickable.StopAtBounds
-        delegate: ItemDelegate
-        {
-            text:model.display
+        delegate: ItemDelegate {
+            text: model.display
             MouseArea {
-                            anchors.fill: parent
-                            onClicked: {
-                                tableview.selectionModel.clearSelection()
-                                tableview.selectionModel.select(
-                                            tableview.model.index(index, 0),
-                                            ItemSelectionModel.Rows | ItemSelectionModel.Select)
-                                currentSelected=index
-                                if (currentSelected !== -1) {
-                                    console.log("Selection changed, new row selected:", currentSelected)
-                                    // Emit your custom signal here
-                                    root.selectionChanged(currentSelected)
-                                }
-                            }
+                anchors.fill: parent
+                onClicked: {
+                    tableview.selectionModel.clearSelection()
+                    tableview.selectionModel.select(
+                                tableview.model.index(index, 0),
+                                ItemSelectionModel.Rows | ItemSelectionModel.Select)
+                    currentSelected = index
+                    if (currentSelected !== -1) {
+                        console.log("Selection changed, new row selected:",
+                                    currentSelected)
+                        // Emit your custom signal here
+                        root.selectionChanged(currentSelected)
+                    }
+                }
             }
         }
     }
+
 
     /*Connections {
         target: tableview.selectionModel
@@ -87,7 +89,6 @@ Item {
             }
         }
     }*/
-
     TableView {
         id: tableview
 
@@ -107,29 +108,26 @@ Item {
         selectionBehavior: TableView.SelectRows
         selectionModel: ItemSelectionModel {
             model: tableview.model
-            id:selectionModel
+            id: selectionModel
         }
 
         ScrollBar.horizontal: ScrollBar {
-            policy:"AsNeeded"
+            policy: "AsNeeded"
         }
         ScrollBar.vertical: ScrollBar {
             policy: "AsNeeded"
         }
 
-
         model: TableModel {
             id: model
             tablename: root.tablename
-
         }
 
-        delegate: ItemDelegate
-        {
-            required property var model;
-            required property bool selected;
-            required property bool current;
-            highlighted:selected
+        delegate: ItemDelegate {
+            required property var model
+            required property bool selected
+            required property bool current
+            highlighted: selected
             text: model.display
         }
     }
