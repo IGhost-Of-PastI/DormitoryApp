@@ -178,7 +178,7 @@ Column{
             CheckBox { id: viewLogs; text: "Просмотр логов" }
             CheckBox { id: configureBackups; text: "Управление бэкапами" }
             CheckBox { id: reports; text: "Создание отчетов" }
-            CheckBox { id: freeQueres; text: "Произвольные запросы" }
+           // CheckBox { id: freeQueres; text: "Произвольные запросы" }
            // CheckBox { id: configureUser; text: "Настройки пользователя" }
 
             function setData(data) {
@@ -194,7 +194,7 @@ Column{
                     ViewLogs: viewLogs.checked,
                     ConfigureBackups: configureBackups.checked,
                     Reports: reports.checked,
-                    FreeQueries: freeQueres.checked,
+                    //FreeQueries: freeQueres.checked,
                    // ConfigureUser: configureUser.checked
                 }
             }
