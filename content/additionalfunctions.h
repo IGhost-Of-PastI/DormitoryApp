@@ -13,6 +13,7 @@ class AdditionalFunctions : public QObject
 public:
     explicit AdditionalFunctions(QObject *parent = nullptr);
 
+    Q_INVOKABLE QString fileSysPathtoURL(QString path);
     Q_INVOKABLE QString uriToFileSysPath(QUrl uri);
 signals:
 };
