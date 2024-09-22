@@ -91,11 +91,14 @@ Page {
             onClicked: {
                 if (item1.state === "addMode") {
                     var data = collectData()
-                    var addsuccess= MainSQLConnection.insertRecord(tablename,columnInfoList, data)
+                    var addsuccess = MainSQLConnection.insertRecord(
+                                tablename, columnInfoList, data)
                     dataUpdated_Added(addsuccess)
                 } else if (item1.state === "editMode") {
                     var editData = collectData()
-                    var editsuccess= MainSQLConnection.updateRecord(tablename,columnInfoList, editData,pkColumnInfo.columnName,iDValue)
+                    var editsuccess = MainSQLConnection.updateRecord(
+                                tablename, columnInfoList, editData,
+                                pkColumnInfo.columnName, iDValue)
 
                     dataUpdated_Added(editsuccess)
                 }
@@ -246,7 +249,7 @@ Page {
     Component {
         id: comboBoxComponent
         ComboBox {
-            id:thiscombobox
+            id: thiscombobox
             property var modelData
             onModelDataChanged: {
                 var modelList = MainSQLConnection.getFKValues(
@@ -283,19 +286,19 @@ Page {
                 }
             }
             function getData() {
-                 if (currentIndex !== -1) {
-                  return comboboxModel.get(currentIndex).pKValue
-                 }
+                if (currentIndex !== -1) {
+                    return comboboxModel.get(currentIndex).pKValue
+                }
             }
 
             function updateData(value) {
                 console.log("ComboBox updateData called with value: " + value)
                 for (var i = 0; i < comboboxModel.count; i++) {
-                       if (comboboxModel.get(i).sValue === value) {
-                           currentIndex = i
-                           break
-                       }
-                   }
+                    if (comboboxModel.get(i).sValue === value) {
+                        currentIndex = i
+                        break
+                    }
+                }
             }
         }
     }
@@ -316,107 +319,136 @@ Page {
             }
         }
     }
-    Component
-    {
+    Component {
         id: accessesComponent
-        Column
-        {
+        Column {
             property var modelData
             anchors.top: userAccessesPart.bottom
-             width: parent.width
-             anchors.bottom: parent.bottom
-             Flickable {
-                 id: flickable
-                 width: parent.width
-                 height: parent.height
-                 contentWidth: parent.width
-                 clip: true
+            width: parent.width
+            anchors.bottom: parent.bottom
+            Flickable {
+                id: flickable
+                width: parent.width
+                height: parent.height
+                contentWidth: parent.width
+                clip: true
 
-                 Column {
+                Column {
 
-                     id:userAccessesPart
-                     anchors.top: descriptionColumn.bottom
-                      width: flickable.width
+                    id: userAccessesPart
+                    anchors.top: descriptionColumn.bottom
+                    width: flickable.width
 
-                     CheckBox { id: viewLogs; text: "Просмотр логов" }
-                     CheckBox { id: configureBackups; text: "Управление бэкапами" }
-                     CheckBox { id: reports; text: "Создание отчетов" }
-                     CheckBox { id: freeQueres; text: "Произвольные запросы" }
+                    CheckBox {
+                        id: viewLogs
+                        text: "Просмотр логов"
+                    }
+                    CheckBox {
+                        id: configureBackups
+                        text: "Управление бэкапами"
+                    }
+                    CheckBox {
+                        id: reports
+                        text: "Создание отчетов"
+                    }
+                    CheckBox {
+                        id: freeQueres
+                        text: "Произвольные запросы"
+                    }
+
                     // CheckBox { id: configureUser; text: "Настройки пользователя" }
-
-                     function setData(data) {
-                         viewLogs.checked = data.ViewLogs || false
-                         configureBackups.checked = data.ConfigureBackups || false
-                         reports.checked = data.Reports || false
-                         freeQueres.checked = data.FreeQueries || false
+                    function setData(data) {
+                        viewLogs.checked = data.ViewLogs || false
+                        configureBackups.checked = data.ConfigureBackups
+                                || false
+                        reports.checked = data.Reports || false
+                        freeQueres.checked = data.FreeQueries || false
                         // configureUser.checked = data.configureUser || false
-                     }
+                    }
 
-                     function getData() {
-                         return {
-                             ViewLogs: viewLogs.checked,
-                             ConfigureBackups: configureBackups.checked,
-                             Reports: reports.checked,
-                             FreeQueries: freeQueres.checked,
+                    function getData() {
+                        return {
+                            "ViewLogs": viewLogs.checked,
+                            "ConfigureBackups": configureBackups.checked,
+                            "Reports": reports.checked,
+                            "FreeQueries": freeQueres.checked
                             // ConfigureUser: configureUser.checked
-                         }
-                     }
-                 }
+                        }
+                    }
+                }
 
-                 Column {
-                     id: contentColumn
-                     width: flickable.width
+                Column {
+                    id: contentColumn
+                    width: flickable.width
 
-                     Repeater {
-                         id: tablerepator
-                         model: ListModel {
-                             id: repeatormodel
-                         }
-                         delegate: Column {
-                             width: parent.width
-                             spacing: 10
+                    Repeater {
+                        id: tablerepator
+                        model: ListModel {
+                            id: repeatormodel
+                        }
+                        delegate: Column {
+                            width: parent.width
+                            spacing: 10
 
-                             required property string tablename
+                            required property string tablename
 
-                             Text { text: tablename }
-                             CheckBox { id: viewtable; text: "Показывать таблицу?" }
-                             Column {
-                                 CheckBox { id: isadd; text: "Разрешить добавление записей?" }
-                                 CheckBox { id: isedit; text: "Разрешить редактирование записей?" }
-                                 CheckBox { id: isdelete; text: "Разрешить удаление записей?" }
-                             }
+                            Text {
+                                text: tablename
+                            }
+                            CheckBox {
+                                id: viewtable
+                                text: "Показывать таблицу?"
+                            }
+                            Column {
+                                CheckBox {
+                                    id: isadd
+                                    text: "Разрешить добавление записей?"
+                                }
+                                CheckBox {
+                                    id: isedit
+                                    text: "Разрешить редактирование записей?"
+                                }
+                                CheckBox {
+                                    id: isdelete
+                                    text: "Разрешить удаление записей?"
+                                }
+                            }
 
-                             function setData(data) {
-                                 viewtable.checked = data.ViewTable || false;
-                                 isadd.checked = data.TableActionsAccesses.Add || false;
-                                 isedit.checked = data.TableActionsAccesses.Edit || false;
-                                 isdelete.checked = data.TableActionsAccesses.Delete || false;
-                             }
+                            function setData(data) {
+                                viewtable.checked = data.ViewTable || false
+                                isadd.checked = data.TableActionsAccesses.Add
+                                        || false
+                                isedit.checked = data.TableActionsAccesses.Edit
+                                        || false
+                                isdelete.checked = data.TableActionsAccesses.Delete
+                                        || false
+                            }
 
-                             function getData() {
-                                 return {
-                                     TableName: tablename,
-                                     ViewTable: viewtable.checked,
-                                     TableActionsAccesses: {
-                                         Add: isadd.checked,
-                                         Edit: isedit.checked,
-                                         Delete: isdelete.checked
-                                     }
-                                 };
-                             }
-                         }
-                     }
-                 }
+                            function getData() {
+                                return {
+                                    "TableName": tablename,
+                                    "ViewTable": viewtable.checked,
+                                    "TableActionsAccesses": {
+                                        "Add": isadd.checked,
+                                        "Edit": isedit.checked,
+                                        "Delete": isdelete.checked
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
 
-                 // Привязка высоты контента к высоте колонки
-                 contentHeight: contentColumn.height
-             }
-             function getData() {
-                 return grid.selectedDate.toLocaleDateString(Qt.locale(), Locale.ShortFormat);
-             }
-             function updateData(value) {
-                 grid.selectedDate = value
-             }
+                // Привязка высоты контента к высоте колонки
+                contentHeight: contentColumn.height
+            }
+            function getData() {
+                return grid.selectedDate.toLocaleDateString(Qt.locale(),
+                                                            Locale.ShortFormat)
+            }
+            function updateData(value) {
+                grid.selectedDate = value
+            }
         }
     }
 
@@ -538,7 +570,8 @@ Page {
                 }
             }
             function getData() {
-                return grid.selectedDate.toLocaleDateString(Qt.locale(), Locale.ShortFormat);
+                return grid.selectedDate.toLocaleDateString(Qt.locale(),
+                                                            Locale.ShortFormat)
             }
             function updateData(value) {
                 grid.selectedDate = value
@@ -552,13 +585,13 @@ Page {
             var columnNameToFind = item.modelData.columnName
             var foundItem = values.find(function (item) {
                 return item.columnName === columnNameToFind
-            });
+            })
             item.updateData(foundItem.columnValue)
         }
         var column = values.find(function (item) {
             return item.columnName === pkColumnInfo.columnName
-        });
-        iDValue = column.columnValue;
+        })
+        iDValue = column.columnValue
     }
 
     function populateModel() {
