@@ -387,7 +387,7 @@ UserInfo MainSQLConnection::autorize(const QString &Login, const QString &Passwo
             userAccJson["ViewLogs"]=QJsonValue(true);
             userAccJson["ConfigureBackups"]=QJsonValue(true);
             userAccJson["Reports"]=QJsonValue(true);
-            userAccJson["FreeQueries"]=QJsonValue(true);
+           // userAccJson["FreeQueries"]=QJsonValue(true);
            // userAccJson["ConfigureUser"]=QJsonValue(true);
             accJson["UserAccesses"]=userAccJson;
         }
@@ -420,11 +420,11 @@ UserInfo MainSQLConnection::autorize(const QString &Login, const QString &Passwo
     {
         UserInfo userinfo;
         QSqlQuery query;
-        query.prepare("SELECT check_user_credentials(:username, :password);");
+        query.prepare("SELECT * from check_user_credentials(:username, :password);");
         query.bindValue(":username", Login);
         query.bindValue(":password", Password);
 
-        if (!query.next()) {
+        if (!query.exec()) {
             userinfo.isAutorized=false;
             //qDebug() << "No data returned";
         } else {
