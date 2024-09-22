@@ -8,21 +8,33 @@ Page {
     property var userinfo
 
     onUserinfoChanged: {
+
         var AccessesJson = JSON.parse(userinfo.acceses)
+        var userAcc = AccessesJson.UserAccesses
         var tableAccesses = AccessesJson.TableAccesses
         var jsonArray = tableAccesses
 
-        listModel.append({"userinfo":userinfo,"tablename":"Страница пользователя","tableaccJson":{},"index":0});
-        var index=1;
+        listModel.append({
+                             "userinfo": userinfo,
+                             "tablename": "Страница пользователя",
+                             "tableaccJson": userAcc,
+                             "index": 0
+                         })
+        var index = 1
         for (var i = 0; i < jsonArray.length; i++) {
             var tableinfo = tableAccesses[i]
             if (tableinfo.ViewTable) {
                 var tablename = tableinfo.TableName
-                if (String(tablename) !== "logs" && String(tablename) !=="logs_action_types")
-                {
+                if (String(tablename) !== "logs" && String(
+                            tablename) !== "logs_action_types") {
                     var tableActionsAccesses = tableinfo.TableActionsAccesses
-                    listModel.append({"userinfo":userinfo,"tablename":tablename,"tableaccJson":tableActionsAccesses,"index":index});
-                    index++;
+                    listModel.append({
+                                         "userinfo": userinfo,
+                                         "tablename": tablename,
+                                         "tableaccJson": tableActionsAccesses,
+                                         "index": index
+                                     })
+                    index++
                 }
             }
         }
@@ -118,6 +130,7 @@ Page {
 
             delegate: Page {
                 required property string tablename
+                required property var tableaccJson
                 header: ToolBar {
                     Row {
                         spacing: 10
@@ -129,54 +142,44 @@ Page {
                     }
                 }
 
-                Loader{
-                    id:contentLoader
-                    anchors.fill:parent
+                Loader {
+                    id: contentLoader
+                    anchors.fill: parent
                     sourceComponent: getContentComponent(tablename)
                     onLoaded: {
-                                   if (item) {
-                                       item.tablename = tablename;
-                                   }
+                        if (item) {
+                            item.tablename = tablename
+                            item.tableaccJson = tableaccJson
+                        }
                     }
                 }
             }
         }
     }
-    function getContentComponent(tablename)
-    {
-        if(String(tablename) === "Страница пользователя")
-        {
-            return adminitartorPageComponent;
-        } else if (String(tablename)==="jobs")
-        {
-            return rolesTableComponent;
-        } else
-        {
-            return generalTableComponent;
+    function getContentComponent(tablename) {
+        if (String(tablename) === "Страница пользователя") {
+            return adminitartorPageComponent
+        } else if (String(tablename) === "jobs") {
+            return rolesTableComponent
+        } else {
+            return generalTableComponent
         }
     }
-    Component
-    {
-        id:rolesTableComponent
+    Component {
+        id: rolesTableComponent
 
-        RolesTableManipulator
-        {
-        }
+        RolesTableManipulator {}
     }
-    Component
-    {
-        id:generalTableComponent
+    Component {
+        id: generalTableComponent
 
-        TableManipulator {
-        }
+        TableManipulator {}
     }
-    Component
-    {
-        id:adminitartorPageComponent
+    Component {
+        id: adminitartorPageComponent
 
         AdministarationSelector {
             property string tablename
         }
     }
-
 }
