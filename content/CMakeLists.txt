@@ -10,7 +10,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 qt_add_library(content STATIC)
 
-find_package(Qt6 REQUIRED COMPONENTS Core Gui Qml Quick Sql PrintSupport AxContainer AxServer Charts QuickControls2)
+find_package(Qt6 REQUIRED COMPONENTS Core Gui Qml Quick Sql AxContainer AxServer Charts QuickControls2)
 
 qt6_add_qml_module(content
     URI "content"
@@ -42,6 +42,7 @@ qt6_add_qml_module(content
         QML_FILES UsefullFunctions.js
         SOURCES additionalfunctions.h additionalfunctions.cpp
         SOURCES querytablemodel.h querytablemodel.cpp
+        QML_FILES ReportPage.qml
 
 )
 
@@ -51,7 +52,6 @@ target_link_libraries(content PRIVATE
     Qt6::Qml
     Qt6::Quick
     Qt6::Sql
-    Qt6::PrintSupport
     Qt6::AxContainer
     Qt6::AxServer
     Qt6::Charts
