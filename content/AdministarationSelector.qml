@@ -3,92 +3,54 @@ import QtQuick.Controls 2.15
 
 Page {
     id: administrationSelector
-    property var userinfo
-    onUserinfoChanged:
-    {
-       // var JsonString=JSON.stringify(userinfo.acceses);
-        var Accesses = JSON.parse(userinfo.acceses);
-        var UserAccesses = Accesses.UserAccesses;
-      viewLogsButton.visible= UserAccesses.ViewLogs;
-      configureBackupsButton.visible=  UserAccesses.ConfigureBackups;
-      reportButton.visible=UserAccesses.Reports;
-      freeQueryButton.visible= UserAccesses.FreeQueries;
-      configureUser.visible= UserAccesses.ConfigureUser;
+    property var tableaccJson
+    onTableaccJsonChanged: {
+        viewLogsButton.visible = tableaccJson.ViewLogs
+        configureBackupsButton.visible = tableaccJson.ConfigureBackups
+        reportButton.visible = tableaccJson.Reports
     }
 
-    Action
-    {
+    Action {
         id: aBackupsPage
         onTriggered: {
-            mainPageLoader.sourceComponent=backupsComponent;
-            stackView.push(mainPageLoader.item);
+            mainPageLoader.sourceComponent = backupsComponent
+            stackView.push(mainPageLoader.item)
         }
     }
-    Action
-    {
-        id:aFreeQueries
-        onTriggered:
-        {
-            mainPageLoader.sourceComponent=freeQueryComponent;
-            stackView.push(mainPageLoader.item);
-        }
-    }
-    Action
-    {
+    Action {
         id: aLogs
-        onTriggered:
-        {
-            mainPageLoader.sourceComponent=logsComponent;
-            stackView.push(mainPageLoader.item);
+        onTriggered: {
+            mainPageLoader.sourceComponent = logsComponent
+            stackView.push(mainPageLoader.item)
         }
     }
-    Action
-    {
-        id:aReports
-        onTriggered:
-        {
-              mainPageLoader.sourceComponent=  reportsComponent;
-            stackView.push(mainPageLoader.item);
+    Action {
+        id: aReports
+        onTriggered: {
+            mainPageLoader.sourceComponent = reportsComponent
+            stackView.push(mainPageLoader.item)
             //mainPageLoader.sourceComponent=Component;
             //stackView.push(mainPageLoader.item);
         }
     }
-    Component
-    {
-        id:freeQueryComponent
-        FreeQueriesPage
-        {
+    Component {
+        id: backupsComponent
+        BackupsPage {
             onRequestPop: {
-                           stackView.pop();
-                       }
+                stackView.pop()
+            }
         }
     }
-    Component
-    {
-        id:backupsComponent
-        BackupsPage
-        {
-            onRequestPop: {
-                           stackView.pop();
-                       }
-        }
+    Component {
+        id: reportsComponent
+        ReportPage {}
     }
-    Component
-    {
-        id:reportsComponent
-        ReportPage
-        {
-
-        }
-    }
-    Component
-    {
-        id:logsComponent
-        LogsViewPage
-        {
+    Component {
+        id: logsComponent
+        LogsViewPage {
             onRequestPop: {
-                           stackView.pop();
-                       }
+                stackView.pop()
+            }
         }
     }
 
@@ -99,48 +61,42 @@ Page {
 
     StackView {
         anchors.fill: parent
-        id:stackView
-        initialItem: selector
+        id: stackView
+        initialItem: column
     }
 
-    Component
-    {
-        id:selector
-        Column {
-            id: column
+    // Component
+    // {
+    //    id:selector
+    Column {
+        id: column
         //    anchors.fill: parent
-            clip: false
-            spacing: 5
+        clip: false
+        spacing: 5
 
-            Button {
-                id: viewLogsButton
-                text: qsTr("Просмотр логов")
-                onClicked: aLogs.trigger()
-            }
+        Button {
+            id: viewLogsButton
+            text: qsTr("Просмотр логов")
+            onClicked: aLogs.trigger()
+        }
 
-            Button {
-                id: configureBackupsButton
-                text: qsTr("Управление бэкапами")
-                onClicked: aBackupsPage.trigger();
-            }
+        Button {
+            id: configureBackupsButton
+            text: qsTr("Управление бэкапами")
+            onClicked: aBackupsPage.trigger()
+        }
 
-            Button {
-                id: reportButton
-                text: qsTr("Отчёты")
-                onClicked: aReports.trigger()
-            }
+        Button {
+            id: reportButton
+            text: qsTr("Отчёты")
+            onClicked: aReports.trigger()
+        }
 
-            Button {
-                id: freeQueryButton
-                text: qsTr("Произвольные запросы")
-                onClicked: aFreeQueries.trigger();
-            }
 
-           /* Button {
+        /* Button {
                 id: configureUser
                 text: qsTr("Настройка пользваотеля")
             }*/
-        }
     }
-
+    //}
 }
