@@ -47,6 +47,8 @@ Page {
         id:aReports
         onTriggered:
         {
+              mainPageLoader.sourceComponent=  reportsComponent;
+            stackView.push(mainPageLoader.item);
             //mainPageLoader.sourceComponent=Component;
             //stackView.push(mainPageLoader.item);
         }
@@ -71,11 +73,14 @@ Page {
                        }
         }
     }
-    /*Component
+    Component
     {
         id:reportsComponent
-        Re
-    }*/
+        ReportPage
+        {
+
+        }
+    }
     Component
     {
         id:logsComponent
