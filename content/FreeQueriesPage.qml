@@ -31,6 +31,7 @@ Rectangle {
         onTriggered:
         {
            var result= tableModel.setTableQuery(textField.text);
+            //queryResults.forceLayout();
             if(result !== "")
             {
                 messageDialog.text="Ошибка "+result;

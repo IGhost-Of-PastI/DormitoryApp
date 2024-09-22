@@ -6,7 +6,8 @@
 #include <QQmlEngine>
 #include <QSqlQueryModel>
 #include <QSqlTableModel>
-
+#include <QSqlQuery>
+#include <QSqlRecord>
 class QueryTableModel : public QSqlTableModel
 {
     Q_OBJECT
