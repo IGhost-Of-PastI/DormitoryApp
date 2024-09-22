@@ -2,15 +2,15 @@
 #include "mainsqlconnection.h"
 
 QueryTableModel::QueryTableModel(QObject *parent)
-    : QSqlTableModel(parent,SQLConnectionMenager::getConnection())
+    : QSqlQueryModel(parent)
 {
-    this->setEditStrategy(QSqlTableModel::OnManualSubmit);
+    //this->setEditStrategy(QSqlTableModel::OnManualSubmit);
 }
 
 QString QueryTableModel::setTableQuery(const QString &query)
 {
-    this->clear();
-    QSqlQuery sqlQuery;
+   // this->clear();
+    QSqlQuery sqlQuery(SQLConnectionMenager::getConnection());
     sqlQuery.prepare(query);
     if(!sqlQuery.exec())
     {
@@ -18,10 +18,8 @@ QString QueryTableModel::setTableQuery(const QString &query)
     }
     else
     {
-        while (sqlQuery.next()) {
-            this->insertRecord(-1,sqlQuery.record());
-        }
-        return sqlQuery.lastError().text();
+        this->setQuery(sqlQuery);
+        return "";
     }
 
     //this->setQuery(query,SQLConnectionMenager::getConnection());

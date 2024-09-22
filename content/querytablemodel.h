@@ -8,7 +8,7 @@
 #include <QSqlTableModel>
 #include <QSqlQuery>
 #include <QSqlRecord>
-class QueryTableModel : public QSqlTableModel
+class QueryTableModel : public QSqlQueryModel
 {
     Q_OBJECT
     QML_ELEMENT
