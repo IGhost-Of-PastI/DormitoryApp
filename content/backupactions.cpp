@@ -30,8 +30,9 @@ void BackupActions::setParam(const QString &section, const QString &param,const 
 void BackupActions::doBackup()
 {
     QProcess backupProcess;
+    backupProcess.setProgram(backupExe);
+    backupProcess.start();
 
-    backupProcess.start(backupExe);
 
     if (!backupProcess.waitForFinished()) {
         qWarning() << "Процесс не завершился успешно:" << backupProcess.errorString();
