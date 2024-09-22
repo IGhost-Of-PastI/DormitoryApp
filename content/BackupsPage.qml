@@ -7,50 +7,54 @@ import content
 
 Item {
     id: item1
-    Component.onCompleted:
-    {
-        backupFolderPath.text=backupActions.getParam("BackupSection","path");
-        howOften.value=backupActions.getParam("BackupSection","shedule");
-        var date = new Date(backupActions.getParam("BackupSection","startTime"));
-        hours.value=date.getHours();
-        minutes.value=date.getMinutes();
-        folderModel.folder=AdditionalFunctions.fileSysPathtoURL(backupFolderPath.text);
+    Component.onCompleted: {
+        backupFolderPath.text = backupActions.getParam("BackupSection", "path")
+        howOften.value = backupActions.getParam("BackupSection", "shedule")
+        var date = new Date(backupActions.getParam("BackupSection",
+                                                   "startTime"))
+        hours.value = date.getHours()
+        minutes.value = date.getMinutes()
+        folderModel.folder = AdditionalFunctions.fileSysPathtoURL(
+                    backupFolderPath.text)
     }
 
-    BackupActions
-    {
+    BackupActions {
         id: backupActions
     }
 
     states: [
         State {
             name: "NoChanges"
-            PropertyChanges { target: border; color:defaultProperty
+            PropertyChanges {
+                target: border
+                color: defaultProperty
             }
         },
         State {
             name: "SomethingChanged"
             PropertyChanges {
-                target: border; color:"red"
+                target: border
+                color: "red"
             }
         }
     ]
 
-    signal requestPop()
+    signal requestPop
 
-    Action
-    {
-        id:aSaveBackupSettings
-        onTriggered:
-        {
-            var date=new Date();
-            date.setHours(hours.value);
-            date.setMinutes(minutes.value);
-            date.setSeconds(0);
+    Action {
+        id: aSaveBackupSettings
+        onTriggered: {
+            var date = new Date()
+            date.setHours(hours.value)
+            date.setMinutes(minutes.value)
+            date.setSeconds(0)
 
-            backupActions.setParam("BackupSection","path",backupFolderPath.text);
-            backupActions.setParam("BackupSection","startTime",date.toTimeString("HH:mm"));
-            backupActions.setParam("BackupSection","shedule",String(howOften.value));
+            backupActions.setParam("BackupSection", "path",
+                                   backupFolderPath.text)
+            backupActions.setParam("BackupSection", "startTime",
+                                   date.toTimeString("HH:mm"))
+            backupActions.setParam("BackupSection", "shedule",
+                                   String(howOften.value))
             //backupSettings.path=backupFolderPath.text;
             //backupSettings.shedule=howOften.value;
             //backupSettings.startTime=date.toTimeString("HH:mm");
@@ -60,62 +64,47 @@ Item {
             //howOften.state="NoChanges"
         }
     }
-    Action
-    {
-        id:aResetSettings
-        onTriggered:
-        {
-            backupFolderPath.text=backupActions.getParam("BackupSection","path");
-            howOften.value=backupActions.getParam("BackupSection","shedule");
-            var date = new Date(backupActions.getParam("BackupSection","startTime"));
-            hours.value=date.getHours();
-            minutes.value=date.getMinutes();
-            folderModel.folder=backupFolderPath.text;
+    Action {
+        id: aResetSettings
+        onTriggered: {
+            backupFolderPath.text = backupActions.getParam("BackupSection",
+                                                           "path")
+            howOften.value = backupActions.getParam("BackupSection", "shedule")
+            var date = new Date(backupActions.getParam("BackupSection",
+                                                       "startTime"))
+            hours.value = date.getHours()
+            minutes.value = date.getMinutes()
+            folderModel.folder = backupFolderPath.text
             //  howOften.value="NoChanges"
         }
     }
 
-    Action
-    {
-        id:aGoBack
-        onTriggered:
-        {
+    Action {
+        id: aGoBack
+        onTriggered: {
             requestPop()
             stackView.pop()
         }
     }
-    Action
-    {
-        id:aDoBackup
-        onTriggered:
-        {
-            backupActions.doBackup();
+    Action {
+        id: aDoBackup
+        onTriggered: {
+            backupActions.doBackup()
         }
     }
-    Action
-    {
-        id:aDeleteBackupFile
-        onTriggered:
-        {
-
-        }
-    }
-    Action
-    {
-        id:aSetBackupTask
-        onTriggered:
-        {
+    Action {
+        id: aSetBackupTask
+        onTriggered: {
             backupActions.setTaskToBackup()
         }
     }
-    Action
-    {
-        id:aDeleteTask
-        onTriggered:
-        {
+    Action {
+        id: aDeleteTask
+        onTriggered: {
             backupActions.deleteTaskToBackup()
         }
     }
+
 
     /*Settings
     {
@@ -138,7 +127,6 @@ Item {
         property int shedule
         property string startTime
     }*/
-
     ToolBar {
         id: toolBar
         anchors.left: parent.left
@@ -157,39 +145,35 @@ Item {
         }
     }
 
-    SplitView
-    {
+    SplitView {
         id: splitView
         orientation: Qt.Vertical
         anchors.left: parent.left
         anchors.right: parent.right
-        anchors.bottom:parent.bottom
+        anchors.bottom: parent.bottom
         anchors.top: toolBar.bottom
         clip: true
-        // visible: false
 
-        Rectangle
-        {
+        // visible: false
+        Rectangle {
             SplitView.preferredHeight: 500
             SplitView.fillWidth: true
 
             clip: true
-            Column
-            {
+            Column {
                 anchors.topMargin: 20
-               spacing: 10
+                spacing: 10
                 id: optionsPanel
                 clip: true
                 //  height: splitView.height/2
-                SplitView.preferredHeight: 500//splitView.height/2
+                SplitView.preferredHeight: 500 //splitView.height/2
                 SplitView.fillWidth: true
                 //  anchors.right: parent.right
                 // anchors.left:parent.left
 
                 //Folder editor
-                Row
-                {
-                    x:20
+                Row {
+                    x: 20
                     anchors.topMargin: 20
                     spacing: 10
                     TextField {
@@ -204,21 +188,20 @@ Item {
                     Button {
                         id: openPath
                         text: qsTr("Открыть")
-                        onClicked: folderDialog.open();
-                        FolderDialog
-                        {
-                            id:folderDialog
+                        onClicked: folderDialog.open()
+                        FolderDialog {
+                            id: folderDialog
 
-                            currentFolder: backupFolderPath.text;
-                            onAccepted:
-                            {
-                                backupFolderPath.text= AdditionalFunctions.uriToFileSysPath(currentFolder);
+                            currentFolder: backupFolderPath.text
+                            onAccepted: {
+                                backupFolderPath.text = AdditionalFunctions.uriToFileSysPath(
+                                            currentFolder)
 
                                 //var path = currentFolder
                                 //path.substrign
-                                        // Убираем префикс file:///
+                                // Убираем префикс file:///
                                 // path = path.substring(8);
-                                        // Декодируем URL
+                                // Декодируем URL
                                 //        path = decodeURIComponent(path)
                                 //        backupFolderPath.text = path
                             }
@@ -226,9 +209,8 @@ Item {
                     }
                 }
 
-                Row
-                {
-                    x:20
+                Row {
+                    x: 20
                     spacing: 10
                     Label {
                         id: label
@@ -244,11 +226,8 @@ Item {
                     }
                 }
 
-
-
-                Row
-                {
-                    x:20
+                Row {
+                    x: 20
                     spacing: 10
 
                     Label {
@@ -261,18 +240,17 @@ Item {
                     SpinBox {
                         id: hours
                         from: 0
-                        to:23
+                        to: 23
                     }
 
                     SpinBox {
                         id: minutes
-                        from:0
-                        to:59
+                        from: 0
+                        to: 59
                     }
                 }
-                Row
-                {
-                    x:20
+                Row {
+                    x: 20
                     spacing: 10
                     Button {
                         id: saveBackupSettingsButton
@@ -284,15 +262,11 @@ Item {
                         id: restoreBackupSettings
                         text: qsTr("Сброс")
                         onClicked: aResetSettings
-
                     }
                 }
             }
-
-
         }
-        Rectangle
-        {
+        Rectangle {
             id: rectangle
             SplitView.preferredHeight: 500
             SplitView.fillWidth: true
@@ -310,16 +284,7 @@ Item {
                     text: qsTr("Сделать бэкап")
                     onClicked: aDoBackup.trigger()
                 }
-                ToolButton {
-                    id: deleteBackupFileButton
-                    text: qsTr("Удалить бэкап")
-                    anchors.left: doBackupButton.right
-                    anchors.top: parent.top
-                    anchors.bottom: parent.bottom
-                    onClicked: aDeleteBackupFile.trigger()
-                }
-                Row
-                {
+                Row {
                     //anchors.top: parent
                     //anchors.bottom: parent
                     anchors.left: deleteBackupFileButton.right
@@ -332,24 +297,20 @@ Item {
                     ToolButton {
                         id: deleteBackupTaskButton
                         text: qsTr("Удалить задачу на бэкапы")
-                       // anchors.left: deleteBackupFileButton.right
+                        // anchors.left: deleteBackupFileButton.right
                         onClicked: aDeleteTask.trigger()
                     }
                     Label {
                         id: taskStatus
-                        property bool isActived:backupActions.isTaskActive;
-                        onIsActivedChanged:
-                        {
-                          if (isActived)
-                          {
-                             text="Задача активана";
-                              color="green";
-                          }
-                          else
-                          {
-                              text="Задача не активна";
-                              color="red";
-                          }
+                        property bool isActived: backupActions.isTaskActive
+                        onIsActivedChanged: {
+                            if (isActived) {
+                                text = "Задача активана"
+                                color = "green"
+                            } else {
+                                text = "Задача не активна"
+                                color = "red"
+                            }
                         }
                         text: qsTr("Задача бэкапа:")
                         verticalAlignment: Text.AlignVCenter
@@ -358,38 +319,37 @@ Item {
                 }
             }
 
-
-            ListView
-            {
+            ListView {
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.top: toolBar1.bottom
                 anchors.bottom: parent.bottom
-                highlight: Rectangle { color: "lightblue";radius: 5}
+                highlight: Rectangle {
+                    color: "lightblue"
+                    radius: 5
+                }
                 //highlightFollowsCurrentItem: true
                 clip: true
 
-                FolderListModel
-                {
-                    id:folderModel
+                FolderListModel {
+                    id: folderModel
                     //folder: backupSettings.path
-                   // showFiles: true
+                    // showFiles: true
                     showDirs: false
                     nameFilters: ["*.sql"]
                 }
 
-                model:folderModel
-                delegate: ItemDelegate
-                {
+                model: folderModel
+                delegate: ItemDelegate {
                     required property string fileName
                     required property date fileModified
-                    Row
-                    {
+                    Row {
                         ItemDelegate {
                             text: fileName
                         }
                         ItemDelegate {
-                            text: fileModified.toLocaleString(Qt.locale(), "yyyy-MM-dd hh:mm:ss")
+                            text: fileModified.toLocaleString(
+                                      Qt.locale(), "yyyy-MM-dd hh:mm:ss")
                         }
                     }
                 }
