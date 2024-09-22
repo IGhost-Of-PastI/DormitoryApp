@@ -10,7 +10,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 qt_add_library(content STATIC)
 
-find_package(Qt6 REQUIRED COMPONENTS Core Gui Qml Quick Sql AxContainer AxServer Charts QuickControls2)
+find_package(Qt6 REQUIRED COMPONENTS Core Gui Qml Quick Sql AxContainer AxServer QuickControls2)
 
 qt6_add_qml_module(content
     URI "content"
@@ -21,7 +21,7 @@ qt6_add_qml_module(content
         BackupsPage.qml
         LogsViewPage.qml
         MainPage.qml
-        FreeQueriesPage.qml
+
         LoginFrame.qml
         MainFrame.qml
         AdministarationSelector.qml
@@ -39,9 +39,9 @@ qt6_add_qml_module(content
         SOURCES wordandprint.h wordandprint.cpp
         QML_FILES EditorElements/Calendar_TimeFilter.qml
         QML_FILES EditorElements/CustomCalendar.qml
-        QML_FILES UsefullFunctions.js
+        QML_FILES
         SOURCES additionalfunctions.h additionalfunctions.cpp
-        SOURCES querytablemodel.h querytablemodel.cpp
+        SOURCES
         QML_FILES ReportPage.qml
 
 )
@@ -54,6 +54,5 @@ target_link_libraries(content PRIVATE
     Qt6::Sql
     Qt6::AxContainer
     Qt6::AxServer
-    Qt6::Charts
     Qt6::QuickControls2
 )
