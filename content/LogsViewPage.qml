@@ -1,5 +1,5 @@
-import QtQuick 2.15
-import QtQuick.Controls 2.15
+import QtQuick
+import QtQuick.Controls
 //import Qt.labs.calendar
 import content
 
@@ -7,7 +7,7 @@ Rectangle {
     id: rectangle
     //width: 1920
     //height: 1080
-    anchors.fill:parent
+    //anchors.fill:parent
     signal requestPop()
 
     Component.onCompleted:
@@ -196,7 +196,7 @@ Rectangle {
             anchors.right: parent.right
             anchors.leftMargin: 0
             anchors.rightMargin: 0
-            SplitView.preferredHeight: 500
+            SplitView.preferredHeight: 250
 
             Label
             {
@@ -218,40 +218,58 @@ Rectangle {
                 anchors.top: label1.bottom
                 anchors.bottom: parent.bottom
                 onSelectionChanged:(selectedIndex) =>{
+                                       listModel.clear();
                                     var row =  logsView.getSelectedRowData();
-                                    var actionType=row.id_action_type;
-                                    var jsonActions=JSON.parse(row.action_description);
-                                    var table_name= jsonActions.table;
+                                       var actionType = row.find(function (item)
+                                                                       {
+                                                                          return item.columnName==="id_action_type"
+                                                                       }    );
+                                    var jsonActions= row.find(function (item)
+                                    {
+                                        return item.columnName==="action_description";
+                                    });
+                                     //  row.action_description);
+                                       var parsedJson=JSON.parse(jsonActions.columnValue);
+                                    var table_name= parsedJson.table;
                                     var details;
-                                       switch (actionType)
+                                       switch (actionType.columnValue)
                                        {
                                            case "Изменения в таблице":
-                                                details=jsonActions.changes;
+                                                details=parsedJson.changes;
                                            break;
                                            case "Добавление в таблице":
-                                           details=jsonActions.inserted;
+                                           details=parsedJson.inserted;
                                            break;
                                            case "Удаление из таблицы":
-                                           details=jsonActions.deleted;
+                                           details=parsedJson.deleted;
                                            break;
                                            default:
                                        }
                                        if (details.length > 0) {
-                                                   var keys = Object.keys(details[0]);
-                                                   // Add column names to the model
-                                                   for (var i = 0; i < keys.length; i++) {
-                                                       listModel.append({ "column": keys[i], "value": keys[i] });
-                                                   }
-                                                   // Add values to the model
-                                                   for (var j = 0; j < details.length; j++) {
-                                                       for (var k = 0; k < keys.length; k++) {
-                                                           listModel.append({ "column": keys[k], "value": details[j][keys[k]] });
-                                                       }
-                                                   }
+                                                   var keys= Object.keys(details[0])
+                                           var values=[];
+                                                      for (let i = 0; i < keys.length; i++) {
+                                                                values.push({value:keys[i]});
+                                                          //listModel.append({"value": keys[i] });
+                                                      }
+                                                        listModel.append({values:values});
+
+                                               for (var j = 0; j < details.length; j++) {
+                                               var innervalues=[];
+                                                        var values2=Object.values(details[j]);
+                                               for (var k=0;k<values2.length;k++)
+                                               {
+                                                   innervalues.push({value:String(values2[k])});
+                                               }
+                                                       //innervalues.push({"value":details[j]});
+                                               listModel.append({values:innervalues});
+                                               }
+
+                                           }
+
                                                }
                                    }
             }
-        }
         Rectangle
         {
             id: rectangle2
@@ -263,6 +281,7 @@ Rectangle {
 
             Label
             {
+                id:infAboutLog
                 text: "Информация из конкретного лога"
                 anchors.left: parent.left
                 anchors.right: parent.right
@@ -282,24 +301,24 @@ Rectangle {
 
                 anchors.left: parent.left
                 anchors.right: parent.right
-                anchors.top: parent.top
-                Item {
-                            width: parent.width
-                            height: 50
-                            Row {
+                anchors.top: infAboutLog.top
+                anchors.bottom: parent.bottom
+                delegate: Row
+                    {
+                                spacing: 5
                                 Repeater {
-                                    model: listModel.get(0).columns // Используем названия колонок из первого элемента
-                                    Text { text: modelData }
+                                    model: values
+                                    ItemDelegate
+                                    {
+                                        text:value
+                                    }
                                 }
-                                Repeater {
-                                    model: Object.keys(model) // Используем данные из текущего элемента
-                                    Text { text: model[modelData] }
-                                }
-                            }
-                        }
+
 
             }
         }
+        }
+
     }
 
 
