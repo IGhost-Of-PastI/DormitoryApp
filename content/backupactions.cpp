@@ -9,15 +9,29 @@ inline void BackupActions::updateIsTaskActive()
 BackupActions::BackupActions(QObject *parent)
     : QObject{parent}
 {
-    createOrUpdateBatchFile();
+  //  createOrUpdateBatchFile();
     updateIsTaskActive();
+}
+
+QString BackupActions::getParam(const QString &section, const QString &param)
+{
+    QSettings settings(settingsFile,QSettings::IniFormat);
+    settings.beginGroup(section);
+    return settings.value(param).toString();
+}
+
+void BackupActions::setParam(const QString &section, const QString &param,const QString& value)
+{
+    QSettings settings(settingsFile,QSettings::IniFormat);
+    settings.beginGroup(section);
+    settings.setValue(param,value);
 }
 
 void BackupActions::doBackup()
 {
     QProcess backupProcess;
 
-    backupProcess.start(batchFileName);
+    backupProcess.start(backupExe);
 
     if (!backupProcess.waitForFinished()) {
         qWarning() << "Процесс не завершился успешно:" << backupProcess.errorString();
@@ -38,12 +52,12 @@ void BackupActions::setTaskToBackup() //Проверено добавление
 {
     Constants constan;
     //TooDO
-    QSettings settings("settings.ini",QSettings::IniFormat);
+    QSettings settings(settingsFile,QSettings::IniFormat);
     settings.beginGroup(constan.backupCategoryName());
     int interval = settings.value("shedule").toInt();
-    QTime startTime= QTime::fromString(settings.value("startTime").toString(),"HH:mm:ss");
+    QTime startTime= QTime::fromString(settings.value("startTime").toString(),"HH:mm");
     QProcess setTaskProcess;
-    QFile batchFile(batchFileName);
+    QFile batchFile(backupExe);
     QFileInfo batchFileInfo(batchFile);
     qDebug()<<batchFileInfo.absoluteFilePath();
     //QString program;
@@ -129,108 +143,37 @@ bool BackupActions::isTaskExist() ///Проверено работает
     return (exitCode == 0);
 }
 
-void BackupActions::restoreFromBackup(QString host, QString port, QString user, QString database, QString backupFilePath)
+void BackupActions::restoreFromBackup(QString backupFilePath)
 {
-    QProcess restoreProcess;
-    QString program = QString("pg_restore -h %1 -p %2 -U %3 -d %4 -F t -v %5").arg(host,port,user,database,backupFilePath);
+    QSettings settingsBase(settingsFile,QSettings::IniFormat);
+    settingsBase.beginGroup("DatabaseInfo");
+    QString host=settingsBase.value("host").toString();
+    QString port=settingsBase.value("port").toString();
+    QString user=settingsBase.value("user").toString();
+   // QString password=settingsBase.value("password").toString();
+    QString database=settingsBase.value("database").toString();
+    QSettings settingsPGrestore(settingsFile,QSettings::IniFormat);
+    settingsPGrestore.beginGroup("BackupSection");
+    QString pgrestorePath=settingsPGrestore.value("pathpgrestore").toString();
 
-    restoreProcess.start(program);
+    QProcess restoreProcess;
+    restoreProcess.setProgram(pgrestorePath);
+    restoreProcess.setArguments(QStringList({
+        "-h",host,
+        "-p",port,
+        "-U",user,
+        "-d",database,
+        "-F","t",
+        "-v",backupFilePath
+    }));
+    //QString program = QString("pg_restore -h %1 -p %2 -U %3 -d %4 -F t -v %5").arg(host,port,user,database,backupFilePath);
+
+    restoreProcess.start();
 
     if (!restoreProcess.waitForFinished()) {
         qWarning() << "Процесс не завершился успешно:" << restoreProcess.errorString();
     } else {
         qDebug() << "Процесс завершился успешно.";
-    }
-}
-
-void BackupActions::createOrUpdateBatchFile()
-{
-    QDir dir;
-    QString content=R"(
-@echo off
-setlocal enabledelayedexpansion
-
-REM Путь к ini-файлу
-set "iniFile=%~dp0settings.ini"
-
-REM Функция для чтения значений из ini-файла с использованием PowerShell
-:readIni
-for /f "tokens=*" %%A in ('powershell -Command "Get-Content -Path '%iniFile%' | ForEach-Object { if ($_ -match '^\[%1\]') { $sectionFound = $true } elseif ($sectionFound -and $_ -match '^\[(.+)\]') { $sectionFound = $false } elseif ($sectionFound -and $_ -match '^(?!;)(.+?)=(.+)$') { if ($matches[1] -eq '%2') { Write-Output $matches[2] } } }"') do (
-    set "%3=%%A"
-)
-exit /b
-
-REM Чтение параметров из секции [Database]
-call :readIni "DatabaseInfo" "host" dbHost
-call :readIni "DatabaseInfo" "port" dbPort
-call :readIni "DatabaseInfo" "name" dbName
-call :readIni "DatabaseInfo" "user" dbUser
-call :readIni "DatabaseInfo" "password" dbPassword
-
-REM Чтение параметров из секции [Backup]
-call :readIni "BackupSection" "path" backupDir
-
-REM Проверка наличия всех необходимых параметров
-if not defined dbHost (
-    echo Ошибка: Параметр "host" не найден в секции [Database].
-    exit /b 1
-)
-if not defined dbPort (
-    echo Ошибка: Параметр "port" не найден в секции [Database].
-    exit /b 1
-)
-if not defined dbName (
-    echo Ошибка: Параметр "name" не найден в секции [Database].
-    exit /b 1
-)
-if not defined dbUser (
-    echo Ошибка: Параметр "user" не найден в секции [Database].
-    exit /b 1
-)
-if not defined dbPassword (
-    echo Ошибка: Параметр "password" не найден в секции [Database].
-    exit /b 1
-)
-if not defined backupDir (
-    echo Ошибка: Параметр "path" не найден в секции [Backup].
-    exit /b 1
-)
-
-REM Создание директории для бэкапа, если она не существует
-if not exist "%backupDir%" mkdir "%backupDir%"
-
-REM Формирование имени файла бэкапа
-set "date=%date:~6,4%-%date:~3,2%-%date:~0,2%"
-set "backupFile=%dbName%_backup_%date%.tar"
-set "backupPath=%backupDir%\%backupFile%"
-
-REM Выполнение бэкапа базы данных
-pg_dump -h %dbHost% -p %dbPort% -U %dbUser% -F t -E UTF8 -b -v -f "%backupPath%" %dbName%
-
-echo Бэкап базы данных завершен: %backupPath%
-
-)";
-    QString filePath = dir.filePath(batchFileName);
-    QFile file(filePath);
-
-    if (!file.exists() || file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        QTextStream in(&file);
-        QString existingContent = in.readAll();
-        file.close();
-
-        if (existingContent != content) {
-            if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
-                QTextStream out(&file);
-                out << content;
-                file.close();
-            }
-        }
-    } else {
-        if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
-            QTextStream out(&file);
-            out << content;
-            file.close();
-        }
     }
 }
 

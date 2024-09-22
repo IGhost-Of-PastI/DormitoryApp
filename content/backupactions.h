@@ -17,8 +17,12 @@ class BackupActions : public QObject
     Q_PROPERTY(bool isTaskActive READ isTaskActive WRITE setIsTaskActive NOTIFY isTaskActiveChanged FINAL)
 public:
     explicit BackupActions(QObject *parent = nullptr);
-    const QString batchFileName="backup.bat";
+    const QString backupExe="backuptool.exe";
+    const QString settingsFile="settings.ini";
     const QString backupTaskName="BackupDataBasePSQL";
+
+    Q_INVOKABLE QString getParam(const QString& section,const QString& param);
+    Q_INVOKABLE void setParam(const QString& section,const QString& param,const QString& value);
 
     Q_INVOKABLE void doBackup();
     \
@@ -26,8 +30,7 @@ public:
     Q_INVOKABLE void deleteTaskToBackup();
     Q_INVOKABLE bool isTaskExist();
 
-    Q_INVOKABLE void restoreFromBackup(QString host, QString port, QString user, QString database, QString backupFilePath);
-    void createOrUpdateBatchFile();
+    Q_INVOKABLE void restoreFromBackup(QString backupFilePath);
     bool isTaskActive() const;
     void setIsTaskActive(bool newIsTaskActive);
 
