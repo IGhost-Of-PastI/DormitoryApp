@@ -1,12 +1,21 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
-import Qt.labs.settings
+//import Qt.labs.settings
 import QtQuick.Dialogs
 import Qt.labs.folderlistmodel
 import content
 
 Item {
     id: item1
+    Component.onCompleted:
+    {
+        backupFolderPath.text=backupActions.getParam("BackupSection","path");
+        howOften.value=backupActions.getParam("BackupSection","shedule");
+        var date = new Date(backupActions.getParam("BackupSection","startTime"));
+        hours.value=date.getHours();
+        minutes.value=date.getMinutes();
+        folderModel.folder=AdditionalFunctions.fileSysPathtoURL(backupFolderPath.text);
+    }
 
     BackupActions
     {
@@ -38,13 +47,17 @@ Item {
             date.setHours(hours.value);
             date.setMinutes(minutes.value);
             date.setSeconds(0);
-            backupSettings.path=backupFolderPath.text;
-            backupSettings.shedule=howOften.value;
-            backupSettings.startTime=date.toTimeString();
+
+            backupActions.setParam("BackupSection","path",backupFolderPath.text);
+            backupActions.setParam("BackupSection","startTime",date.toTimeString("HH:mm"));
+            backupActions.setParam("BackupSection","shedule",String(howOften.value));
+            //backupSettings.path=backupFolderPath.text;
+            //backupSettings.shedule=howOften.value;
+            //backupSettings.startTime=date.toTimeString("HH:mm");
             //backupSettings.startTime=hours.value+":"+minutes.value;
-            backupSettings.sync()
-            backupFolderPath.state="NoChanges"
-            howOften.state="NoChanges"
+            //backupSettings.sync()
+            //backupFolderPath.state="NoChanges"
+            //howOften.state="NoChanges"
         }
     }
     Action
@@ -52,10 +65,13 @@ Item {
         id:aResetSettings
         onTriggered:
         {
-            backupFolderPath.text=backupSettings.path
-            howOften.value=backupSettings.shedule
-            backupFolderPath.state="NoChanges"
-            howOften.value="NoChanges"
+            backupFolderPath.text=backupActions.getParam("BackupSection","path");
+            howOften.value=backupActions.getParam("BackupSection","shedule");
+            var date = new Date(backupActions.getParam("BackupSection","startTime"));
+            hours.value=date.getHours();
+            minutes.value=date.getMinutes();
+            folderModel.folder=backupFolderPath.text;
+            //  howOften.value="NoChanges"
         }
     }
 
@@ -101,7 +117,7 @@ Item {
         }
     }
 
-    Settings
+    /*Settings
     {
         id:databaseInfo
         category: "DatabaseInfo"
@@ -121,7 +137,7 @@ Item {
         property string path
         property int shedule
         property string startTime
-    }
+    }*/
 
     ToolBar {
         id: toolBar
@@ -152,124 +168,133 @@ Item {
         clip: true
         // visible: false
 
-        Column
+        Rectangle
         {
-            anchors.topMargin: 20
-            spacing: 10
-            id: optionsPanel
-            clip: true
-            //  height: splitView.height/2
-            SplitView.preferredHeight: 500//splitView.height/2
+            SplitView.preferredHeight: 500
             SplitView.fillWidth: true
-            //  anchors.right: parent.right
-            // anchors.left:parent.left
 
-            //Folder editor
-            Row
+            clip: true
+            Column
             {
-                x:20
                 anchors.topMargin: 20
-                spacing: 10
-                TextField {
-                    id: backupFolderPath
-                    width: 530
-                    height: 56
-                    readOnly: true
-                    text: backupSettings.path
-                    placeholderText: qsTr("Главная директория бэкапов")
+               spacing: 10
+                id: optionsPanel
+                clip: true
+                //  height: splitView.height/2
+                SplitView.preferredHeight: 500//splitView.height/2
+                SplitView.fillWidth: true
+                //  anchors.right: parent.right
+                // anchors.left:parent.left
+
+                //Folder editor
+                Row
+                {
+                    x:20
+                    anchors.topMargin: 20
+                    spacing: 10
+                    TextField {
+                        id: backupFolderPath
+                        width: 530
+                        height: 56
+                        readOnly: true
+                        //text: backupSettings.path
+                        placeholderText: qsTr("Главная директория бэкапов")
+                    }
+
+                    Button {
+                        id: openPath
+                        text: qsTr("Открыть")
+                        onClicked: folderDialog.open();
+                        FolderDialog
+                        {
+                            id:folderDialog
+
+                            currentFolder: backupFolderPath.text;
+                            onAccepted:
+                            {
+                                backupFolderPath.text= AdditionalFunctions.uriToFileSysPath(currentFolder);
+
+                                //var path = currentFolder
+                                //path.substrign
+                                        // Убираем префикс file:///
+                                // path = path.substring(8);
+                                        // Декодируем URL
+                                //        path = decodeURIComponent(path)
+                                //        backupFolderPath.text = path
+                            }
+                        }
+                    }
                 }
 
-                Button {
-                    id: openPath
-                    text: qsTr("Открыть")
-                    onClicked: folderDialog.open();
-                    FolderDialog
-                    {
-                        id:folderDialog
+                Row
+                {
+                    x:20
+                    spacing: 10
+                    Label {
+                        id: label
+                        text: qsTr("Раз во сколько дней:")
+                        verticalAlignment: Text.AlignVCenter
+                        font.pointSize: 16
+                        //anchors.verticalCenter: parent
+                    }
+                    SpinBox {
+                        id: howOften
+                        //value: backupSettings.shedule
+                        from: 1
+                    }
+                }
 
-                        currentFolder: backupFolderPath.text;
-                        onAccepted:
-                        {
-                            backupFolderPath.text= AdditionalFunctions.uriToFileSysPath(currentFolder);
 
-                            //var path = currentFolder
-                            //path.substrign
-                                    // Убираем префикс file:///
-                            // path = path.substring(8);
-                                    // Декодируем URL
-                            //        path = decodeURIComponent(path)
-                            //        backupFolderPath.text = path
-                        }
+
+                Row
+                {
+                    x:20
+                    spacing: 10
+
+                    Label {
+                        id: startTime
+                        text: qsTr("Восколькуо начинать:")
+                        verticalAlignment: Text.AlignVCenter
+                        font.pointSize: 16
+                    }
+
+                    SpinBox {
+                        id: hours
+                        from: 0
+                        to:23
+                    }
+
+                    SpinBox {
+                        id: minutes
+                        from:0
+                        to:59
+                    }
+                }
+                Row
+                {
+                    x:20
+                    spacing: 10
+                    Button {
+                        id: saveBackupSettingsButton
+                        text: qsTr("Сохрнаить")
+                        onClicked: aSaveBackupSettings.trigger()
+                    }
+
+                    Button {
+                        id: restoreBackupSettings
+                        text: qsTr("Сброс")
+                        onClicked: aResetSettings
+
                     }
                 }
             }
 
-            Row
-            {
-                x:20
-                spacing: 10
-                Label {
-                    id: label
-                    text: qsTr("Раз во сколько дней:")
-                    verticalAlignment: Text.AlignVCenter
-                    font.pointSize: 16
-                    //anchors.verticalCenter: parent
-                }
-                SpinBox {
-                    id: howOften
-                    value: backupSettings.shedule
-                    from: 1
-                }
-            }
 
-
-
-            Row
-            {
-                x:20
-                spacing: 10
-
-                Label {
-                    id: startTime
-                    text: qsTr("Восколькуо начинать:")
-                    verticalAlignment: Text.AlignVCenter
-                    font.pointSize: 16
-                }
-
-                SpinBox {
-                    id: hours
-                    from: 0
-                    to:23
-                }
-
-                SpinBox {
-                    id: minutes
-                    from:0
-                    to:59
-                }
-            }
-            Row
-            {
-                x:20
-                spacing: 10
-                Button {
-                    id: saveBackupSettingsButton
-                    text: qsTr("Сохрнаить")
-                    onClicked: aSaveBackupSettings.trigger()
-                }
-
-                Button {
-                    id: restoreBackupSettings
-                    text: qsTr("Сброс")
-                    onClicked: aResetSettings
-
-                }
-            }
         }
         Rectangle
         {
             id: rectangle
-            SplitView.preferredHeight: splitView.height/2
+            SplitView.preferredHeight: 500
             SplitView.fillWidth: true
 
             clip: true
@@ -295,8 +320,8 @@ Item {
                 }
                 Row
                 {
-                    anchors.top: parent
-                    anchors.bottom: parent
+                    //anchors.top: parent
+                    //anchors.bottom: parent
                     anchors.left: deleteBackupFileButton.right
                     ToolButton {
                         id: setBackupTaskButton
@@ -307,7 +332,7 @@ Item {
                     ToolButton {
                         id: deleteBackupTaskButton
                         text: qsTr("Удалить задачу на бэкапы")
-                        anchors.left: deleteBackupFileButton.right
+                       // anchors.left: deleteBackupFileButton.right
                         onClicked: aDeleteTask.trigger()
                     }
                     Label {
@@ -347,28 +372,23 @@ Item {
                 FolderListModel
                 {
                     id:folderModel
-                    folder: backupSettings.path
+                    //folder: backupSettings.path
                    // showFiles: true
                     showDirs: false
                     nameFilters: ["*.sql"]
                 }
 
-
                 model:folderModel
-                delegate: Item
+                delegate: ItemDelegate
                 {
-                    //id: listDelegate
-                    width: parent.width
-                    height: 40
-
                     required property string fileName
                     required property date fileModified
                     Row
                     {
-                        Text {
+                        ItemDelegate {
                             text: fileName
                         }
-                        Text {
+                        ItemDelegate {
                             text: fileModified.toLocaleString(Qt.locale(), "yyyy-MM-dd hh:mm:ss")
                         }
                     }
