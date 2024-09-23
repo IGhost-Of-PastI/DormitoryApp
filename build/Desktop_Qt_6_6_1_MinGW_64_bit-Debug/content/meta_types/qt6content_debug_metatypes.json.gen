@@ -1,0 +1,854 @@
+[
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Singleton",
+                        "value": "true"
+                    },
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    }
+                ],
+                "className": "AdditionalFunctions",
+                "methods": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "path",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "fileSysPathtoURL",
+                        "returnType": "QString"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "uri",
+                                "type": "QUrl"
+                            }
+                        ],
+                        "name": "uriToFileSysPath",
+                        "returnType": "QString"
+                    }
+                ],
+                "object": true,
+                "qualifiedClassName": "AdditionalFunctions",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "additionalfunctions.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    }
+                ],
+                "className": "BackupActions",
+                "methods": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "section",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "param",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "getParam",
+                        "returnType": "QString"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "section",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "param",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "value",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "setParam",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "doBackup",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "setTaskToBackup",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "deleteTaskToBackup",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "name": "isTaskExist",
+                        "returnType": "bool"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "backupFilePath",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "restoreFromBackup",
+                        "returnType": "void"
+                    }
+                ],
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 0,
+                        "name": "isTaskActive",
+                        "notify": "isTaskActiveChanged",
+                        "read": "isTaskActive",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false,
+                        "write": "setIsTaskActive"
+                    }
+                ],
+                "qualifiedClassName": "BackupActions",
+                "signals": [
+                    {
+                        "access": "public",
+                        "name": "isTaskActiveChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "backupactions.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Singleton",
+                        "value": "true"
+                    },
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    }
+                ],
+                "className": "Constants",
+                "object": true,
+                "properties": [
+                    {
+                        "constant": true,
+                        "designable": true,
+                        "final": false,
+                        "index": 0,
+                        "name": "settingsFile",
+                        "read": "settingsFile",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false
+                    },
+                    {
+                        "constant": true,
+                        "designable": true,
+                        "final": false,
+                        "index": 1,
+                        "name": "backupCategoryName",
+                        "read": "backupCategoryName",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false
+                    },
+                    {
+                        "constant": true,
+                        "designable": true,
+                        "final": false,
+                        "index": 2,
+                        "name": "databaseCategoryName",
+                        "read": "databaseCategoryName",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false
+                    }
+                ],
+                "qualifiedClassName": "Constants",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "constants.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "className": "UserInfo",
+                "gadget": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 0,
+                        "member": "isAutorized",
+                        "name": "isAutorized",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 1,
+                        "member": "surname",
+                        "name": "surname",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 2,
+                        "member": "name",
+                        "name": "name",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 3,
+                        "member": "patronymic",
+                        "name": "patronymic",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 4,
+                        "member": "iD",
+                        "name": "iD",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "qint64",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 5,
+                        "member": "dormitoryName",
+                        "name": "dormitoryName",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 6,
+                        "member": "roleName",
+                        "name": "roleName",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 7,
+                        "member": "acceses",
+                        "name": "acceses",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false
+                    }
+                ],
+                "qualifiedClassName": "UserInfo"
+            },
+            {
+                "className": "QMLPair",
+                "gadget": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 0,
+                        "member": "key",
+                        "name": "key",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 1,
+                        "member": "value",
+                        "name": "value",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false
+                    }
+                ],
+                "qualifiedClassName": "QMLPair"
+            },
+            {
+                "className": "ColumnInfo",
+                "gadget": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 0,
+                        "member": "columnName",
+                        "name": "columnName",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 1,
+                        "member": "isPK",
+                        "name": "isPK",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 2,
+                        "member": "columnType",
+                        "name": "columnType",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 3,
+                        "member": "maxLength",
+                        "name": "maxLength",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "qint32",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 4,
+                        "member": "isFK",
+                        "name": "isFK",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 5,
+                        "member": "isNullable",
+                        "name": "isNullable",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "bool",
+                        "user": false
+                    },
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": false,
+                        "index": 6,
+                        "member": "fkColumnInfo",
+                        "name": "fkColumnInfo",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QMLPair",
+                        "user": false
+                    }
+                ],
+                "qualifiedClassName": "ColumnInfo"
+            },
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Singleton",
+                        "value": "true"
+                    },
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    }
+                ],
+                "className": "MainSQLConnection",
+                "methods": [
+                    {
+                        "access": "public",
+                        "name": "getAllViews",
+                        "returnType": "QStringList"
+                    },
+                    {
+                        "access": "public",
+                        "name": "getAllTables",
+                        "returnType": "QStringList"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "tablename",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "getAllColumns",
+                        "returnType": "QStringList"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "tablename",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "getPKColumn",
+                        "returnType": "QString"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "tablename",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "getFKColumns",
+                        "returnType": "QHash<QString,std::pair<QString,QString>>"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "tablename",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "columname",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "getAdditionalColumnInfo",
+                        "returnType": "ColumnInfo"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "tablename",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "getColumnsInfo",
+                        "returnType": "QVariantList"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "table",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "column",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "getFKValues",
+                        "returnType": "QVariantList"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "action_id",
+                                "type": "qint64"
+                            },
+                            {
+                                "name": "staff_id",
+                                "type": "qint64"
+                            },
+                            {
+                                "name": "action_description",
+                                "type": "QJsonDocument"
+                            }
+                        ],
+                        "name": "addLog",
+                        "returnType": "bool"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "tablename",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "column_id",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "column_value",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "deleteRecord",
+                        "returnType": "bool"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "tablename",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "columns",
+                                "type": "QVariantList"
+                            },
+                            {
+                                "name": "values",
+                                "type": "QVariantList"
+                            },
+                            {
+                                "name": "id_column",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "id_value",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "updateRecord",
+                        "returnType": "bool"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "tablename",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "columns",
+                                "type": "QVariantList"
+                            },
+                            {
+                                "name": "values",
+                                "type": "QVariantList"
+                            }
+                        ],
+                        "name": "insertRecord",
+                        "returnType": "bool"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "Login",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "Password",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "autorize",
+                        "returnType": "UserInfo"
+                    }
+                ],
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 0,
+                        "name": "userinfo",
+                        "notify": "userinfoChanged",
+                        "read": "userinfo",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "UserInfo",
+                        "user": false,
+                        "write": "setUserinfo"
+                    }
+                ],
+                "qualifiedClassName": "MainSQLConnection",
+                "signals": [
+                    {
+                        "access": "public",
+                        "name": "userinfoChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "mainsqlconnection.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    }
+                ],
+                "className": "TableModel",
+                "enums": [
+                    {
+                        "isClass": false,
+                        "isFlag": false,
+                        "name": "SortEnum",
+                        "values": [
+                            "ASC",
+                            "DESC"
+                        ]
+                    }
+                ],
+                "methods": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "query",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "setQuery",
+                        "returnType": "QString"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "column",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "value",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "setFilterQML",
+                        "returnType": "void"
+                    },
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "column",
+                                "type": "QString"
+                            },
+                            {
+                                "name": "sortorder",
+                                "type": "SortEnum"
+                            }
+                        ],
+                        "name": "setSortQML",
+                        "returnType": "void"
+                    }
+                ],
+                "object": true,
+                "properties": [
+                    {
+                        "constant": false,
+                        "designable": true,
+                        "final": true,
+                        "index": 0,
+                        "name": "tablename",
+                        "notify": "tablenameChanged",
+                        "read": "tablename",
+                        "required": false,
+                        "scriptable": true,
+                        "stored": true,
+                        "type": "QString",
+                        "user": false,
+                        "write": "setTablename"
+                    }
+                ],
+                "qualifiedClassName": "TableModel",
+                "signals": [
+                    {
+                        "access": "public",
+                        "name": "tablenameChanged",
+                        "returnType": "void"
+                    }
+                ],
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QSqlRelationalTableModel"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "tablemodel.h",
+        "outputRevision": 68
+    },
+    {
+        "classes": [
+            {
+                "classInfos": [
+                    {
+                        "name": "QML.Singleton",
+                        "value": "true"
+                    },
+                    {
+                        "name": "QML.Element",
+                        "value": "auto"
+                    }
+                ],
+                "className": "WordAndPrint",
+                "methods": [
+                    {
+                        "access": "public",
+                        "arguments": [
+                            {
+                                "name": "tablename",
+                                "type": "QString"
+                            }
+                        ],
+                        "name": "importInWord",
+                        "returnType": "bool"
+                    }
+                ],
+                "object": true,
+                "qualifiedClassName": "WordAndPrint",
+                "superClasses": [
+                    {
+                        "access": "public",
+                        "name": "QObject"
+                    }
+                ]
+            }
+        ],
+        "inputFile": "wordandprint.h",
+        "outputRevision": 68
+    }
+]

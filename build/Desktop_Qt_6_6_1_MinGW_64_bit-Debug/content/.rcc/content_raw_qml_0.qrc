@@ -1,0 +1,21 @@
+<RCC>
+  <qresource prefix="/qt/qml/content/">
+    <file alias="App.qml">G:/Qt Projects/DormitoryApp/content/App.qml</file>
+    <file alias="BackupsPage.qml">G:/Qt Projects/DormitoryApp/content/BackupsPage.qml</file>
+    <file alias="LogsViewPage.qml">G:/Qt Projects/DormitoryApp/content/LogsViewPage.qml</file>
+    <file alias="MainPage.qml">G:/Qt Projects/DormitoryApp/content/MainPage.qml</file>
+    <file alias="LoginFrame.qml">G:/Qt Projects/DormitoryApp/content/LoginFrame.qml</file>
+    <file alias="MainFrame.qml">G:/Qt Projects/DormitoryApp/content/MainFrame.qml</file>
+    <file alias="AdministarationSelector.qml">G:/Qt Projects/DormitoryApp/content/AdministarationSelector.qml</file>
+    <file alias="TableManipulator.qml">G:/Qt Projects/DormitoryApp/content/TableManipulator.qml</file>
+    <file alias="EditorElement.qml">G:/Qt Projects/DormitoryApp/content/EditorElement.qml</file>
+    <file alias="RolesPage.qml">G:/Qt Projects/DormitoryApp/content/RolesPage.qml</file>
+    <file alias="Table.qml">G:/Qt Projects/DormitoryApp/content/Table.qml</file>
+    <file alias="RolesTableManipulator.qml">G:/Qt Projects/DormitoryApp/content/RolesTableManipulator.qml</file>
+    <file alias="EditorElements/Calendar_TimeFilter.qml">G:/Qt Projects/DormitoryApp/content/EditorElements/Calendar_TimeFilter.qml</file>
+    <file alias="EditorElements/CustomCalendar.qml">G:/Qt Projects/DormitoryApp/content/EditorElements/CustomCalendar.qml</file>
+    <file alias="ReportPage.qml">G:/Qt Projects/DormitoryApp/content/ReportPage.qml</file>
+    <file alias="fonts/fonts.txt">G:/Qt Projects/DormitoryApp/content/fonts/fonts.txt</file>
+  </qresource>
+</RCC>
+

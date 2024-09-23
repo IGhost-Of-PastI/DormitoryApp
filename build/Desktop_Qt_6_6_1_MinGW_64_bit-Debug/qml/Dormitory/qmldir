@@ -1,0 +1,11 @@
+module Dormitory
+linktarget Dormitoryplugin
+optional plugin Dormitoryplugin
+classname DormitoryPlugin
+typeinfo Dormitory.qmltypes
+prefer :/qt/qml/Dormitory/
+singleton Constants 1.0 Constants.qml
+DirectoryFontLoader 1.0 DirectoryFontLoader.qml
+EventListModel 1.0 EventListModel.qml
+EventListSimulator 1.0 EventListSimulator.qml
+

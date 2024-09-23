@@ -1,0 +1,101 @@
+{
+    "classes": [
+        {
+            "classInfos": [
+                {
+                    "name": "QML.Element",
+                    "value": "auto"
+                }
+            ],
+            "className": "TableModel",
+            "enums": [
+                {
+                    "isClass": false,
+                    "isFlag": false,
+                    "name": "SortEnum",
+                    "values": [
+                        "ASC",
+                        "DESC"
+                    ]
+                }
+            ],
+            "methods": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "query",
+                            "type": "QString"
+                        }
+                    ],
+                    "name": "setQuery",
+                    "returnType": "QString"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "column",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "value",
+                            "type": "QString"
+                        }
+                    ],
+                    "name": "setFilterQML",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "column",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "sortorder",
+                            "type": "SortEnum"
+                        }
+                    ],
+                    "name": "setSortQML",
+                    "returnType": "void"
+                }
+            ],
+            "object": true,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 0,
+                    "name": "tablename",
+                    "notify": "tablenameChanged",
+                    "read": "tablename",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "write": "setTablename"
+                }
+            ],
+            "qualifiedClassName": "TableModel",
+            "signals": [
+                {
+                    "access": "public",
+                    "name": "tablenameChanged",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QSqlRelationalTableModel"
+                }
+            ]
+        }
+    ],
+    "inputFile": "tablemodel.h",
+    "outputRevision": 68
+}

@@ -1,0 +1,22 @@
+module content
+linktarget contentplugin
+optional plugin contentplugin
+classname contentPlugin
+typeinfo content.qmltypes
+prefer :/qt/qml/content/
+App 1.0 App.qml
+BackupsPage 1.0 BackupsPage.qml
+LogsViewPage 1.0 LogsViewPage.qml
+MainPage 1.0 MainPage.qml
+LoginFrame 1.0 LoginFrame.qml
+MainFrame 1.0 MainFrame.qml
+AdministarationSelector 1.0 AdministarationSelector.qml
+TableManipulator 1.0 TableManipulator.qml
+EditorElement 1.0 EditorElement.qml
+RolesPage 1.0 RolesPage.qml
+Table 1.0 Table.qml
+RolesTableManipulator 1.0 RolesTableManipulator.qml
+Calendar_TimeFilter 1.0 EditorElements/Calendar_TimeFilter.qml
+CustomCalendar 1.0 EditorElements/CustomCalendar.qml
+ReportPage 1.0 ReportPage.qml
+

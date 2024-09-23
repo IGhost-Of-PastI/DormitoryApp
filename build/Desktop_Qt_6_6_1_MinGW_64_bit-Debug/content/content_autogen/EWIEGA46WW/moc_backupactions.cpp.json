@@ -1,0 +1,114 @@
+{
+    "classes": [
+        {
+            "classInfos": [
+                {
+                    "name": "QML.Element",
+                    "value": "auto"
+                }
+            ],
+            "className": "BackupActions",
+            "methods": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "section",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "param",
+                            "type": "QString"
+                        }
+                    ],
+                    "name": "getParam",
+                    "returnType": "QString"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "section",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "param",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "value",
+                            "type": "QString"
+                        }
+                    ],
+                    "name": "setParam",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "name": "doBackup",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "name": "setTaskToBackup",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "name": "deleteTaskToBackup",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "name": "isTaskExist",
+                    "returnType": "bool"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "backupFilePath",
+                            "type": "QString"
+                        }
+                    ],
+                    "name": "restoreFromBackup",
+                    "returnType": "void"
+                }
+            ],
+            "object": true,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": true,
+                    "index": 0,
+                    "name": "isTaskActive",
+                    "notify": "isTaskActiveChanged",
+                    "read": "isTaskActive",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false,
+                    "write": "setIsTaskActive"
+                }
+            ],
+            "qualifiedClassName": "BackupActions",
+            "signals": [
+                {
+                    "access": "public",
+                    "name": "isTaskActiveChanged",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "backupactions.h",
+    "outputRevision": 68
+}

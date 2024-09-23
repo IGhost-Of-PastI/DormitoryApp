@@ -1,0 +1,15 @@
+/qt/qml/content/App.qml
+/qt/qml/content/BackupsPage.qml
+/qt/qml/content/LogsViewPage.qml
+/qt/qml/content/MainPage.qml
+/qt/qml/content/LoginFrame.qml
+/qt/qml/content/MainFrame.qml
+/qt/qml/content/AdministarationSelector.qml
+/qt/qml/content/TableManipulator.qml
+/qt/qml/content/EditorElement.qml
+/qt/qml/content/RolesPage.qml
+/qt/qml/content/Table.qml
+/qt/qml/content/RolesTableManipulator.qml
+/qt/qml/content/EditorElements/Calendar_TimeFilter.qml
+/qt/qml/content/EditorElements/CustomCalendar.qml
+/qt/qml/content/ReportPage.qml
