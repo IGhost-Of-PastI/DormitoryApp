@@ -15,12 +15,6 @@ bool operator==(const UserInfo& lhs, const UserInfo& rhs) {
             && lhs.acceses == rhs.acceses
             );
 }
-/*bool operator==(const FKColumnInfo& lhs, const FKColumnInfo& rhs) {
-    return (lhs.fkTableName == rhs.fkTableName
-
-            && lhs.fkColumnName == rhs.fkColumnName
-            );
-}*/
 bool operator!=(const QMLPair& lhs, const QMLPair& rhs)
 {
     return (lhs!=rhs);
@@ -50,10 +44,7 @@ MainSQLConnection::MainSQLConnection(QObject *parent)
 
 MainSQLConnection::~MainSQLConnection()
 {
-    /*if(m_connection != nullptr)
-    {
-        delete m_connection;
-    }*/
+
 }
 
 bool MainSQLConnection::addLog(qint64 action_id, qint64 staff_id, QJsonDocument action_description)
@@ -91,7 +82,7 @@ bool MainSQLConnection::deleteRecord(const QString &tablename, const QString &co
     }
 }
 
-bool MainSQLConnection::updateRecord(const QString& tablename, QVariantList columns, QVariantList values, QString id_column,QString id_value)
+QString MainSQLConnection::updateRecord(const QString& tablename, QVariantList columns, QVariantList values, QString id_column,QString id_value)
 {
     QList<ColumnInfo> columninfolsit;
     QHash<QString,QString> datalist;
@@ -117,7 +108,7 @@ bool MainSQLConnection::updateRecord(const QString& tablename, QVariantList colu
     }
     QString jsonValue=QJsonDocument(jsonObj).toJson(QJsonDocument::Compact);
     QSqlQuery updateQuery;
-    updateQuery.prepare("Select public.update_tablesf(:tablename,:id_column,:id_value,:values,:id_staff);");
+    updateQuery.prepare("Select * from public.update_tablesf(:tablename,:id_column,:id_value,:values,:id_staff);");
     updateQuery.bindValue(":tablename",tablename);
     updateQuery.bindValue(":id_column",id_column);
     updateQuery.bindValue(":id_value",id_value);
@@ -125,15 +116,12 @@ bool MainSQLConnection::updateRecord(const QString& tablename, QVariantList colu
     updateQuery.bindValue(":id_staff",m_userinfo.iD);
     if (!updateQuery.exec()) {
         qDebug() << "Error executing stored procedure:" << updateQuery.lastError();
-        return false;
     }
-    else
-    {
-        return true;
-    }
+   // updateQuery.next();
+    return updateQuery.value(0).toString();
 }
 
-bool MainSQLConnection::insertRecord(const QString &tablename, QVariantList columns, QVariantList values)
+QString MainSQLConnection::insertRecord(const QString &tablename, QVariantList columns, QVariantList values)
 {
     QList<ColumnInfo> columninfolsit;
     QHash<QString,QString> datalist;
@@ -158,39 +146,19 @@ bool MainSQLConnection::insertRecord(const QString &tablename, QVariantList colu
         }
     }
     QString Json=QJsonDocument(jsonObj).toJson(QJsonDocument::Compact);
-    //qDebug()<<Json;
-    //QString query=QString(R"(SELECT public.insert_into_specialties('8','%2'))").arg(tablename,Json);
-    //qDebug()<<query;
     QSqlQuery insertQuery;
-   // qDebug()<<m_connection.isOpen();
-   // qDebug()<<m_connection.userName();
-   // qDebug()<<m_connection.password();
-   insertQuery.prepare(R"(Select public.insert_into_tablesf(:staff_id,:tablename,:columns);)");
+   insertQuery.prepare(R"(Select * from public.insert_into_tablesf(:staff_id,:tablename,:columns);)");
    insertQuery.bindValue(":staff_id",m_userinfo.iD);
    insertQuery.bindValue(":tablename",tablename);
    insertQuery.bindValue(":columns",Json);
-  //  qDebug() << insertQuery.lastQuery();
     if (!insertQuery.exec()) {
         qDebug() << "Error executing stored procedure:" << insertQuery.lastError().text();
-    //    qDebug() << insertQuery.lastQuery();
-       // QDebug()<<insertQuery.lastQuery();
-        return false;
+       // return false;
     }
-    else
-    {
-        return true;
-    }
+   insertQuery.next();
+    QString result=insertQuery.value(0).toString();
+    return result;
 }
-
-
-
-
-
-
-
-
-
-
 QStringList MainSQLConnection::getAllViews()
 {
     QStringList views;
@@ -253,7 +221,6 @@ QHash<QString,QPair<QString,QString>> MainSQLConnection::getFKColumns(const QStr
     while (query.next()) {
         QPair<QString,QString> fkcolumninfo;
         QString columname=query.value(1).toString();
-       // columninfo.append(query.value(1).toString());
         fkcolumninfo.first =query.value(2).toString();
         fkcolumninfo.second=query.value(3).toString();
         fkColumnsInfo.insert(columname,fkcolumninfo);
@@ -273,19 +240,12 @@ ColumnInfo MainSQLConnection::getAdditionalColumnInfo(const QString &tablename, 
         columninfo.columnType=query.value(0).toString();
         columninfo.maxLength=query.value(1).toInt();
         columninfo.isNullable=query.value(2).toBool();
-       // QString columname=query.value(1).toString();
-        // columninfo.append(query.value(1).toString());
-       // fkcolumninfo.fkTableName =query.value(2).toString();
-       // fkcolumninfo.fkColumnName=query.value(3).toString();
-       // fkColumnsInfo.insert(columname,fkcolumninfo);
     }
     return columninfo;
 }
 
 QVariantList MainSQLConnection::getColumnsInfo(const QString &tablename)
 {
-   // QVariantList variantlsit;
-    //variantlsit.
 
     QVariantList columnsinfolist;
     QStringList columns = getAllColumns(tablename);
@@ -301,7 +261,6 @@ QVariantList MainSQLConnection::getColumnsInfo(const QString &tablename)
         else {columninfo.isPK=false;}
         if (fkColumns.contains(column))
         {
-//QVariant var1,var2;
             QString val1,val2;
             val1=fkColumns.value(column).first;
             val2=fkColumns.value(column).second;
@@ -317,17 +276,14 @@ QVariantList MainSQLConnection::getColumnsInfo(const QString &tablename)
 
 QVariantList MainSQLConnection::getFKValues(QString table, QString column)
 {
-   // QMLPair table_column= tablecolumn.value<QMLPair>();
     QVariantList idcolumnviewcolumn;
     QSqlQuery query;
-    //QPair<QString,QString> table_column = tablecolumn.
     query.prepare(QString(R"(Select * from public."%1";)").arg(table));
     if(!query.exec()) qDebug()<<query.lastError();
     while(query.next())
     {
         QVariant variant;
         QMLPair pair;
-        //QPair<QString,QString> pair;
         pair.key=query.value(column).toString();
         pair.value=query.value(1).toString();
         idcolumnviewcolumn.append(variant.fromValue(pair));
@@ -335,37 +291,6 @@ QVariantList MainSQLConnection::getFKValues(QString table, QString column)
     //getAllTables();
     return idcolumnviewcolumn;
 }
-
-
-
-/*QSharedPointer<QSqlRelationalTableModel> MainSQLConnection::getRelatioanlTableModel(const QString &tablename)
-{
-
-    QSharedPointer<QSqlRelationalTableModel> tablemodel(new QSqlRelationalTableModel);
-
-    QStringList columnlist=getAllColumns(tablename);
-
-    QSqlQuery relationsquery;
-    relationsquery.prepare("Select * from get_foreign_keys(:tablename)");
-    relationsquery.bindValue(":tablename",tablename);
-   // (QString("Select * from get_foreign_keys(%1)").arg(tablename));
-    tablemodel->setTable(tablename);
-    if (!relationsquery.exec())
-    {
-        qDebug()<<relationsquery.lastError();
-    }
-    while (relationsquery.next())
-    {
-        QString column_name,rtable_name,rcolumn_name;
-        column_name= relationsquery.value(1).toString();
-        rtable_name = relationsquery.value(2).toString();
-        rcolumn_name = relationsquery.value(3).toString();
-
-        tablemodel->setRelation(columnlist.indexOf(column_name),QSqlRelation(rtable_name,rcolumn_name,column_name));
-    }
-    tablemodel->select();
-    return tablemodel;
-}*/
 
 UserInfo MainSQLConnection::autorize(const QString &Login, const QString &Password)
 {
@@ -387,8 +312,6 @@ UserInfo MainSQLConnection::autorize(const QString &Login, const QString &Passwo
             userAccJson["ViewLogs"]=QJsonValue(true);
             userAccJson["ConfigureBackups"]=QJsonValue(true);
             userAccJson["Reports"]=QJsonValue(true);
-           // userAccJson["FreeQueries"]=QJsonValue(true);
-           // userAccJson["ConfigureUser"]=QJsonValue(true);
             accJson["UserAccesses"]=userAccJson;
         }
         {
@@ -428,7 +351,8 @@ UserInfo MainSQLConnection::autorize(const QString &Login, const QString &Passwo
             userinfo.isAutorized=false;
             //qDebug() << "No data returned";
         } else {
-            while (query.next()) {
+            if (query.next())
+            {
                 userinfo.surname=query.value("surname").toString();
                 userinfo.name=query.value("name").toString();
                 userinfo.patronymic=query.value("patronymic").toString();
@@ -438,6 +362,9 @@ UserInfo MainSQLConnection::autorize(const QString &Login, const QString &Passwo
 
                 userinfo.roleName=query.value("rolename").toString();
                 userinfo.acceses=query.value("acceses").toString();
+            }
+            else {
+              userinfo.isAutorized=false;
             }
         }
         setUserinfo(userinfo);

@@ -1,6 +1,6 @@
 import QtQuick
 import QtQuick.Controls
-import "."
+import content
 
 Page {
     id: rectangle
@@ -8,7 +8,7 @@ Page {
     property var userinfo
 
     onUserinfoChanged: {
-
+        listModel.clear();
         var AccessesJson = JSON.parse(userinfo.acceses)
         var userAcc = AccessesJson.UserAccesses
         var tableAccesses = AccessesJson.TableAccesses
@@ -63,6 +63,10 @@ Page {
             anchors.leftMargin: 0
             anchors.rightMargin: 0
             anchors.bottomMargin: 0
+            onClicked:
+            {
+                mainPageContainer.pop();
+            }
         }
 
         ToolButton {
@@ -88,16 +92,12 @@ Page {
             spacing: 5
             boundsBehavior: Flickable.StopAtBounds
             model: listModel
-            delegate: Item {
+            delegate: ItemDelegate {
                 width: parent.width
-                height: 40
+                //height: 40
                 required property string tablename
                 required property int index
-                Row {
-                    Text {
                         text: tablename
-                    }
-                }
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
@@ -111,7 +111,6 @@ Page {
             anchors.fill: parent
             highlight: Rectangle {
                 color: "lightsteelblue"
-                radius: 1
             }
         }
     }

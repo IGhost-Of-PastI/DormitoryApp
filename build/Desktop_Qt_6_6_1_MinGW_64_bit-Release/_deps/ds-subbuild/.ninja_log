@@ -1,0 +1,21 @@
+# ninja log v6
+5	110	7489552200584766	ds-populate-prefix/src/ds-populate-stamp/ds-populate-mkdir	d1f609d7c7b4aa14
+5	110	7489552200584766	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-subbuild/ds-populate-prefix/src/ds-populate-stamp/ds-populate-mkdir	d1f609d7c7b4aa14
+111	5999	7489552259480088	ds-populate-prefix/src/ds-populate-stamp/ds-populate-download	a9f43632e3ab0787
+111	5999	7489552259480088	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-subbuild/ds-populate-prefix/src/ds-populate-stamp/ds-populate-download	a9f43632e3ab0787
+5999	12015	7489552259559723	ds-populate-prefix/src/ds-populate-stamp/ds-populate-update	1544d72f0a9cf784
+5999	12015	7489552259559723	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-subbuild/ds-populate-prefix/src/ds-populate-stamp/ds-populate-update	1544d72f0a9cf784
+12016	12104	7489552320510162	ds-populate-prefix/src/ds-populate-stamp/ds-populate-patch	25519cee4ca06567
+12016	12104	7489552320510162	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-subbuild/ds-populate-prefix/src/ds-populate-stamp/ds-populate-patch	25519cee4ca06567
+12105	12185	7489552321320157	ds-populate-prefix/src/ds-populate-stamp/ds-populate-configure	f1aa4859db3e9f64
+12105	12185	7489552321320157	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-subbuild/ds-populate-prefix/src/ds-populate-stamp/ds-populate-configure	f1aa4859db3e9f64
+12185	12262	7489552322090185	ds-populate-prefix/src/ds-populate-stamp/ds-populate-build	ccc89e4d27ef1585
+12185	12262	7489552322090185	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-subbuild/ds-populate-prefix/src/ds-populate-stamp/ds-populate-build	ccc89e4d27ef1585
+12263	12341	7489552322890164	ds-populate-prefix/src/ds-populate-stamp/ds-populate-install	b312bae59f4e65c1
+12263	12341	7489552322890164	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-subbuild/ds-populate-prefix/src/ds-populate-stamp/ds-populate-install	b312bae59f4e65c1
+12342	12416	7489552323630160	ds-populate-prefix/src/ds-populate-stamp/ds-populate-test	15d6f380b78ace6a
+12342	12416	7489552323630160	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-subbuild/ds-populate-prefix/src/ds-populate-stamp/ds-populate-test	15d6f380b78ace6a
+12417	12524	7489552324720142	CMakeFiles/ds-populate-complete	11a7ad60fb902738
+12417	12524	7489552324720142	ds-populate-prefix/src/ds-populate-stamp/ds-populate-done	11a7ad60fb902738
+12417	12524	7489552324720142	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-subbuild/CMakeFiles/ds-populate-complete	11a7ad60fb902738
+12417	12524	7489552324720142	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-subbuild/ds-populate-prefix/src/ds-populate-stamp/ds-populate-done	11a7ad60fb902738

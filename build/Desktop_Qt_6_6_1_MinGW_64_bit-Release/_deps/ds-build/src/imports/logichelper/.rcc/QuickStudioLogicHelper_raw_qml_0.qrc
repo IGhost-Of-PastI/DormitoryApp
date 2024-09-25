@@ -1,0 +1,12 @@
+<RCC>
+  <qresource prefix="/qt-project.org/imports/QtQuick/Studio/LogicHelper/">
+    <file alias="BidirectionalBinding.qml">G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-src/src/imports/logichelper/BidirectionalBinding.qml</file>
+    <file alias="RangeMapper.qml">G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-src/src/imports/logichelper/RangeMapper.qml</file>
+    <file alias="MinMaxMapper.qml">G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-src/src/imports/logichelper/MinMaxMapper.qml</file>
+    <file alias="StringMapper.qml">G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-src/src/imports/logichelper/StringMapper.qml</file>
+    <file alias="OrOperator.qml">G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-src/src/imports/logichelper/OrOperator.qml</file>
+    <file alias="AndOperator.qml">G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-src/src/imports/logichelper/AndOperator.qml</file>
+    <file alias="NotOperator.qml">G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-src/src/imports/logichelper/NotOperator.qml</file>
+  </qresource>
+</RCC>
+

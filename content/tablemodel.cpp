@@ -74,16 +74,10 @@ void TableModel::setTablename(const QString &newTablename)
             columnlist.append(columnnames.value(0).toString());
         }
         this->setTable(m_tablename);
-        /*this->setEditStrategy(QSqlTableModel::OnRowChange);
-        for (int i = columnlist.length()-1; i >= 0; i--)
-        {
-            this->setHeaderData(i, Qt::Horizontal, columnlist[i]);
-        }*/
 
         QSqlQuery relationsquery(this->database());
         relationsquery.prepare("Select * from get_foreign_keys(:tablename)");
         relationsquery.bindValue(":tablename",m_tablename);
-        // (QString("Select * from get_foreign_keys(%1)").arg(tablename));
 
         if (!relationsquery.exec())
         {
@@ -106,22 +100,31 @@ void TableModel::setTablename(const QString &newTablename)
                 qDebug()<<"Error getting index of column:" << query.lastError() ;
 
             }
-           // qDebug()<<query.lastQuery();
+
             while(query.next())
             {
                 index= query.value(0).toInt();
             }
+            query.prepare("Select getcolumnname(:tablename,:columnName)");
+            query.bindValue(":tablename",rtable_name);
+            query.bindValue(":columnName",2);
+            if (!query.exec())
+            {
+                qDebug()<<"Error getting index of column:" << query.lastError() ;
+            }
+            QString linkedColumn;
+            while(query.next())
+            {
+                linkedColumn= query.value(0).toString();
+            }
 
-          //  int incurrenttable=columnlist.indexOf(column_name);
             this->setHeaderData(index-1, Qt::Horizontal, column_name);
-            this->setRelation(index-1,QSqlRelation(rtable_name,rcolumn_name,"name"));
+            this->setRelation(index-1,QSqlRelation(rtable_name,rcolumn_name,linkedColumn));
         }
        if (!this->select()) {
             qDebug() << "Error selecting data:" << this->lastError();
            qDebug()<< this->query().lastQuery();
         }
-    //   qDebug()<< this->query().lastQuery();
-       //this->data(QModelIndex(1),Qt::EditRole);
 
         emit tablenameChanged();
     }

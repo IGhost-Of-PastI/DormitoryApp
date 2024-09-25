@@ -18,31 +18,38 @@ qt6_add_qml_module(content
     RESOURCE_PREFIX "/qt/qml"
     QML_FILES
         App.qml
-        BackupsPage.qml
-        LogsViewPage.qml
-        MainPage.qml
+        AdminPage/BackupsPage.qml
+        AdminPage/LogsViewPage.qml
+        AdminPage/ReportPage.qml
+        AdminPage/AdministarationSelector.qml
 
+        Tables/TableManipulator.qml
+        Tables/EditorElement.qml
+        Tables/RolesPage.qml
+        Tables/Table.qml
+        Tables/RolesTableManipulator.qml
+
+        EditorElements/CustomCalendar.qml
+        EditorElements/TextEditor.qml
+        EditorElements/CheckboxEditor.qml
+        EditorElements/TextVarCharEditor.qml
+        EditorElements/ComboboxEditor.qml
+        EditorElements/SpinEditor.qml
+
+        MainPage.qml
         LoginFrame.qml
         MainFrame.qml
-        AdministarationSelector.qml
-        TableManipulator.qml
-        EditorElement.qml
-        RolesPage.qml
+
+
 
     RESOURCES fonts/fonts.txt
         SOURCES mainsqlconnection.h mainsqlconnection.cpp
         SOURCES backupactions.h backupactions.cpp
         SOURCES constants.h constants.cpp
         SOURCES tablemodel.h tablemodel.cpp
-        QML_FILES Table.qml
-        QML_FILES RolesTableManipulator.qml
         SOURCES wordandprint.h wordandprint.cpp
-        QML_FILES EditorElements/Calendar_TimeFilter.qml
-        QML_FILES EditorElements/CustomCalendar.qml
-        QML_FILES
         SOURCES additionalfunctions.h additionalfunctions.cpp
-        SOURCES
-        QML_FILES ReportPage.qml
+
 
 )
 

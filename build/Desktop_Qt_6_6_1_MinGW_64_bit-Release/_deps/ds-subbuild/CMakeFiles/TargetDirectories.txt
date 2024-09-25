@@ -1,0 +1,3 @@
+G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-subbuild/CMakeFiles/ds-populate.dir
+G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-subbuild/CMakeFiles/edit_cache.dir
+G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-subbuild/CMakeFiles/rebuild_cache.dir

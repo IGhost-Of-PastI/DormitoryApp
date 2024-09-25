@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/">
+    <file alias="qtquickcontrols2.conf">G:/Qt Projects/DormitoryApp/qtquickcontrols2.conf</file>
+  </qresource>
+</RCC>
+

@@ -636,7 +636,7 @@
                             }
                         ],
                         "name": "updateRecord",
-                        "returnType": "bool"
+                        "returnType": "QString"
                     },
                     {
                         "access": "public",
@@ -655,7 +655,7 @@
                             }
                         ],
                         "name": "insertRecord",
-                        "returnType": "bool"
+                        "returnType": "QString"
                     },
                     {
                         "access": "public",

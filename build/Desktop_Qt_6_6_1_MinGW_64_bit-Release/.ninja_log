@@ -1,0 +1,912 @@
+# ninja log v6
+222	471	7489552587190844	qml/QtQuick/Studio/Components/ArcItem.qml	d95f9e7f454a7e1
+222	471	7489552587190844	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Components/ArcItem.qml	d95f9e7f454a7e1
+234	484	7489552587300853	qml/QtQuick/Studio/Components/PieItem.qml	6c76ae2d88ec588c
+234	484	7489552587300853	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Components/PieItem.qml	6c76ae2d88ec588c
+244	498	7489552587390860	qml/QtQuick/Studio/Components/TriangleItem.qml	7b0e04abc3790d21
+244	498	7489552587390860	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Components/TriangleItem.qml	7b0e04abc3790d21
+255	512	7489552587540853	qml/QtQuick/Studio/Components/SvgPathItem.qml	896eedb9f85ed880
+255	512	7489552587540853	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Components/SvgPathItem.qml	896eedb9f85ed880
+268	527	7489552587720840	qml/QtQuick/Studio/Components/EllipseItem.qml	10306bf7c69184d7
+268	527	7489552587720840	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Components/EllipseItem.qml	10306bf7c69184d7
+283	540	7489552587790844	qml/QtQuick/Studio/Components/FlipableItem.qml	6266b5f5ccab390c
+283	540	7489552587790844	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Components/FlipableItem.qml	6266b5f5ccab390c
+296	554	7489552588150846	qml/QtQuick/Studio/Components/RectangleItem.qml	1cdc6ae824a13a67
+296	554	7489552588150846	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Components/RectangleItem.qml	1cdc6ae824a13a67
+308	569	7489552588110845	qml/QtQuick/Studio/Components/RegularPolygonItem.qml	87deeb0412c5196e
+308	569	7489552588110845	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Components/RegularPolygonItem.qml	87deeb0412c5196e
+322	586	7489552588320843	qml/QtQuick/Studio/Components/BorderItem.qml	fe74ba767443aeec
+322	586	7489552588320843	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Components/BorderItem.qml	fe74ba767443aeec
+348	599	7489552588550853	qml/QtQuick/Studio/Components/IsoItem.qml	b235b4765434e4f4
+348	599	7489552588550853	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Components/IsoItem.qml	b235b4765434e4f4
+369	611	7489552588650850	qml/QtQuick/Studio/Components/GroupItem.qml	2bc9f89949309ebe
+369	611	7489552588650850	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Components/GroupItem.qml	2bc9f89949309ebe
+382	625	7489552588790849	qml/QtQuick/Studio/Components/ArcArrow.qml	f608d4001affb8ad
+382	625	7489552588790849	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Components/ArcArrow.qml	f608d4001affb8ad
+394	642	7489552588950854	qml/QtQuick/Studio/Components/StraightArrow.qml	28b8ac887dd60022
+394	642	7489552588950854	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Components/StraightArrow.qml	28b8ac887dd60022
+405	656	7489552589060852	qml/QtQuick/Studio/LogicHelper/BidirectionalBinding.qml	53dd8706e22b57bc
+405	656	7489552589060852	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/LogicHelper/BidirectionalBinding.qml	53dd8706e22b57bc
+418	674	7489552589200860	qml/QtQuick/Studio/LogicHelper/RangeMapper.qml	64342e9b81e07976
+418	674	7489552589200860	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/LogicHelper/RangeMapper.qml	64342e9b81e07976
+431	690	7489552589340844	qml/QtQuick/Studio/LogicHelper/MinMaxMapper.qml	7041c6e857dd7a1e
+431	690	7489552589340844	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/LogicHelper/MinMaxMapper.qml	7041c6e857dd7a1e
+446	706	7489552589570849	qml/QtQuick/Studio/LogicHelper/StringMapper.qml	d5fa7b1850a5a6d1
+446	706	7489552589570849	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/LogicHelper/StringMapper.qml	d5fa7b1850a5a6d1
+458	722	7489552589640851	qml/QtQuick/Studio/LogicHelper/OrOperator.qml	60f589596634454a
+458	722	7489552589640851	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/LogicHelper/OrOperator.qml	60f589596634454a
+472	736	7489552589740850	qml/QtQuick/Studio/LogicHelper/AndOperator.qml	75beba1d5563d0e5
+472	736	7489552589740850	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/LogicHelper/AndOperator.qml	75beba1d5563d0e5
+484	750	7489552589980846	qml/QtQuick/Studio/LogicHelper/NotOperator.qml	df12615588e60f8e
+484	750	7489552589980846	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/LogicHelper/NotOperator.qml	df12615588e60f8e
+499	768	7489552590080848	qml/content/App.qml	122bc9cd601b5311
+499	768	7489552590080848	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/content/App.qml	122bc9cd601b5311
+512	784	7489552590100852	qml/content/AdminPage/BackupsPage.qml	6166a612e69bb313
+512	784	7489552590100852	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/content/AdminPage/BackupsPage.qml	6166a612e69bb313
+527	799	7489552590380848	qml/content/AdminPage/LogsViewPage.qml	5f89a97f2da76a55
+527	799	7489552590380848	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/content/AdminPage/LogsViewPage.qml	5f89a97f2da76a55
+541	814	7489552590410847	qml/content/AdminPage/ReportPage.qml	330a12d36392f652
+541	814	7489552590410847	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/content/AdminPage/ReportPage.qml	330a12d36392f652
+555	828	7489552590560847	qml/content/AdminPage/AdministarationSelector.qml	b08b326fbbfad143
+555	828	7489552590560847	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/content/AdminPage/AdministarationSelector.qml	b08b326fbbfad143
+569	841	7489552590710844	qml/content/Tables/TableManipulator.qml	6874f89a25d0d01f
+569	841	7489552590710844	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/content/Tables/TableManipulator.qml	6874f89a25d0d01f
+586	853	7489552590850850	qml/content/Tables/EditorElement.qml	bba6a4c6a7727320
+586	853	7489552590850850	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/content/Tables/EditorElement.qml	bba6a4c6a7727320
+599	868	7489552591000846	qml/content/Tables/RolesPage.qml	9194fd9ee3c24522
+599	868	7489552591000846	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/content/Tables/RolesPage.qml	9194fd9ee3c24522
+612	886	7489552591170866	qml/content/Tables/Table.qml	e41373bad4c25ffd
+612	886	7489552591170866	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/content/Tables/Table.qml	e41373bad4c25ffd
+626	904	7489552591300853	qml/content/Tables/RolesTableManipulator.qml	96caa6034c625a46
+626	904	7489552591300853	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/content/Tables/RolesTableManipulator.qml	96caa6034c625a46
+643	920	7489552591450853	qml/content/EditorElements/CustomCalendar.qml	c01a92ebee49a9d0
+643	920	7489552591450853	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/content/EditorElements/CustomCalendar.qml	c01a92ebee49a9d0
+657	936	7489552591690853	qml/content/EditorElements/TextEditor.qml	96f2fd3ab1209a49
+657	936	7489552591690853	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/content/EditorElements/TextEditor.qml	96f2fd3ab1209a49
+675	950	7489552591860854	qml/content/EditorElements/CheckboxEditor.qml	c744b5fde3a9452f
+675	950	7489552591860854	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/content/EditorElements/CheckboxEditor.qml	c744b5fde3a9452f
+691	965	7489552592130852	qml/content/EditorElements/TextVarCharEditor.qml	764cb68dcbe14791
+691	965	7489552592130852	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/content/EditorElements/TextVarCharEditor.qml	764cb68dcbe14791
+707	982	7489552592100856	qml/content/EditorElements/ComboboxEditor.qml	f5c24d68174dfc3d
+707	982	7489552592100856	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/content/EditorElements/ComboboxEditor.qml	f5c24d68174dfc3d
+723	998	7489552592350852	qml/content/EditorElements/SpinEditor.qml	d86d72856824a982
+723	998	7489552592350852	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/content/EditorElements/SpinEditor.qml	d86d72856824a982
+736	1012	7489552592460843	qml/content/MainPage.qml	68adc8b66532b75f
+736	1012	7489552592460843	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/content/MainPage.qml	68adc8b66532b75f
+750	1026	7489552592660838	qml/content/LoginFrame.qml	46d982dc66732279
+750	1026	7489552592660838	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/content/LoginFrame.qml	46d982dc66732279
+768	1039	7489552592830851	qml/content/MainFrame.qml	cc86c04b5c94aedb
+768	1039	7489552592830851	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/content/MainFrame.qml	cc86c04b5c94aedb
+785	1052	7489552593050854	qml/content/fonts/fonts.txt	78d2425c3ad1e984
+785	1052	7489552593050854	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/content/fonts/fonts.txt	78d2425c3ad1e984
+799	1066	7489552593120844	qml/Dormitory/Constants.qml	a49dda4cd3d3a32
+799	1066	7489552593120844	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/Dormitory/Constants.qml	a49dda4cd3d3a32
+815	1085	7489552593140837	qml/Dormitory/DirectoryFontLoader.qml	f537a0d7cdb2f6f2
+815	1085	7489552593140837	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/Dormitory/DirectoryFontLoader.qml	f537a0d7cdb2f6f2
+828	1100	7489552593310853	qml/Dormitory/EventListModel.qml	b3f55810604ec754
+828	1100	7489552593310853	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/Dormitory/EventListModel.qml	b3f55810604ec754
+841	1113	7489552593520847	qml/Dormitory/EventListSimulator.qml	4006d5396148af79
+841	1113	7489552593520847	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/Dormitory/EventListSimulator.qml	4006d5396148af79
+869	1126	7489552593740843	qml/QtQuick/Studio/Effects/FastBlurItem.qml	63f3278277fff846
+869	1126	7489552593740843	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Effects/FastBlurItem.qml	63f3278277fff846
+886	1141	7489552593940841	qml/QtQuick/Studio/Effects/GlowItem.qml	9dc0edfee27e90b4
+886	1141	7489552593940841	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Effects/GlowItem.qml	9dc0edfee27e90b4
+904	1155	7489552594150848	qml/QtQuick/Studio/Effects/ZoomBlurItem.qml	d07101c01ed19821
+904	1155	7489552594150848	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Effects/ZoomBlurItem.qml	d07101c01ed19821
+920	1169	7489552594340837	qml/QtQuick/Studio/Effects/RadialBlurItem.qml	f677145f4b6b60a4
+920	1169	7489552594340837	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Effects/RadialBlurItem.qml	f677145f4b6b60a4
+937	1184	7489552594390866	qml/QtQuick/Studio/Effects/DesaturationItem.qml	40e79f7fe5366976
+937	1184	7489552594390866	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Effects/DesaturationItem.qml	40e79f7fe5366976
+951	1200	7489552594560836	qml/QtQuick/Studio/Effects/SaturationItem.qml	620521d8d2c9c990
+951	1200	7489552594560836	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Effects/SaturationItem.qml	620521d8d2c9c990
+966	1217	7489552594700856	qml/QtQuick/Studio/Effects/DirectionalBlurItem.qml	873528b9729fd6be
+966	1217	7489552594700856	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Effects/DirectionalBlurItem.qml	873528b9729fd6be
+983	1234	7489552594890853	qml/QtQuick/Studio/Effects/ColorOverlayItem.qml	c5fea65659be4936
+983	1234	7489552594890853	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Effects/ColorOverlayItem.qml	c5fea65659be4936
+998	1252	7489552595020845	qml/QtQuick/Studio/Effects/DropShadowItem.qml	d0f40d122936308e
+998	1252	7489552595020845	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Effects/DropShadowItem.qml	d0f40d122936308e
+1013	1266	7489552595210851	qml/QtQuick/Studio/Effects/ColorizeItem.qml	796a5cb4d38f0d35
+1013	1266	7489552595210851	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Effects/ColorizeItem.qml	796a5cb4d38f0d35
+1027	1280	7489552595330835	qml/QtQuick/Studio/Effects/BrightnessContrastItem.qml	6861d39640dfa761
+1027	1280	7489552595330835	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Effects/BrightnessContrastItem.qml	6861d39640dfa761
+1039	1293	7489552595470837	qml/QtQuick/Studio/Effects/HueSaturationItem.qml	5b0f833a549be7d8
+1039	1293	7489552595470837	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Effects/HueSaturationItem.qml	5b0f833a549be7d8
+1053	1309	7489552595550855	qml/QtQuick/Studio/Effects/MaskedBlurItem.qml	415d1119e34bf536
+1053	1309	7489552595550855	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Effects/MaskedBlurItem.qml	415d1119e34bf536
+1067	1322	7489552595740847	qml/QtQuick/Studio/Effects/BlendItem.qml	a6ebb560491cbaa3
+1067	1322	7489552595740847	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Effects/BlendItem.qml	a6ebb560491cbaa3
+1085	1342	7489552595920831	qml/QtQuick/Studio/Effects/OpacityMaskItem.qml	72755a0462b41ae5
+1085	1342	7489552595920831	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Effects/OpacityMaskItem.qml	72755a0462b41ae5
+1100	1357	7489552596140843	qml/QtQuick/Studio/Effects/MaskItem.qml	44a9a99c12f19c92
+1100	1357	7489552596140843	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Effects/MaskItem.qml	44a9a99c12f19c92
+1113	1375	7489552596360866	qml/QtQuick/Studio/Effects/RotationItem.qml	aa6b4d20bbbe0eae
+1113	1375	7489552596360866	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Effects/RotationItem.qml	aa6b4d20bbbe0eae
+1127	1389	7489552596570851	qml/QtQuick/Studio/Effects/GaussianBlurItem.qml	3b014b27e2c461e1
+1127	1389	7489552596570851	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Effects/GaussianBlurItem.qml	3b014b27e2c461e1
+1142	1404	7489552596540852	qml/QtQuick/Studio/Effects/GammaAdjustItem.qml	7c988ca0424b4cc
+1142	1404	7489552596540852	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Effects/GammaAdjustItem.qml	7c988ca0424b4cc
+1155	1417	7489552596770852	qml/QtQuick/Studio/Effects/RecursiveBlurItem.qml	699b160830df8957
+1155	1417	7489552596770852	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Effects/RecursiveBlurItem.qml	699b160830df8957
+1169	1431	7489552596880843	qml/QtQuick/Studio/Effects/ThresholdMaskItem.qml	86fb7def8ed5dd9a
+1169	1431	7489552596880843	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Effects/ThresholdMaskItem.qml	86fb7def8ed5dd9a
+1185	1445	7489552596970838	qml/QtQuick/Studio/Effects/LevelAdjustItem.qml	abbbd6f4fedb9d2b
+1185	1445	7489552596970838	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Effects/LevelAdjustItem.qml	abbbd6f4fedb9d2b
+1201	1460	7489552597150851	qml/QtQuick/Studio/Effects/InnerShadowItem.qml	e21819e5228c68bc
+1201	1460	7489552597150851	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Effects/InnerShadowItem.qml	e21819e5228c68bc
+1217	1478	7489552597230845	qml/QtQuick/Studio/Effects/DisplaceItem.qml	5371d76477247eb0
+1217	1478	7489552597230845	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Effects/DisplaceItem.qml	5371d76477247eb0
+1234	1495	7489552597370850	qml/QtQuick/Studio/Effects/BlendEffect.qml	932c1cf2cbfd30fd
+1234	1495	7489552597370850	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Effects/BlendEffect.qml	932c1cf2cbfd30fd
+1252	1509	7489552597490853	qml/QtQuick/Studio/Effects/BrightnessContrastEffect.qml	8d5f19e50693a918
+1252	1509	7489552597490853	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Effects/BrightnessContrastEffect.qml	8d5f19e50693a918
+854	1535	7489552595910859	_deps/ds-build/src/imports/components/QuickStudioComponents_autogen/timestamp	e7dc70741a8f69bf
+854	1535	7489552595910859	_deps/ds-build/src/imports/components/QuickStudioComponents_autogen/mocs_compilation.cpp	e7dc70741a8f69bf
+854	1535	7489552595910859	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/components/QuickStudioComponents_autogen/timestamp	e7dc70741a8f69bf
+854	1535	7489552595910859	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/components/QuickStudioComponents_autogen/mocs_compilation.cpp	e7dc70741a8f69bf
+1267	1551	7489552597630858	qml/QtQuick/Studio/Effects/ColorizeEffect.qml	56975e0659f17436
+1267	1551	7489552597630858	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Effects/ColorizeEffect.qml	56975e0659f17436
+1281	1566	7489552597790851	qml/QtQuick/Studio/Effects/ColorOverlayEffect.qml	91df727d502f182e
+1281	1566	7489552597790851	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Effects/ColorOverlayEffect.qml	91df727d502f182e
+1294	1582	7489552597940854	qml/QtQuick/Studio/Effects/DesaturationEffect.qml	f2286c259265dbf5
+1294	1582	7489552597940854	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Effects/DesaturationEffect.qml	f2286c259265dbf5
+1309	1595	7489552598070844	qml/QtQuick/Studio/Effects/DirectionalBlurEffect.qml	17e42a3df498f7b
+1309	1595	7489552598070844	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Effects/DirectionalBlurEffect.qml	17e42a3df498f7b
+1323	1611	7489552598240854	qml/QtQuick/Studio/Effects/DisplaceEffect.qml	bf0ae2ec8f2f7de3
+1323	1611	7489552598240854	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Effects/DisplaceEffect.qml	bf0ae2ec8f2f7de3
+1342	1630	7489552598430857	qml/QtQuick/Studio/Effects/DropShadowEffect.qml	6f302bcbad4bfb2
+1342	1630	7489552598430857	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Effects/DropShadowEffect.qml	6f302bcbad4bfb2
+1358	1644	7489552598600846	qml/QtQuick/Studio/Effects/FastBlurEffect.qml	45c16c8ea74352d4
+1358	1644	7489552598600846	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Effects/FastBlurEffect.qml	45c16c8ea74352d4
+1376	1660	7489552598720848	qml/QtQuick/Studio/Effects/GammaAdjustEffect.qml	3def8dd747329e98
+1376	1660	7489552598720848	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Effects/GammaAdjustEffect.qml	3def8dd747329e98
+1390	1675	7489552598890845	qml/QtQuick/Studio/Effects/GaussianBlurEffect.qml	ebab828928576f3b
+1390	1675	7489552598890845	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Effects/GaussianBlurEffect.qml	ebab828928576f3b
+1404	1692	7489552599050848	qml/QtQuick/Studio/Effects/GlowEffect.qml	a5016e846b12f6c5
+1404	1692	7489552599050848	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Effects/GlowEffect.qml	a5016e846b12f6c5
+1417	1708	7489552599160847	qml/QtQuick/Studio/Effects/HueSaturationEffect.qml	56b65366a71b9c55
+1417	1708	7489552599160847	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Effects/HueSaturationEffect.qml	56b65366a71b9c55
+1432	1721	7489552599330848	qml/QtQuick/Studio/Effects/InnerShadowEffect.qml	b81d37dd04300d6a
+1432	1721	7489552599330848	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Effects/InnerShadowEffect.qml	b81d37dd04300d6a
+1446	1737	7489552599480861	qml/QtQuick/Studio/Effects/LevelAdjustEffect.qml	911ff1a89ca0d9c1
+1446	1737	7489552599480861	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Effects/LevelAdjustEffect.qml	911ff1a89ca0d9c1
+1460	1752	7489552599680848	qml/QtQuick/Studio/Effects/MaskedBlurEffect.qml	4671e8ee19edb1a3
+1460	1752	7489552599680848	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Effects/MaskedBlurEffect.qml	4671e8ee19edb1a3
+1479	1769	7489552599810847	qml/QtQuick/Studio/Effects/OpacityMaskEffect.qml	904f8a6c4abcff32
+1479	1769	7489552599810847	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Effects/OpacityMaskEffect.qml	904f8a6c4abcff32
+1495	1781	7489552599960834	qml/QtQuick/Studio/Effects/RadialBlurEffect.qml	cb529814eac8f861
+1495	1781	7489552599960834	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Effects/RadialBlurEffect.qml	cb529814eac8f861
+1510	1795	7489552600080849	qml/QtQuick/Studio/Effects/RecursiveBlurEffect.qml	fb97a67d3d208591
+1510	1795	7489552600080849	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Effects/RecursiveBlurEffect.qml	fb97a67d3d208591
+1538	1810	7489552600440850	qml/QtQuick/Studio/Effects/ThresholdMaskEffect.qml	e0d63413f086aeed
+1538	1810	7489552600440850	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Effects/ThresholdMaskEffect.qml	e0d63413f086aeed
+1552	1825	7489552600520847	qml/QtQuick/Studio/Effects/ZoomBlurEffect.qml	c05868c1e5902e65
+1552	1825	7489552600520847	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Effects/ZoomBlurEffect.qml	c05868c1e5902e65
+1567	1838	7489552600680835	qml/FlowView/DefaultFlowEffect.qml	771490747d083c12
+1567	1838	7489552600680835	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/FlowView/DefaultFlowEffect.qml	771490747d083c12
+1583	1853	7489552600830850	qml/FlowView/SwipeInteraction.qml	7acda1336ba16a05
+1583	1853	7489552600830850	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/FlowView/SwipeInteraction.qml	7acda1336ba16a05
+1596	1867	7489552600980848	qml/FlowView/FlowEffect.qml	4479168dfe0f0467
+1596	1867	7489552600980848	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/FlowView/FlowEffect.qml	4479168dfe0f0467
+1611	1883	7489552601210848	qml/FlowView/FlowFadeEffect.qml	aab017489b875bea
+1611	1883	7489552601210848	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/FlowView/FlowFadeEffect.qml	aab017489b875bea
+1631	1899	7489552601330851	qml/FlowView/FlowPushLeftEffect.qml	f191cf9caa0f9da1
+1631	1899	7489552601330851	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/FlowView/FlowPushLeftEffect.qml	f191cf9caa0f9da1
+1645	1914	7489552601490851	qml/FlowView/FlowPushRightEffect.qml	7d856f181a7d067f
+1645	1914	7489552601490851	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/FlowView/FlowPushRightEffect.qml	7d856f181a7d067f
+1660	1929	7489552601640850	qml/FlowView/FlowSlideDownEffect.qml	4fd5dd514212159a
+1660	1929	7489552601640850	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/FlowView/FlowSlideDownEffect.qml	4fd5dd514212159a
+1677	1949	7489552601800844	qml/FlowView/FlowSlideLeftEffect.qml	44c67ce67b9e387f
+1677	1949	7489552601800844	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/FlowView/FlowSlideLeftEffect.qml	44c67ce67b9e387f
+1693	1963	7489552601970853	qml/FlowView/FlowSlideRightEffect.qml	975ff3191ab9ddbd
+1693	1963	7489552601970853	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/FlowView/FlowSlideRightEffect.qml	975ff3191ab9ddbd
+1708	1977	7489552602070842	qml/FlowView/FlowSlideUpEffect.qml	2dd1e5838de43dc1
+1708	1977	7489552602070842	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/FlowView/FlowSlideUpEffect.qml	2dd1e5838de43dc1
+1721	1996	7489552602220856	qml/FlowView/FlowMoveEffect.qml	acfca09d729e6537
+1721	1996	7489552602220856	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/FlowView/FlowMoveEffect.qml	acfca09d729e6537
+1738	2011	7489552602390861	qml/FlowView/FlowPushEffect.qml	bd87b3e057290c32
+1738	2011	7489552602390861	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/FlowView/FlowPushEffect.qml	bd87b3e057290c32
+1753	2026	7489552602560843	qml/FlowView/FlowTransition.qml	40a38f1fb7a6226
+1753	2026	7489552602560843	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/FlowView/FlowTransition.qml	40a38f1fb7a6226
+1769	2041	7489552602660850	qml/FlowView/FlowTransitionList.qml	2a08230474caf416
+1769	2041	7489552602660850	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/FlowView/FlowTransitionList.qml	2a08230474caf416
+1781	2056	7489552602800847	qml/FlowView/FlowView.qml	b8ed0cfa2ba27cf1
+1781	2056	7489552602800847	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/FlowView/FlowView.qml	b8ed0cfa2ba27cf1
+1795	2071	7489552602920848	qml/FlowView/FlowPushUpEffect.qml	8e2492a9a31a32e7
+1795	2071	7489552602920848	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/FlowView/FlowPushUpEffect.qml	8e2492a9a31a32e7
+1810	2087	7489552603070854	qml/FlowView/FlowItem.qml	d283424b791a9a86
+1810	2087	7489552603070854	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/FlowView/FlowItem.qml	d283424b791a9a86
+1826	2103	7489552603220852	qml/FlowView/FlowDecision.qml	1d2cb1fe4bac15ef
+1826	2103	7489552603220852	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/FlowView/FlowDecision.qml	1d2cb1fe4bac15ef
+1839	2119	7489552603390854	qml/FlowView/FlowWildcard.qml	17011da215b735e0
+1839	2119	7489552603390854	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/FlowView/FlowWildcard.qml	17011da215b735e0
+1853	2135	7489552603530867	qml/FlowView/FlowActionArea.qml	2bebecd76c6aa5d0
+1853	2135	7489552603530867	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/FlowView/FlowActionArea.qml	2bebecd76c6aa5d0
+1868	2150	7489552603690851	qml/FlowView/FlowState.qml	f1a5587b1db972e4
+1868	2150	7489552603690851	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/FlowView/FlowState.qml	f1a5587b1db972e4
+1884	2165	7489552604170851	qml/FlowView/+DesignMode/FlowItem.qml	d7f7f6b769dc47f0
+1884	2165	7489552604170851	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/FlowView/+DesignMode/FlowItem.qml	d7f7f6b769dc47f0
+1900	2182	7489552604360849	qml/FlowView/+DesignMode/FlowView.qml	f177be91782d286
+1900	2182	7489552604360849	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/FlowView/+DesignMode/FlowView.qml	f177be91782d286
+1915	2199	7489552604220836	qml/FlowView/qmldir	103c5af2500c5a15
+1915	2199	7489552604220836	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/FlowView/qmldir	103c5af2500c5a15
+1949	2213	7489552604650851	qml/QtQuick/Studio/MultiText/MultiTextElement.qml	6ff6816b449fb7a3
+1949	2213	7489552604650851	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/MultiText/MultiTextElement.qml	6ff6816b449fb7a3
+1964	2232	7489552604660841	qml/QtQuick/Studio/MultiText/MultiTextItem.qml	47d62c3c826723b9
+1964	2232	7489552604660841	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/MultiText/MultiTextItem.qml	47d62c3c826723b9
+1977	2250	7489552604850844	qml/QtQuick/Studio/MultiText/MultiTextException.qml	2ee8ca23d405b500
+1977	2250	7489552604850844	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/MultiText/MultiTextException.qml	2ee8ca23d405b500
+1997	2267	7489552604990843	qml/QtQuick/Studio/EventSimulator/EventSimulator.qml	87d0de433e3fd17d
+1997	2267	7489552604990843	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/EventSimulator/EventSimulator.qml	87d0de433e3fd17d
+2012	2286	7489552605100856	qml/QtQuick/Studio/EventSimulator/EventSimulatorDelegate.qml	63ecd7c66a01058d
+2012	2286	7489552605100856	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/EventSimulator/EventSimulatorDelegate.qml	63ecd7c66a01058d
+2026	2339	7489552605300844	qml/QtQuick/Studio/EventSystem/EventSystem.qml	fa31885e07210e26
+2026	2339	7489552605300844	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/EventSystem/EventSystem.qml	fa31885e07210e26
+2041	2369	7489552605460849	qml/QtQuick/Studio/EventSystem/EventListener.qml	b23445c52704c0de
+2041	2369	7489552605460849	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/EventSystem/EventListener.qml	b23445c52704c0de
+2088	2384	7489552605960845	_deps/ds-build/src/imports/components/meta_types/QuickStudioComponents_json_file_list.txt	34b4d2b5a3f10df1
+2088	2384	7489552605960845	_deps/ds-build/src/imports/components/meta_types/QuickStudioComponents_json_file_list.txt.timestamp	34b4d2b5a3f10df1
+2088	2384	7489552605960845	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/components/meta_types/QuickStudioComponents_json_file_list.txt	34b4d2b5a3f10df1
+2088	2384	7489552605960845	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/components/meta_types/QuickStudioComponents_json_file_list.txt.timestamp	34b4d2b5a3f10df1
+2151	2405	7489552607030846	_deps/ds-build/src/imports/components/.rcc/qmlcache/QuickStudioComponents_qmlcache_loader.cpp	d7a38d2db0ff2839
+2151	2405	7489552607030846	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/components/.rcc/qmlcache/QuickStudioComponents_qmlcache_loader.cpp	d7a38d2db0ff2839
+1930	2623	7489552606380861	_deps/ds-build/src/imports/logichelper/QuickStudioLogicHelper_autogen/timestamp	1bc7271bc5de6357
+1930	2623	7489552606380861	_deps/ds-build/src/imports/logichelper/QuickStudioLogicHelper_autogen/mocs_compilation.cpp	1bc7271bc5de6357
+1930	2623	7489552606380861	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/logichelper/QuickStudioLogicHelper_autogen/timestamp	1bc7271bc5de6357
+1930	2623	7489552606380861	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/logichelper/QuickStudioLogicHelper_autogen/mocs_compilation.cpp	1bc7271bc5de6357
+2385	2641	7489552609990866	_deps/ds-build/src/imports/components/meta_types/qt6quickstudiocomponents_release_metatypes.json.gen	bc1a4e30d4c40946
+2385	2641	7489552609990866	_deps/ds-build/src/imports/components/meta_types/qt6quickstudiocomponents_release_metatypes.json	bc1a4e30d4c40946
+2385	2641	7489552609990866	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/components/meta_types/qt6quickstudiocomponents_release_metatypes.json.gen	bc1a4e30d4c40946
+2385	2641	7489552609990866	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/components/meta_types/qt6quickstudiocomponents_release_metatypes.json	bc1a4e30d4c40946
+2072	2695	7489552609110849	imports/Dormitory/Dormitory_autogen/timestamp	884eb9c4906714be
+2072	2695	7489552609110849	imports/Dormitory/Dormitory_autogen/mocs_compilation.cpp	884eb9c4906714be
+2072	2695	7489552609110849	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/imports/Dormitory/Dormitory_autogen/timestamp	884eb9c4906714be
+2072	2695	7489552609110849	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/imports/Dormitory/Dormitory_autogen/mocs_compilation.cpp	884eb9c4906714be
+2136	2745	7489552609990866	_deps/ds-build/src/imports/components/QuickStudioComponents_resources_1_autogen/timestamp	f5bb66b6587fbfe5
+2136	2745	7489552609990866	_deps/ds-build/src/imports/components/QuickStudioComponents_resources_1_autogen/mocs_compilation.cpp	f5bb66b6587fbfe5
+2136	2745	7489552609990866	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/components/QuickStudioComponents_resources_1_autogen/timestamp	f5bb66b6587fbfe5
+2136	2745	7489552609990866	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/components/QuickStudioComponents_resources_1_autogen/mocs_compilation.cpp	f5bb66b6587fbfe5
+2103	2791	7489552609670846	_deps/ds-build/src/imports/effects_qt6/QuickStudioEffects_autogen/timestamp	9d587f63ebcc8adb
+2103	2791	7489552609670846	_deps/ds-build/src/imports/effects_qt6/QuickStudioEffects_autogen/mocs_compilation.cpp	9d587f63ebcc8adb
+2103	2791	7489552609670846	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/effects_qt6/QuickStudioEffects_autogen/timestamp	9d587f63ebcc8adb
+2103	2791	7489552609670846	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/effects_qt6/QuickStudioEffects_autogen/mocs_compilation.cpp	9d587f63ebcc8adb
+2340	2825	7489552610780853	_deps/ds-build/src/imports/logichelper/.rcc/qmlcache/QuickStudioLogicHelper_qmlcache_loader.cpp	581a50eb49c70ea5
+2340	2825	7489552610780853	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/logichelper/.rcc/qmlcache/QuickStudioLogicHelper_qmlcache_loader.cpp	581a50eb49c70ea5
+2165	2853	7489552610100852	_deps/ds-build/src/imports/components/QuickStudioComponents_resources_2_autogen/timestamp	e0e657e2663749c
+2165	2853	7489552610100852	_deps/ds-build/src/imports/components/QuickStudioComponents_resources_2_autogen/mocs_compilation.cpp	e0e657e2663749c
+2165	2853	7489552610100852	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/components/QuickStudioComponents_resources_2_autogen/timestamp	e0e657e2663749c
+2165	2853	7489552610100852	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/components/QuickStudioComponents_resources_2_autogen/mocs_compilation.cpp	e0e657e2663749c
+2182	2916	7489552610440849	_deps/ds-build/src/imports/effects_qt6/QuickStudioEffects_resources_1_autogen/timestamp	7255351ec8767081
+2182	2916	7489552610440849	_deps/ds-build/src/imports/effects_qt6/QuickStudioEffects_resources_1_autogen/mocs_compilation.cpp	7255351ec8767081
+2182	2916	7489552610440849	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/effects_qt6/QuickStudioEffects_resources_1_autogen/timestamp	7255351ec8767081
+2182	2916	7489552610440849	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/effects_qt6/QuickStudioEffects_resources_1_autogen/mocs_compilation.cpp	7255351ec8767081
+2199	2981	7489552610520836	_deps/ds-build/src/imports/flowview/FlowView_autogen/timestamp	3b9d7382770cfaf8
+2199	2981	7489552610520836	_deps/ds-build/src/imports/flowview/FlowView_autogen/mocs_compilation.cpp	3b9d7382770cfaf8
+2199	2981	7489552610520836	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/flowview/FlowView_autogen/timestamp	3b9d7382770cfaf8
+2199	2981	7489552610520836	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/flowview/FlowView_autogen/mocs_compilation.cpp	3b9d7382770cfaf8
+2625	2996	7489552611830849	_deps/ds-build/src/imports/logichelper/meta_types/QuickStudioLogicHelper_json_file_list.txt	ddf713d7d9b661b6
+2625	2996	7489552611830849	_deps/ds-build/src/imports/logichelper/meta_types/QuickStudioLogicHelper_json_file_list.txt.timestamp	ddf713d7d9b661b6
+2625	2996	7489552611830849	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/logichelper/meta_types/QuickStudioLogicHelper_json_file_list.txt	ddf713d7d9b661b6
+2625	2996	7489552611830849	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/logichelper/meta_types/QuickStudioLogicHelper_json_file_list.txt.timestamp	ddf713d7d9b661b6
+2698	3026	7489552612520855	imports/Dormitory/meta_types/Dormitory_json_file_list.txt	3602fb30f333cc5
+2698	3026	7489552612520855	imports/Dormitory/meta_types/Dormitory_json_file_list.txt.timestamp	3602fb30f333cc5
+2698	3026	7489552612520855	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/imports/Dormitory/meta_types/Dormitory_json_file_list.txt	3602fb30f333cc5
+2698	3026	7489552612520855	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/imports/Dormitory/meta_types/Dormitory_json_file_list.txt.timestamp	3602fb30f333cc5
+2250	3051	7489552610830847	_deps/ds-build/src/imports/multitext/QuickStudioMultiText_autogen/timestamp	865752f0e378f6f4
+2250	3051	7489552610830847	_deps/ds-build/src/imports/multitext/QuickStudioMultiText_autogen/mocs_compilation.cpp	865752f0e378f6f4
+2250	3051	7489552610830847	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/multitext/QuickStudioMultiText_autogen/timestamp	865752f0e378f6f4
+2250	3051	7489552610830847	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/multitext/QuickStudioMultiText_autogen/mocs_compilation.cpp	865752f0e378f6f4
+2794	3107	7489552613660846	_deps/ds-build/src/imports/effects_qt6/meta_types/QuickStudioEffects_json_file_list.txt	9542c8c3c9160f3d
+2794	3107	7489552613660846	_deps/ds-build/src/imports/effects_qt6/meta_types/QuickStudioEffects_json_file_list.txt.timestamp	9542c8c3c9160f3d
+2794	3107	7489552613660846	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/effects_qt6/meta_types/QuickStudioEffects_json_file_list.txt	9542c8c3c9160f3d
+2794	3107	7489552613660846	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/effects_qt6/meta_types/QuickStudioEffects_json_file_list.txt.timestamp	9542c8c3c9160f3d
+2214	3148	7489552611140855	_deps/ds-build/src/imports/effects_qt6/QuickStudioEffects_resources_2_autogen/timestamp	538bd936d40cdc64
+2214	3148	7489552611140855	_deps/ds-build/src/imports/effects_qt6/QuickStudioEffects_resources_2_autogen/mocs_compilation.cpp	538bd936d40cdc64
+2214	3148	7489552611140855	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/effects_qt6/QuickStudioEffects_resources_2_autogen/timestamp	538bd936d40cdc64
+2214	3148	7489552611140855	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/effects_qt6/QuickStudioEffects_resources_2_autogen/mocs_compilation.cpp	538bd936d40cdc64
+2233	3259	7489552611140855	_deps/ds-build/src/imports/flowview/FlowView_resources_1_autogen/timestamp	83598aa7f7f24762
+2233	3259	7489552611140855	_deps/ds-build/src/imports/flowview/FlowView_resources_1_autogen/mocs_compilation.cpp	83598aa7f7f24762
+2233	3259	7489552611140855	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/flowview/FlowView_resources_1_autogen/timestamp	83598aa7f7f24762
+2233	3259	7489552611140855	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/flowview/FlowView_resources_1_autogen/mocs_compilation.cpp	83598aa7f7f24762
+3054	3277	7489552616180845	_deps/ds-build/src/imports/multitext/meta_types/QuickStudioMultiText_json_file_list.txt	9d9b46e73e47bcdb
+3054	3277	7489552616180845	_deps/ds-build/src/imports/multitext/meta_types/QuickStudioMultiText_json_file_list.txt.timestamp	9d9b46e73e47bcdb
+3054	3277	7489552616180845	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/multitext/meta_types/QuickStudioMultiText_json_file_list.txt	9d9b46e73e47bcdb
+3054	3277	7489552616180845	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/multitext/meta_types/QuickStudioMultiText_json_file_list.txt.timestamp	9d9b46e73e47bcdb
+2983	3292	7489552615380847	_deps/ds-build/src/imports/flowview/meta_types/FlowView_json_file_list.txt	2a2615a0c5c3d09f
+2983	3292	7489552615380847	_deps/ds-build/src/imports/flowview/meta_types/FlowView_json_file_list.txt.timestamp	2a2615a0c5c3d09f
+2983	3292	7489552615380847	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/flowview/meta_types/FlowView_json_file_list.txt	2a2615a0c5c3d09f
+2983	3292	7489552615380847	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/flowview/meta_types/FlowView_json_file_list.txt.timestamp	2a2615a0c5c3d09f
+2997	3314	7489552616620841	_deps/ds-build/src/imports/logichelper/meta_types/qt6quickstudiologichelper_release_metatypes.json.gen	89a0a88873021f0f
+2997	3314	7489552616620841	_deps/ds-build/src/imports/logichelper/meta_types/qt6quickstudiologichelper_release_metatypes.json	89a0a88873021f0f
+2997	3314	7489552616620841	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/logichelper/meta_types/qt6quickstudiologichelper_release_metatypes.json.gen	89a0a88873021f0f
+2997	3314	7489552616620841	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/logichelper/meta_types/qt6quickstudiologichelper_release_metatypes.json	89a0a88873021f0f
+2642	3342	7489552613490844	_deps/ds-build/src/imports/components/quickstudiocomponents_qmltyperegistrations.cpp	4444500ad4aa4085
+2642	3342	7489552613490844	qml/QtQuick/Studio/Components/QuickStudioComponents.qmltypes	4444500ad4aa4085
+2642	3342	7489552613490844	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/components/quickstudiocomponents_qmltyperegistrations.cpp	4444500ad4aa4085
+2642	3342	7489552613490844	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Components/QuickStudioComponents.qmltypes	4444500ad4aa4085
+3027	3356	7489552616910839	imports/Dormitory/meta_types/qt6dormitory_release_metatypes.json.gen	b4d0c640ec9e81e5
+3027	3356	7489552616910839	imports/Dormitory/meta_types/qt6dormitory_release_metatypes.json	b4d0c640ec9e81e5
+3027	3356	7489552616910839	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/imports/Dormitory/meta_types/qt6dormitory_release_metatypes.json.gen	b4d0c640ec9e81e5
+3027	3356	7489552616910839	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/imports/Dormitory/meta_types/qt6dormitory_release_metatypes.json	b4d0c640ec9e81e5
+2405	3448	7489552615100852	_deps/ds-build/src/imports/logichelper/QuickStudioLogicHelper_resources_2_autogen/timestamp	d7e590d76249b83f
+2405	3448	7489552615100852	_deps/ds-build/src/imports/logichelper/QuickStudioLogicHelper_resources_2_autogen/mocs_compilation.cpp	d7e590d76249b83f
+2405	3448	7489552615100852	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/logichelper/QuickStudioLogicHelper_resources_2_autogen/timestamp	d7e590d76249b83f
+2405	3448	7489552615100852	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/logichelper/QuickStudioLogicHelper_resources_2_autogen/mocs_compilation.cpp	d7e590d76249b83f
+2286	3517	7489552615410849	_deps/ds-build/src/imports/tools/eventsimulator/QuickStudioEventSimulator_autogen/timestamp	10ca198847fa61a5
+2286	3517	7489552615410849	_deps/ds-build/src/imports/tools/eventsimulator/QuickStudioEventSimulator_autogen/mocs_compilation.cpp	10ca198847fa61a5
+2286	3517	7489552615410849	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/tools/eventsimulator/QuickStudioEventSimulator_autogen/timestamp	10ca198847fa61a5
+2286	3517	7489552615410849	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/tools/eventsimulator/QuickStudioEventSimulator_autogen/mocs_compilation.cpp	10ca198847fa61a5
+2370	3577	7489552616140848	_deps/ds-build/src/imports/tools/eventsystem/QuickStudioEventSystem_autogen/timestamp	7a06ff9e6fc97e0e
+2370	3577	7489552616140848	_deps/ds-build/src/imports/tools/eventsystem/QuickStudioEventSystem_autogen/mocs_compilation.cpp	7a06ff9e6fc97e0e
+2370	3577	7489552616140848	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/tools/eventsystem/QuickStudioEventSystem_autogen/timestamp	7a06ff9e6fc97e0e
+2370	3577	7489552616140848	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/tools/eventsystem/QuickStudioEventSystem_autogen/mocs_compilation.cpp	7a06ff9e6fc97e0e
+3108	3592	7489552618250845	_deps/ds-build/src/imports/effects_qt6/meta_types/qt6quickstudioeffects_release_metatypes.json.gen	46c2e42df88f11c1
+3108	3592	7489552618250845	_deps/ds-build/src/imports/effects_qt6/meta_types/qt6quickstudioeffects_release_metatypes.json	46c2e42df88f11c1
+3108	3592	7489552618250845	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/effects_qt6/meta_types/qt6quickstudioeffects_release_metatypes.json.gen	46c2e42df88f11c1
+3108	3592	7489552618250845	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/effects_qt6/meta_types/qt6quickstudioeffects_release_metatypes.json	46c2e42df88f11c1
+2268	3633	7489552617190847	_deps/ds-build/src/imports/logichelper/QuickStudioLogicHelper_resources_1_autogen/timestamp	138ba25dbb45d561
+2268	3633	7489552617190847	_deps/ds-build/src/imports/logichelper/QuickStudioLogicHelper_resources_1_autogen/mocs_compilation.cpp	138ba25dbb45d561
+2268	3633	7489552617190847	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/logichelper/QuickStudioLogicHelper_resources_1_autogen/timestamp	138ba25dbb45d561
+2268	3633	7489552617190847	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/logichelper/QuickStudioLogicHelper_resources_1_autogen/mocs_compilation.cpp	138ba25dbb45d561
+3293	3670	7489552620340841	_deps/ds-build/src/imports/flowview/meta_types/qt6flowview_release_metatypes.json.gen	ae77344fa764d3ae
+3293	3670	7489552620340841	_deps/ds-build/src/imports/flowview/meta_types/qt6flowview_release_metatypes.json	ae77344fa764d3ae
+3293	3670	7489552620340841	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/flowview/meta_types/qt6flowview_release_metatypes.json.gen	ae77344fa764d3ae
+3293	3670	7489552620340841	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/flowview/meta_types/qt6flowview_release_metatypes.json	ae77344fa764d3ae
+3278	3709	7489552620820842	_deps/ds-build/src/imports/multitext/meta_types/qt6quickstudiomultitext_release_metatypes.json.gen	800b6ce339a601b9
+3278	3709	7489552620820842	_deps/ds-build/src/imports/multitext/meta_types/qt6quickstudiomultitext_release_metatypes.json	800b6ce339a601b9
+3278	3709	7489552620820842	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/multitext/meta_types/qt6quickstudiomultitext_release_metatypes.json.gen	800b6ce339a601b9
+3278	3709	7489552620820842	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/multitext/meta_types/qt6quickstudiomultitext_release_metatypes.json	800b6ce339a601b9
+2747	3762	7489552619450853	_deps/ds-build/src/imports/multitext/QuickStudioMultiText_resources_1_autogen/timestamp	c5049bf7db61069b
+2747	3762	7489552619450853	_deps/ds-build/src/imports/multitext/QuickStudioMultiText_resources_1_autogen/mocs_compilation.cpp	c5049bf7db61069b
+2747	3762	7489552619450853	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/multitext/QuickStudioMultiText_resources_1_autogen/timestamp	c5049bf7db61069b
+2747	3762	7489552619450853	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/multitext/QuickStudioMultiText_resources_1_autogen/mocs_compilation.cpp	c5049bf7db61069b
+3579	3818	7489552621350841	_deps/ds-build/src/imports/tools/eventsystem/meta_types/QuickStudioEventSystem_json_file_list.txt	66eac6ff0bc5ee5e
+3579	3818	7489552621350841	_deps/ds-build/src/imports/tools/eventsystem/meta_types/QuickStudioEventSystem_json_file_list.txt.timestamp	66eac6ff0bc5ee5e
+3579	3818	7489552621350841	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/tools/eventsystem/meta_types/QuickStudioEventSystem_json_file_list.txt	66eac6ff0bc5ee5e
+3579	3818	7489552621350841	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/tools/eventsystem/meta_types/QuickStudioEventSystem_json_file_list.txt.timestamp	66eac6ff0bc5ee5e
+3519	3852	7489552621580854	_deps/ds-build/src/imports/tools/eventsimulator/meta_types/QuickStudioEventSimulator_json_file_list.txt	a3f503d6dac2fa59
+3519	3852	7489552621580854	_deps/ds-build/src/imports/tools/eventsimulator/meta_types/QuickStudioEventSimulator_json_file_list.txt.timestamp	a3f503d6dac2fa59
+3519	3852	7489552621580854	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/tools/eventsimulator/meta_types/QuickStudioEventSimulator_json_file_list.txt	a3f503d6dac2fa59
+3519	3852	7489552621580854	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/tools/eventsimulator/meta_types/QuickStudioEventSimulator_json_file_list.txt.timestamp	a3f503d6dac2fa59
+2826	3884	7489552619540846	_deps/ds-build/src/imports/multitext/QuickStudioMultiText_resources_2_autogen/timestamp	2a73422ca4acdea4
+2826	3884	7489552619540846	_deps/ds-build/src/imports/multitext/QuickStudioMultiText_resources_2_autogen/mocs_compilation.cpp	2a73422ca4acdea4
+2826	3884	7489552619540846	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/multitext/QuickStudioMultiText_resources_2_autogen/timestamp	2a73422ca4acdea4
+2826	3884	7489552619540846	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/multitext/QuickStudioMultiText_resources_2_autogen/mocs_compilation.cpp	2a73422ca4acdea4
+3315	3921	7489552618900853	_deps/ds-build/src/imports/logichelper/quickstudiologichelper_qmltyperegistrations.cpp	e3a1b7913ee15cec
+3315	3921	7489552618900853	qml/QtQuick/Studio/LogicHelper/QuickStudioLogicHelper.qmltypes	e3a1b7913ee15cec
+3315	3921	7489552618900853	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/logichelper/quickstudiologichelper_qmltyperegistrations.cpp	e3a1b7913ee15cec
+3315	3921	7489552618900853	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/LogicHelper/QuickStudioLogicHelper.qmltypes	e3a1b7913ee15cec
+2919	4052	7489552620490855	_deps/ds-build/src/imports/tools/eventsimulator/QuickStudioEventSimulator_resources_2_autogen/timestamp	a77d593da38d8c8a
+2919	4052	7489552620490855	_deps/ds-build/src/imports/tools/eventsimulator/QuickStudioEventSimulator_resources_2_autogen/mocs_compilation.cpp	a77d593da38d8c8a
+2919	4052	7489552620490855	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/tools/eventsimulator/QuickStudioEventSimulator_resources_2_autogen/timestamp	a77d593da38d8c8a
+2919	4052	7489552620490855	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/tools/eventsimulator/QuickStudioEventSimulator_resources_2_autogen/mocs_compilation.cpp	a77d593da38d8c8a
+3357	4068	7489552619830841	imports/Dormitory/dormitory_qmltyperegistrations.cpp	dc3ed43a0af68e69
+3357	4068	7489552619830841	qml/Dormitory/Dormitory.qmltypes	dc3ed43a0af68e69
+3357	4068	7489552619830841	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/imports/Dormitory/dormitory_qmltyperegistrations.cpp	dc3ed43a0af68e69
+3357	4068	7489552619830841	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/Dormitory/Dormitory.qmltypes	dc3ed43a0af68e69
+2855	4150	7489552621090851	_deps/ds-build/src/imports/tools/eventsimulator/QuickStudioEventSimulator_resources_1_autogen/timestamp	5a9a5419dee4c38a
+2855	4150	7489552621090851	_deps/ds-build/src/imports/tools/eventsimulator/QuickStudioEventSimulator_resources_1_autogen/mocs_compilation.cpp	5a9a5419dee4c38a
+2855	4150	7489552621090851	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/tools/eventsimulator/QuickStudioEventSimulator_resources_1_autogen/timestamp	5a9a5419dee4c38a
+2855	4150	7489552621090851	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/tools/eventsimulator/QuickStudioEventSimulator_resources_1_autogen/mocs_compilation.cpp	5a9a5419dee4c38a
+3853	4214	7489552625500849	_deps/ds-build/src/imports/tools/eventsimulator/meta_types/qt6quickstudioeventsimulator_release_metatypes.json.gen	22a7ec6864882c97
+3853	4214	7489552625500849	_deps/ds-build/src/imports/tools/eventsimulator/meta_types/qt6quickstudioeventsimulator_release_metatypes.json	22a7ec6864882c97
+3853	4214	7489552625500849	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/tools/eventsimulator/meta_types/qt6quickstudioeventsimulator_release_metatypes.json.gen	22a7ec6864882c97
+3853	4214	7489552625500849	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/tools/eventsimulator/meta_types/qt6quickstudioeventsimulator_release_metatypes.json	22a7ec6864882c97
+3819	4252	7489552626320849	_deps/ds-build/src/imports/tools/eventsystem/meta_types/qt6quickstudioeventsystem_release_metatypes.json.gen	636316e5e3db14cd
+3819	4252	7489552626320849	_deps/ds-build/src/imports/tools/eventsystem/meta_types/qt6quickstudioeventsystem_release_metatypes.json	636316e5e3db14cd
+3819	4252	7489552626320849	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/tools/eventsystem/meta_types/qt6quickstudioeventsystem_release_metatypes.json.gen	636316e5e3db14cd
+3819	4252	7489552626320849	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/tools/eventsystem/meta_types/qt6quickstudioeventsystem_release_metatypes.json	636316e5e3db14cd
+3710	4266	7489552626050856	_deps/ds-build/src/imports/components/.rcc/qmlcache/QuickStudioComponents_FlipableItem_qml.cpp	9506a0ea1e270c50
+3710	4266	7489552626050856	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/components/.rcc/qmlcache/QuickStudioComponents_FlipableItem_qml.cpp	9506a0ea1e270c50
+3450	4279	7489552625780849	_deps/ds-build/src/imports/components/.rcc/qmlcache/QuickStudioComponents_PieItem_qml.cpp	f35dcabe39b4beba
+3450	4279	7489552625780849	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/components/.rcc/qmlcache/QuickStudioComponents_PieItem_qml.cpp	f35dcabe39b4beba
+3343	4292	7489552626110849	_deps/ds-build/src/imports/components/.rcc/qmlcache/QuickStudioComponents_ArcItem_qml.cpp	9c31072f14727221
+3343	4292	7489552626110849	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/components/.rcc/qmlcache/QuickStudioComponents_ArcItem_qml.cpp	9c31072f14727221
+3150	4316	7489552623560855	_deps/ds-build/src/imports/tools/eventsystem/QuickStudioEventSystem_resources_1_autogen/timestamp	3ad94ead364b566
+3150	4316	7489552623560855	_deps/ds-build/src/imports/tools/eventsystem/QuickStudioEventSystem_resources_1_autogen/mocs_compilation.cpp	3ad94ead364b566
+3150	4316	7489552623560855	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/tools/eventsystem/QuickStudioEventSystem_resources_1_autogen/timestamp	3ad94ead364b566
+3150	4316	7489552623560855	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/tools/eventsystem/QuickStudioEventSystem_resources_1_autogen/mocs_compilation.cpp	3ad94ead364b566
+3635	4348	7489552626540847	_deps/ds-build/src/imports/components/.rcc/qmlcache/QuickStudioComponents_SvgPathItem_qml.cpp	8a8a5b206f1e3cf5
+3635	4348	7489552626540847	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/components/.rcc/qmlcache/QuickStudioComponents_SvgPathItem_qml.cpp	8a8a5b206f1e3cf5
+3672	4403	7489552627470835	_deps/ds-build/src/imports/components/.rcc/qmlcache/QuickStudioComponents_EllipseItem_qml.cpp	b188790de2628ffa
+3672	4403	7489552627470835	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/components/.rcc/qmlcache/QuickStudioComponents_EllipseItem_qml.cpp	b188790de2628ffa
+3263	4494	7489552625690843	_deps/ds-build/src/imports/tools/eventsystem/QuickStudioEventSystem_resources_2_autogen/timestamp	816b7a0975f3b52b
+3263	4494	7489552625690843	_deps/ds-build/src/imports/tools/eventsystem/QuickStudioEventSystem_resources_2_autogen/mocs_compilation.cpp	816b7a0975f3b52b
+3263	4494	7489552625690843	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/tools/eventsystem/QuickStudioEventSystem_resources_2_autogen/timestamp	816b7a0975f3b52b
+3263	4494	7489552625690843	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/tools/eventsystem/QuickStudioEventSystem_resources_2_autogen/mocs_compilation.cpp	816b7a0975f3b52b
+3593	4513	7489552628370855	_deps/ds-build/src/imports/components/.rcc/qmlcache/QuickStudioComponents_TriangleItem_qml.cpp	92bd9971f8068f55
+3593	4513	7489552628370855	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/components/.rcc/qmlcache/QuickStudioComponents_TriangleItem_qml.cpp	92bd9971f8068f55
+3764	4578	7489552628920845	_deps/ds-build/src/imports/components/.rcc/qmlcache/QuickStudioComponents_RectangleItem_qml.cpp	3e9e89623043dcec
+3764	4578	7489552628920845	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/components/.rcc/qmlcache/QuickStudioComponents_RectangleItem_qml.cpp	3e9e89623043dcec
+3886	4670	7489552629670858	_deps/ds-build/src/imports/components/.rcc/qmlcache/QuickStudioComponents_RegularPolygonItem_qml.cpp	70f13362ca03fad9
+3886	4670	7489552629670858	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/components/.rcc/qmlcache/QuickStudioComponents_RegularPolygonItem_qml.cpp	70f13362ca03fad9
+4069	4763	7489552631000852	_deps/ds-build/src/imports/components/.rcc/qmlcache/QuickStudioComponents_GroupItem_qml.cpp	792a6c3591153b6b
+4069	4763	7489552631000852	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/components/.rcc/qmlcache/QuickStudioComponents_GroupItem_qml.cpp	792a6c3591153b6b
+4054	4950	7489552631110847	_deps/ds-build/src/imports/components/.rcc/qmlcache/QuickStudioComponents_IsoItem_qml.cpp	743cb506d5214590
+4054	4950	7489552631110847	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/components/.rcc/qmlcache/QuickStudioComponents_IsoItem_qml.cpp	743cb506d5214590
+3923	4964	7489552631560839	_deps/ds-build/src/imports/components/.rcc/qmlcache/QuickStudioComponents_BorderItem_qml.cpp	e137ada07c61ade7
+3923	4964	7489552631560839	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/components/.rcc/qmlcache/QuickStudioComponents_BorderItem_qml.cpp	e137ada07c61ade7
+4280	5012	7489552633300850	_deps/ds-build/src/imports/logichelper/.rcc/qmlcache/QuickStudioLogicHelper_BidirectionalBinding_qml.cpp	a196ca6ef0cb744a
+4280	5012	7489552633300850	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/logichelper/.rcc/qmlcache/QuickStudioLogicHelper_BidirectionalBinding_qml.cpp	a196ca6ef0cb744a
+4293	5121	7489552633520850	_deps/ds-build/src/imports/logichelper/.rcc/qmlcache/QuickStudioLogicHelper_RangeMapper_qml.cpp	eeefa6e5bb76f5bb
+4293	5121	7489552633520850	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/logichelper/.rcc/qmlcache/QuickStudioLogicHelper_RangeMapper_qml.cpp	eeefa6e5bb76f5bb
+4267	5139	7489552629280851	_deps/ds-build/src/imports/flowview/flowview_qmltyperegistrations.cpp	22ff4de716ed9148
+4267	5139	7489552629280851	qml/FlowView/FlowView.qmltypes	22ff4de716ed9148
+4267	5139	7489552629280851	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/flowview/flowview_qmltyperegistrations.cpp	22ff4de716ed9148
+4267	5139	7489552629280851	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/FlowView/FlowView.qmltypes	22ff4de716ed9148
+4349	5156	7489552634000851	_deps/ds-build/src/imports/logichelper/.rcc/qmlcache/QuickStudioLogicHelper_StringMapper_qml.cpp	ed0abbd429334fd7
+4349	5156	7489552634000851	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/logichelper/.rcc/qmlcache/QuickStudioLogicHelper_StringMapper_qml.cpp	ed0abbd429334fd7
+4318	5170	7489552633900845	_deps/ds-build/src/imports/logichelper/.rcc/qmlcache/QuickStudioLogicHelper_MinMaxMapper_qml.cpp	7cde79bf22bf2ac9
+4318	5170	7489552633900845	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/logichelper/.rcc/qmlcache/QuickStudioLogicHelper_MinMaxMapper_qml.cpp	7cde79bf22bf2ac9
+4253	5186	7489552628710843	_deps/ds-build/src/imports/effects_qt6/quickstudioeffects_qmltyperegistrations.cpp	c4aa1ea89e048e8
+4253	5186	7489552628710843	qml/QtQuick/Studio/Effects/QuickStudioEffects.qmltypes	c4aa1ea89e048e8
+4253	5186	7489552628710843	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/effects_qt6/quickstudioeffects_qmltyperegistrations.cpp	c4aa1ea89e048e8
+4253	5186	7489552628710843	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Effects/QuickStudioEffects.qmltypes	c4aa1ea89e048e8
+4152	5211	7489552634460846	_deps/ds-build/src/imports/components/.rcc/qmlcache/QuickStudioComponents_ArcArrow_qml.cpp	8da2bece4a9179a0
+4152	5211	7489552634460846	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/components/.rcc/qmlcache/QuickStudioComponents_ArcArrow_qml.cpp	8da2bece4a9179a0
+4215	5227	7489552634680848	_deps/ds-build/src/imports/components/.rcc/qmlcache/QuickStudioComponents_StraightArrow_qml.cpp	aeb948f92b053d5d
+4215	5227	7489552634680848	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/components/.rcc/qmlcache/QuickStudioComponents_StraightArrow_qml.cpp	aeb948f92b053d5d
+4404	5241	7489552634780853	_deps/ds-build/src/imports/logichelper/.rcc/qmlcache/QuickStudioLogicHelper_OrOperator_qml.cpp	3ec7af7892c89a6b
+4404	5241	7489552634780853	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/logichelper/.rcc/qmlcache/QuickStudioLogicHelper_OrOperator_qml.cpp	3ec7af7892c89a6b
+4496	5257	7489552635340853	_deps/ds-build/src/imports/logichelper/.rcc/qmlcache/QuickStudioLogicHelper_AndOperator_qml.cpp	636f8b8eaf7c4bb8
+4496	5257	7489552635340853	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/logichelper/.rcc/qmlcache/QuickStudioLogicHelper_AndOperator_qml.cpp	636f8b8eaf7c4bb8
+4513	5265	7489552635320851	_deps/ds-build/src/imports/logichelper/.rcc/qmlcache/QuickStudioLogicHelper_NotOperator_qml.cpp	6374168a29dfba76
+4513	5265	7489552635320851	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/logichelper/.rcc/qmlcache/QuickStudioLogicHelper_NotOperator_qml.cpp	6374168a29dfba76
+5013	5324	7489552636950851	content/.rcc/qmlcache/content_qmlcache_loader.cpp	319159f5d617283d
+5013	5324	7489552636950851	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/content/.rcc/qmlcache/content_qmlcache_loader.cpp	319159f5d617283d
+4579	5404	7489552632480851	_deps/ds-build/src/imports/multitext/quickstudiomultitext_qmltyperegistrations.cpp	e1d9ceb0c8b3cef0
+4579	5404	7489552632480851	qml/QtQuick/Studio/MultiText/QuickStudioMultiText.qmltypes	e1d9ceb0c8b3cef0
+4579	5404	7489552632480851	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/multitext/quickstudiomultitext_qmltyperegistrations.cpp	e1d9ceb0c8b3cef0
+4579	5404	7489552632480851	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/MultiText/QuickStudioMultiText.qmltypes	e1d9ceb0c8b3cef0
+4672	5451	7489552633580867	_deps/ds-build/src/imports/tools/eventsimulator/quickstudioeventsimulator_qmltyperegistrations.cpp	2b051abe30ba0038
+4672	5451	7489552633580867	qml/QtQuick/Studio/EventSimulator/QuickStudioEventSimulator.qmltypes	2b051abe30ba0038
+4672	5451	7489552633580867	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/tools/eventsimulator/quickstudioeventsimulator_qmltyperegistrations.cpp	2b051abe30ba0038
+4672	5451	7489552633580867	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/EventSimulator/QuickStudioEventSimulator.qmltypes	2b051abe30ba0038
+5228	5469	7489552638280843	imports/Dormitory/.rcc/qmlcache/Dormitory_qmlcache_loader.cpp	96b7768ed0813ae2
+5228	5469	7489552638280843	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/imports/Dormitory/.rcc/qmlcache/Dormitory_qmlcache_loader.cpp	96b7768ed0813ae2
+4764	5710	7489552635500858	_deps/ds-build/src/imports/tools/eventsystem/quickstudioeventsystem_qmltyperegistrations.cpp	f0543a33c171d6ed
+4764	5710	7489552635500858	qml/QtQuick/Studio/EventSystem/QuickStudioEventSystem.qmltypes	f0543a33c171d6ed
+4764	5710	7489552635500858	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/tools/eventsystem/quickstudioeventsystem_qmltyperegistrations.cpp	f0543a33c171d6ed
+4764	5710	7489552635500858	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/EventSystem/QuickStudioEventSystem.qmltypes	f0543a33c171d6ed
+5140	5796	7489552640780856	imports/Dormitory/.rcc/qmlcache/Dormitory_Constants_qml.cpp	f856012e65c8334f
+5140	5796	7489552640780856	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/imports/Dormitory/.rcc/qmlcache/Dormitory_Constants_qml.cpp	f856012e65c8334f
+2119	5821	7489552637870853	_deps/ds-build/src/imports/application/QuickStudioApplication_autogen/timestamp	557ee096e640bf85
+2119	5821	7489552637870853	_deps/ds-build/src/imports/application/QuickStudioApplication_autogen/mocs_compilation.cpp	557ee096e640bf85
+2119	5821	7489552637870853	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/application/QuickStudioApplication_autogen/timestamp	557ee096e640bf85
+2119	5821	7489552637870853	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/application/QuickStudioApplication_autogen/mocs_compilation.cpp	557ee096e640bf85
+5170	5896	7489552641600849	imports/Dormitory/.rcc/qmlcache/Dormitory_EventListModel_qml.cpp	4b38e6172233c1da
+5170	5896	7489552641600849	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/imports/Dormitory/.rcc/qmlcache/Dormitory_EventListModel_qml.cpp	4b38e6172233c1da
+5157	6111	7489552642360852	imports/Dormitory/.rcc/qmlcache/Dormitory_DirectoryFontLoader_qml.cpp	7847c6479006afa4
+5157	6111	7489552642360852	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/imports/Dormitory/.rcc/qmlcache/Dormitory_DirectoryFontLoader_qml.cpp	7847c6479006afa4
+5257	6230	7489552636890854	_deps/ds-build/src/imports/components/CMakeFiles/QuickStudioComponents.dir/QuickStudioComponents_autogen/mocs_compilation.cpp.obj	bbb8698ff452502b
+5187	6291	7489552645690841	imports/Dormitory/.rcc/qmlcache/Dormitory_EventListSimulator_qml.cpp	695251b872b9cbdc
+5187	6291	7489552645690841	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/imports/Dormitory/.rcc/qmlcache/Dormitory_EventListSimulator_qml.cpp	695251b872b9cbdc
+5831	6351	7489552646830853	_deps/ds-build/src/imports/application/meta_types/QuickStudioApplication_json_file_list.txt	ae2c9a7d40279e23
+5831	6351	7489552646830853	_deps/ds-build/src/imports/application/meta_types/QuickStudioApplication_json_file_list.txt.timestamp	ae2c9a7d40279e23
+5831	6351	7489552646830853	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/application/meta_types/QuickStudioApplication_json_file_list.txt	ae2c9a7d40279e23
+5831	6351	7489552646830853	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/application/meta_types/QuickStudioApplication_json_file_list.txt.timestamp	ae2c9a7d40279e23
+4964	6467	7489552642430855	content/content_resources_1_autogen/timestamp	83aee97a2770b8c1
+4964	6467	7489552642430855	content/content_resources_1_autogen/mocs_compilation.cpp	83aee97a2770b8c1
+4964	6467	7489552642430855	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/content/content_resources_1_autogen/timestamp	83aee97a2770b8c1
+4964	6467	7489552642430855	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/content/content_resources_1_autogen/mocs_compilation.cpp	83aee97a2770b8c1
+4950	6522	7489552642780854	_deps/ds-build/src/imports/application/QuickStudioApplication_resources_1_autogen/timestamp	d7624243588def69
+4950	6522	7489552642780854	_deps/ds-build/src/imports/application/QuickStudioApplication_resources_1_autogen/mocs_compilation.cpp	d7624243588def69
+4950	6522	7489552642780854	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/application/QuickStudioApplication_resources_1_autogen/timestamp	d7624243588def69
+4950	6522	7489552642780854	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/application/QuickStudioApplication_resources_1_autogen/mocs_compilation.cpp	d7624243588def69
+5242	6773	7489552648840862	imports/Dormitory/Dormitory_resources_2_autogen/timestamp	a392739fff185753
+5242	6773	7489552648840862	imports/Dormitory/Dormitory_resources_2_autogen/mocs_compilation.cpp	a392739fff185753
+5242	6773	7489552648840862	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/imports/Dormitory/Dormitory_resources_2_autogen/timestamp	a392739fff185753
+5242	6773	7489552648840862	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/imports/Dormitory/Dormitory_resources_2_autogen/mocs_compilation.cpp	a392739fff185753
+6352	6943	7489552652380852	_deps/ds-build/src/imports/application/meta_types/qt6quickstudioapplication_release_metatypes.json.gen	ccc78db5303cbcc8
+6352	6943	7489552652380852	_deps/ds-build/src/imports/application/meta_types/qt6quickstudioapplication_release_metatypes.json	ccc78db5303cbcc8
+6352	6943	7489552652380852	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/application/meta_types/qt6quickstudioapplication_release_metatypes.json.gen	ccc78db5303cbcc8
+6352	6943	7489552652380852	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/application/meta_types/qt6quickstudioapplication_release_metatypes.json	ccc78db5303cbcc8
+5211	6972	7489552650480852	imports/Dormitory/Dormitory_resources_1_autogen/timestamp	44ac6c82fbdb45a2
+5211	6972	7489552650480852	imports/Dormitory/Dormitory_resources_1_autogen/mocs_compilation.cpp	44ac6c82fbdb45a2
+5211	6972	7489552650480852	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/imports/Dormitory/Dormitory_resources_1_autogen/timestamp	44ac6c82fbdb45a2
+5211	6972	7489552650480852	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/imports/Dormitory/Dormitory_resources_1_autogen/mocs_compilation.cpp	44ac6c82fbdb45a2
+5121	7003	7489552649060849	content/content_resources_2_autogen/timestamp	60f05a89c8ea78c3
+5121	7003	7489552649060849	content/content_resources_2_autogen/mocs_compilation.cpp	60f05a89c8ea78c3
+5121	7003	7489552649060849	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/content/content_resources_2_autogen/timestamp	60f05a89c8ea78c3
+5121	7003	7489552649060849	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/content/content_resources_2_autogen/mocs_compilation.cpp	60f05a89c8ea78c3
+7005	7334	7489552656860842	_deps/ds-build/src/imports/components/.rcc/qrc_qmake_QtQuick_Studio_Components.cpp	1fc41e9c9a4fd604
+7005	7334	7489552656860842	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/components/.rcc/qrc_qmake_QtQuick_Studio_Components.cpp	1fc41e9c9a4fd604
+2056	7682	7489552653550851	content/content_autogen/timestamp	a3b64669ceeab4d1
+2056	7682	7489552653550851	content/content_autogen/mocs_compilation.cpp	a3b64669ceeab4d1
+2056	7682	7489552653550851	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/content/content_autogen/timestamp	a3b64669ceeab4d1
+2056	7682	7489552653550851	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/content/content_autogen/mocs_compilation.cpp	a3b64669ceeab4d1
+7688	7916	7489552662750852	content/meta_types/content_json_file_list.txt	391946335ab6a6d6
+7688	7916	7489552662750852	content/meta_types/content_json_file_list.txt.timestamp	391946335ab6a6d6
+7688	7916	7489552662750852	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/content/meta_types/content_json_file_list.txt	391946335ab6a6d6
+7688	7916	7489552662750852	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/content/meta_types/content_json_file_list.txt.timestamp	391946335ab6a6d6
+6944	8354	7489552660610849	_deps/ds-build/src/imports/application/quickstudioapplication_qmltyperegistrations.cpp	2cc37b5d693b1b00
+6944	8354	7489552660610849	qml/QtQuick/Studio/Application/QuickStudioApplication.qmltypes	2cc37b5d693b1b00
+6944	8354	7489552660610849	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/application/quickstudioapplication_qmltyperegistrations.cpp	2cc37b5d693b1b00
+6944	8354	7489552660610849	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/QtQuick/Studio/Application/QuickStudioApplication.qmltypes	2cc37b5d693b1b00
+7917	8595	7489552668910852	content/meta_types/qt6content_release_metatypes.json.gen	4493bddad4a32730
+7917	8595	7489552668910852	content/meta_types/qt6content_release_metatypes.json	4493bddad4a32730
+7917	8595	7489552668910852	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/content/meta_types/qt6content_release_metatypes.json.gen	4493bddad4a32730
+7917	8595	7489552668910852	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/content/meta_types/qt6content_release_metatypes.json	4493bddad4a32730
+8355	8764	7489552670780851	_deps/ds-build/src/imports/components/.rcc/qrc_QuickStudioComponents_raw_qml_0.cpp	c28b54aad0ab1b1e
+8355	8764	7489552670780851	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/components/.rcc/qrc_QuickStudioComponents_raw_qml_0.cpp	c28b54aad0ab1b1e
+7334	9040	7489552667840854	_deps/ds-build/src/imports/components/QuickStudioComponents_qmlcache_autogen/timestamp	da27ba10672f50cb
+7334	9040	7489552667840854	_deps/ds-build/src/imports/components/QuickStudioComponents_qmlcache_autogen/mocs_compilation.cpp	da27ba10672f50cb
+7334	9040	7489552667840854	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/components/QuickStudioComponents_qmlcache_autogen/timestamp	da27ba10672f50cb
+7334	9040	7489552667840854	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/components/QuickStudioComponents_qmlcache_autogen/mocs_compilation.cpp	da27ba10672f50cb
+8765	9301	7489552671970852	_deps/ds-build/src/imports/effects_qt6/CMakeFiles/QuickStudioEffects.dir/QuickStudioEffects_autogen/mocs_compilation.cpp.obj	5aa799da786581fc
+5266	9752	7489552636980853	_deps/ds-build/src/imports/components/CMakeFiles/QuickStudioComponents.dir/quickstudiocomponents_qmltyperegistrations.cpp.obj	d01e1cbdeb6673f9
+9752	10029	7489552683770853	_deps/ds-build/src/imports/effects_qt6/.rcc/qrc_qmake_QtQuick_Studio_Effects.cpp	21e5a248ff16f6d0
+9752	10029	7489552683770853	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/effects_qt6/.rcc/qrc_qmake_QtQuick_Studio_Effects.cpp	21e5a248ff16f6d0
+8597	10163	7489552678120852	content/content_qmltyperegistrations.cpp	236607376b782222
+8597	10163	7489552678120852	qml/content/content.qmltypes	236607376b782222
+8597	10163	7489552678120852	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/content/content_qmltyperegistrations.cpp	236607376b782222
+8597	10163	7489552678120852	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/content/content.qmltypes	236607376b782222
+10029	10488	7489552688200842	_deps/ds-build/src/imports/effects_qt6/.rcc/qrc_QuickStudioEffects_raw_qml_0.cpp	28398bd77123138b
+10029	10488	7489552688200842	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/effects_qt6/.rcc/qrc_QuickStudioEffects_raw_qml_0.cpp	28398bd77123138b
+5470	10667	7489552639020840	_deps/ds-build/src/imports/components/CMakeFiles/QuickStudioComponents.dir/.rcc/qmlcache/QuickStudioComponents_SvgPathItem_qml.cpp.obj	f148fdc41d0425d3
+5796	11032	7489552642290855	_deps/ds-build/src/imports/components/CMakeFiles/QuickStudioComponents.dir/.rcc/qmlcache/QuickStudioComponents_FlipableItem_qml.cpp.obj	f2ff584d384433bc
+6292	11102	7489552647240853	_deps/ds-build/src/imports/components/CMakeFiles/QuickStudioComponents.dir/.rcc/qmlcache/QuickStudioComponents_IsoItem_qml.cpp.obj	f7f8fff21663b9ba
+6974	11129	7489552691150854	_deps/ds-build/src/imports/components/QuickStudioComponentsplugin_autogen/timestamp	9d371de0773a15fd
+6974	11129	7489552691150854	_deps/ds-build/src/imports/components/QuickStudioComponentsplugin_autogen/mocs_compilation.cpp	9d371de0773a15fd
+6974	11129	7489552691150854	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/components/QuickStudioComponentsplugin_autogen/timestamp	9d371de0773a15fd
+6974	11129	7489552691150854	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/components/QuickStudioComponentsplugin_autogen/mocs_compilation.cpp	9d371de0773a15fd
+10667	11536	7489552698660844	content/.rcc/qmlcache/content_AdminPage/LogsViewPage_qml.cpp	e05d7f3d900a80d0
+10667	11536	7489552698660844	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/content/.rcc/qmlcache/content_AdminPage/LogsViewPage_qml.cpp	e05d7f3d900a80d0
+11033	11564	7489552698650850	content/.rcc/qmlcache/content_AdminPage/ReportPage_qml.cpp	5b34682b11ed0213
+11033	11564	7489552698650850	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/content/.rcc/qmlcache/content_AdminPage/ReportPage_qml.cpp	5b34682b11ed0213
+10489	11602	7489552698940853	content/.rcc/qmlcache/content_AdminPage/BackupsPage_qml.cpp	c604194868399bca
+10489	11602	7489552698940853	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/content/.rcc/qmlcache/content_AdminPage/BackupsPage_qml.cpp	c604194868399bca
+5711	11658	7489552641430849	_deps/ds-build/src/imports/components/CMakeFiles/QuickStudioComponents.dir/.rcc/qmlcache/QuickStudioComponents_EllipseItem_qml.cpp.obj	ec59e062f9ac60a7
+5405	11736	7489552638370852	_deps/ds-build/src/imports/components/CMakeFiles/QuickStudioComponents.dir/.rcc/qmlcache/QuickStudioComponents_PieItem_qml.cpp.obj	517e062441c18205
+5324	11851	7489552637570847	_deps/ds-build/src/imports/components/CMakeFiles/QuickStudioComponents.dir/.rcc/qmlcache/QuickStudioComponents_ArcItem_qml.cpp.obj	4e9ef74c94b0206a
+6469	11903	7489552649020850	_deps/ds-build/src/imports/components/CMakeFiles/QuickStudioComponents.dir/.rcc/qmlcache/QuickStudioComponents_GroupItem_qml.cpp.obj	5faaf1117694c1b4
+11103	11973	7489552703290852	content/.rcc/qmlcache/content_AdminPage/AdministarationSelector_qml.cpp	20f3563512bd3a3
+11103	11973	7489552703290852	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/content/.rcc/qmlcache/content_AdminPage/AdministarationSelector_qml.cpp	20f3563512bd3a3
+11131	12040	7489552704240845	content/.rcc/qmlcache/content_Tables/TableManipulator_qml.cpp	487009d807ca6e5d
+11131	12040	7489552704240845	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/content/.rcc/qmlcache/content_Tables/TableManipulator_qml.cpp	487009d807ca6e5d
+6112	12089	7489552645440848	_deps/ds-build/src/imports/components/CMakeFiles/QuickStudioComponents.dir/.rcc/qmlcache/QuickStudioComponents_RegularPolygonItem_qml.cpp.obj	b9bfd7f43219ee62
+11565	12113	7489552704670859	content/.rcc/qmlcache/content_Tables/RolesPage_qml.cpp	77f8776100674d1b
+11565	12113	7489552704670859	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/content/.rcc/qmlcache/content_Tables/RolesPage_qml.cpp	77f8776100674d1b
+11537	12131	7489552704840854	content/.rcc/qmlcache/content_Tables/EditorElement_qml.cpp	4f30cf63d32b7239
+11537	12131	7489552704840854	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/content/.rcc/qmlcache/content_Tables/EditorElement_qml.cpp	4f30cf63d32b7239
+9301	12218	7489552703020859	_deps/ds-build/src/imports/effects_qt6/QuickStudioEffectsplugin_autogen/timestamp	e4be7ef38e9df3fe
+9301	12218	7489552703020859	_deps/ds-build/src/imports/effects_qt6/QuickStudioEffectsplugin_autogen/mocs_compilation.cpp	e4be7ef38e9df3fe
+9301	12218	7489552703020859	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/effects_qt6/QuickStudioEffectsplugin_autogen/timestamp	e4be7ef38e9df3fe
+9301	12218	7489552703020859	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/effects_qt6/QuickStudioEffectsplugin_autogen/mocs_compilation.cpp	e4be7ef38e9df3fe
+11602	12236	7489552705340850	content/.rcc/qmlcache/content_Tables/Table_qml.cpp	8bee444789328cfe
+11602	12236	7489552705340850	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/content/.rcc/qmlcache/content_Tables/Table_qml.cpp	8bee444789328cfe
+11736	12254	7489552706240851	content/.rcc/qmlcache/content_EditorElements/CustomCalendar_qml.cpp	679194b80624c118
+11736	12254	7489552706240851	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/content/.rcc/qmlcache/content_EditorElements/CustomCalendar_qml.cpp	679194b80624c118
+11658	12276	7489552706420850	content/.rcc/qmlcache/content_Tables/RolesTableManipulator_qml.cpp	363df1b181bf39d2
+11658	12276	7489552706420850	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/content/.rcc/qmlcache/content_Tables/RolesTableManipulator_qml.cpp	363df1b181bf39d2
+11851	12363	7489552707220845	content/.rcc/qmlcache/content_EditorElements/TextEditor_qml.cpp	9144419fcff65ff1
+11851	12363	7489552707220845	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/content/.rcc/qmlcache/content_EditorElements/TextEditor_qml.cpp	9144419fcff65ff1
+11904	12393	7489552707620858	content/.rcc/qmlcache/content_EditorElements/CheckboxEditor_qml.cpp	bbd2be2c182209fe
+11904	12393	7489552707620858	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/content/.rcc/qmlcache/content_EditorElements/CheckboxEditor_qml.cpp	bbd2be2c182209fe
+10164	12401	7489552707210838	content/.rcc/qmlcache/content_App_qml.cpp	11e57640bfaad654
+10164	12401	7489552707210838	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/content/.rcc/qmlcache/content_App_qml.cpp	11e57640bfaad654
+12237	12419	7489552706690854	_deps/ds-build/src/imports/flowview/CMakeFiles/FlowView.dir/FlowView_autogen/mocs_compilation.cpp.obj	2ee3dd66f45c1a9
+11974	12450	7489552708140848	content/.rcc/qmlcache/content_EditorElements/TextVarCharEditor_qml.cpp	b654e00b9790b4a6
+11974	12450	7489552708140848	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/content/.rcc/qmlcache/content_EditorElements/TextVarCharEditor_qml.cpp	b654e00b9790b4a6
+6524	12557	7489552649560846	_deps/ds-build/src/imports/components/CMakeFiles/QuickStudioComponents.dir/.rcc/qmlcache/QuickStudioComponents_ArcArrow_qml.cpp.obj	907f6ff14ce61a5f
+12040	12563	7489552708950856	content/.rcc/qmlcache/content_EditorElements/ComboboxEditor_qml.cpp	763e49db61bf0e6
+12040	12563	7489552708950856	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/content/.rcc/qmlcache/content_EditorElements/ComboboxEditor_qml.cpp	763e49db61bf0e6
+12364	12570	7489552709260836	_deps/ds-build/src/imports/flowview/.rcc/qrc_FlowView_raw_qml_0.cpp	d2013052327263e
+12364	12570	7489552709260836	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/flowview/.rcc/qrc_FlowView_raw_qml_0.cpp	d2013052327263e
+6231	12579	7489552646630854	_deps/ds-build/src/imports/components/CMakeFiles/QuickStudioComponents.dir/.rcc/qmlcache/QuickStudioComponents_BorderItem_qml.cpp.obj	42fab3cb60ae7e46
+12393	12620	7489552708260835	_deps/ds-build/src/imports/logichelper/CMakeFiles/QuickStudioLogicHelper.dir/QuickStudioLogicHelper_autogen/mocs_compilation.cpp.obj	98ae9461e175a24d
+12131	12641	7489552709980847	content/.rcc/qmlcache/content_LoginFrame_qml.cpp	b36944484f7fef3a
+12131	12641	7489552709980847	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/content/.rcc/qmlcache/content_LoginFrame_qml.cpp	b36944484f7fef3a
+12090	12761	7489552711010848	content/.rcc/qmlcache/content_EditorElements/SpinEditor_qml.cpp	e6dcc72c89684d7d
+12090	12761	7489552711010848	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/content/.rcc/qmlcache/content_EditorElements/SpinEditor_qml.cpp	e6dcc72c89684d7d
+5452	12809	7489552638840848	_deps/ds-build/src/imports/components/CMakeFiles/QuickStudioComponents.dir/.rcc/qmlcache/QuickStudioComponents_TriangleItem_qml.cpp.obj	e7a1e54ccdc53dea
+12762	13003	7489552713220854	_deps/ds-build/src/imports/logichelper/.rcc/qrc_qmake_QtQuick_Studio_LogicHelper.cpp	b868eca70ce8f43c
+12762	13003	7489552713220854	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/logichelper/.rcc/qrc_qmake_QtQuick_Studio_LogicHelper.cpp	b868eca70ce8f43c
+12114	13195	7489552715060849	content/.rcc/qmlcache/content_MainPage_qml.cpp	b79b039ec8862a71
+12114	13195	7489552715060849	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/content/.rcc/qmlcache/content_MainPage_qml.cpp	b79b039ec8862a71
+13004	13246	7489552716320848	_deps/ds-build/src/imports/logichelper/.rcc/qrc_QuickStudioLogicHelper_raw_qml_0.cpp	2327c77cb0ceeab6
+13004	13246	7489552716320848	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/logichelper/.rcc/qrc_QuickStudioLogicHelper_raw_qml_0.cpp	2327c77cb0ceeab6
+12221	13254	7489552715880851	content/.rcc/qmlcache/content_MainFrame_qml.cpp	663fb2de3c3b470a
+12221	13254	7489552715880851	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/content/.rcc/qmlcache/content_MainFrame_qml.cpp	663fb2de3c3b470a
+6775	14012	7489552652070840	_deps/ds-build/src/imports/components/CMakeFiles/QuickStudioComponents.dir/.rcc/qmlcache/QuickStudioComponents_StraightArrow_qml.cpp.obj	a045d2279d3a4c1
+9042	14141	7489552674740862	_deps/ds-build/src/imports/effects_qt6/CMakeFiles/QuickStudioEffects.dir/quickstudioeffects_qmltyperegistrations.cpp.obj	9dda0d8a20bf2165
+13196	14185	7489552716280853	_deps/ds-build/src/imports/multitext/CMakeFiles/QuickStudioMultiText.dir/QuickStudioMultiText_autogen/mocs_compilation.cpp.obj	ebd4d3a383c9379
+14013	14577	7489552727210852	_deps/ds-build/src/imports/multitext/.rcc/qrc_qmake_QtQuick_Studio_MultiText.cpp	af38cc4b94360a3
+14013	14577	7489552727210852	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/multitext/.rcc/qrc_qmake_QtQuick_Studio_MultiText.cpp	af38cc4b94360a3
+14142	14584	7489552727030835	_deps/ds-build/src/imports/multitext/.rcc/qrc_QuickStudioMultiText_raw_qml_0.cpp	eba16dead3ff1594
+14142	14584	7489552727030835	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/multitext/.rcc/qrc_QuickStudioMultiText_raw_qml_0.cpp	eba16dead3ff1594
+5897	14628	7489552643290852	_deps/ds-build/src/imports/components/CMakeFiles/QuickStudioComponents.dir/.rcc/qmlcache/QuickStudioComponents_RectangleItem_qml.cpp.obj	67d9bcb45fc119da
+14186	14700	7489552726180854	_deps/ds-build/src/imports/tools/eventsimulator/CMakeFiles/QuickStudioEventSimulator.dir/QuickStudioEventSimulator_autogen/mocs_compilation.cpp.obj	b9b9cb5780049f35
+12810	14726	7489552727300852	_deps/ds-build/src/imports/logichelper/QuickStudioLogicHelper_qmlcache_autogen/timestamp	1d2b88eec8c0e726
+12810	14726	7489552727300852	_deps/ds-build/src/imports/logichelper/QuickStudioLogicHelper_qmlcache_autogen/mocs_compilation.cpp	1d2b88eec8c0e726
+12810	14726	7489552727300852	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/logichelper/QuickStudioLogicHelper_qmlcache_autogen/timestamp	1d2b88eec8c0e726
+12810	14726	7489552727300852	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/logichelper/QuickStudioLogicHelper_qmlcache_autogen/mocs_compilation.cpp	1d2b88eec8c0e726
+14629	14864	7489552732581340	_deps/ds-build/src/imports/tools/eventsimulator/.rcc/qrc_qmake_QtQuick_Studio_EventSimulator.cpp	7f6573119ed5036d
+14629	14864	7489552732581340	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/tools/eventsimulator/.rcc/qrc_qmake_QtQuick_Studio_EventSimulator.cpp	7f6573119ed5036d
+14700	14928	7489552732791348	_deps/ds-build/src/imports/tools/eventsimulator/.rcc/qrc_QuickStudioEventSimulator_raw_qml_0.cpp	33e91dcbc55d4f39
+14700	14928	7489552732791348	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/tools/eventsimulator/.rcc/qrc_QuickStudioEventSimulator_raw_qml_0.cpp	33e91dcbc55d4f39
+14728	14961	7489552731601334	_deps/ds-build/src/imports/tools/eventsystem/CMakeFiles/QuickStudioEventSystem.dir/QuickStudioEventSystem_autogen/mocs_compilation.cpp.obj	2d78e073e73ea0ec
+12277	15159	7489552732351339	_deps/ds-build/src/imports/flowview/FlowViewplugin_autogen/timestamp	75b0af7eb08df983
+12277	15159	7489552732351339	_deps/ds-build/src/imports/flowview/FlowViewplugin_autogen/mocs_compilation.cpp	75b0af7eb08df983
+12277	15159	7489552732351339	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/flowview/FlowViewplugin_autogen/timestamp	75b0af7eb08df983
+12277	15159	7489552732351339	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/flowview/FlowViewplugin_autogen/mocs_compilation.cpp	75b0af7eb08df983
+14961	15231	7489552736321343	_deps/ds-build/src/imports/tools/eventsystem/.rcc/qrc_qmake_QtQuick_Studio_EventSystem.cpp	d3f129aa19a33922
+14961	15231	7489552736321343	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/tools/eventsystem/.rcc/qrc_qmake_QtQuick_Studio_EventSystem.cpp	d3f129aa19a33922
+15161	15801	7489552737081344	_deps/ds-build/src/imports/tools/eventsystem/.rcc/qrc_QuickStudioEventSystem_raw_qml_0.cpp	aaaba8a9d366e55f
+15161	15801	7489552737081344	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/tools/eventsystem/.rcc/qrc_QuickStudioEventSystem_raw_qml_0.cpp	aaaba8a9d366e55f
+12642	15845	7489552736211347	_deps/ds-build/src/imports/logichelper/QuickStudioLogicHelperplugin_autogen/timestamp	94380f23ce80e630
+12642	15845	7489552736211347	_deps/ds-build/src/imports/logichelper/QuickStudioLogicHelperplugin_autogen/mocs_compilation.cpp	94380f23ce80e630
+12642	15845	7489552736211347	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/logichelper/QuickStudioLogicHelperplugin_autogen/timestamp	94380f23ce80e630
+12642	15845	7489552736211347	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/logichelper/QuickStudioLogicHelperplugin_autogen/mocs_compilation.cpp	94380f23ce80e630
+12255	16309	7489552706870846	_deps/ds-build/src/imports/flowview/CMakeFiles/FlowView.dir/flowview_qmltyperegistrations.cpp.obj	c441fdb9e816f85
+12402	16443	7489552708340846	_deps/ds-build/src/imports/logichelper/CMakeFiles/QuickStudioLogicHelper.dir/quickstudiologichelper_qmltyperegistrations.cpp.obj	56bb1b2a8a591440
+16444	16631	7489552749738551	_deps/ds-build/src/imports/application/.rcc/qrc_qmake_QtQuick_Studio_Application.cpp	5355883338e7a85e
+16444	16631	7489552749738551	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/application/.rcc/qrc_qmake_QtQuick_Studio_Application.cpp	5355883338e7a85e
+12420	16838	7489552708520861	_deps/ds-build/src/imports/logichelper/CMakeFiles/QuickStudioLogicHelper.dir/.rcc/qmlcache/QuickStudioLogicHelper_BidirectionalBinding_qml.cpp.obj	9cbfc897183f9be8
+13255	16928	7489552748418002	_deps/ds-build/src/imports/multitext/QuickStudioMultiTextplugin_autogen/timestamp	6579a981643de1b
+13255	16928	7489552748418002	_deps/ds-build/src/imports/multitext/QuickStudioMultiTextplugin_autogen/mocs_compilation.cpp	6579a981643de1b
+13255	16928	7489552748418002	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/multitext/QuickStudioMultiTextplugin_autogen/timestamp	6579a981643de1b
+13255	16928	7489552748418002	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/multitext/QuickStudioMultiTextplugin_autogen/mocs_compilation.cpp	6579a981643de1b
+12451	16953	7489552708830839	_deps/ds-build/src/imports/logichelper/CMakeFiles/QuickStudioLogicHelper.dir/.rcc/qmlcache/QuickStudioLogicHelper_RangeMapper_qml.cpp.obj	7afd9cc84f520f74
+12571	16980	7489552710030855	_deps/ds-build/src/imports/logichelper/CMakeFiles/QuickStudioLogicHelper.dir/.rcc/qmlcache/QuickStudioLogicHelper_OrOperator_qml.cpp.obj	b7937f1df3067fb
+12564	17045	7489552709960842	_deps/ds-build/src/imports/logichelper/CMakeFiles/QuickStudioLogicHelper.dir/.rcc/qmlcache/QuickStudioLogicHelper_StringMapper_qml.cpp.obj	7e417eba2f5bf3a2
+12620	17137	7489552710520845	_deps/ds-build/src/imports/logichelper/CMakeFiles/QuickStudioLogicHelper.dir/.rcc/qmlcache/QuickStudioLogicHelper_NotOperator_qml.cpp.obj	18d86842632b44bd
+12557	17154	7489552709890841	_deps/ds-build/src/imports/logichelper/CMakeFiles/QuickStudioLogicHelper.dir/.rcc/qmlcache/QuickStudioLogicHelper_MinMaxMapper_qml.cpp.obj	175b4c107622ac80
+12579	17165	7489552710110845	_deps/ds-build/src/imports/logichelper/CMakeFiles/QuickStudioLogicHelper.dir/.rcc/qmlcache/QuickStudioLogicHelper_AndOperator_qml.cpp.obj	781aa39bd7aa19c4
+13247	17266	7489552716790853	_deps/ds-build/src/imports/multitext/CMakeFiles/QuickStudioMultiText.dir/quickstudiomultitext_qmltyperegistrations.cpp.obj	a3ed4b15ae7bc6d5
+14584	18067	7489552759194678	_deps/ds-build/src/imports/tools/eventsimulator/QuickStudioEventSimulatorplugin_autogen/timestamp	f17e45ee9c0d333a
+14584	18067	7489552759194678	_deps/ds-build/src/imports/tools/eventsimulator/QuickStudioEventSimulatorplugin_autogen/mocs_compilation.cpp	f17e45ee9c0d333a
+14584	18067	7489552759194678	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/tools/eventsimulator/QuickStudioEventSimulatorplugin_autogen/timestamp	f17e45ee9c0d333a
+14584	18067	7489552759194678	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/tools/eventsimulator/QuickStudioEventSimulatorplugin_autogen/mocs_compilation.cpp	f17e45ee9c0d333a
+14865	19176	7489552732971347	_deps/ds-build/src/imports/tools/eventsystem/CMakeFiles/QuickStudioEventSystem.dir/quickstudioeventsystem_qmltyperegistrations.cpp.obj	2200741fc4a16ab8
+14577	19326	7489552730090848	_deps/ds-build/src/imports/tools/eventsimulator/CMakeFiles/QuickStudioEventSimulator.dir/quickstudioeventsimulator_qmltyperegistrations.cpp.obj	e36c4185dc4e52a7
+14928	19506	7489552770354680	_deps/ds-build/src/imports/tools/eventsystem/QuickStudioEventSystemplugin_autogen/timestamp	d60bc36185ddc42b
+14928	19506	7489552770354680	_deps/ds-build/src/imports/tools/eventsystem/QuickStudioEventSystemplugin_autogen/mocs_compilation.cpp	d60bc36185ddc42b
+14928	19506	7489552770354680	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/tools/eventsystem/QuickStudioEventSystemplugin_autogen/timestamp	d60bc36185ddc42b
+14928	19506	7489552770354680	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/tools/eventsystem/QuickStudioEventSystemplugin_autogen/mocs_compilation.cpp	d60bc36185ddc42b
+15231	19999	7489552736631343	_deps/ds-build/src/imports/application/CMakeFiles/QuickStudioApplication.dir/QuickStudioApplication_autogen/mocs_compilation.cpp.obj	e0b807e8a4805033
+16309	20176	7489552780984684	_deps/ds-build/src/imports/application/QuickStudioApplicationplugin_autogen/timestamp	f60520355696f12e
+16309	20176	7489552780984684	_deps/ds-build/src/imports/application/QuickStudioApplicationplugin_autogen/mocs_compilation.cpp	f60520355696f12e
+16309	20176	7489552780984684	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/application/QuickStudioApplicationplugin_autogen/timestamp	f60520355696f12e
+16309	20176	7489552780984684	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/application/QuickStudioApplicationplugin_autogen/mocs_compilation.cpp	f60520355696f12e
+15802	20464	7489552742338004	_deps/ds-build/src/imports/application/CMakeFiles/QuickStudioApplication.dir/quickstudioapplication_qmltyperegistrations.cpp.obj	2cbcedc3b139a207
+15847	21135	7489552742788008	_deps/ds-build/src/imports/application/CMakeFiles/QuickStudioApplication.dir/quickstudioapplication.cpp.obj	a665d8986ce23eda
+16980	21737	7489552754119454	content/CMakeFiles/content.dir/constants.cpp.obj	16d283ecfd433034
+17155	21880	7489552755874679	content/CMakeFiles/content.dir/additionalfunctions.cpp.obj	a6e6c851b96eb4e3
+17165	22039	7489552755974658	content/CMakeFiles/content.dir/.rcc/qmlcache/content_App_qml.cpp.obj	3adc5503a9db9481
+17046	23003	7489552754779466	content/CMakeFiles/content.dir/tablemodel.cpp.obj	93d01647b2d6d2ae
+16954	23294	7489552753859465	content/CMakeFiles/content.dir/backupactions.cpp.obj	919e25c8b78b5cac
+17267	23390	7489552756994670	content/CMakeFiles/content.dir/.rcc/qmlcache/content_AdminPage/BackupsPage_qml.cpp.obj	e8553166125806de
+19177	24975	7489552776084679	content/CMakeFiles/content.dir/.rcc/qmlcache/content_AdminPage/ReportPage_qml.cpp.obj	4f71dd9e5ee88083
+18069	25004	7489552765014675	content/CMakeFiles/content.dir/.rcc/qmlcache/content_AdminPage/LogsViewPage_qml.cpp.obj	a3b09df56d69a839
+19327	25119	7489552777584678	content/CMakeFiles/content.dir/.rcc/qmlcache/content_AdminPage/AdministarationSelector_qml.cpp.obj	f084d403d1b10fd2
+16838	25198	7489552752709460	content/CMakeFiles/content.dir/content_qmltyperegistrations.cpp.obj	6a5570256eb92d2e
+19508	25824	7489552779404673	content/CMakeFiles/content.dir/.rcc/qmlcache/content_Tables/TableManipulator_qml.cpp.obj	b2d33eda3e3f1bcf
+25825	26124	7489552844612306	content/.rcc/qrc_qmake_content.cpp	f295343f26228c11
+25825	26124	7489552844612306	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/content/.rcc/qrc_qmake_content.cpp	f295343f26228c11
+16930	26163	7489552753619470	content/CMakeFiles/content.dir/mainsqlconnection.cpp.obj	a3b8a41b90bd8075
+20000	26226	7489552784314674	content/CMakeFiles/content.dir/.rcc/qmlcache/content_Tables/EditorElement_qml.cpp.obj	c0c73d8e6c775183
+26163	26485	7489552848262305	content/.rcc/qrc_content_raw_qml_0.cpp	6b1f2f8a05674c00
+26163	26485	7489552848262305	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/content/.rcc/qrc_content_raw_qml_0.cpp	6b1f2f8a05674c00
+26226	26506	7489552846582311	imports/Dormitory/CMakeFiles/Dormitory.dir/Dormitory_autogen/mocs_compilation.cpp.obj	6c713f180b753814
+20178	26734	7489552786104666	content/CMakeFiles/content.dir/.rcc/qmlcache/content_Tables/RolesPage_qml.cpp.obj	3225bf19490168e9
+21136	27157	7489552795684671	content/CMakeFiles/content.dir/.rcc/qmlcache/content_Tables/RolesTableManipulator_qml.cpp.obj	287e8ea9f41092a6
+20465	27438	7489552788964674	content/CMakeFiles/content.dir/.rcc/qmlcache/content_Tables/Table_qml.cpp.obj	62fa539338390782
+21880	27569	7489552803124670	content/CMakeFiles/content.dir/.rcc/qmlcache/content_EditorElements/TextEditor_qml.cpp.obj	4891b1cfad4548a7
+26124	27677	7489552857314761	content/content_qmlcache_autogen/timestamp	d93108ec53e06b74
+26124	27677	7489552857314761	content/content_qmlcache_autogen/mocs_compilation.cpp	d93108ec53e06b74
+26124	27677	7489552857314761	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/content/content_qmlcache_autogen/timestamp	d93108ec53e06b74
+26124	27677	7489552857314761	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/content/content_qmlcache_autogen/mocs_compilation.cpp	d93108ec53e06b74
+21738	27696	7489552801704677	content/CMakeFiles/content.dir/.rcc/qmlcache/content_EditorElements/CustomCalendar_qml.cpp.obj	40f64a1b06f98fed
+27679	27913	7489552862839956	imports/Dormitory/.rcc/qrc_qmake_Dormitory.cpp	5a247e96bb691e2f
+27679	27913	7489552862839956	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/imports/Dormitory/.rcc/qrc_qmake_Dormitory.cpp	5a247e96bb691e2f
+22040	27943	7489552804724662	content/CMakeFiles/content.dir/.rcc/qmlcache/content_EditorElements/CheckboxEditor_qml.cpp.obj	1ad617a4845174af
+23004	28072	7489552814354676	content/CMakeFiles/content.dir/.rcc/qmlcache/content_EditorElements/TextVarCharEditor_qml.cpp.obj	d57b83d0b243e396
+17138	28125	7489552755704671	content/CMakeFiles/content.dir/wordandprint.cpp.obj	40e4822df2e87ef2
+27913	28148	7489552865169951	imports/Dormitory/.rcc/qrc_Dormitory_raw_qml_0.cpp	46fc9ca5c832276f
+27913	28148	7489552865169951	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/imports/Dormitory/.rcc/qrc_Dormitory_raw_qml_0.cpp	46fc9ca5c832276f
+16632	29302	7489552750644274	content/CMakeFiles/content.dir/content_autogen/mocs_compilation.cpp.obj	730cd3d96c13c108
+28072	29329	7489552865049950	_deps/ds-build/src/imports/components/CMakeFiles/QuickStudioComponents_resources_1.dir/QuickStudioComponents_resources_1_autogen/mocs_compilation.cpp.obj	36f6b27ae9de13b5
+28130	29422	7489552865619953	_deps/ds-build/src/imports/components/CMakeFiles/QuickStudioComponents_resources_1.dir/.rcc/qrc_qmake_QtQuick_Studio_Components.cpp.obj	d9aac0dc579478bf
+23295	29437	7489552817264673	content/CMakeFiles/content.dir/.rcc/qmlcache/content_EditorElements/ComboboxEditor_qml.cpp.obj	dfe64a2f34cb742
+28149	29456	7489552865809955	_deps/ds-build/src/imports/components/CMakeFiles/QuickStudioComponents_resources_2.dir/QuickStudioComponents_resources_2_autogen/mocs_compilation.cpp.obj	877e1ac07f099471
+23391	29494	7489552818224670	content/CMakeFiles/content.dir/.rcc/qmlcache/content_EditorElements/SpinEditor_qml.cpp.obj	b2bd98577abf22a4
+27697	29581	7489552867800468	imports/Dormitory/Dormitory_qmlcache_autogen/timestamp	389d0507f807fa24
+27697	29581	7489552867800468	imports/Dormitory/Dormitory_qmlcache_autogen/mocs_compilation.cpp	389d0507f807fa24
+27697	29581	7489552867800468	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/imports/Dormitory/Dormitory_qmlcache_autogen/timestamp	389d0507f807fa24
+27697	29581	7489552867800468	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/imports/Dormitory/Dormitory_qmlcache_autogen/mocs_compilation.cpp	389d0507f807fa24
+27943	29631	7489552863759957	_deps/ds-build/src/imports/components/libQuickStudioComponents.a	1b13e103c54e6b94
+29330	29726	7489552877620995	_deps/ds-build/src/imports/components/CMakeFiles/QuickStudioComponentsplugin.dir/QuickStudioComponentsplugin_autogen/mocs_compilation.cpp.obj	c6c81b9b2a74c44c
+29437	29792	7489552878700991	_deps/ds-build/src/imports/components/CMakeFiles/QuickStudioComponents_qmlcache.dir/QuickStudioComponents_qmlcache_autogen/mocs_compilation.cpp.obj	9852946e5bbdadb1
+29583	29831	7489552880150992	_deps/ds-build/src/imports/effects_qt6/CMakeFiles/QuickStudioEffects_resources_1.dir/QuickStudioEffects_resources_1_autogen/mocs_compilation.cpp.obj	a0f7d53b752c94aa
+25198	29852	7489552878500992	content/contentplugin_autogen/timestamp	9f488a8c3dd18645
+25198	29852	7489552878500992	content/contentplugin_autogen/mocs_compilation.cpp	9f488a8c3dd18645
+25198	29852	7489552878500992	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/content/contentplugin_autogen/timestamp	9f488a8c3dd18645
+25198	29852	7489552878500992	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/content/contentplugin_autogen/mocs_compilation.cpp	9f488a8c3dd18645
+29302	29892	7489552877340991	_deps/ds-build/src/imports/components/CMakeFiles/QuickStudioComponents_resources_2.dir/.rcc/qrc_QuickStudioComponents_raw_qml_0.cpp.obj	506af6b8aecad9e7
+29631	29942	7489552880630990	_deps/ds-build/src/imports/effects_qt6/CMakeFiles/QuickStudioEffects_resources_1.dir/.rcc/qrc_qmake_QtQuick_Studio_Effects.cpp.obj	c32cf876296065a0
+29727	30006	7489552881590995	_deps/ds-build/src/imports/effects_qt6/CMakeFiles/QuickStudioEffects_resources_2.dir/QuickStudioEffects_resources_2_autogen/mocs_compilation.cpp.obj	4d442df7bc3f8e49
+29495	30019	7489552879270993	_deps/ds-build/src/imports/effects_qt6/libQuickStudioEffects.a	2da71b4cc9fd5a6c
+29831	30117	7489552882630995	_deps/ds-build/src/imports/effects_qt6/CMakeFiles/QuickStudioEffectsplugin.dir/QuickStudioEffectsplugin_autogen/mocs_compilation.cpp.obj	a3dfab5a3bd4f35a
+29942	30180	7489552883750969	_deps/ds-build/src/imports/flowview/CMakeFiles/FlowView_resources_1.dir/FlowView_resources_1_autogen/mocs_compilation.cpp.obj	33f5a11341e89588
+30019	30256	7489552884510991	_deps/ds-build/src/imports/flowview/CMakeFiles/FlowViewplugin.dir/FlowViewplugin_autogen/mocs_compilation.cpp.obj	4a1340679aa43c7d
+25119	30285	7489552835519898	content/CMakeFiles/content.dir/.rcc/qmlcache/content_MainFrame_qml.cpp.obj	fd3541018aa001d7
+25004	30328	7489552834359904	content/CMakeFiles/content.dir/.rcc/qmlcache/content_LoginFrame_qml.cpp.obj	71d4cdff25afcc78
+29792	30369	7489552882240991	_deps/ds-build/src/imports/effects_qt6/CMakeFiles/QuickStudioEffects_resources_2.dir/.rcc/qrc_QuickStudioEffects_raw_qml_0.cpp.obj	495c53551bcea8a8
+27569	30392	7489552882920981	imports/Dormitory/Dormitoryplugin_autogen/timestamp	721c7ab5d34efdc1
+27569	30392	7489552882920981	imports/Dormitory/Dormitoryplugin_autogen/mocs_compilation.cpp	721c7ab5d34efdc1
+27569	30392	7489552882920981	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/imports/Dormitory/Dormitoryplugin_autogen/timestamp	721c7ab5d34efdc1
+27569	30392	7489552882920981	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/imports/Dormitory/Dormitoryplugin_autogen/mocs_compilation.cpp	721c7ab5d34efdc1
+24976	30477	7489552834079893	content/CMakeFiles/content.dir/.rcc/qmlcache/content_MainPage_qml.cpp.obj	1224ef6152a75cfe
+29892	30490	7489552883240993	_deps/ds-build/src/imports/flowview/libFlowView.a	62435195cb50fb62
+30007	30499	7489552884391004	_deps/ds-build/src/imports/flowview/CMakeFiles/FlowView_resources_1.dir/.rcc/qrc_FlowView_raw_qml_0.cpp.obj	876117bfe6d3618
+30256	30507	7489552886881000	_deps/ds-build/src/imports/logichelper/CMakeFiles/QuickStudioLogicHelper_resources_1.dir/QuickStudioLogicHelper_resources_1_autogen/mocs_compilation.cpp.obj	595f761fbe5e19d
+30286	30527	7489552887180990	_deps/ds-build/src/imports/logichelper/CMakeFiles/QuickStudioLogicHelper_resources_1.dir/.rcc/qrc_qmake_QtQuick_Studio_LogicHelper.cpp.obj	fd7f58689e7c313e
+30328	30554	7489552887600987	_deps/ds-build/src/imports/logichelper/CMakeFiles/QuickStudioLogicHelper_resources_2.dir/QuickStudioLogicHelper_resources_2_autogen/mocs_compilation.cpp.obj	3c17791fa81b9f72
+30394	30611	7489552888260990	_deps/ds-build/src/imports/logichelper/CMakeFiles/QuickStudioLogicHelperplugin.dir/QuickStudioLogicHelperplugin_autogen/mocs_compilation.cpp.obj	37d5ab519bd8d9e0
+30369	30683	7489552888010991	_deps/ds-build/src/imports/logichelper/CMakeFiles/QuickStudioLogicHelper_resources_2.dir/.rcc/qrc_QuickStudioLogicHelper_raw_qml_0.cpp.obj	2efd2c46201df721
+30181	30700	7489552886130985	_deps/ds-build/src/imports/logichelper/libQuickStudioLogicHelper.a	fa953ae116627cd
+30490	30716	7489552889220992	_deps/ds-build/src/imports/logichelper/CMakeFiles/QuickStudioLogicHelper_qmlcache.dir/QuickStudioLogicHelper_qmlcache_autogen/mocs_compilation.cpp.obj	83cdddf19820185c
+30527	30761	7489552889590992	_deps/ds-build/src/imports/multitext/CMakeFiles/QuickStudioMultiText_resources_1.dir/QuickStudioMultiText_resources_1_autogen/mocs_compilation.cpp.obj	a569e35d36b0c578
+30555	30822	7489552889870993	_deps/ds-build/src/imports/multitext/CMakeFiles/QuickStudioMultiText_resources_1.dir/.rcc/qrc_qmake_QtQuick_Studio_MultiText.cpp.obj	8b9411959b4d9df4
+30612	30850	7489552890440986	_deps/ds-build/src/imports/multitext/CMakeFiles/QuickStudioMultiText_resources_2.dir/QuickStudioMultiText_resources_2_autogen/mocs_compilation.cpp.obj	c66f46c7834c6ded
+26486	30875	7489552849182325	imports/Dormitory/CMakeFiles/Dormitory.dir/dormitory_qmltyperegistrations.cpp.obj	9b6836ec5ab8cabd
+30508	30891	7489552889400987	_deps/ds-build/src/imports/multitext/libQuickStudioMultiText.a	39e47d0d21002936
+30700	30964	7489552891320985	_deps/ds-build/src/imports/multitext/CMakeFiles/QuickStudioMultiTextplugin.dir/QuickStudioMultiTextplugin_autogen/mocs_compilation.cpp.obj	31098e9e24bd5f38
+30684	30995	7489552891160992	_deps/ds-build/src/imports/multitext/CMakeFiles/QuickStudioMultiText_resources_2.dir/.rcc/qrc_QuickStudioMultiText_raw_qml_0.cpp.obj	3e76b2e9241f1cf2
+30822	31033	7489552892541474	_deps/ds-build/src/imports/tools/eventsimulator/CMakeFiles/QuickStudioEventSimulator_resources_1.dir/QuickStudioEventSimulator_resources_1_autogen/mocs_compilation.cpp.obj	564854754f2c54c5
+30851	31071	7489552892831942	_deps/ds-build/src/imports/tools/eventsimulator/CMakeFiles/QuickStudioEventSimulator_resources_1.dir/.rcc/qrc_qmake_QtQuick_Studio_EventSimulator.cpp.obj	6abf323659e44e07
+30875	31133	7489552893071939	_deps/ds-build/src/imports/tools/eventsimulator/CMakeFiles/QuickStudioEventSimulator_resources_2.dir/QuickStudioEventSimulator_resources_2_autogen/mocs_compilation.cpp.obj	1215efb3e00ac2aa
+30761	31189	7489552891941472	_deps/ds-build/src/imports/tools/eventsimulator/libQuickStudioEventSimulator.a	7a89dbd10bcf9fb2
+30891	31213	7489552893231939	_deps/ds-build/src/imports/tools/eventsimulator/CMakeFiles/QuickStudioEventSimulator_resources_2.dir/.rcc/qrc_QuickStudioEventSimulator_raw_qml_0.cpp.obj	a149e162d0a7027e
+30964	31233	7489552893962469	_deps/ds-build/src/imports/tools/eventsimulator/CMakeFiles/QuickStudioEventSimulatorplugin.dir/QuickStudioEventSimulatorplugin_autogen/mocs_compilation.cpp.obj	abef7d1963e7f706
+26507	31288	7489552849392310	imports/Dormitory/CMakeFiles/Dormitory.dir/.rcc/qmlcache/Dormitory_Constants_qml.cpp.obj	83411be08ac2ab0f
+31071	31308	7489552895033469	_deps/ds-build/src/imports/tools/eventsystem/CMakeFiles/QuickStudioEventSystem_resources_1.dir/QuickStudioEventSystem_resources_1_autogen/mocs_compilation.cpp.obj	3e39991f6d32bf67
+31134	31848	7489552895654636	_deps/ds-build/src/imports/tools/eventsystem/CMakeFiles/QuickStudioEventSystem_resources_1.dir/.rcc/qrc_qmake_QtQuick_Studio_EventSystem.cpp.obj	efbaa216ea3c4043
+31033	31855	7489552894652969	_deps/ds-build/src/imports/tools/eventsystem/libQuickStudioEventSystem.a	56959d00e408e294
+31189	31864	7489552896214639	_deps/ds-build/src/imports/tools/eventsystem/CMakeFiles/QuickStudioEventSystem_resources_2.dir/QuickStudioEventSystem_resources_2_autogen/mocs_compilation.cpp.obj	4b98f3aa8002b2c4
+27158	31944	7489552855902317	imports/Dormitory/CMakeFiles/Dormitory.dir/.rcc/qmlcache/Dormitory_EventListModel_qml.cpp.obj	2130a3479d479862
+31213	31952	7489552896454633	_deps/ds-build/src/imports/tools/eventsystem/CMakeFiles/QuickStudioEventSystem_resources_2.dir/.rcc/qrc_QuickStudioEventSystem_raw_qml_0.cpp.obj	6a972aaa78f0ee85
+31233	31998	7489552896654636	_deps/ds-build/src/imports/tools/eventsystem/CMakeFiles/QuickStudioEventSystemplugin.dir/QuickStudioEventSystemplugin_autogen/mocs_compilation.cpp.obj	31a174b17bfd84c
+31848	32072	7489552902804948	_deps/ds-build/src/imports/application/CMakeFiles/QuickStudioApplication_resources_1.dir/QuickStudioApplication_resources_1_autogen/mocs_compilation.cpp.obj	31e24e91b06b03bf
+31865	32080	7489552902964956	_deps/ds-build/src/imports/application/CMakeFiles/QuickStudioApplicationplugin.dir/QuickStudioApplicationplugin_autogen/mocs_compilation.cpp.obj	5fb88fcc86a07771
+31855	32190	7489552902874953	_deps/ds-build/src/imports/application/CMakeFiles/QuickStudioApplication_resources_1.dir/.rcc/qrc_qmake_QtQuick_Studio_Application.cpp.obj	e166215bc1827c4c
+31998	32199	7489552904304948	content/CMakeFiles/content_resources_1.dir/content_resources_1_autogen/mocs_compilation.cpp.obj	f00b382adc244388
+27439	32242	7489552858709960	imports/Dormitory/CMakeFiles/Dormitory.dir/.rcc/qmlcache/Dormitory_EventListSimulator_qml.cpp.obj	4cbc4d6fd2d252e8
+31308	32279	7489552897404649	_deps/ds-build/src/imports/application/libQuickStudioApplication.a	2f8439c929a2b590
+32073	32353	7489552905045439	content/CMakeFiles/content_resources_1.dir/.rcc/qrc_qmake_content.cpp.obj	2adb24c613b230ca
+26734	32362	7489552851662312	imports/Dormitory/CMakeFiles/Dormitory.dir/.rcc/qmlcache/Dormitory_DirectoryFontLoader_qml.cpp.obj	39e9fc2f753838f5
+32081	32377	7489552905125427	content/CMakeFiles/content_resources_2.dir/content_resources_2_autogen/mocs_compilation.cpp.obj	88c28a058ff00c0c
+32199	32432	7489552906315448	content/CMakeFiles/contentplugin.dir/contentplugin_autogen/mocs_compilation.cpp.obj	789501ce49bd0963
+32279	32509	7489552907115437	content/CMakeFiles/content_qmlcache.dir/content_qmlcache_autogen/mocs_compilation.cpp.obj	a9033726d48ccb88
+32190	32531	7489552906225435	content/CMakeFiles/content_resources_2.dir/.rcc/qrc_content_raw_qml_0.cpp.obj	adeeb8b4b1d9df22
+32377	32632	7489552908095444	imports/Dormitory/CMakeFiles/Dormitory_resources_1.dir/Dormitory_resources_1_autogen/mocs_compilation.cpp.obj	30a842930dd972a8
+32510	32683	7489552909425443	imports/Dormitory/CMakeFiles/Dormitory_resources_2.dir/Dormitory_resources_2_autogen/mocs_compilation.cpp.obj	873cfc3114c180b9
+32433	32725	7489552908655438	imports/Dormitory/CMakeFiles/Dormitory_resources_1.dir/.rcc/qrc_qmake_Dormitory.cpp.obj	13c4a3c9dc2d617b
+31953	32790	7489552903844942	content/libcontent.a	52f5709beead6aec
+32532	32824	7489552909645433	imports/Dormitory/CMakeFiles/Dormitory_resources_2.dir/.rcc/qrc_Dormitory_raw_qml_0.cpp.obj	f8bf9cd77c1b74e9
+32363	32862	7489552907955440	imports/Dormitory/libDormitory.a	fa32668da929bebc
+32632	32905	7489552910645444	imports/Dormitory/CMakeFiles/Dormitoryplugin.dir/Dormitoryplugin_autogen/mocs_compilation.cpp.obj	25de4acc0ab9c3e8
+32725	33068	7489552911575457	imports/Dormitory/CMakeFiles/Dormitory_qmlcache.dir/Dormitory_qmlcache_autogen/mocs_compilation.cpp.obj	237f3754ae1608f7
+32825	33146	7489552914735899	qml/Main/main.qml	15595981a43f74be
+32825	33146	7489552914735899	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/Main/main.qml	15595981a43f74be
+29422	33642	7489552878540980	_deps/ds-build/src/imports/components/CMakeFiles/QuickStudioComponentsplugin.dir/QuickStudioComponentsplugin_QtQuick_Studio_ComponentsPlugin.cpp.obj	e0312d4b141f097e
+29854	33835	7489552882860981	_deps/ds-build/src/imports/effects_qt6/CMakeFiles/QuickStudioEffectsplugin.dir/QuickStudioEffectsplugin_QtQuick_Studio_EffectsPlugin.cpp.obj	3973efb2685ca42b
+33835	34223	7489552922668877	qml/QtQuick/Studio/Effects/libQuickStudioEffectsplugin.a	cea30c2420443901
+33069	34264	7489552923558883	_deps/ds-build/src/imports/effects_qt6/QuickStudioEffectsplugin_init_autogen/timestamp	5085438e38da37e3
+33069	34264	7489552923558883	_deps/ds-build/src/imports/effects_qt6/QuickStudioEffectsplugin_init_autogen/mocs_compilation.cpp	5085438e38da37e3
+33069	34264	7489552923558883	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/effects_qt6/QuickStudioEffectsplugin_init_autogen/timestamp	5085438e38da37e3
+33069	34264	7489552923558883	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/effects_qt6/QuickStudioEffectsplugin_init_autogen/mocs_compilation.cpp	5085438e38da37e3
+32905	34305	7489552923898872	_deps/ds-build/src/imports/components/QuickStudioComponentsplugin_init_autogen/timestamp	f2f37c510689e7b2
+32905	34305	7489552923898872	_deps/ds-build/src/imports/components/QuickStudioComponentsplugin_init_autogen/mocs_compilation.cpp	f2f37c510689e7b2
+32905	34305	7489552923898872	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/components/QuickStudioComponentsplugin_init_autogen/timestamp	f2f37c510689e7b2
+32905	34305	7489552923898872	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/components/QuickStudioComponentsplugin_init_autogen/mocs_compilation.cpp	f2f37c510689e7b2
+30117	35273	7489552885490988	_deps/ds-build/src/imports/flowview/CMakeFiles/FlowViewplugin.dir/FlowViewplugin_FlowViewPlugin.cpp.obj	2fe54d588c142af0
+33642	35338	7489552926518883	_deps/ds-build/src/imports/logichelper/QuickStudioLogicHelperplugin_init_autogen/timestamp	309a6bf657933bfa
+33642	35338	7489552926518883	_deps/ds-build/src/imports/logichelper/QuickStudioLogicHelperplugin_init_autogen/mocs_compilation.cpp	309a6bf657933bfa
+33642	35338	7489552926518883	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/logichelper/QuickStudioLogicHelperplugin_init_autogen/timestamp	309a6bf657933bfa
+33642	35338	7489552926518883	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/logichelper/QuickStudioLogicHelperplugin_init_autogen/mocs_compilation.cpp	309a6bf657933bfa
+33147	35419	7489552926268885	_deps/ds-build/src/imports/flowview/FlowViewplugin_init_autogen/timestamp	6028322f6e46486a
+33147	35419	7489552926268885	_deps/ds-build/src/imports/flowview/FlowViewplugin_init_autogen/mocs_compilation.cpp	6028322f6e46486a
+33147	35419	7489552926268885	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/flowview/FlowViewplugin_init_autogen/timestamp	6028322f6e46486a
+33147	35419	7489552926268885	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/flowview/FlowViewplugin_init_autogen/mocs_compilation.cpp	6028322f6e46486a
+30478	35549	7489552889100982	_deps/ds-build/src/imports/logichelper/CMakeFiles/QuickStudioLogicHelperplugin.dir/QuickStudioLogicHelperplugin_QtQuick_Studio_LogicHelperPlugin.cpp.obj	42332ca2599bd1a6
+29457	35566	7489552878890994	_deps/ds-build/src/imports/components/CMakeFiles/QuickStudioComponents_qmlcache.dir/.rcc/qmlcache/QuickStudioComponents_qmlcache_loader.cpp.obj	de80d477003180f0
+30995	35593	7489552894273212	_deps/ds-build/src/imports/tools/eventsimulator/CMakeFiles/QuickStudioEventSimulatorplugin.dir/QuickStudioEventSimulatorplugin_QtQuick_Studio_EventSimulatorPlugin.cpp.obj	e7b2bb69143cb6ea
+30716	35641	7489552891490990	_deps/ds-build/src/imports/multitext/CMakeFiles/QuickStudioMultiTextplugin.dir/QuickStudioMultiTextplugin_QtQuick_Studio_MultiTextPlugin.cpp.obj	8c827eac6c5f2a78
+31289	35658	7489552897204634	_deps/ds-build/src/imports/tools/eventsystem/CMakeFiles/QuickStudioEventSystemplugin.dir/QuickStudioEventSystemplugin_QtQuick_Studio_EventSystemPlugin.cpp.obj	495e9a7b07cdc76b
+35274	35692	7489552937058879	qml/FlowView/libFlowViewplugin.a	86ac94477c4ba76c
+34223	35910	7489552940498880	_deps/ds-build/src/imports/multitext/QuickStudioMultiTextplugin_init_autogen/timestamp	1573d1faebc51aef
+34223	35910	7489552940498880	_deps/ds-build/src/imports/multitext/QuickStudioMultiTextplugin_init_autogen/mocs_compilation.cpp	1573d1faebc51aef
+34223	35910	7489552940498880	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/multitext/QuickStudioMultiTextplugin_init_autogen/timestamp	1573d1faebc51aef
+34223	35910	7489552940498880	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/multitext/QuickStudioMultiTextplugin_init_autogen/mocs_compilation.cpp	1573d1faebc51aef
+35692	35919	7489552941248884	_deps/ds-build/src/imports/components/CMakeFiles/QuickStudioComponentsplugin_init.dir/QuickStudioComponentsplugin_init_autogen/mocs_compilation.cpp.obj	5f01680d7a115afe
+35616	35927	7489552940478892	qml/QtQuick/Studio/EventSimulator/libQuickStudioEventSimulatorplugin.a	448e1113f9200be7
+34266	35965	7489552942048878	_deps/ds-build/src/imports/tools/eventsimulator/QuickStudioEventSimulatorplugin_init_autogen/timestamp	29756a1cfab41f3e
+34266	35965	7489552942048878	_deps/ds-build/src/imports/tools/eventsimulator/QuickStudioEventSimulatorplugin_init_autogen/mocs_compilation.cpp	29756a1cfab41f3e
+34266	35965	7489552942048878	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/tools/eventsimulator/QuickStudioEventSimulatorplugin_init_autogen/timestamp	29756a1cfab41f3e
+34266	35965	7489552942048878	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/tools/eventsimulator/QuickStudioEventSimulatorplugin_init_autogen/mocs_compilation.cpp	29756a1cfab41f3e
+35642	35974	7489552940738886	qml/QtQuick/Studio/MultiText/libQuickStudioMultiTextplugin.a	aca39c2c5a2ab03c
+34307	35990	7489552942328887	_deps/ds-build/src/imports/tools/eventsystem/QuickStudioEventSystemplugin_init_autogen/timestamp	25b69c0be16f1847
+34307	35990	7489552942328887	_deps/ds-build/src/imports/tools/eventsystem/QuickStudioEventSystemplugin_init_autogen/mocs_compilation.cpp	25b69c0be16f1847
+34307	35990	7489552942328887	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/tools/eventsystem/QuickStudioEventSystemplugin_init_autogen/timestamp	25b69c0be16f1847
+34307	35990	7489552942328887	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/tools/eventsystem/QuickStudioEventSystemplugin_init_autogen/mocs_compilation.cpp	25b69c0be16f1847
+35566	35998	7489552940008881	qml/QtQuick/Studio/Components/libQuickStudioComponentsplugin.a	684cbb307f227962
+35658	36039	7489552940908888	qml/QtQuick/Studio/EventSystem/libQuickStudioEventSystemplugin.a	6d205a3ecfa0b811
+30499	36049	7489552889310979	_deps/ds-build/src/imports/logichelper/CMakeFiles/QuickStudioLogicHelper_qmlcache.dir/.rcc/qmlcache/QuickStudioLogicHelper_qmlcache_loader.cpp.obj	ae0c756699b422cb
+31944	36101	7489552903764947	_deps/ds-build/src/imports/application/CMakeFiles/QuickStudioApplicationplugin.dir/QuickStudioApplicationplugin_QtQuick_Studio_ApplicationPlugin.cpp.obj	9ee5919e47c99ccb
+35920	36167	7489552943524066	_deps/ds-build/src/imports/effects_qt6/CMakeFiles/QuickStudioEffectsplugin_init.dir/QuickStudioEffectsplugin_init_autogen/mocs_compilation.cpp.obj	a3823e679de4a15a
+35992	36191	7489552944244079	_deps/ds-build/src/imports/logichelper/CMakeFiles/QuickStudioLogicHelperplugin_init.dir/QuickStudioLogicHelperplugin_init_autogen/mocs_compilation.cpp.obj	c24725120c5a9835
+35340	36226	7489552944094057	_deps/ds-build/src/imports/application/QuickStudioApplicationplugin_init_autogen/timestamp	5ea14bc6c4950d2c
+35340	36226	7489552944094057	_deps/ds-build/src/imports/application/QuickStudioApplicationplugin_init_autogen/mocs_compilation.cpp	5ea14bc6c4950d2c
+35340	36226	7489552944094057	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/application/QuickStudioApplicationplugin_init_autogen/timestamp	5ea14bc6c4950d2c
+35340	36226	7489552944094057	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/_deps/ds-build/src/imports/application/QuickStudioApplicationplugin_init_autogen/mocs_compilation.cpp	5ea14bc6c4950d2c
+35967	36236	7489552943994085	_deps/ds-build/src/imports/flowview/CMakeFiles/FlowViewplugin_init.dir/FlowViewplugin_init_autogen/mocs_compilation.cpp.obj	6921927f151aa5f
+36039	36256	7489552944714078	_deps/ds-build/src/imports/multitext/CMakeFiles/QuickStudioMultiTextplugin_init.dir/QuickStudioMultiTextplugin_init_autogen/mocs_compilation.cpp.obj	a7169f28e60c2b5c
+36192	36525	7489552946234075	_deps/ds-build/src/imports/tools/eventsimulator/CMakeFiles/QuickStudioEventSimulatorplugin_init.dir/QuickStudioEventSimulatorplugin_init_autogen/mocs_compilation.cpp.obj	dacbf822f998818d
+35421	36562	7489552946104079	content/contentplugin_init_autogen/timestamp	3b406a2226a8ef1a
+35421	36562	7489552946104079	content/contentplugin_init_autogen/mocs_compilation.cpp	3b406a2226a8ef1a
+35421	36562	7489552946104079	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/content/contentplugin_init_autogen/timestamp	3b406a2226a8ef1a
+35421	36562	7489552946104079	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/content/contentplugin_init_autogen/mocs_compilation.cpp	3b406a2226a8ef1a
+35549	36590	7489552946094065	imports/Dormitory/Dormitoryplugin_init_autogen/timestamp	6bce517498c9acfd
+35549	36590	7489552946094065	imports/Dormitory/Dormitoryplugin_init_autogen/mocs_compilation.cpp	6bce517498c9acfd
+35549	36590	7489552946094065	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/imports/Dormitory/Dormitoryplugin_init_autogen/timestamp	6bce517498c9acfd
+35549	36590	7489552946094065	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/imports/Dormitory/Dormitoryplugin_init_autogen/mocs_compilation.cpp	6bce517498c9acfd
+36236	36611	7489552946684082	_deps/ds-build/src/imports/tools/eventsystem/CMakeFiles/QuickStudioEventSystemplugin_init.dir/QuickStudioEventSystemplugin_init_autogen/mocs_compilation.cpp.obj	7bdc83fad4afd0a8
+32243	36655	7489552906745438	content/CMakeFiles/contentplugin.dir/contentplugin_contentPlugin.cpp.obj	f4663dec8f0e3eb7
+36050	36701	7489552944814077	qml/QtQuick/Studio/LogicHelper/libQuickStudioLogicHelperplugin.a	4a683916878e7379
+36101	36726	7489552945334071	qml/QtQuick/Studio/Application/libQuickStudioApplicationplugin.a	84b88748df05c6ed
+32684	36789	7489552911165441	imports/Dormitory/CMakeFiles/Dormitoryplugin.dir/Dormitoryplugin_DormitoryPlugin.cpp.obj	fe95f185adc6939
+36526	36877	7489552949579254	_deps/ds-build/src/imports/application/CMakeFiles/QuickStudioApplicationplugin_init.dir/QuickStudioApplicationplugin_init_autogen/mocs_compilation.cpp.obj	9b932b6611ed9bb
+36655	36969	7489552950869266	imports/Dormitory/CMakeFiles/Dormitoryplugin_init.dir/Dormitoryplugin_init_autogen/mocs_compilation.cpp.obj	fcd67328339e69b9
+36592	37011	7489552950239260	content/CMakeFiles/contentplugin_init.dir/contentplugin_init_autogen/mocs_compilation.cpp.obj	9fdb77bda25c941
+32790	38151	7489552912225921	imports/Dormitory/CMakeFiles/Dormitory_qmlcache.dir/.rcc/qmlcache/Dormitory_qmlcache_loader.cpp.obj	712a6cc75107ed2f
+32354	38180	7489552907855439	content/CMakeFiles/content_qmlcache.dir/.rcc/qmlcache/content_qmlcache_loader.cpp.obj	3b8c332a65dc8784
+38152	38515	7489552965840831	qml/Dormitory/libDormitoryplugin.a	27a7eecb2a0967c1
+38181	38551	7489552966130826	qml/content/libcontentplugin.a	af55310afcc8ce1c
+35927	39608	7489552943594070	_deps/ds-build/src/imports/effects_qt6/CMakeFiles/QuickStudioEffectsplugin_init.dir/QuickStudioEffectsplugin_init.cpp.obj	b4c20cadbbec7ead
+35974	39644	7489552944064063	_deps/ds-build/src/imports/flowview/CMakeFiles/FlowViewplugin_init.dir/FlowViewplugin_init.cpp.obj	628e55f1a20d621a
+35912	39677	7489552943444058	_deps/ds-build/src/imports/components/CMakeFiles/QuickStudioComponentsplugin_init.dir/QuickStudioComponentsplugin_init.cpp.obj	91afaf9e09956233
+35998	39785	7489552944304072	_deps/ds-build/src/imports/logichelper/CMakeFiles/QuickStudioLogicHelperplugin_init.dir/QuickStudioLogicHelperplugin_init.cpp.obj	fc61e0cb2aae0153
+36168	39969	7489552946004072	_deps/ds-build/src/imports/multitext/CMakeFiles/QuickStudioMultiTextplugin_init.dir/QuickStudioMultiTextplugin_init.cpp.obj	f1cc0220c6d86698
+36229	40017	7489552946604069	_deps/ds-build/src/imports/tools/eventsimulator/CMakeFiles/QuickStudioEventSimulatorplugin_init.dir/QuickStudioEventSimulatorplugin_init.cpp.obj	ac9475b8248b3425
+36256	40101	7489552946884079	_deps/ds-build/src/imports/tools/eventsystem/CMakeFiles/QuickStudioEventSystemplugin_init.dir/QuickStudioEventSystemplugin_init.cpp.obj	c1ea5f89ddeba6ee
+36566	40268	7489552949989251	_deps/ds-build/src/imports/application/CMakeFiles/QuickStudioApplicationplugin_init.dir/QuickStudioApplicationplugin_init.cpp.obj	a961ec48ccffc754
+36611	40270	7489552950429263	content/CMakeFiles/contentplugin_init.dir/contentplugin_init.cpp.obj	9004a8d89eaa7f4a
+36701	41115	7489552951329244	imports/Dormitory/CMakeFiles/Dormitoryplugin_init.dir/Dormitoryplugin_init.cpp.obj	a35b0aaf164e5559
+32862	47995	7489553063076010	.qt_plugins/Qt6_QmlPlugins_Imports_DormitoryApp.cmake	b7df6a8d947c6742
+32862	47995	7489553063076010	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/.qt_plugins/Qt6_QmlPlugins_Imports_DormitoryApp.cmake	b7df6a8d947c6742
+47995	48086	7489553065015999	.rcc/qmlcache/DormitoryApp_qmlcache_loader.cpp	d99c59e29f0b2cae
+47995	48086	7489553065015999	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/.rcc/qmlcache/DormitoryApp_qmlcache_loader.cpp	d99c59e29f0b2cae
+48087	48626	7489553067316004	DormitoryApp_autogen/timestamp	6e4ec5a7fd079ad8
+48087	48626	7489553067316004	DormitoryApp_autogen/mocs_compilation.cpp	6e4ec5a7fd079ad8
+48087	48626	7489553067316004	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/DormitoryApp_autogen/timestamp	6e4ec5a7fd079ad8
+48087	48626	7489553067316004	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/DormitoryApp_autogen/mocs_compilation.cpp	6e4ec5a7fd079ad8
+48643	48706	7489553071285986	meta_types/DormitoryApp_json_file_list.txt	983fd1c67f17ed
+48643	48706	7489553071285986	meta_types/DormitoryApp_json_file_list.txt.timestamp	983fd1c67f17ed
+48643	48706	7489553071285986	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/meta_types/DormitoryApp_json_file_list.txt	983fd1c67f17ed
+48643	48706	7489553071285986	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/meta_types/DormitoryApp_json_file_list.txt.timestamp	983fd1c67f17ed
+48652	48725	7489553071485997	.rcc/qrc_configuration.cpp	887e8fd64fa25b1d
+48652	48725	7489553071485997	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/.rcc/qrc_configuration.cpp	887e8fd64fa25b1d
+48665	48728	7489553071506000	.rcc/qrc_qmake_Main.cpp	80851bc41778a52d
+48665	48728	7489553071506000	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/.rcc/qrc_qmake_Main.cpp	80851bc41778a52d
+48677	48740	7489553071636008	.rcc/qrc_DormitoryApp_raw_qml_0.cpp	7edca644f1276867
+48677	48740	7489553071636008	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/.rcc/qrc_DormitoryApp_raw_qml_0.cpp	7edca644f1276867
+48707	48804	7489553072256001	meta_types/qt6dormitoryapp_release_metatypes.json.gen	ed01876c4a4953b3
+48707	48804	7489553072256001	meta_types/qt6dormitoryapp_release_metatypes.json	ed01876c4a4953b3
+48707	48804	7489553072256001	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/meta_types/qt6dormitoryapp_release_metatypes.json.gen	ed01876c4a4953b3
+48707	48804	7489553072256001	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/meta_types/qt6dormitoryapp_release_metatypes.json	ed01876c4a4953b3
+48805	49012	7489553073525997	dormitoryapp_qmltyperegistrations.cpp	140218f94fd16bdd
+48805	49012	7489553073525997	qml/Main/DormitoryApp.qmltypes	140218f94fd16bdd
+48805	49012	7489553073525997	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/dormitoryapp_qmltyperegistrations.cpp	140218f94fd16bdd
+48805	49012	7489553073525997	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/Main/DormitoryApp.qmltypes	140218f94fd16bdd
+49013	49210	7489553076245984	.rcc/qmlcache/DormitoryApp_main_qml.cpp	ac49e82b046fff8a
+49013	49210	7489553076245984	G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/.rcc/qmlcache/DormitoryApp_main_qml.cpp	ac49e82b046fff8a
+49210	49306	7489553076425980	CMakeFiles/DormitoryApp.dir/DormitoryApp_autogen/mocs_compilation.cpp.obj	ecbf5aca11768bb0
+49219	50261	7489553076515978	CMakeFiles/DormitoryApp.dir/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/.rcc/qrc_configuration.cpp.obj	b47197740ae05149
+49231	50290	7489553076626003	CMakeFiles/DormitoryApp.dir/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/.rcc/qrc_qmake_Main.cpp.obj	2dd9a2117a43873a
+49252	50315	7489553076835996	CMakeFiles/DormitoryApp.dir/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/.rcc/qrc_DormitoryApp_raw_qml_0.cpp.obj	525d6a49fc022201
+49225	53002	7489553076576007	CMakeFiles/DormitoryApp.dir/dormitoryapp_qmltyperegistrations.cpp.obj	a40d1077bbb032e1
+49244	53007	7489553076765995	CMakeFiles/DormitoryApp.dir/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/.rcc/qmlcache/DormitoryApp_main_qml.cpp.obj	2d4436d498511067
+49215	53088	7489553076475982	CMakeFiles/DormitoryApp.dir/src/main.cpp.obj	90b1be7b72e13581
+49238	53807	7489553076705999	CMakeFiles/DormitoryApp.dir/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/.rcc/qmlcache/DormitoryApp_qmlcache_loader.cpp.obj	3c2d0d62ffaa7018
+53807	55809	7489553122386005	DormitoryApp.exe	dc87262f8a7c4e73

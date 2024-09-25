@@ -1,0 +1,38 @@
+{
+	"backtrace" : 0,
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : 
+		[
+			"imports/Dormitory/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 0,
+			"id" : "Dormitory_tooling::@fcd612601f501caccf34"
+		}
+	],
+	"folder" : 
+	{
+		"name" : "QtInternalTargets"
+	},
+	"id" : "Dormitory_autogen_timestamp_deps::@fcd612601f501caccf34",
+	"isGeneratorProvided" : true,
+	"name" : "Dormitory_autogen_timestamp_deps",
+	"paths" : 
+	{
+		"build" : "imports/Dormitory",
+		"source" : "imports/Dormitory"
+	},
+	"sources" : [],
+	"type" : "UTILITY"
+}

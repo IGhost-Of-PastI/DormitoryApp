@@ -1,0 +1,15 @@
+-rootPath
+G:/Qt Projects/DormitoryApp
+-cmake-output
+-output-file
+G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/.qt_plugins/Qt6_QmlPlugins_Imports_DormitoryApp.cmake
+-importPath
+G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml/Main
+-importPath
+G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/qml
+-importPath
+C:/Qt/6.6.1/mingw_64/./qml
+-qrcFiles
+G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/.rcc/configuration.qrc
+G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/.rcc/qmake_Main.qrc
+G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/.rcc/DormitoryApp_raw_qml_0.qrc

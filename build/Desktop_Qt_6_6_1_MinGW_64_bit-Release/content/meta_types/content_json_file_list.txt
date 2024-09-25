@@ -1,0 +1,6 @@
+G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/content/content_autogen/include/../EWIEGA46WW/moc_additionalfunctions.cpp.json
+G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/content/content_autogen/include/../EWIEGA46WW/moc_backupactions.cpp.json
+G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/content/content_autogen/include/../EWIEGA46WW/moc_constants.cpp.json
+G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/content/content_autogen/include/../EWIEGA46WW/moc_mainsqlconnection.cpp.json
+G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/content/content_autogen/include/../EWIEGA46WW/moc_tablemodel.cpp.json
+G:/Qt Projects/DormitoryApp/build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/content/content_autogen/include/../EWIEGA46WW/moc_wordandprint.cpp.json

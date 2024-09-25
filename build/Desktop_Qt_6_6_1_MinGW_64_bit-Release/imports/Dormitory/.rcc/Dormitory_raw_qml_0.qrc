@@ -1,0 +1,9 @@
+<RCC>
+  <qresource prefix="/qt/qml/Dormitory/">
+    <file alias="Constants.qml">G:/Qt Projects/DormitoryApp/imports/Dormitory/Constants.qml</file>
+    <file alias="DirectoryFontLoader.qml">G:/Qt Projects/DormitoryApp/imports/Dormitory/DirectoryFontLoader.qml</file>
+    <file alias="EventListModel.qml">G:/Qt Projects/DormitoryApp/imports/Dormitory/EventListModel.qml</file>
+    <file alias="EventListSimulator.qml">G:/Qt Projects/DormitoryApp/imports/Dormitory/EventListSimulator.qml</file>
+  </qresource>
+</RCC>
+

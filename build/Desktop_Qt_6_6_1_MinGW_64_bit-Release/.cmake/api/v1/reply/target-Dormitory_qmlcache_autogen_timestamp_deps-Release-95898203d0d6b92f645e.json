@@ -1,0 +1,69 @@
+{
+	"backtrace" : 0,
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : 
+		[
+			"imports/Dormitory/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			}
+		]
+	},
+	"folder" : 
+	{
+		"name" : "QtInternalTargets"
+	},
+	"id" : "Dormitory_qmlcache_autogen_timestamp_deps::@fcd612601f501caccf34",
+	"isGeneratorProvided" : true,
+	"name" : "Dormitory_qmlcache_autogen_timestamp_deps",
+	"paths" : 
+	{
+		"build" : "imports/Dormitory",
+		"source" : "imports/Dormitory"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				1,
+				2
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/imports/Dormitory/CMakeFiles/Dormitory_qmlcache_autogen_timestamp_deps",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/imports/Dormitory/CMakeFiles/Dormitory_qmlcache_autogen_timestamp_deps.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_6_1_MinGW_64_bit-Release/imports/Dormitory/.rcc/qmlcache/Dormitory_qmlcache_loader.cpp.rule",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "UTILITY"
+}

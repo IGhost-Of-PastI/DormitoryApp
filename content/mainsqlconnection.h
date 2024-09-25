@@ -137,8 +137,8 @@ public:
     //Фукнция добавления в БД
     Q_INVOKABLE bool addLog(qint64 action_id,qint64 staff_id,QJsonDocument action_description);
     Q_INVOKABLE bool deleteRecord(const QString& tablename,const QString& column_id,const QString& column_value);
-    Q_INVOKABLE bool updateRecord(const QString& tablename, QVariantList columns, QVariantList values, QString id_column,QString id_value);
-    Q_INVOKABLE bool insertRecord(const QString& tablename, QVariantList columns, QVariantList values);
+    Q_INVOKABLE QString updateRecord(const QString& tablename, QVariantList columns, QVariantList values, QString id_column,QString id_value);
+    Q_INVOKABLE QString insertRecord(const QString& tablename, QVariantList columns, QVariantList values);
     //Функция авторизации
     // QSharedPointer<QSqlRelationalTableModel> getRelatioanlTableModel(const QString& tablename);
     Q_INVOKABLE UserInfo autorize(const QString &Login,const QString &Password);
